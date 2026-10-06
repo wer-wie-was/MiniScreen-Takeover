@@ -1,6 +1,6 @@
 # MiniScreen Takeover
 
-## English
+## English (German version below)
 
 MiniScreen Takeover displays a customizable digital clock or a complete HTML design on the rear screen of the **Ulefone Armor 28 Ultra**. Controls and a pinned live preview appear on the main screen. The rear display ignores touch and navigation input and can remain visible while the phone is locked.
 
