@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_progress" formatted="false">"Étape"</string>
+    <string name="onboarding_background_title" formatted="false">"Autoriser le fonctionnement en arrière-plan"</string>
+    <string name="onboarding_background_body" formatted="false">"Ouvrez les paramètres Android → Performance Management (anciennement DuraSpeed). Activez MiniScreen Takeover dans la liste. Sinon le système peut arrêter l’application après quelques minutes en arrière-plan. Ce réglage est manuel."</string>
+    <string name="onboarding_open_settings" formatted="false">"Ouvrir les paramètres"</string>
+    <string name="onboarding_manual" formatted="false">"Vous confirmez ce réglage. L’application ne peut pas vérifier automatiquement les paramètres du fabricant."</string>
+    <string name="onboarding_background_confirm" formatted="false">"J’ai activé MiniScreen Takeover dans Performance Management."</string>
+    <string name="onboarding_miniscreen_title" formatted="false">"Préparer l’écran arrière"</string>
+    <string name="onboarding_miniscreen_body" formatted="false">"Ouvrez les paramètres Miniscreen / Subscreen du fabricant et appliquez les réglages ci-dessous. Les noms anglais facilitent leur recherche."</string>
+    <string name="onboarding_off" formatted="false">"Désactivé"</string>
+    <string name="onboarding_other_switches" formatted="false">"Désactivez tous les autres interrupteurs, y compris les options d’appels et de notifications."</string>
+    <string name="onboarding_music" formatted="false">"Exception : le lecteur de musique peut rester activé."</string>
+    <string name="onboarding_scroll" formatted="false">"Faites défiler jusqu’en bas et vérifiez toutes les sections. Le rétroéclairage se règle séparément."</string>
+    <string name="onboarding_open_miniscreen" formatted="false">"Ouvrir les paramètres Miniscreen"</string>
+    <string name="onboarding_settings_fallback" formatted="false">"Ouvrez manuellement la page correspondante dans les paramètres Android."</string>
+    <string name="onboarding_miniscreen_confirm" formatted="false">"J’ai réglé tous les paramètres Miniscreen comme indiqué."</string>
+    <string name="onboarding_final_title" formatted="false">"Langue et notifications facultatives"</string>
+    <string name="onboarding_notifications" formatted="false">"L’accès aux notifications est nécessaire uniquement pour les afficher sur l’écran arrière. L’autorisation n’active pas le bandeau et ne sélectionne aucune application. Vous pouvez le configurer plus tard."</string>
+    <string name="onboarding_finish" formatted="false">"Terminer la configuration"</string>
+    <string name="onboarding_back" formatted="false">"Retour"</string>
+    <string name="onboarding_next" formatted="false">"Suivant"</string>
+    <string name="onboarding_reopen" formatted="false">"Rouvrir la configuration"</string>
+    <string name="onboarding_language_title" formatted="false">"Choisir la langue"</string>
+    <string name="onboarding_restricted_title" formatted="false">"Autoriser les paramètres restreints"</string>
+    <string name="onboarding_restricted_body" formatted="false">"Ouvrez les informations de MiniScreen Takeover. Dans le menu à trois points en haut, choisissez « Autoriser les paramètres restreints ». Confirmez avec votre code ou empreinte si demandé. Revenez ici pour autoriser éventuellement l’accès aux notifications ci-dessous. Les deux autorisations sont distinctes. Si l’option manque, essayez d’abord d’autoriser l’accès aux notifications puis vérifiez de nouveau les informations de l’application."</string>
+    <string name="onboarding_app_details" formatted="false">"Ouvrir les informations de l’application"</string>
+</resources>

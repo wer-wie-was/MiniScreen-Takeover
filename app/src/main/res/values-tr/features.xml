@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="window_mode" formatted="false">"Vitrin"</string>
+    <string name="window_zoom" formatted="false">"Vitrin yakınlaştırması (%)"</string>
+    <string name="window_speed" formatted="false">"Vitrin: hareket bölümü başına saniye"</string>
+    <string name="window_moving" formatted="false">"Vitrin hareketini etkinleştir"</string>
+    <string name="window_help" formatted="false">"Vitrin, büyütülmüş resmi rastgele konumlar arasında yumuşakça hareket ettirir. Daha fazla yakınlaştırma daha küçük bir kesit gösterir. Daha fazla saniye daha yavaş hareket demektir. Karartma filtresi etkin kalır."</string>
+    <string name="external_section" formatted="false">"Başka uygulama"</string>
+    <string name="external_none" formatted="false">"Henüz uygulama seçilmedi"</string>
+    <string name="external_choose" formatted="false">"Uygulama seç"</string>
+    <string name="external_empty" formatted="false">"Başlatılabilir uygulama bulunamadı"</string>
+    <string name="external_start" formatted="false">"Seçili uygulamayı arka ekranda başlat"</string>
+    <string name="external_return" formatted="false">"MiniScreen Takeover’ı yeniden göster"</string>
+    <string name="external_unavailable" formatted="false">"Kullanılabilir bir uygulama seçin"</string>
+    <string name="external_requested" formatted="false">"Başlatma istendi. Arka ekranı kontrol edin; izlememiz duraklatılmış kalır."</string>
+    <string name="external_failed" formatted="false">"Uygulama başlatılamadı: "</string>
+    <string name="external_help" formatted="false">"Üretici arayüzü seçili uygulamayı Ekran 1’de başlatmayı dener. Bazı uygulamalar bunu reddeder veya ana ekrana geçer. Ekranımız kapanır ve izleme süresiz duraklatılır. “MiniScreen Takeover’ı yeniden göster” kontrolü geri alır."</string>
+    <string name="charge_section" formatted="false">"Şarj göstergesi"</string>
+    <string name="charge_enabled" formatted="false">"Güç bağlıyken şarj göstergesini göster"</string>
+    <string name="charge_display" formatted="false">"Görünüm"</string>
+    <string name="charge_icon" formatted="false">"Yüzdeli pil simgesi"</string>
+    <string name="charge_icon_circle" formatted="false">"Pil simgesi, yüzde ve çember"</string>
+    <string name="charge_preview" formatted="false">"Yalnızca önizleme: %65 şarj ve güç bağlantısını simüle et"</string>
+    <string name="charge_text_color" formatted="false">"Yüzde rengi"</string>
+    <string name="charge_symbol_color" formatted="false">"Pil simgesi rengi"</string>
+    <string name="charge_size" formatted="false">"Şarj yazı boyutu (340 px için)"</string>
+    <string name="charge_font" formatted="false">"Yüzde yazı tipi"</string>
+    <string name="charge_x" formatted="false">"Şarj göstergesi X (%)"</string>
+    <string name="charge_y" formatted="false">"Şarj göstergesi Y (%)"</string>
+    <string name="charge_ring_color" formatted="false">"Şarj çemberi rengi"</string>
+    <string name="charge_ring_width" formatted="false">"Çember kalınlığı (340 px için)"</string>
+    <string name="charge_ring_style" formatted="false">"Çember hareketi"</string>
+    <string name="charge_static" formatted="false">"Sabit"</string>
+    <string name="charge_animated" formatted="false">"Animasyonlu ışık vurgusu"</string>
+    <string name="charge_animation_speed" formatted="false">"Animasyon döngüsü başına saniye"</string>
+    <string name="charge_help" formatted="false">"Gösterge yalnızca güç bağlıyken, %100’de de görünür. Çember yayı pil seviyesini gösterir. Tüm öğeler piksel kaydırmayı izler ve yerel saat ile HTML’nin üstünde görünür. Önizleme simülasyonu arka ekranı etkilemez."</string>
+    <string name="web_load_failed" formatted="false">"HTML yüklenemedi: "</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="window_mode" formatted="false">"Showcase"</string>
+    <string name="window_zoom" formatted="false">"Showcase zoom (%)"</string>
+    <string name="window_speed" formatted="false">"Showcase: seconds per movement segment"</string>
+    <string name="window_moving" formatted="false">"Enable showcase movement"</string>
+    <string name="window_help" formatted="false">"Showcase smoothly moves a zoomed image between random positions. More zoom shows a smaller section. More seconds means slower movement. The dimming filter remains active."</string>
+    <string name="external_section" formatted="false">"Other app"</string>
+    <string name="external_none" formatted="false">"No app selected yet"</string>
+    <string name="external_choose" formatted="false">"Choose app"</string>
+    <string name="external_empty" formatted="false">"No launchable apps found"</string>
+    <string name="external_start" formatted="false">"Start selected app on rear display"</string>
+    <string name="external_return" formatted="false">"Show MiniScreen Takeover again"</string>
+    <string name="external_unavailable" formatted="false">"Please select an available app"</string>
+    <string name="external_requested" formatted="false">"Launch requested. Check the rear display; our monitoring remains paused."</string>
+    <string name="external_failed" formatted="false">"App launch failed: "</string>
+    <string name="external_help" formatted="false">"The manufacturer gateway attempts to start the selected app on Screen 1. Some apps reject this or switch to the main screen. Our display closes and monitoring pauses indefinitely. “Show MiniScreen Takeover again” takes control back."</string>
+    <string name="charge_section" formatted="false">"Charging indicator"</string>
+    <string name="charge_enabled" formatted="false">"Show indicator when power is connected"</string>
+    <string name="charge_display" formatted="false">"Appearance"</string>
+    <string name="charge_icon" formatted="false">"Battery icon with percentage"</string>
+    <string name="charge_icon_circle" formatted="false">"Battery icon, percentage and ring"</string>
+    <string name="charge_preview" formatted="false">"Preview only: simulate power connected at 65%"</string>
+    <string name="charge_text_color" formatted="false">"Percentage color"</string>
+    <string name="charge_symbol_color" formatted="false">"Battery icon color"</string>
+    <string name="charge_size" formatted="false">"Indicator font size (at 340 px)"</string>
+    <string name="charge_font" formatted="false">"Percentage font"</string>
+    <string name="charge_x" formatted="false">"Indicator X position (%)"</string>
+    <string name="charge_y" formatted="false">"Indicator Y position (%)"</string>
+    <string name="charge_ring_color" formatted="false">"Charging ring color"</string>
+    <string name="charge_ring_width" formatted="false">"Ring thickness (at 340 px)"</string>
+    <string name="charge_ring_style" formatted="false">"Ring motion"</string>
+    <string name="charge_static" formatted="false">"Static"</string>
+    <string name="charge_animated" formatted="false">"Animated light accent"</string>
+    <string name="charge_animation_speed" formatted="false">"Seconds per animation cycle"</string>
+    <string name="charge_help" formatted="false">"The indicator appears only while power is connected, including at 100%. The ring arc shows battery level. All elements follow pixel shifting and overlay native clocks and HTML. Preview simulation does not affect the rear display."</string>
+    <string name="web_load_failed" formatted="false">"Could not load HTML: "</string>
+</resources>

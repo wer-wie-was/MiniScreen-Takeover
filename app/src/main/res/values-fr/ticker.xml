@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ticker_section" formatted="false">"Bandeau de notifications"</string>
+    <string name="ticker_enabled" formatted="false">"Activer le bandeau"</string>
+    <string name="ticker_access_yes" formatted="false">"Accès aux notifications autorisé"</string>
+    <string name="ticker_access_no" formatted="false">"Accès aux notifications non autorisé"</string>
+    <string name="ticker_access" formatted="false">"Autoriser l’accès aux notifications"</string>
+    <string name="ticker_apps" formatted="false">"Choisir les applications"</string>
+    <string name="ticker_privacy_locked" formatted="false">"Contenu lorsque verrouillé"</string>
+    <string name="ticker_privacy_unlocked" formatted="false">"Contenu lorsque déverrouillé"</string>
+    <string name="ticker_per_app" formatted="false">"Confidentialité par application"</string>
+    <string name="ticker_privacy_help" formatted="false">"Le titre peut identifier l’expéditeur. Contenu en mémoire uniquement, exclu des profils, exports et diagnostics. Android peut masquer le contenu sensible."</string>
+    <string name="ticker_only_locked" formatted="false">"Afficher uniquement lorsque verrouillé"</string>
+    <string name="ticker_ongoing" formatted="false">"Inclure les notifications permanentes"</string>
+    <string name="ticker_groups" formatted="false">"Inclure les résumés de groupes"</string>
+    <string name="ticker_reminder" formatted="false">"Mode de rappel"</string>
+    <string name="ticker_once" formatted="false">"Une fois"</string>
+    <string name="ticker_until_unlock" formatted="false">"Jusqu’au déverrouillage"</string>
+    <string name="ticker_until_removed" formatted="false">"Tant que la notification existe"</string>
+    <string name="ticker_time_limit" formatted="false">"Avec limite de temps"</string>
+    <string name="ticker_interval" formatted="false">"Pause de répétition (secondes)"</string>
+    <string name="ticker_limit" formatted="false">"Limite de temps (minutes)"</string>
+    <string name="ticker_duration" formatted="false">"Durée d’affichage (secondes)"</string>
+    <string name="ticker_pause" formatted="false">"Pause entre messages (secondes)"</string>
+    <string name="ticker_scroll" formatted="false">"Texte défilant"</string>
+    <string name="ticker_speed" formatted="false">"Vitesse (px/s à 340 px)"</string>
+    <string name="ticker_lines" formatted="false">"Lignes de la carte statique"</string>
+    <string name="ticker_size" formatted="false">"Taille de police (à 340 px)"</string>
+    <string name="ticker_profile_font" formatted="false">"Police du profil, y compris importée"</string>
+    <string name="ticker_color" formatted="false">"Couleur du texte"</string>
+    <string name="ticker_background" formatted="false">"Fond du bandeau"</string>
+    <string name="ticker_opacity" formatted="false">"Opacité du fond (%)"</string>
+    <string name="ticker_width" formatted="false">"Largeur (%)"</string>
+    <string name="ticker_x" formatted="false">"Position X (%)"</string>
+    <string name="ticker_y" formatted="false">"Position Y (%)"</string>
+    <string name="ticker_icon" formatted="false">"Afficher l’icône de l’application"</string>
+    <string name="ticker_icon_size" formatted="false">"Taille de l’icône (à 340 px)"</string>
+    <string name="ticker_clock" formatted="false">"Horloge pendant une notification"</string>
+    <string name="ticker_clock_keep" formatted="false">"Garder visible"</string>
+    <string name="ticker_clock_dim" formatted="false">"Atténuer"</string>
+    <string name="ticker_clock_hide" formatted="false">"Masquer temporairement"</string>
+    <string name="ticker_html" formatted="false">"Le design HTML affiche les notifications"</string>
+    <string name="ticker_preview" formatted="false">"Aperçu d’une notification fictive"</string>
+    <string name="ticker_clear" formatted="false">"Vider la file du bandeau"</string>
+    <string name="ticker_help" formatted="false">"L’extinction manuelle et les horaires sont prioritaires. Déverrouiller arrête uniquement les rappels du bandeau ; les notifications Android restent. Une notification supprimée ne se répète plus. La file en mémoire est perdue au redémarrage du processus. HTML reçoit des données filtrées uniquement si activé et doit les afficher. Réglages locaux, exclus des profils exportés."</string>
+    <string name="ticker_private" formatted="false">"Icône et nombre uniquement"</string>
+    <string name="ticker_app_name" formatted="false">"Nom de l’application uniquement"</string>
+    <string name="ticker_title" formatted="false">"Application et titre"</string>
+    <string name="ticker_full" formatted="false">"Application, titre et message"</string>
+    <string name="ticker_inherit" formatted="false">"Utiliser le réglage global"</string>
+    <string name="ticker_new" formatted="false">"nouvelle notification"</string>
+    <string name="ticker_demo_text" formatted="false">"MiniScreen Takeover · Exemple : votre écran arrière est prêt."</string>
+</resources>

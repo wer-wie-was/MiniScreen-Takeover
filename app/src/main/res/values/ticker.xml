@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ticker_section" formatted="false">"Notification ticker"</string>
+    <string name="ticker_enabled" formatted="false">"Enable ticker"</string>
+    <string name="ticker_access_yes" formatted="false">"Notification access granted"</string>
+    <string name="ticker_access_no" formatted="false">"Notification access not granted"</string>
+    <string name="ticker_access" formatted="false">"Grant notification access"</string>
+    <string name="ticker_apps" formatted="false">"Select apps"</string>
+    <string name="ticker_privacy_locked" formatted="false">"Content while locked"</string>
+    <string name="ticker_privacy_unlocked" formatted="false">"Content while unlocked"</string>
+    <string name="ticker_per_app" formatted="false">"Privacy per app"</string>
+    <string name="ticker_privacy_help" formatted="false">"Titles can contain sender names. Content stays in memory; no notification text in profiles, exports or diagnostics. Android may redact sensitive content."</string>
+    <string name="ticker_only_locked" formatted="false">"Show only while locked"</string>
+    <string name="ticker_ongoing" formatted="false">"Include ongoing notifications"</string>
+    <string name="ticker_groups" formatted="false">"Include group summaries"</string>
+    <string name="ticker_reminder" formatted="false">"Reminder mode"</string>
+    <string name="ticker_once" formatted="false">"Once"</string>
+    <string name="ticker_until_unlock" formatted="false">"Until unlocking"</string>
+    <string name="ticker_until_removed" formatted="false">"While notification exists"</string>
+    <string name="ticker_time_limit" formatted="false">"With time limit"</string>
+    <string name="ticker_interval" formatted="false">"Repeat pause (seconds)"</string>
+    <string name="ticker_limit" formatted="false">"Time limit (minutes)"</string>
+    <string name="ticker_duration" formatted="false">"Display duration (seconds)"</string>
+    <string name="ticker_pause" formatted="false">"Pause between messages (seconds)"</string>
+    <string name="ticker_scroll" formatted="false">"Scrolling text"</string>
+    <string name="ticker_speed" formatted="false">"Scroll speed (px/s at 340 px)"</string>
+    <string name="ticker_lines" formatted="false">"Static card lines"</string>
+    <string name="ticker_size" formatted="false">"Font size (at 340 px)"</string>
+    <string name="ticker_profile_font" formatted="false">"Profile font, including imported font"</string>
+    <string name="ticker_color" formatted="false">"Text color"</string>
+    <string name="ticker_background" formatted="false">"Ticker background"</string>
+    <string name="ticker_opacity" formatted="false">"Background opacity (%)"</string>
+    <string name="ticker_width" formatted="false">"Width (%)"</string>
+    <string name="ticker_x" formatted="false">"Position X (%)"</string>
+    <string name="ticker_y" formatted="false">"Position Y (%)"</string>
+    <string name="ticker_icon" formatted="false">"Show app icon"</string>
+    <string name="ticker_icon_size" formatted="false">"Icon size (at 340 px)"</string>
+    <string name="ticker_clock" formatted="false">"Clock during notification"</string>
+    <string name="ticker_clock_keep" formatted="false">"Keep visible"</string>
+    <string name="ticker_clock_dim" formatted="false">"Dim"</string>
+    <string name="ticker_clock_hide" formatted="false">"Hide temporarily"</string>
+    <string name="ticker_html" formatted="false">"HTML design handles notifications"</string>
+    <string name="ticker_preview" formatted="false">"Preview sample notification"</string>
+    <string name="ticker_clear" formatted="false">"Clear ticker queue"</string>
+    <string name="ticker_help" formatted="false">"Ticker respects manual power-off and the schedule. Unlocking only clears ticker reminders; Android notifications remain. Removed notifications stop repeating. Queue is memory-only and is lost after process restart. HTML receives filtered data only when enabled; the design must render it. Settings apply to this device, not exported profiles."</string>
+    <string name="ticker_private" formatted="false">"Icon and count only"</string>
+    <string name="ticker_app_name" formatted="false">"App name only"</string>
+    <string name="ticker_title" formatted="false">"App and title"</string>
+    <string name="ticker_full" formatted="false">"App, title and message"</string>
+    <string name="ticker_inherit" formatted="false">"Use global setting"</string>
+    <string name="ticker_new" formatted="false">"new notification"</string>
+    <string name="ticker_demo_text" formatted="false">"MiniScreen Takeover · Example notification: your rear display is ready."</string>
+</resources>

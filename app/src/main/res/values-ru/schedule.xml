@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="power_button" formatted="false">"Выключить задний экран"</string>
+    <string name="power_intentional" formatted="false">"Выключено намеренно; автовосстановление заблокировано"</string>
+    <string name="power_requested" formatted="false">"Команда выключения отправлена"</string>
+    <string name="power_confirmed" formatted="false">"Подтверждено: задний экран выключен"</string>
+    <string name="power_unknown" formatted="false">"Команда выключения отправлена; состояние неизвестно/приватное — проверьте экран"</string>
+    <string name="power_unconfirmed" formatted="false">"Команда выключения отправлена; выключение ещё не подтверждено"</string>
+    <string name="power_failed" formatted="false">"Выключение не удалось: "</string>
+    <string name="schedule_section" formatted="false">"Расписание"</string>
+    <string name="schedule_enable" formatted="false">"Включить расписание"</string>
+    <string name="schedule_on" formatted="false">"Время включения: "</string>
+    <string name="schedule_off" formatted="false">"Время выключения: "</string>
+    <string name="schedule_days" formatted="false">"Выбрать дни недели"</string>
+    <string name="day_mon" formatted="false">"Понедельник"</string>
+    <string name="day_tue" formatted="false">"Вторник"</string>
+    <string name="day_wed" formatted="false">"Среда"</string>
+    <string name="day_thu" formatted="false">"Четверг"</string>
+    <string name="day_fri" formatted="false">"Пятница"</string>
+    <string name="day_sat" formatted="false">"Суббота"</string>
+    <string name="day_sun" formatted="false">"Воскресенье"</string>
+    <string name="schedule_permission" formatted="false">"Открыть доступ «Будильники и напоминания»"</string>
+    <string name="schedule_invalid" formatted="false">"Выберите хотя бы один день и разные времена переключения"</string>
+    <string name="schedule_active" formatted="false">"Расписание включено"</string>
+    <string name="schedule_disabled" formatted="false">"Расписание выключено"</string>
+    <string name="schedule_exact" formatted="false">"Точное время разрешено"</string>
+    <string name="schedule_inexact" formatted="false">"Приблизительное время — Android может задержать выполнение"</string>
+    <string name="schedule_next_on" formatted="false">"Следующее включение: "</string>
+    <string name="schedule_next_off" formatted="false">"Следующее выключение: "</string>
+    <string name="schedule_external" formatted="false">"Расписание приостановлено: другое приложение на заднем экране"</string>
+    <string name="schedule_help" formatted="false">"По одному интервалу на выбранный день начала, в том числе через полночь. «Выключить» действует до следующего включения по расписанию. «Показать» сразу возвращает управление до следующего выключения. Паузы и другие приложения приостанавливают расписание. «Скрыть и остановить наблюдение» отключает и расписание. После перезагрузки оно восстанавливается при первой разблокировке."</string>
+    <string name="return_option" formatted="false">"При возврате открыть другое приложение на основном экране"</string>
+    <string name="return_requested" formatted="false">"Запуск на экране 0 запрошен; существующая Activity может быть возвращена"</string>
+    <string name="return_failed" formatted="false">"Возврат на основной экран не удался: "</string>
+    <string name="return_help" formatted="false">"По желанию выбранное приложение сначала запускается на экране 0, затем наши настройки возвращаются на передний план и запускается Takeover. Android может открыть новый экземпляр. Другое приложение остаётся в фоне и не закрывается принудительно."</string>
+</resources>

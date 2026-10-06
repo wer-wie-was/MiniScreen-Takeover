@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_000" formatted="false">"Dil"</string>
+    <string name="msg_001" formatted="false">"Uygulama dili"</string>
+    <string name="language_system" formatted="false">"Sistem dili"</string>
+    <string name="msg_003" formatted="false">"Kontroller"</string>
+    <string name="msg_004" formatted="false">"Tasarım ve profiller"</string>
+    <string name="msg_005" formatted="false">"CANLI ÖNİZLEME"</string>
+    <string name="msg_006" formatted="false">"Piksel kaydırma sınırı"</string>
+    <string name="msg_007" formatted="false">"Dosya işleniyor…"</string>
+    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.2.2 · vibe-coded"</string>
+    <string name="msg_009" formatted="false">", açılabilir bölüm"</string>
+    <string name="msg_010" formatted="false">"Ekran henüz başlatılmadı"</string>
+    <string name="msg_011" formatted="false">"▶ Arka ekranda göster"</string>
+    <string name="msg_012" formatted="false">"■ Gizle ve izlemeyi durdur"</string>
+    <string name="msg_013" formatted="false">"Gösterildiğinde izleme başlar"</string>
+    <string name="msg_014" formatted="false">"Çalışma modu"</string>
+    <string name="msg_015" formatted="false">"Manuel"</string>
+    <string name="msg_016" formatted="false">"Ekranı açık tut (önerilen)"</string>
+    <string name="msg_017" formatted="false">"Devralmayı zorla"</string>
+    <string name="msg_018" formatted="false">"Yalnızca ana ekran kilitliyken etkin"</string>
+    <string name="msg_019" formatted="false">"Yeniden başlatma / ilk kilit açmadan sonra geri yükle"</string>
+    <string name="msg_020" formatted="false">"Kontrol aralığı (saniye; olaylara ek olarak)"</string>
+    <string name="msg_021" formatted="false">"İzlemeyi duraklat…"</string>
+    <string name="msg_022" formatted="false">"İzlemeyi duraklat"</string>
+    <string name="msg_023" formatted="false">"Devam ettirilene kadar"</string>
+    <string name="msg_024" formatted="false">"15 dakika"</string>
+    <string name="msg_025" formatted="false">"1 saat"</string>
+    <string name="msg_026" formatted="false">"İzlemeyi sürdür"</string>
+    <string name="msg_027" formatted="false">"Bildirim ayarlarını aç"</string>
+    <string name="msg_028" formatted="false">"Duraklatma mevcut ekranı korur. Ekranı açık tutma diğer arka ekran uygulamalarına müdahale etmez; zorla devralma bunları değiştirebilir. Gizleme, izlemeyi ve yeniden başlatmada geri yüklemeyi durdurur. Cihaz ayarları profillerden bağımsızdır."</string>
+    <string name="msg_029" formatted="false">"Arka ekran parlaklığı (%)"</string>
+    <string name="msg_030" formatted="false">"Gizleme etkinliğimizi kapatır ve kontrolü üretici uygulamasına verir. Ekran açık kalabilir. Üretici zaman aşımını “Never” olarak ayarlayın."</string>
+    <string name="msg_031" formatted="false">"Ekran tanılamasını kopyala"</string>
+    <string name="msg_032" formatted="false">" · Durum "</string>
+    <string name="msg_033" formatted="false">"\nİzleme: "</string>
+    <string name="msg_034" formatted="false">"\nMod: "</string>
+    <string name="msg_035" formatted="false">" · etkin: "</string>
+    <string name="msg_036" formatted="false">" · yalnızca kilitli: "</string>
+    <string name="msg_037" formatted="false">" · duraklatıldı: "</string>
+    <string name="msg_038" formatted="false">"MiniScreen tanılama"</string>
+    <string name="msg_039" formatted="false">"Tanılama kopyalandı"</string>
+    <string name="msg_040" formatted="false">"Etkin profil"</string>
+    <string name="msg_041" formatted="false">"Ekran modu"</string>
+    <string name="msg_042" formatted="false">"Yerel dijital saat"</string>
+    <string name="msg_043" formatted="false">"Tam HTML tasarımı"</string>
+    <string name="msg_044" formatted="false">"Örnek tasarım hazırlanıyor…"</string>
+    <string name="msg_045" formatted="false">"Yeni profil"</string>
+    <string name="msg_046" formatted="false">"Tasarımım"</string>
+    <string name="msg_047" formatted="false">"Profili çoğalt"</string>
+    <string name="msg_048" formatted="false">" kopya"</string>
+    <string name="msg_049" formatted="false">"Profil kopyalanıyor…"</string>
+    <string name="msg_050" formatted="false">"Profili yeniden adlandır"</string>
+    <string name="msg_051" formatted="false">"Profil adı"</string>
+    <string name="msg_052" formatted="false">"Profili ZIP olarak dışa aktar"</string>
+    <string name="msg_053" formatted="false">"Profil ZIP dosyasını içe aktar"</string>
+    <string name="msg_054" formatted="false">"Profili sil"</string>
+    <string name="msg_055" formatted="false">"Profil silinsin mi?"</string>
+    <string name="msg_056" formatted="false">"İptal"</string>
+    <string name="msg_057" formatted="false">"Sil"</string>
+    <string name="msg_058" formatted="false">"Kaydet"</string>
+    <string name="msg_059" formatted="false">"Saat ve tarih"</string>
+    <string name="msg_060" formatted="false">"HTML modunda bu ayarlar tasarıma iletilir. Nasıl gösterileceğine tasarım karar verir."</string>
+    <string name="msg_061" formatted="false">"24 saat biçimi"</string>
+    <string name="msg_062" formatted="false">"Saniyeleri göster"</string>
+    <string name="msg_063" formatted="false">"Başına sıfır ekle"</string>
+    <string name="msg_064" formatted="false">"Tarihi göster"</string>
+    <string name="msg_065" formatted="false">"Saat rengi"</string>
+    <string name="msg_066" formatted="false">"Tarih rengi"</string>
+    <string name="msg_067" formatted="false">"Saat boyutu (340 px için)"</string>
+    <string name="msg_068" formatted="false">"Tarih boyutu"</string>
+    <string name="msg_069" formatted="false">"Sistem yazı tipi"</string>
+    <string name="msg_070" formatted="false">"Kalın yazı"</string>
+    <string name="msg_071" formatted="false">"Özel yazı tipi içe aktar (TTF / OTF)"</string>
+    <string name="msg_072" formatted="false">"Özel yazı tipini kaldır"</string>
+    <string name="msg_073" formatted="false">"Sistem yazı tipi etkin"</string>
+    <string name="msg_074" formatted="false">"Saat X konumu (%)"</string>
+    <string name="msg_075" formatted="false">"Saat Y konumu (%)"</string>
+    <string name="msg_076" formatted="false">"Tarih X konumu (%)"</string>
+    <string name="msg_077" formatted="false">"Tarih Y konumu (%)"</string>
+    <string name="msg_078" formatted="false">"Tarih biçimi şablonları"</string>
+    <string name="msg_079" formatted="false">"Tarih biçimi"</string>
+    <string name="msg_080" formatted="false">"Özel tarih biçimi"</string>
+    <string name="msg_081" formatted="false">"Özel tarih biçimini uygula"</string>
+    <string name="msg_082" formatted="false">"Tarih: "</string>
+    <string name="msg_083" formatted="false">"Geçersiz biçim, ör. EEE, dd.MM.yyyy"</string>
+    <string name="msg_084" formatted="false">"dd = gün · MM = ay · yyyy = yıl · EEE = kısa gün adı · EEEE = tam gün adı · MMMM = ay adı. Dil, uygulama seçimini izler."</string>
+    <string name="msg_085" formatted="false">"Arka plan"</string>
+    <string name="msg_086" formatted="false">"Arka plan rengi"</string>
+    <string name="msg_087" formatted="false">"Arka plan resmi seç"</string>
+    <string name="msg_088" formatted="false">"Arka plan resmini kaldır"</string>
+    <string name="msg_089" formatted="false">"Arka plan resmi kaldırıldı"</string>
+    <string name="msg_090" formatted="false">"Doldur / kırp"</string>
+    <string name="msg_091" formatted="false">"Resmin tamamını sığdır"</string>
+    <string name="msg_092" formatted="false">"Resmi karart (%)"</string>
+    <string name="msg_093" formatted="false">"Arka plan resmini de kaydır"</string>
+    <string name="msg_094" formatted="false">"HTML modunda tasarım resmi ve ayarları kullanabilir. Dahili tasarım bunların tümünü destekler."</string>
+    <string name="msg_095" formatted="false">"Piksel kaydırma"</string>
+    <string name="msg_096" formatted="false">"Piksel kaydırmayı etkinleştir"</string>
+    <string name="msg_097" formatted="false">"Kaydırma aralığı ± piksel (340 px için)"</string>
+    <string name="msg_098" formatted="false">"Aralık (saniye)"</string>
+    <string name="msg_099" formatted="false">"Yerel metin güvenli alana sığdırılır. HTML için kenar payı ayrılır; uygulama HTML yüzeyinin tamamını kaydırır. Sabit resimler ve yüksek parlaklık yine de ekran yanığına neden olabilir."</string>
+    <string name="msg_100" formatted="false">"HTML tasarımı"</string>
+    <string name="msg_101" formatted="false">"Henüz özel tasarım içe aktarılmadı"</string>
+    <string name="msg_102" formatted="false">"Etkin HTML: "</string>
+    <string name="msg_103" formatted="false">"HTML dosyası veya tasarım ZIP dosyası içe aktar"</string>
+    <string name="msg_104" formatted="false">"Dahili HTML tasarımını kullan"</string>
+    <string name="msg_105" formatted="false">"HTML örneği hazırlanıyor…"</string>
+    <string name="msg_106" formatted="false">"HTML tasarımını kaldır / yerel saat"</string>
+    <string name="msg_107" formatted="false">"ZIP: index.html ve yerel CSS, JS, resimler, yazı tipleri. Tek HTML: kaynakları içine gömün. Sınırlar: açılmış 20 MiB, 200 girdi, HTML başına 1 MiB. Çevrimdışı, Android köprüsü ve dokunmatik eylemler yok."</string>
+    <string name="msg_108" formatted="false">"HTML arayüzünü göster"</string>
+    <string name="msg_109" formatted="false">"Özel tasarımlar için"</string>
+    <string name="msg_110" formatted="false">"window.miniScreen son durumu içerir. miniscreen:update olayını dinleyip e.detail değerini okuyun. Alanlar: time, date, epochMs, showDate, width, height, cssWidth, cssHeight, timeZone, locale, preview, shiftX, shiftY, settings, backgroundUrl, fontUrl. CSS: --time-color, --date-color, --background-color. Güncellemeler saniye seçeneğine, kaydırmaya ve ayar veya saat değişikliklerine bağlıdır. Belge ve örnek: kaynakta docs/HTML-DESIGNS.md. İçe aktarma HTML modunu etkinleştirir."</string>
+    <string name="msg_111" formatted="false">"1–80 karakter"</string>
+    <string name="msg_112" formatted="false">"Profil dışa aktarılıyor…"</string>
+    <string name="msg_113" formatted="false">"Profil dışa aktarıldı"</string>
+    <string name="msg_114" formatted="false">"Dosya içe aktarılıyor…"</string>
+    <string name="msg_115" formatted="false">"Resim biçimi okunamıyor"</string>
+    <string name="msg_116" formatted="false">"Yazı tipi dosyası okunamıyor"</string>
+    <string name="msg_117" formatted="false">"Bilinmeyen dosya işlemi"</string>
+    <string name="msg_118" formatted="false">"İçe aktarıldı"</string>
+    <string name="msg_119" formatted="false">"Önizleme"</string>
+    <string name="msg_120" formatted="false">"Ton · alanda doygunluk ve parlaklığı seçin"</string>
+    <string name="msg_121" formatted="false">"Uygula"</string>
+    <string name="msg_122" formatted="false">"#RRGGBB girin"</string>
+    <string name="msg_123" formatted="false">"Renk alanı: yatay doygunluk, dikey parlaklık"</string>
+    <string name="msg_124" formatted="false">"Arka ekran kontrolü"</string>
+    <string name="msg_125" formatted="false">"Arka ekran kontrolü başlatılıyor…"</string>
+    <string name="msg_126" formatted="false">"Ana ekranın kilitlenmesi bekleniyor"</string>
+    <string name="msg_127" formatted="false">"İzleme duraklatıldı"</string>
+    <string name="msg_128" formatted="false">"Manuel ekran başlatıldı; izleme durduruldu"</string>
+    <string name="msg_129" formatted="false">"Ekran etkin · "</string>
+    <string name="msg_130" formatted="false">"Kilit koşulu izleniyor"</string>
+    <string name="msg_131" formatted="false">"Manuel ekran kesildi · yeniden gösterin veya sonraki kilit döngüsünü bekleyin"</string>
+    <string name="msg_132" formatted="false">"Manuel mod; izleme durduruldu"</string>
+    <string name="msg_133" formatted="false">"Başka arka ekran uygulaması kullanılıyor · devralmak için yeniden gösterin"</string>
+    <string name="msg_134" formatted="false">"Birkaç denemeden sonra manuel başlatma başarısız"</string>
+    <string name="msg_135" formatted="false">"Arka ekranı açma isteği gönderildi…"</string>
+    <string name="msg_136" formatted="false">"Açma: "</string>
+    <string name="msg_137" formatted="false">"Arka ekranda etkinlik başlatma istendi · ekran durumu "</string>
+    <string name="msg_138" formatted="false">"bilinmiyor/özel"</string>
+    <string name="msg_139" formatted="false">"Etkinlik başlatma: "</string>
+    <string name="msg_140" formatted="false">"Üretici üzerinden başlatma denendi, etkinlik doğrulanmadı; arka ekran listede görünmüyor"</string>
+    <string name="msg_141" formatted="false">"Ekran açık, ancak etkinliğimiz görünür olmadı"</string>
+    <string name="msg_142" formatted="false">"Üretici başlatması denendi, görünür etkinlik yok; bildirilen ekran durumu "</string>
+    <string name="msg_143" formatted="false">" · en erken yeniden deneme: "</string>
+    <string name="msg_144" formatted="false">"Ekranı açık tut"</string>
+    <string name="msg_145" formatted="false">"Sürdür"</string>
+    <string name="msg_146" formatted="false">"Duraklat"</string>
+    <string name="msg_147" formatted="false">"Durdur"</string>
+    <string name="msg_148" formatted="false">"Ekran gizlendi"</string>
+    <string name="msg_149" formatted="false">"İzleme durduruldu"</string>
+    <string name="msg_150" formatted="false">"Hizmet başlatılamadı: "</string>
+    <string name="msg_151" formatted="false">"Başlatma başarısız: hedef "</string>
+    <string name="msg_152" formatted="false">", gerçek ekran "</string>
+    <string name="msg_153" formatted="false">"Ekranda çalışıyor: "</string>
+    <string name="msg_154" formatted="false">"Başlatma hedefi veya çalışma durumu etkinlikle eşleşmiyor."</string>
+    <string name="msg_155" formatted="false">"Ekranda görünür: "</string>
+    <string name="msg_156" formatted="false">"Ekran örtülü veya arka planda (ekran "</string>
+    <string name="msg_157" formatted="false">"Ekran kapatıldı"</string>
+    <string name="msg_158" formatted="false">"HTML işlemi durdu. Tasarımı yeniden seçin veya yerel saate geçin."</string>
+    <string name="msg_159" formatted="false">"HTML tasarımı: "</string>
+    <string name="msg_160" formatted="false">"HTML verileri: "</string>
+    <string name="msg_161" formatted="false">"Geçersiz profil kimliği"</string>
+    <string name="msg_162" formatted="false">"Profil kaydedilemedi"</string>
+    <string name="msg_163" formatted="false">"Profil eksik"</string>
+    <string name="msg_164" formatted="false">"Yol tasarımın dışında"</string>
+    <string name="msg_165" formatted="false">"Dosya okunamıyor"</string>
+    <string name="msg_166" formatted="false">"ZIP kökünde index.html veya alt klasörde tek bir index.html olmalıdır"</string>
+    <string name="msg_167" formatted="false">"index.html klasör adlarında harf, rakam, _ ve - kullanın"</string>
+    <string name="msg_168" formatted="false">"HTML 1 MiB sınırını aşıyor"</string>
+    <string name="msg_169" formatted="false">"Bilinmeyen profil biçimi"</string>
+    <string name="msg_170" formatted="false">"HTML tasarımı ayrı bir alt klasörde olmalıdır"</string>
+    <string name="msg_171" formatted="false">"Profil eksik dosyalara başvuruyor"</string>
+    <string name="msg_172" formatted="false">"HTML profilinde tasarım yok"</string>
+    <string name="msg_173" formatted="false">"Profil içe aktarma: "</string>
+    <string name="msg_174" formatted="false">"Hedef yazılabilir değil"</string>
+    <string name="msg_175" formatted="false">"Dosya/tasarım çok büyük (en fazla "</string>
+    <string name="msg_176" formatted="false">"Çok fazla ZIP girdisi (en fazla "</string>
+    <string name="msg_177" formatted="false">"Geçersiz veya çok uzun ZIP yolu"</string>
+    <string name="msg_178" formatted="false">"Geçersiz veya yinelenen ZIP yolu"</string>
+    <string name="msg_179" formatted="false">"Resim uyumu"</string>
+</resources>

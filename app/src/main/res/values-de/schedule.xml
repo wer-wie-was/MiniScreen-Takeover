@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="power_button" formatted="false">"Rückdisplay ausschalten"</string>
+    <string name="power_intentional" formatted="false">"Absichtlich ausgeschaltet; automatische Wiederherstellung gesperrt"</string>
+    <string name="power_requested" formatted="false">"Ausschaltbefehl gesendet"</string>
+    <string name="power_confirmed" formatted="false">"Rückdisplay ist OFF bestätigt"</string>
+    <string name="power_unknown" formatted="false">"Ausschaltbefehl gesendet; Displayzustand unbekannt/privat – Rückdisplay prüfen"</string>
+    <string name="power_unconfirmed" formatted="false">"Ausschaltbefehl gesendet; OFF noch nicht bestätigt"</string>
+    <string name="power_failed" formatted="false">"Ausschalten fehlgeschlagen: "</string>
+    <string name="schedule_section" formatted="false">"Zeitsteuerung"</string>
+    <string name="schedule_enable" formatted="false">"Zeitsteuerung aktivieren"</string>
+    <string name="schedule_on" formatted="false">"Einschaltzeit: "</string>
+    <string name="schedule_off" formatted="false">"Ausschaltzeit: "</string>
+    <string name="schedule_days" formatted="false">"Wochentage auswählen"</string>
+    <string name="day_mon" formatted="false">"Montag"</string>
+    <string name="day_tue" formatted="false">"Dienstag"</string>
+    <string name="day_wed" formatted="false">"Mittwoch"</string>
+    <string name="day_thu" formatted="false">"Donnerstag"</string>
+    <string name="day_fri" formatted="false">"Freitag"</string>
+    <string name="day_sat" formatted="false">"Samstag"</string>
+    <string name="day_sun" formatted="false">"Sonntag"</string>
+    <string name="schedule_permission" formatted="false">"Systemzugriff „Wecker und Erinnerungen“ öffnen"</string>
+    <string name="schedule_invalid" formatted="false">"Mindestens einen Wochentag und unterschiedliche Schaltzeiten wählen"</string>
+    <string name="schedule_active" formatted="false">"Zeitsteuerung aktiv"</string>
+    <string name="schedule_disabled" formatted="false">"Zeitsteuerung aus"</string>
+    <string name="schedule_exact" formatted="false">"Genaue Schaltzeiten erlaubt"</string>
+    <string name="schedule_inexact" formatted="false">"Ungefähre Schaltzeiten – Android kann die Ausführung verzögern"</string>
+    <string name="schedule_next_on" formatted="false">"Nächste Einschaltzeit: "</string>
+    <string name="schedule_next_off" formatted="false">"Nächste Ausschaltzeit: "</string>
+    <string name="schedule_external" formatted="false">"Zeitsteuerung ausgesetzt: andere App auf Rückdisplay"</string>
+    <string name="schedule_help" formatted="false">"Ein Zeitfenster je gewähltem Starttag; auch über Mitternacht. „Ausschalten“ gilt bis zur nächsten geplanten Einschaltzeit. „Anzeigen“ übernimmt sofort bis zur nächsten Ausschaltzeit. Pausen und andere Apps setzen die Zeitsteuerung aus. „Ausblenden und Überwachung beenden“ deaktiviert auch den Zeitplan. Nach Neustart wird ein aktiver Zeitplan beim ersten Entsperren wiederhergestellt."</string>
+    <string name="return_option" formatted="false">"Andere App beim Zurückwechseln auf Hauptbildschirm öffnen"</string>
+    <string name="return_requested" formatted="false">"Start auf Display 0 angefordert; bestehende Activity wird eventuell zurückgeholt"</string>
+    <string name="return_failed" formatted="false">"Rückkehr auf Hauptbildschirm fehlgeschlagen: "</string>
+    <string name="return_help" formatted="false">"Optional wird die gewählte App zunächst auf Display 0 aufgerufen, danach werden unsere Einstellungen nach vorne geholt und Takeover gestartet. Android kann eine neue Instanz öffnen. Die fremde App bleibt im Hintergrund; sie wird nicht zwangsweise geschlossen."</string>
+</resources>

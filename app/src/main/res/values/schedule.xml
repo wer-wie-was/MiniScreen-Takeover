@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="power_button" formatted="false">"Turn rear display off"</string>
+    <string name="power_intentional" formatted="false">"Intentionally off; automatic recovery blocked"</string>
+    <string name="power_requested" formatted="false">"Power-off command sent"</string>
+    <string name="power_confirmed" formatted="false">"Rear display confirmed OFF"</string>
+    <string name="power_unknown" formatted="false">"Power-off command sent; display state unknown/private – check rear display"</string>
+    <string name="power_unconfirmed" formatted="false">"Power-off command sent; OFF not yet confirmed"</string>
+    <string name="power_failed" formatted="false">"Power-off failed: "</string>
+    <string name="schedule_section" formatted="false">"Schedule"</string>
+    <string name="schedule_enable" formatted="false">"Enable schedule"</string>
+    <string name="schedule_on" formatted="false">"Turn-on time: "</string>
+    <string name="schedule_off" formatted="false">"Turn-off time: "</string>
+    <string name="schedule_days" formatted="false">"Choose weekdays"</string>
+    <string name="day_mon" formatted="false">"Monday"</string>
+    <string name="day_tue" formatted="false">"Tuesday"</string>
+    <string name="day_wed" formatted="false">"Wednesday"</string>
+    <string name="day_thu" formatted="false">"Thursday"</string>
+    <string name="day_fri" formatted="false">"Friday"</string>
+    <string name="day_sat" formatted="false">"Saturday"</string>
+    <string name="day_sun" formatted="false">"Sunday"</string>
+    <string name="schedule_permission" formatted="false">"Open “Alarms &amp; reminders” access"</string>
+    <string name="schedule_invalid" formatted="false">"Choose at least one weekday and different switching times"</string>
+    <string name="schedule_active" formatted="false">"Schedule enabled"</string>
+    <string name="schedule_disabled" formatted="false">"Schedule disabled"</string>
+    <string name="schedule_exact" formatted="false">"Exact switching times allowed"</string>
+    <string name="schedule_inexact" formatted="false">"Approximate switching times – Android may delay execution"</string>
+    <string name="schedule_next_on" formatted="false">"Next turn-on: "</string>
+    <string name="schedule_next_off" formatted="false">"Next turn-off: "</string>
+    <string name="schedule_external" formatted="false">"Schedule suspended: another app on rear display"</string>
+    <string name="schedule_help" formatted="false">"One window per selected start day, including overnight. “Turn off” lasts until the next scheduled turn-on. “Show” takes over immediately until the next turn-off. Pauses and other apps suspend scheduling. “Hide and stop monitoring” also disables the schedule. An enabled schedule is restored after reboot at first unlock."</string>
+    <string name="return_option" formatted="false">"Open other app on main screen when returning"</string>
+    <string name="return_requested" formatted="false">"Launch on display 0 requested; existing activity may be brought back"</string>
+    <string name="return_failed" formatted="false">"Return to main screen failed: "</string>
+    <string name="return_help" formatted="false">"Optionally, the selected app is first launched on display 0, then our controls return to the foreground and Takeover starts. Android may open a new instance. The other app stays in the background; it is not forcibly closed."</string>
+</resources>

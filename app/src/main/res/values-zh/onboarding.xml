@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_progress" formatted="false">"步骤"</string>
+    <string name="onboarding_background_title" formatted="false">"允许后台运行"</string>
+    <string name="onboarding_background_body" formatted="false">"打开 Android 设置 → Performance Management（原 DuraSpeed），在应用列表中启用 MiniScreen Takeover。否则系统可能在后台运行几分钟后终止应用。此项必须手动设置。"</string>
+    <string name="onboarding_open_settings" formatted="false">"打开设置"</string>
+    <string name="onboarding_manual" formatted="false">"这是您的手动确认。应用无法自动验证这些厂商设置。"</string>
+    <string name="onboarding_background_confirm" formatted="false">"我已在 Performance Management 中启用 MiniScreen Takeover。"</string>
+    <string name="onboarding_miniscreen_title" formatted="false">"准备背屏"</string>
+    <string name="onboarding_miniscreen_body" formatted="false">"打开厂商的 Miniscreen / Subscreen 设置并按以下要求配置。保留英文名称便于找到对应选项。"</string>
+    <string name="onboarding_off" formatted="false">"关闭"</string>
+    <string name="onboarding_other_switches" formatted="false">"关闭所有其他开关，包括来电和通知选项。"</string>
+    <string name="onboarding_music" formatted="false">"例外：音乐播放器开关可以保持开启。"</string>
+    <string name="onboarding_scroll" formatted="false">"滚动到底部并检查所有栏目。背光亮度可以单独调整。"</string>
+    <string name="onboarding_open_miniscreen" formatted="false">"打开 Miniscreen 设置"</string>
+    <string name="onboarding_settings_fallback" formatted="false">"请在 Android 设置中手动打开对应页面。"</string>
+    <string name="onboarding_miniscreen_confirm" formatted="false">"我已按说明调整所有 Miniscreen 设置。"</string>
+    <string name="onboarding_final_title" formatted="false">"语言及可选通知功能"</string>
+    <string name="onboarding_notifications" formatted="false">"仅在需要于背屏显示通知时才需授予通知访问权限。授权不会自动启用通知滚动条或选择应用。也可稍后设置。"</string>
+    <string name="onboarding_finish" formatted="false">"完成设置"</string>
+    <string name="onboarding_back" formatted="false">"返回"</string>
+    <string name="onboarding_next" formatted="false">"下一步"</string>
+    <string name="onboarding_reopen" formatted="false">"重新打开设置向导"</string>
+    <string name="onboarding_language_title" formatted="false">"选择语言"</string>
+    <string name="onboarding_restricted_title" formatted="false">"允许受限设置"</string>
+    <string name="onboarding_restricted_body" formatted="false">"打开 MiniScreen Takeover 的应用详情。在顶部三点菜单中选择“允许受限设置”。如有提示，使用 PIN 或指纹确认。然后返回此页，可在下方授予通知访问权限。这是两个独立步骤。如果没有此菜单项，请先尝试授予通知访问权限，再次检查应用详情。"</string>
+    <string name="onboarding_app_details" formatted="false">"打开应用详情"</string>
+</resources>

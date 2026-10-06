@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_progress" formatted="false">"Passaggio"</string>
+    <string name="onboarding_background_title" formatted="false">"Consenti funzionamento in background"</string>
+    <string name="onboarding_background_body" formatted="false">"Apri impostazioni Android → Performance Management (prima DuraSpeed). Attiva MiniScreen Takeover nell’elenco. Altrimenti il sistema può interrompere l’app dopo pochi minuti in background. La modifica è manuale."</string>
+    <string name="onboarding_open_settings" formatted="false">"Apri impostazioni"</string>
+    <string name="onboarding_manual" formatted="false">"Questa è la tua conferma. L’app non può verificare automaticamente le impostazioni del produttore."</string>
+    <string name="onboarding_background_confirm" formatted="false">"Ho attivato MiniScreen Takeover in Performance Management."</string>
+    <string name="onboarding_miniscreen_title" formatted="false">"Prepara lo schermo posteriore"</string>
+    <string name="onboarding_miniscreen_body" formatted="false">"Apri le impostazioni Miniscreen / Subscreen del produttore e applica le opzioni seguenti. I nomi inglesi aiutano a trovarle."</string>
+    <string name="onboarding_off" formatted="false">"Disattivato"</string>
+    <string name="onboarding_other_switches" formatted="false">"Disattiva tutti gli altri interruttori, comprese le opzioni per chiamate e notifiche."</string>
+    <string name="onboarding_music" formatted="false">"Eccezione: il lettore musicale può restare attivo."</string>
+    <string name="onboarding_scroll" formatted="false">"Scorri fino in fondo e controlla tutte le sezioni. La retroilluminazione è regolabile separatamente."</string>
+    <string name="onboarding_open_miniscreen" formatted="false">"Apri impostazioni Miniscreen"</string>
+    <string name="onboarding_settings_fallback" formatted="false">"Apri manualmente la pagina corrispondente nelle impostazioni Android."</string>
+    <string name="onboarding_miniscreen_confirm" formatted="false">"Ho regolato tutte le impostazioni Miniscreen come indicato."</string>
+    <string name="onboarding_final_title" formatted="false">"Lingua e notifiche facoltative"</string>
+    <string name="onboarding_notifications" formatted="false">"L’accesso alle notifiche serve solo per mostrarle sullo schermo posteriore. Concederlo non attiva il ticker e non seleziona app. Puoi configurarlo in seguito."</string>
+    <string name="onboarding_finish" formatted="false">"Completa configurazione"</string>
+    <string name="onboarding_back" formatted="false">"Indietro"</string>
+    <string name="onboarding_next" formatted="false">"Avanti"</string>
+    <string name="onboarding_reopen" formatted="false">"Riapri configurazione iniziale"</string>
+    <string name="onboarding_language_title" formatted="false">"Scegli la lingua"</string>
+    <string name="onboarding_restricted_title" formatted="false">"Consenti impostazioni limitate"</string>
+    <string name="onboarding_restricted_body" formatted="false">"Apri le informazioni di MiniScreen Takeover. Nel menu con tre punti in alto scegli «Consenti impostazioni limitate». Conferma con PIN o impronta se richiesto. Torna qui e concedi facoltativamente l’accesso alle notifiche qui sotto. Sono autorizzazioni separate. Se la voce manca, prova prima a concedere l’accesso alle notifiche e ricontrolla le informazioni dell’app."</string>
+    <string name="onboarding_app_details" formatted="false">"Apri informazioni app"</string>
+</resources>

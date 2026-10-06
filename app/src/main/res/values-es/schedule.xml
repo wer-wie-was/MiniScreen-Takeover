@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="power_button" formatted="false">"Apagar pantalla trasera"</string>
+    <string name="power_intentional" formatted="false">"Apagado intencionado; recuperación automática bloqueada"</string>
+    <string name="power_requested" formatted="false">"Comando de apagado enviado"</string>
+    <string name="power_confirmed" formatted="false">"Pantalla trasera confirmada apagada"</string>
+    <string name="power_unknown" formatted="false">"Comando de apagado enviado; estado desconocido/privado – comprueba pantalla trasera"</string>
+    <string name="power_unconfirmed" formatted="false">"Comando de apagado enviado; aún sin confirmación"</string>
+    <string name="power_failed" formatted="false">"Error al apagar: "</string>
+    <string name="schedule_section" formatted="false">"Programación"</string>
+    <string name="schedule_enable" formatted="false">"Activar programación"</string>
+    <string name="schedule_on" formatted="false">"Hora de encendido: "</string>
+    <string name="schedule_off" formatted="false">"Hora de apagado: "</string>
+    <string name="schedule_days" formatted="false">"Elegir días de la semana"</string>
+    <string name="day_mon" formatted="false">"Lunes"</string>
+    <string name="day_tue" formatted="false">"Martes"</string>
+    <string name="day_wed" formatted="false">"Miércoles"</string>
+    <string name="day_thu" formatted="false">"Jueves"</string>
+    <string name="day_fri" formatted="false">"Viernes"</string>
+    <string name="day_sat" formatted="false">"Sábado"</string>
+    <string name="day_sun" formatted="false">"Domingo"</string>
+    <string name="schedule_permission" formatted="false">"Abrir acceso «Alarmas y recordatorios»"</string>
+    <string name="schedule_invalid" formatted="false">"Elige al menos un día y horas distintas"</string>
+    <string name="schedule_active" formatted="false">"Programación activa"</string>
+    <string name="schedule_disabled" formatted="false">"Programación desactivada"</string>
+    <string name="schedule_exact" formatted="false">"Horarios exactos permitidos"</string>
+    <string name="schedule_inexact" formatted="false">"Horarios aproximados – Android puede retrasarlos"</string>
+    <string name="schedule_next_on" formatted="false">"Próximo encendido: "</string>
+    <string name="schedule_next_off" formatted="false">"Próximo apagado: "</string>
+    <string name="schedule_external" formatted="false">"Programación suspendida: otra app en pantalla trasera"</string>
+    <string name="schedule_help" formatted="false">"Una franja por día de inicio elegido, también nocturna. «Apagar» dura hasta el próximo encendido programado. «Mostrar» toma control hasta el próximo apagado. Pausas y otras apps suspenden la programación. «Ocultar y detener supervisión» también desactiva el horario. Se restaura al primer desbloqueo tras reinicio."</string>
+    <string name="return_option" formatted="false">"Abrir otra app en pantalla principal al volver"</string>
+    <string name="return_requested" formatted="false">"Inicio en pantalla 0 solicitado; puede recuperarse la actividad existente"</string>
+    <string name="return_failed" formatted="false">"Error al volver a pantalla principal: "</string>
+    <string name="return_help" formatted="false">"Opcionalmente se abre primero la app elegida en pantalla 0, luego nuestros ajustes vuelven al frente y Takeover inicia. Android puede abrir otra instancia. La otra app queda en segundo plano; no se cierra a la fuerza."</string>
+</resources>

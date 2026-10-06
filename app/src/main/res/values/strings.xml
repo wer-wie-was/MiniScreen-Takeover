@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_000" formatted="false">"Language"</string>
+    <string name="msg_001" formatted="false">"App language"</string>
+    <string name="language_system" formatted="false">"System language"</string>
+    <string name="msg_003" formatted="false">"Controls"</string>
+    <string name="msg_004" formatted="false">"Design &amp; profiles"</string>
+    <string name="msg_005" formatted="false">"LIVE PREVIEW"</string>
+    <string name="msg_006" formatted="false">"Pixel shift border"</string>
+    <string name="msg_007" formatted="false">"Processing file …"</string>
+    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.2.2 · vibe-coded"</string>
+    <string name="msg_009" formatted="false">", expandable section"</string>
+    <string name="msg_010" formatted="false">"Display not started yet"</string>
+    <string name="msg_011" formatted="false">"▶ Show on rear display"</string>
+    <string name="msg_012" formatted="false">"■ Hide and stop monitoring"</string>
+    <string name="msg_013" formatted="false">"Monitoring starts when shown"</string>
+    <string name="msg_014" formatted="false">"Operating mode"</string>
+    <string name="msg_015" formatted="false">"Manual"</string>
+    <string name="msg_016" formatted="false">"Keep display active (recommended)"</string>
+    <string name="msg_017" formatted="false">"Force takeover"</string>
+    <string name="msg_018" formatted="false">"Only active when main screen is locked"</string>
+    <string name="msg_019" formatted="false">"Restore after reboot / first unlock"</string>
+    <string name="msg_020" formatted="false">"Check interval (seconds; also reacts to events)"</string>
+    <string name="msg_021" formatted="false">"Pause monitoring …"</string>
+    <string name="msg_022" formatted="false">"Pause monitoring"</string>
+    <string name="msg_023" formatted="false">"Until resumed"</string>
+    <string name="msg_024" formatted="false">"15 minutes"</string>
+    <string name="msg_025" formatted="false">"1 hour"</string>
+    <string name="msg_026" formatted="false">"Resume monitoring"</string>
+    <string name="msg_027" formatted="false">"Open notification settings"</string>
+    <string name="msg_028" formatted="false">"Pausing keeps the current display. Keep display active respects other rear-screen apps; forced takeover may replace them. Hiding stops monitoring and reboot recovery. Device options are separate from design profiles."</string>
+    <string name="msg_029" formatted="false">"Rear display brightness (%)"</string>
+    <string name="msg_030" formatted="false">"Hiding closes our activity and returns control to the manufacturer app. It may leave the screen on. Set the manufacturer timeout to “Never”."</string>
+    <string name="msg_031" formatted="false">"Copy display diagnostics"</string>
+    <string name="msg_032" formatted="false">" · State "</string>
+    <string name="msg_033" formatted="false">"\nMonitoring: "</string>
+    <string name="msg_034" formatted="false">"\nMode: "</string>
+    <string name="msg_035" formatted="false">" · enabled: "</string>
+    <string name="msg_036" formatted="false">" · locked only: "</string>
+    <string name="msg_037" formatted="false">" · paused: "</string>
+    <string name="msg_038" formatted="false">"MiniScreen diagnostics"</string>
+    <string name="msg_039" formatted="false">"Diagnostics copied"</string>
+    <string name="msg_040" formatted="false">"Active profile"</string>
+    <string name="msg_041" formatted="false">"Display mode"</string>
+    <string name="msg_042" formatted="false">"Native digital clock"</string>
+    <string name="msg_043" formatted="false">"Full HTML design"</string>
+    <string name="msg_044" formatted="false">"Setting up sample design …"</string>
+    <string name="msg_045" formatted="false">"New profile"</string>
+    <string name="msg_046" formatted="false">"My design"</string>
+    <string name="msg_047" formatted="false">"Duplicate profile"</string>
+    <string name="msg_048" formatted="false">" copy"</string>
+    <string name="msg_049" formatted="false">"Copying profile …"</string>
+    <string name="msg_050" formatted="false">"Rename profile"</string>
+    <string name="msg_051" formatted="false">"Profile name"</string>
+    <string name="msg_052" formatted="false">"Export profile as ZIP"</string>
+    <string name="msg_053" formatted="false">"Import profile ZIP"</string>
+    <string name="msg_054" formatted="false">"Delete profile"</string>
+    <string name="msg_055" formatted="false">"Delete profile?"</string>
+    <string name="msg_056" formatted="false">"Cancel"</string>
+    <string name="msg_057" formatted="false">"Delete"</string>
+    <string name="msg_058" formatted="false">"Save"</string>
+    <string name="msg_059" formatted="false">"Clock &amp; date"</string>
+    <string name="msg_060" formatted="false">"In HTML mode, these settings are passed to the design. The design decides how to display them."</string>
+    <string name="msg_061" formatted="false">"24-hour format"</string>
+    <string name="msg_062" formatted="false">"Show seconds"</string>
+    <string name="msg_063" formatted="false">"Leading zero"</string>
+    <string name="msg_064" formatted="false">"Show date"</string>
+    <string name="msg_065" formatted="false">"Clock color"</string>
+    <string name="msg_066" formatted="false">"Date color"</string>
+    <string name="msg_067" formatted="false">"Clock size (at 340 px)"</string>
+    <string name="msg_068" formatted="false">"Date size"</string>
+    <string name="msg_069" formatted="false">"System font"</string>
+    <string name="msg_070" formatted="false">"Bold text"</string>
+    <string name="msg_071" formatted="false">"Import custom font (TTF / OTF)"</string>
+    <string name="msg_072" formatted="false">"Remove custom font"</string>
+    <string name="msg_073" formatted="false">"System font active"</string>
+    <string name="msg_074" formatted="false">"Clock X position (%)"</string>
+    <string name="msg_075" formatted="false">"Clock Y position (%)"</string>
+    <string name="msg_076" formatted="false">"Date X position (%)"</string>
+    <string name="msg_077" formatted="false">"Date Y position (%)"</string>
+    <string name="msg_078" formatted="false">"Date format presets"</string>
+    <string name="msg_079" formatted="false">"Date format"</string>
+    <string name="msg_080" formatted="false">"Custom date format"</string>
+    <string name="msg_081" formatted="false">"Apply custom date format"</string>
+    <string name="msg_082" formatted="false">"Date: "</string>
+    <string name="msg_083" formatted="false">"Invalid format, e.g. EEE, dd.MM.yyyy"</string>
+    <string name="msg_084" formatted="false">"dd = day · MM = month · yyyy = year · EEE = short weekday · EEEE = full weekday · MMMM = month name. Language follows the app selection."</string>
+    <string name="msg_085" formatted="false">"Background"</string>
+    <string name="msg_086" formatted="false">"Background color"</string>
+    <string name="msg_087" formatted="false">"Choose background image"</string>
+    <string name="msg_088" formatted="false">"Remove background image"</string>
+    <string name="msg_089" formatted="false">"Background image removed"</string>
+    <string name="msg_090" formatted="false">"Fill / crop"</string>
+    <string name="msg_091" formatted="false">"Fit entire image"</string>
+    <string name="msg_092" formatted="false">"Dim image (%)"</string>
+    <string name="msg_093" formatted="false">"Also shift the background image"</string>
+    <string name="msg_094" formatted="false">"In HTML mode, the design can use the image and settings. The included design supports them all."</string>
+    <string name="msg_095" formatted="false">"Pixel shifting"</string>
+    <string name="msg_096" formatted="false">"Enable pixel shifting"</string>
+    <string name="msg_097" formatted="false">"Shift range ± pixels (at 340 px)"</string>
+    <string name="msg_098" formatted="false">"Interval (seconds)"</string>
+    <string name="msg_099" formatted="false">"Native text is scaled to fit the safe area. HTML gets a reserved border; the app shifts the entire HTML surface. Static images and high brightness can still cause burn-in."</string>
+    <string name="msg_100" formatted="false">"HTML design"</string>
+    <string name="msg_101" formatted="false">"No custom design imported yet"</string>
+    <string name="msg_102" formatted="false">"Active HTML: "</string>
+    <string name="msg_103" formatted="false">"Import HTML file or design ZIP"</string>
+    <string name="msg_104" formatted="false">"Use included HTML design"</string>
+    <string name="msg_105" formatted="false">"Setting up HTML example …"</string>
+    <string name="msg_106" formatted="false">"Remove HTML design / native clock"</string>
+    <string name="msg_107" formatted="false">"ZIP: index.html with local CSS, JS, images and fonts. Single HTML: embed all resources. Limits: 20 MiB unpacked, 200 entries, 1 MiB per HTML file. Offline, no Android bridge or touch actions."</string>
+    <string name="msg_108" formatted="false">"Show HTML interface"</string>
+    <string name="msg_109" formatted="false">"For custom designs"</string>
+    <string name="msg_110" formatted="false">"window.miniScreen holds the latest state. Listen for miniscreen:update and read e.detail. Fields: time, date, epochMs, showDate, width, height, cssWidth, cssHeight, timeZone, locale, preview, shiftX, shiftY, settings, backgroundUrl, fontUrl. CSS: --time-color, --date-color, --background-color. Updates follow the seconds option and also occur on shifts, settings or time changes. Full documentation and example: docs/HTML-DESIGNS.md in the source. Importing activates HTML mode."</string>
+    <string name="msg_111" formatted="false">"1 to 80 characters"</string>
+    <string name="msg_112" formatted="false">"Exporting profile …"</string>
+    <string name="msg_113" formatted="false">"Profile exported"</string>
+    <string name="msg_114" formatted="false">"Importing file …"</string>
+    <string name="msg_115" formatted="false">"Cannot read image format"</string>
+    <string name="msg_116" formatted="false">"Cannot read font file"</string>
+    <string name="msg_117" formatted="false">"Unknown file operation"</string>
+    <string name="msg_118" formatted="false">"Imported"</string>
+    <string name="msg_119" formatted="false">"Preview"</string>
+    <string name="msg_120" formatted="false">"Hue · choose saturation and brightness in the square"</string>
+    <string name="msg_121" formatted="false">"Apply"</string>
+    <string name="msg_122" formatted="false">"Enter #RRGGBB"</string>
+    <string name="msg_123" formatted="false">"Color square: saturation horizontally, brightness vertically"</string>
+    <string name="msg_124" formatted="false">"Rear display control"</string>
+    <string name="msg_125" formatted="false">"Starting rear display control …"</string>
+    <string name="msg_126" formatted="false">"Waiting for the main screen to lock"</string>
+    <string name="msg_127" formatted="false">"Monitoring paused"</string>
+    <string name="msg_128" formatted="false">"Manual display started; monitoring stopped"</string>
+    <string name="msg_129" formatted="false">"Display active · "</string>
+    <string name="msg_130" formatted="false">"Monitoring lock condition"</string>
+    <string name="msg_131" formatted="false">"Manual display interrupted · show again or wait for the next lock cycle"</string>
+    <string name="msg_132" formatted="false">"Manual mode; monitoring stopped"</string>
+    <string name="msg_133" formatted="false">"Another rear-screen app has control · show again to take over"</string>
+    <string name="msg_134" formatted="false">"Manual start failed after several attempts"</string>
+    <string name="msg_135" formatted="false">"Requested rear display wake …"</string>
+    <string name="msg_136" formatted="false">"Wake: "</string>
+    <string name="msg_137" formatted="false">"Requested activity launch on rear display · display state "</string>
+    <string name="msg_138" formatted="false">"unknown/private"</string>
+    <string name="msg_139" formatted="false">"Activity launch: "</string>
+    <string name="msg_140" formatted="false">"Manufacturer launch attempted without activity confirmation; rear display remains absent from the display list"</string>
+    <string name="msg_141" formatted="false">"Display is ON, but our activity did not become visible"</string>
+    <string name="msg_142" formatted="false">"Manufacturer launch attempted without visible activity; reported display state "</string>
+    <string name="msg_143" formatted="false">" · retry no sooner than "</string>
+    <string name="msg_144" formatted="false">"Keep display active"</string>
+    <string name="msg_145" formatted="false">"Resume"</string>
+    <string name="msg_146" formatted="false">"Pause"</string>
+    <string name="msg_147" formatted="false">"Stop"</string>
+    <string name="msg_148" formatted="false">"Display hidden"</string>
+    <string name="msg_149" formatted="false">"Monitoring stopped"</string>
+    <string name="msg_150" formatted="false">"Service start failed: "</string>
+    <string name="msg_151" formatted="false">"Launch failed: target "</string>
+    <string name="msg_152" formatted="false">", actual display "</string>
+    <string name="msg_153" formatted="false">"Running on display "</string>
+    <string name="msg_154" formatted="false">"Launch target or operating state does not match the running activity."</string>
+    <string name="msg_155" formatted="false">"Visible on display "</string>
+    <string name="msg_156" formatted="false">"Display currently covered or in background (display "</string>
+    <string name="msg_157" formatted="false">"Display closed"</string>
+    <string name="msg_158" formatted="false">"HTML process stopped. Select the design again or switch to the native clock."</string>
+    <string name="msg_159" formatted="false">"HTML design: "</string>
+    <string name="msg_160" formatted="false">"HTML data: "</string>
+    <string name="msg_161" formatted="false">"Invalid profile ID"</string>
+    <string name="msg_162" formatted="false">"Could not save profile"</string>
+    <string name="msg_163" formatted="false">"Profile missing"</string>
+    <string name="msg_164" formatted="false">"Path outside the design"</string>
+    <string name="msg_165" formatted="false">"File cannot be read"</string>
+    <string name="msg_166" formatted="false">"ZIP needs index.html at its root or exactly one index.html in a subfolder"</string>
+    <string name="msg_167" formatted="false">"Folder names for index.html: use letters, digits, _ and -"</string>
+    <string name="msg_168" formatted="false">"HTML exceeds 1 MiB"</string>
+    <string name="msg_169" formatted="false">"Unknown profile format"</string>
+    <string name="msg_170" formatted="false">"HTML design must have its own subfolder"</string>
+    <string name="msg_171" formatted="false">"Profile references missing files"</string>
+    <string name="msg_172" formatted="false">"HTML profile has no design"</string>
+    <string name="msg_173" formatted="false">"Profile import: "</string>
+    <string name="msg_174" formatted="false">"Destination is not writable"</string>
+    <string name="msg_175" formatted="false">"File/design too large (max. "</string>
+    <string name="msg_176" formatted="false">"Too many ZIP entries (max. "</string>
+    <string name="msg_177" formatted="false">"Invalid or overly long ZIP path"</string>
+    <string name="msg_178" formatted="false">"Invalid or duplicate ZIP path"</string>
+    <string name="msg_179" formatted="false">"Image fit"</string>
+</resources>

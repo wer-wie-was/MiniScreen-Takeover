@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="power_button" formatted="false">"关闭背屏"</string>
+    <string name="power_intentional" formatted="false">"已主动关闭；禁止自动恢复"</string>
+    <string name="power_requested" formatted="false">"已发送关闭命令"</string>
+    <string name="power_confirmed" formatted="false">"已确认背屏关闭"</string>
+    <string name="power_unknown" formatted="false">"已发送关闭命令；屏幕状态未知 / 私有，请检查背屏"</string>
+    <string name="power_unconfirmed" formatted="false">"已发送关闭命令；尚未确认关闭"</string>
+    <string name="power_failed" formatted="false">"关闭失败："</string>
+    <string name="schedule_section" formatted="false">"时间控制"</string>
+    <string name="schedule_enable" formatted="false">"启用时间控制"</string>
+    <string name="schedule_on" formatted="false">"开启时间："</string>
+    <string name="schedule_off" formatted="false">"关闭时间："</string>
+    <string name="schedule_days" formatted="false">"选择星期"</string>
+    <string name="day_mon" formatted="false">"星期一"</string>
+    <string name="day_tue" formatted="false">"星期二"</string>
+    <string name="day_wed" formatted="false">"星期三"</string>
+    <string name="day_thu" formatted="false">"星期四"</string>
+    <string name="day_fri" formatted="false">"星期五"</string>
+    <string name="day_sat" formatted="false">"星期六"</string>
+    <string name="day_sun" formatted="false">"星期日"</string>
+    <string name="schedule_permission" formatted="false">"打开“闹钟和提醒”权限"</string>
+    <string name="schedule_invalid" formatted="false">"请至少选择一天，且开启和关闭时间不同"</string>
+    <string name="schedule_active" formatted="false">"时间控制已启用"</string>
+    <string name="schedule_disabled" formatted="false">"时间控制已关闭"</string>
+    <string name="schedule_exact" formatted="false">"允许精确切换时间"</string>
+    <string name="schedule_inexact" formatted="false">"近似切换时间，Android 可能延迟执行"</string>
+    <string name="schedule_next_on" formatted="false">"下次开启："</string>
+    <string name="schedule_next_off" formatted="false">"下次关闭："</string>
+    <string name="schedule_external" formatted="false">"时间控制暂停：其他应用正在背屏运行"</string>
+    <string name="schedule_help" formatted="false">"每个所选开始日有一个时间窗口，可跨午夜。“关闭”持续到下次计划开启。“显示”立即接管至下次关闭。暂停和其他应用会暂停时间控制。“隐藏并停止监控”也会关闭时间表。重启后首次解锁时恢复已启用的时间表。"</string>
+    <string name="return_option" formatted="false">"返回时在主屏打开其他应用"</string>
+    <string name="return_requested" formatted="false">"已请求在屏幕 0 启动；可能返回现有界面"</string>
+    <string name="return_failed" formatted="false">"返回主屏失败："</string>
+    <string name="return_help" formatted="false">"可先在屏幕 0 启动所选应用，再将本应用设置置于前台并启动 Takeover。Android 可能打开新实例。其他应用保持在后台，不会被强制关闭。"</string>
+</resources>

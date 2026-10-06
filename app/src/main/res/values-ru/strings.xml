@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_000" formatted="false">"Язык"</string>
+    <string name="msg_001" formatted="false">"Язык приложения"</string>
+    <string name="language_system" formatted="false">"Язык системы"</string>
+    <string name="msg_003" formatted="false">"Управление"</string>
+    <string name="msg_004" formatted="false">"Дизайн и профили"</string>
+    <string name="msg_005" formatted="false">"ПРЕДПРОСМОТР"</string>
+    <string name="msg_006" formatted="false">"Граница сдвига пикселей"</string>
+    <string name="msg_007" formatted="false">"Обработка файла…"</string>
+    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.2.2 · vibe-coded"</string>
+    <string name="msg_009" formatted="false">", раскрываемый раздел"</string>
+    <string name="msg_010" formatted="false">"Показ ещё не запущен"</string>
+    <string name="msg_011" formatted="false">"▶ Показать на заднем экране"</string>
+    <string name="msg_012" formatted="false">"■ Скрыть и остановить наблюдение"</string>
+    <string name="msg_013" formatted="false">"Наблюдение начинается при показе"</string>
+    <string name="msg_014" formatted="false">"Режим работы"</string>
+    <string name="msg_015" formatted="false">"Ручной"</string>
+    <string name="msg_016" formatted="false">"Поддерживать показ (рекомендуется)"</string>
+    <string name="msg_017" formatted="false">"Принудительный перехват"</string>
+    <string name="msg_018" formatted="false">"Только при блокировке основного экрана"</string>
+    <string name="msg_019" formatted="false">"Восстановить после перезагрузки / первой разблокировки"</string>
+    <string name="msg_020" formatted="false">"Проверка (секунды; дополнительно к событиям)"</string>
+    <string name="msg_021" formatted="false">"Приостановить наблюдение…"</string>
+    <string name="msg_022" formatted="false">"Приостановить наблюдение"</string>
+    <string name="msg_023" formatted="false">"До возобновления"</string>
+    <string name="msg_024" formatted="false">"15 минут"</string>
+    <string name="msg_025" formatted="false">"1 час"</string>
+    <string name="msg_026" formatted="false">"Возобновить наблюдение"</string>
+    <string name="msg_027" formatted="false">"Открыть настройки уведомлений"</string>
+    <string name="msg_028" formatted="false">"Пауза сохраняет показ. Поддержание показа уважает другие приложения; принудительный перехват может их вытеснить. Скрытие отключает наблюдение и восстановление после перезагрузки. Настройки устройства отделены от профилей."</string>
+    <string name="msg_029" formatted="false">"Яркость заднего экрана (%)"</string>
+    <string name="msg_030" formatted="false">"Скрытие закрывает нашу Activity и возвращает управление приложению производителя. Экран может остаться включённым. Установите тайм-аут производителя на «Never»."</string>
+    <string name="msg_031" formatted="false">"Копировать диагностику экранов"</string>
+    <string name="msg_032" formatted="false">" · Состояние "</string>
+    <string name="msg_033" formatted="false">"\nНаблюдение: "</string>
+    <string name="msg_034" formatted="false">"\nРежим: "</string>
+    <string name="msg_035" formatted="false">" · включено: "</string>
+    <string name="msg_036" formatted="false">" · только при блокировке: "</string>
+    <string name="msg_037" formatted="false">" · приостановлено: "</string>
+    <string name="msg_038" formatted="false">"Диагностика MiniScreen"</string>
+    <string name="msg_039" formatted="false">"Диагностика скопирована"</string>
+    <string name="msg_040" formatted="false">"Активный профиль"</string>
+    <string name="msg_041" formatted="false">"Режим отображения"</string>
+    <string name="msg_042" formatted="false">"Встроенные цифровые часы"</string>
+    <string name="msg_043" formatted="false">"Полный HTML-дизайн"</string>
+    <string name="msg_044" formatted="false">"Подготовка примера дизайна…"</string>
+    <string name="msg_045" formatted="false">"Новый профиль"</string>
+    <string name="msg_046" formatted="false">"Мой дизайн"</string>
+    <string name="msg_047" formatted="false">"Дублировать профиль"</string>
+    <string name="msg_048" formatted="false">" копия"</string>
+    <string name="msg_049" formatted="false">"Копирование профиля…"</string>
+    <string name="msg_050" formatted="false">"Переименовать профиль"</string>
+    <string name="msg_051" formatted="false">"Название профиля"</string>
+    <string name="msg_052" formatted="false">"Экспортировать профиль в ZIP"</string>
+    <string name="msg_053" formatted="false">"Импортировать ZIP профиля"</string>
+    <string name="msg_054" formatted="false">"Удалить профиль"</string>
+    <string name="msg_055" formatted="false">"Удалить профиль?"</string>
+    <string name="msg_056" formatted="false">"Отмена"</string>
+    <string name="msg_057" formatted="false">"Удалить"</string>
+    <string name="msg_058" formatted="false">"Сохранить"</string>
+    <string name="msg_059" formatted="false">"Часы и дата"</string>
+    <string name="msg_060" formatted="false">"В режиме HTML настройки передаются дизайну, который определяет их отображение."</string>
+    <string name="msg_061" formatted="false">"24-часовой формат"</string>
+    <string name="msg_062" formatted="false">"Показывать секунды"</string>
+    <string name="msg_063" formatted="false">"Начальный ноль"</string>
+    <string name="msg_064" formatted="false">"Показывать дату"</string>
+    <string name="msg_065" formatted="false">"Цвет часов"</string>
+    <string name="msg_066" formatted="false">"Цвет даты"</string>
+    <string name="msg_067" formatted="false">"Размер часов (при 340 px)"</string>
+    <string name="msg_068" formatted="false">"Размер даты"</string>
+    <string name="msg_069" formatted="false">"Системный шрифт"</string>
+    <string name="msg_070" formatted="false">"Жирный шрифт"</string>
+    <string name="msg_071" formatted="false">"Импортировать шрифт (TTF / OTF)"</string>
+    <string name="msg_072" formatted="false">"Удалить пользовательский шрифт"</string>
+    <string name="msg_073" formatted="false">"Системный шрифт включён"</string>
+    <string name="msg_074" formatted="false">"Позиция часов X (%)"</string>
+    <string name="msg_075" formatted="false">"Позиция часов Y (%)"</string>
+    <string name="msg_076" formatted="false">"Позиция даты X (%)"</string>
+    <string name="msg_077" formatted="false">"Позиция даты Y (%)"</string>
+    <string name="msg_078" formatted="false">"Шаблоны формата даты"</string>
+    <string name="msg_079" formatted="false">"Формат даты"</string>
+    <string name="msg_080" formatted="false">"Свой формат даты"</string>
+    <string name="msg_081" formatted="false">"Применить свой формат даты"</string>
+    <string name="msg_082" formatted="false">"Дата: "</string>
+    <string name="msg_083" formatted="false">"Неверный формат, например EEE, dd.MM.yyyy"</string>
+    <string name="msg_084" formatted="false">"dd = день · MM = месяц · yyyy = год · EEE = краткое название дня · EEEE = полное название дня · MMMM = название месяца. Язык следует выбору в приложении."</string>
+    <string name="msg_085" formatted="false">"Фон"</string>
+    <string name="msg_086" formatted="false">"Цвет фона"</string>
+    <string name="msg_087" formatted="false">"Выбрать фоновое изображение"</string>
+    <string name="msg_088" formatted="false">"Удалить фоновое изображение"</string>
+    <string name="msg_089" formatted="false">"Фоновое изображение удалено"</string>
+    <string name="msg_090" formatted="false">"Заполнить / обрезать"</string>
+    <string name="msg_091" formatted="false">"Вместить изображение целиком"</string>
+    <string name="msg_092" formatted="false">"Затемнение изображения (%)"</string>
+    <string name="msg_093" formatted="false">"Также сдвигать фоновое изображение"</string>
+    <string name="msg_094" formatted="false">"В режиме HTML дизайн может использовать изображение и настройки. Встроенный дизайн поддерживает их полностью."</string>
+    <string name="msg_095" formatted="false">"Сдвиг пикселей"</string>
+    <string name="msg_096" formatted="false">"Включить сдвиг пикселей"</string>
+    <string name="msg_097" formatted="false">"Диапазон ± пикселей (при 340 px)"</string>
+    <string name="msg_098" formatted="false">"Интервал (секунды)"</string>
+    <string name="msg_099" formatted="false">"Встроенный текст подгоняется под безопасную область. Для HTML резервируется отступ; приложение сдвигает всю поверхность. Статичные изображения и высокая яркость всё ещё могут вызвать выгорание."</string>
+    <string name="msg_100" formatted="false">"HTML-дизайн"</string>
+    <string name="msg_101" formatted="false">"Свой дизайн ещё не импортирован"</string>
+    <string name="msg_102" formatted="false">"Активный HTML: "</string>
+    <string name="msg_103" formatted="false">"Импортировать HTML или ZIP дизайна"</string>
+    <string name="msg_104" formatted="false">"Использовать встроенный HTML-дизайн"</string>
+    <string name="msg_105" formatted="false">"Подготовка примера HTML…"</string>
+    <string name="msg_106" formatted="false">"Удалить HTML-дизайн / встроенные часы"</string>
+    <string name="msg_107" formatted="false">"ZIP: index.html с локальными CSS, JS, изображениями и шрифтами. Один HTML: встроить ресурсы. Ограничения: 20 MiB после распаковки, 200 записей, 1 MiB на HTML. Офлайн, без Android-моста и сенсорных действий."</string>
+    <string name="msg_108" formatted="false">"Показать HTML-интерфейс"</string>
+    <string name="msg_109" formatted="false">"Для своих дизайнов"</string>
+    <string name="msg_110" formatted="false">"window.miniScreen содержит последнее состояние. Слушайте miniscreen:update и читайте e.detail. Поля: time, date, epochMs, showDate, width, height, cssWidth, cssHeight, timeZone, locale, preview, shiftX, shiftY, settings, backgroundUrl, fontUrl. CSS: --time-color, --date-color, --background-color. Обновления зависят от показа секунд, сдвигов и изменений настроек или времени. Документация и пример: docs/HTML-DESIGNS.md в исходниках. Импорт включает HTML."</string>
+    <string name="msg_111" formatted="false">"От 1 до 80 символов"</string>
+    <string name="msg_112" formatted="false">"Экспорт профиля…"</string>
+    <string name="msg_113" formatted="false">"Профиль экспортирован"</string>
+    <string name="msg_114" formatted="false">"Импорт файла…"</string>
+    <string name="msg_115" formatted="false">"Не удалось прочитать формат изображения"</string>
+    <string name="msg_116" formatted="false">"Не удалось прочитать файл шрифта"</string>
+    <string name="msg_117" formatted="false">"Неизвестная операция с файлом"</string>
+    <string name="msg_118" formatted="false">"Импортировано"</string>
+    <string name="msg_119" formatted="false">"Предпросмотр"</string>
+    <string name="msg_120" formatted="false">"Тон · выберите насыщенность и яркость в квадрате"</string>
+    <string name="msg_121" formatted="false">"Применить"</string>
+    <string name="msg_122" formatted="false">"Введите #RRGGBB"</string>
+    <string name="msg_123" formatted="false">"Цветовой квадрат: насыщенность по горизонтали, яркость по вертикали"</string>
+    <string name="msg_124" formatted="false">"Управление задним экраном"</string>
+    <string name="msg_125" formatted="false">"Запуск управления задним экраном…"</string>
+    <string name="msg_126" formatted="false">"Ожидание блокировки основного экрана"</string>
+    <string name="msg_127" formatted="false">"Наблюдение приостановлено"</string>
+    <string name="msg_128" formatted="false">"Ручной показ запущен; наблюдение остановлено"</string>
+    <string name="msg_129" formatted="false">"Показ активен · "</string>
+    <string name="msg_130" formatted="false">"Контроль условия блокировки"</string>
+    <string name="msg_131" formatted="false">"Ручной показ прерван · запустите снова или дождитесь следующей блокировки"</string>
+    <string name="msg_132" formatted="false">"Ручной режим; наблюдение остановлено"</string>
+    <string name="msg_133" formatted="false">"Задним экраном управляет другое приложение · запустите показ для перехвата"</string>
+    <string name="msg_134" formatted="false">"Ручной запуск не удался после нескольких попыток"</string>
+    <string name="msg_135" formatted="false">"Запрошено включение заднего экрана…"</string>
+    <string name="msg_136" formatted="false">"Включение: "</string>
+    <string name="msg_137" formatted="false">"Запрошен запуск Activity на заднем экране · состояние экрана "</string>
+    <string name="msg_138" formatted="false">"неизвестно/приватный"</string>
+    <string name="msg_139" formatted="false">"Запуск Activity: "</string>
+    <string name="msg_140" formatted="false">"Запуск через производителя выполнен без подтверждения Activity; задний экран отсутствует в списке"</string>
+    <string name="msg_141" formatted="false">"Экран включён, но наша Activity не появилась"</string>
+    <string name="msg_142" formatted="false">"Запуск через производителя выполнен без видимой Activity; состояние экрана "</string>
+    <string name="msg_143" formatted="false">" · повторная попытка не ранее чем через "</string>
+    <string name="msg_144" formatted="false">"Поддерживать показ"</string>
+    <string name="msg_145" formatted="false">"Возобновить"</string>
+    <string name="msg_146" formatted="false">"Приостановить"</string>
+    <string name="msg_147" formatted="false">"Остановить"</string>
+    <string name="msg_148" formatted="false">"Показ скрыт"</string>
+    <string name="msg_149" formatted="false">"Наблюдение остановлено"</string>
+    <string name="msg_150" formatted="false">"Не удалось запустить службу: "</string>
+    <string name="msg_151" formatted="false">"Запуск не удался: целевой экран "</string>
+    <string name="msg_152" formatted="false">", фактический экран "</string>
+    <string name="msg_153" formatted="false">"Показ на экране "</string>
+    <string name="msg_154" formatted="false">"Целевой экран или режим работы не соответствует текущей Activity."</string>
+    <string name="msg_155" formatted="false">"Видно на экране "</string>
+    <string name="msg_156" formatted="false">"Показ перекрыт или в фоне (экран "</string>
+    <string name="msg_157" formatted="false">"Показ завершён"</string>
+    <string name="msg_158" formatted="false">"Процесс HTML завершён. Выберите дизайн заново или переключитесь на встроенные часы."</string>
+    <string name="msg_159" formatted="false">"HTML-дизайн: "</string>
+    <string name="msg_160" formatted="false">"Данные HTML: "</string>
+    <string name="msg_161" formatted="false">"Неверный ID профиля"</string>
+    <string name="msg_162" formatted="false">"Не удалось сохранить профиль"</string>
+    <string name="msg_163" formatted="false">"Профиль отсутствует"</string>
+    <string name="msg_164" formatted="false">"Путь вне папки дизайна"</string>
+    <string name="msg_165" formatted="false">"Файл недоступен для чтения"</string>
+    <string name="msg_166" formatted="false">"ZIP должен содержать index.html в корне или ровно один index.html в подпапке"</string>
+    <string name="msg_167" formatted="false">"Имена папок index.html: буквы, цифры, _ и -"</string>
+    <string name="msg_168" formatted="false">"HTML превышает 1 MiB"</string>
+    <string name="msg_169" formatted="false">"Неизвестный формат профиля"</string>
+    <string name="msg_170" formatted="false">"HTML-дизайн должен находиться в отдельной подпапке"</string>
+    <string name="msg_171" formatted="false">"Профиль ссылается на отсутствующие файлы"</string>
+    <string name="msg_172" formatted="false">"У HTML-профиля нет дизайна"</string>
+    <string name="msg_173" formatted="false">"Импорт профиля: "</string>
+    <string name="msg_174" formatted="false">"Запись в целевую папку невозможна"</string>
+    <string name="msg_175" formatted="false">"Файл/дизайн слишком большой (макс. "</string>
+    <string name="msg_176" formatted="false">"Слишком много записей ZIP (макс. "</string>
+    <string name="msg_177" formatted="false">"Неверный или слишком длинный путь ZIP"</string>
+    <string name="msg_178" formatted="false">"Неверный или повторяющийся путь ZIP"</string>
+    <string name="msg_179" formatted="false">"Масштабирование изображения"</string>
+</resources>

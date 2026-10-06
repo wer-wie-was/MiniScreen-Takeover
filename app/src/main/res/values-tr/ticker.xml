@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ticker_section" formatted="false">"Bildirim bandı"</string>
+    <string name="ticker_enabled" formatted="false">"Bildirim bandını etkinleştir"</string>
+    <string name="ticker_access_yes" formatted="false">"Bildirim erişimi verildi"</string>
+    <string name="ticker_access_no" formatted="false">"Bildirim erişimi verilmedi"</string>
+    <string name="ticker_access" formatted="false">"Bildirim erişimi ver"</string>
+    <string name="ticker_apps" formatted="false">"Uygulamaları seç"</string>
+    <string name="ticker_privacy_locked" formatted="false">"Kilitliyken içerik"</string>
+    <string name="ticker_privacy_unlocked" formatted="false">"Kilit açıkken içerik"</string>
+    <string name="ticker_per_app" formatted="false">"Uygulama başına gizlilik"</string>
+    <string name="ticker_privacy_help" formatted="false">"Başlık göndereni içerebilir. İçerik yalnız bellekte tutulur; profillere, dışa aktarıma ve tanılamaya eklenmez. Android hassas içeriği gizleyebilir."</string>
+    <string name="ticker_only_locked" formatted="false">"Yalnız kilitliyken göster"</string>
+    <string name="ticker_ongoing" formatted="false">"Kalıcı bildirimleri dahil et"</string>
+    <string name="ticker_groups" formatted="false">"Grup özetlerini dahil et"</string>
+    <string name="ticker_reminder" formatted="false">"Hatırlatma modu"</string>
+    <string name="ticker_once" formatted="false">"Bir kez"</string>
+    <string name="ticker_until_unlock" formatted="false">"Kilit açılana kadar"</string>
+    <string name="ticker_until_removed" formatted="false">"Bildirim mevcut olduğu sürece"</string>
+    <string name="ticker_time_limit" formatted="false">"Süre sınırlı"</string>
+    <string name="ticker_interval" formatted="false">"Tekrar arası (saniye)"</string>
+    <string name="ticker_limit" formatted="false">"Süre sınırı (dakika)"</string>
+    <string name="ticker_duration" formatted="false">"Gösterim süresi (saniye)"</string>
+    <string name="ticker_pause" formatted="false">"Mesajlar arası (saniye)"</string>
+    <string name="ticker_scroll" formatted="false">"Kayan metin"</string>
+    <string name="ticker_speed" formatted="false">"Kayma hızı (340 px için px/sn)"</string>
+    <string name="ticker_lines" formatted="false">"Sabit kart satırları"</string>
+    <string name="ticker_size" formatted="false">"Yazı boyutu (340 px için)"</string>
+    <string name="ticker_profile_font" formatted="false">"İçe aktarılan dahil profil yazı tipi"</string>
+    <string name="ticker_color" formatted="false">"Metin rengi"</string>
+    <string name="ticker_background" formatted="false">"Bant arka planı"</string>
+    <string name="ticker_opacity" formatted="false">"Arka plan opaklığı (%)"</string>
+    <string name="ticker_width" formatted="false">"Genişlik (%)"</string>
+    <string name="ticker_x" formatted="false">"X konumu (%)"</string>
+    <string name="ticker_y" formatted="false">"Y konumu (%)"</string>
+    <string name="ticker_icon" formatted="false">"Uygulama simgesini göster"</string>
+    <string name="ticker_icon_size" formatted="false">"Simge boyutu (340 px için)"</string>
+    <string name="ticker_clock" formatted="false">"Bildirim sırasında saat"</string>
+    <string name="ticker_clock_keep" formatted="false">"Görünür tut"</string>
+    <string name="ticker_clock_dim" formatted="false">"Karart"</string>
+    <string name="ticker_clock_hide" formatted="false">"Geçici olarak gizle"</string>
+    <string name="ticker_html" formatted="false">"Bildirimleri HTML tasarımı gösterir"</string>
+    <string name="ticker_preview" formatted="false">"Örnek bildirim önizlemesi"</string>
+    <string name="ticker_clear" formatted="false">"Bildirim kuyruğunu temizle"</string>
+    <string name="ticker_help" formatted="false">"Elle kapatma ve zamanlama önceliklidir. Kilit açılması yalnız bant hatırlatmalarını bitirir; Android bildirimleri kalır. Kaldırılan bildirimler tekrarlanmaz. Bellekteki kuyruk süreç yeniden başladığında kaybolur. HTML yalnız etkinse filtrelenmiş veri alır ve bunu göstermelidir. Ayarlar bu cihaza aittir, profillerle dışa aktarılmaz."</string>
+    <string name="ticker_private" formatted="false">"Yalnız simge ve sayı"</string>
+    <string name="ticker_app_name" formatted="false">"Yalnız uygulama adı"</string>
+    <string name="ticker_title" formatted="false">"Uygulama ve başlık"</string>
+    <string name="ticker_full" formatted="false">"Uygulama, başlık ve mesaj"</string>
+    <string name="ticker_inherit" formatted="false">"Genel ayarı kullan"</string>
+    <string name="ticker_new" formatted="false">"yeni bildirim"</string>
+    <string name="ticker_demo_text" formatted="false">"MiniScreen Takeover · Örnek: arka ekranınız hazır."</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="window_mode" formatted="false">"Vetrina"</string>
+    <string name="window_zoom" formatted="false">"Zoom vetrina (%)"</string>
+    <string name="window_speed" formatted="false">"Vetrina: secondi per spostamento"</string>
+    <string name="window_moving" formatted="false">"Attiva movimento vetrina"</string>
+    <string name="window_help" formatted="false">"La vetrina sposta dolcemente un’immagine ingrandita tra posizioni casuali. Più zoom mostra una porzione minore. Più secondi rallentano il movimento. Il filtro di oscuramento resta attivo."</string>
+    <string name="external_section" formatted="false">"Altra app"</string>
+    <string name="external_none" formatted="false">"Nessuna app selezionata"</string>
+    <string name="external_choose" formatted="false">"Scegli app"</string>
+    <string name="external_empty" formatted="false">"Nessuna app avviabile trovata"</string>
+    <string name="external_start" formatted="false">"Avvia app selezionata sullo schermo posteriore"</string>
+    <string name="external_return" formatted="false">"Mostra di nuovo MiniScreen Takeover"</string>
+    <string name="external_unavailable" formatted="false">"Seleziona un’app disponibile"</string>
+    <string name="external_requested" formatted="false">"Avvio richiesto. Controlla lo schermo posteriore; il nostro monitoraggio resta sospeso."</string>
+    <string name="external_failed" formatted="false">"Avvio app fallito: "</string>
+    <string name="external_help" formatted="false">"Il meccanismo del produttore tenta di avviare l’app sullo schermo 1. Alcune app rifiutano o passano allo schermo principale. Il nostro schermo si chiude e il monitoraggio si sospende senza scadenza. “Mostra di nuovo MiniScreen Takeover” riprende il controllo."</string>
+    <string name="charge_section" formatted="false">"Indicatore di ricarica"</string>
+    <string name="charge_enabled" formatted="false">"Mostra indicatore con alimentazione collegata"</string>
+    <string name="charge_display" formatted="false">"Aspetto"</string>
+    <string name="charge_icon" formatted="false">"Icona batteria con percentuale"</string>
+    <string name="charge_icon_circle" formatted="false">"Icona, percentuale e cerchio"</string>
+    <string name="charge_preview" formatted="false">"Solo anteprima: simula alimentazione al 65%"</string>
+    <string name="charge_text_color" formatted="false">"Colore percentuale"</string>
+    <string name="charge_symbol_color" formatted="false">"Colore icona batteria"</string>
+    <string name="charge_size" formatted="false">"Dimensione testo ricarica (a 340 px)"</string>
+    <string name="charge_font" formatted="false">"Carattere percentuale"</string>
+    <string name="charge_x" formatted="false">"Posizione X indicatore (%)"</string>
+    <string name="charge_y" formatted="false">"Posizione Y indicatore (%)"</string>
+    <string name="charge_ring_color" formatted="false">"Colore cerchio di ricarica"</string>
+    <string name="charge_ring_width" formatted="false">"Spessore cerchio (a 340 px)"</string>
+    <string name="charge_ring_style" formatted="false">"Movimento cerchio"</string>
+    <string name="charge_static" formatted="false">"Statico"</string>
+    <string name="charge_animated" formatted="false">"Accento luminoso animato"</string>
+    <string name="charge_animation_speed" formatted="false">"Secondi per ciclo di animazione"</string>
+    <string name="charge_help" formatted="false">"L’indicatore appare solo con alimentazione collegata, anche al 100%. L’arco indica il livello batteria. Gli elementi seguono il pixel shifting e si sovrappongono a orologio nativo e HTML. La simulazione non modifica lo schermo posteriore."</string>
+    <string name="web_load_failed" formatted="false">"Impossibile caricare HTML: "</string>
+</resources>

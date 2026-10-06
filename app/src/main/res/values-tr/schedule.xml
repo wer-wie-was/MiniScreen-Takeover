@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="power_button" formatted="false">"Arka ekranı kapat"</string>
+    <string name="power_intentional" formatted="false">"Bilerek kapatıldı; otomatik geri yükleme engellendi"</string>
+    <string name="power_requested" formatted="false">"Kapatma komutu gönderildi"</string>
+    <string name="power_confirmed" formatted="false">"Arka ekranın kapalı olduğu doğrulandı"</string>
+    <string name="power_unknown" formatted="false">"Kapatma komutu gönderildi; durum bilinmiyor/özel – arka ekranı kontrol edin"</string>
+    <string name="power_unconfirmed" formatted="false">"Kapatma komutu gönderildi; kapalı durumu henüz doğrulanmadı"</string>
+    <string name="power_failed" formatted="false">"Kapatma başarısız: "</string>
+    <string name="schedule_section" formatted="false">"Zamanlama"</string>
+    <string name="schedule_enable" formatted="false">"Zamanlamayı etkinleştir"</string>
+    <string name="schedule_on" formatted="false">"Açılma saati: "</string>
+    <string name="schedule_off" formatted="false">"Kapanma saati: "</string>
+    <string name="schedule_days" formatted="false">"Haftanın günlerini seç"</string>
+    <string name="day_mon" formatted="false">"Pazartesi"</string>
+    <string name="day_tue" formatted="false">"Salı"</string>
+    <string name="day_wed" formatted="false">"Çarşamba"</string>
+    <string name="day_thu" formatted="false">"Perşembe"</string>
+    <string name="day_fri" formatted="false">"Cuma"</string>
+    <string name="day_sat" formatted="false">"Cumartesi"</string>
+    <string name="day_sun" formatted="false">"Pazar"</string>
+    <string name="schedule_permission" formatted="false">"“Alarmlar ve hatırlatıcılar” erişimini aç"</string>
+    <string name="schedule_invalid" formatted="false">"En az bir gün ve farklı açılma/kapanma saatleri seçin"</string>
+    <string name="schedule_active" formatted="false">"Zamanlama etkin"</string>
+    <string name="schedule_disabled" formatted="false">"Zamanlama kapalı"</string>
+    <string name="schedule_exact" formatted="false">"Kesin zamanlama izinli"</string>
+    <string name="schedule_inexact" formatted="false">"Yaklaşık zamanlama – Android yürütmeyi geciktirebilir"</string>
+    <string name="schedule_next_on" formatted="false">"Sonraki açılma: "</string>
+    <string name="schedule_next_off" formatted="false">"Sonraki kapanma: "</string>
+    <string name="schedule_external" formatted="false">"Zamanlama askıda: arka ekranda başka uygulama"</string>
+    <string name="schedule_help" formatted="false">"Seçilen başlangıç günü başına bir aralık; gece yarısını geçebilir. “Kapat” sonraki planlı açılmaya kadar geçerlidir. “Göster” sonraki kapanmaya kadar hemen devralır. Duraklamalar ve başka uygulamalar zamanlamayı askıya alır. “Gizle ve izlemeyi durdur” zamanlamayı da kapatır. Etkin zamanlama yeniden başlatma sonrası ilk kilit açmada geri yüklenir."</string>
+    <string name="return_option" formatted="false">"Dönüşte diğer uygulamayı ana ekranda aç"</string>
+    <string name="return_requested" formatted="false">"Ekran 0’da başlatma istendi; mevcut etkinlik geri getirilebilir"</string>
+    <string name="return_failed" formatted="false">"Ana ekrana dönüş başarısız: "</string>
+    <string name="return_help" formatted="false">"İsteğe bağlı olarak seçili uygulama önce Ekran 0’da açılır, ardından kontrollerimiz öne gelir ve Takeover başlar. Android yeni bir örnek açabilir. Diğer uygulama arka planda kalır; zorla kapatılmaz."</string>
+</resources>

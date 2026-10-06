@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_progress" formatted="false">"Шаг"</string>
+    <string name="onboarding_background_title" formatted="false">"Разрешить работу в фоне"</string>
+    <string name="onboarding_background_body" formatted="false">"Откройте настройки Android → Performance Management (ранее DuraSpeed). Включите MiniScreen Takeover в списке приложений. Иначе система может завершить приложение через несколько минут в фоне. Изменение выполняется вручную."</string>
+    <string name="onboarding_open_settings" formatted="false">"Открыть настройки"</string>
+    <string name="onboarding_manual" formatted="false">"Это ваше подтверждение. Приложение не может автоматически проверить настройки производителя."</string>
+    <string name="onboarding_background_confirm" formatted="false">"Я включил MiniScreen Takeover в Performance Management."</string>
+    <string name="onboarding_miniscreen_title" formatted="false">"Подготовить задний экран"</string>
+    <string name="onboarding_miniscreen_body" formatted="false">"Откройте настройки Miniscreen / Subscreen производителя и примените настройки ниже. Английские названия помогут найти пункты."</string>
+    <string name="onboarding_off" formatted="false">"Выключено"</string>
+    <string name="onboarding_other_switches" formatted="false">"Выключите все остальные переключатели, включая настройки звонков и уведомлений."</string>
+    <string name="onboarding_music" formatted="false">"Исключение: переключатель музыкального плеера можно оставить включённым."</string>
+    <string name="onboarding_scroll" formatted="false">"Прокрутите до конца и проверьте все разделы. Подсветка настраивается отдельно."</string>
+    <string name="onboarding_open_miniscreen" formatted="false">"Открыть настройки Miniscreen"</string>
+    <string name="onboarding_settings_fallback" formatted="false">"Откройте соответствующий раздел вручную в настройках Android."</string>
+    <string name="onboarding_miniscreen_confirm" formatted="false">"Я настроил все параметры Miniscreen по инструкции."</string>
+    <string name="onboarding_final_title" formatted="false">"Язык и необязательные уведомления"</string>
+    <string name="onboarding_notifications" formatted="false">"Доступ к уведомлениям нужен только для показа на заднем экране. Разрешение не включает строку и не выбирает приложения. Настроить можно позже."</string>
+    <string name="onboarding_finish" formatted="false">"Завершить настройку"</string>
+    <string name="onboarding_back" formatted="false">"Назад"</string>
+    <string name="onboarding_next" formatted="false">"Далее"</string>
+    <string name="onboarding_reopen" formatted="false">"Открыть настройку повторно"</string>
+    <string name="onboarding_language_title" formatted="false">"Выберите язык"</string>
+    <string name="onboarding_restricted_title" formatted="false">"Разрешить ограниченные настройки"</string>
+    <string name="onboarding_restricted_body" formatted="false">"Откройте информацию о MiniScreen Takeover. В меню с тремя точками сверху выберите «Разрешить ограниченные настройки». При необходимости подтвердите PIN-кодом или отпечатком. Вернитесь сюда и при желании разрешите доступ к уведомлениям ниже. Это отдельные разрешения. Если пункта нет, сначала попробуйте разрешить доступ к уведомлениям, затем снова проверьте информацию о приложении."</string>
+    <string name="onboarding_app_details" formatted="false">"Открыть информацию о приложении"</string>
+</resources>

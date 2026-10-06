@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="window_mode" formatted="false">"Schaufenster"</string>
+    <string name="window_zoom" formatted="false">"Schaufenster-Zoom (%)"</string>
+    <string name="window_speed" formatted="false">"Schaufenster: Sekunden pro Bewegungsabschnitt"</string>
+    <string name="window_moving" formatted="false">"Schaufenster-Bewegung aktiv"</string>
+    <string name="window_help" formatted="false">"Schaufenster bewegt ein vergrößertes Bild weich zwischen Zufallspositionen. Mehr Zoom zeigt einen kleineren Ausschnitt. Mehr Sekunden bedeutet langsamere Bewegung. Der Abdunklungsfilter bleibt aktiv."</string>
+    <string name="external_section" formatted="false">"Andere App"</string>
+    <string name="external_none" formatted="false">"Noch keine App ausgewählt"</string>
+    <string name="external_choose" formatted="false">"App auswählen"</string>
+    <string name="external_empty" formatted="false">"Keine startbaren Apps gefunden"</string>
+    <string name="external_start" formatted="false">"Gewählte App auf Rückdisplay starten"</string>
+    <string name="external_return" formatted="false">"MiniScreen Takeover wieder anzeigen"</string>
+    <string name="external_unavailable" formatted="false">"Bitte eine verfügbare App auswählen"</string>
+    <string name="external_requested" formatted="false">"Start angefordert. Rückdisplay prüfen; unsere Überwachung bleibt pausiert."</string>
+    <string name="external_failed" formatted="false">"App-Start fehlgeschlagen: "</string>
+    <string name="external_help" formatted="false">"Der Hersteller-Aufruf versucht die gewählte App auf Screen 1 zu starten. Manche Apps verhindern das oder wechseln auf den Hauptbildschirm. Unsere Anzeige wird geschlossen und die Überwachung unbefristet pausiert. „MiniScreen Takeover wieder anzeigen“ übernimmt erneut."</string>
+    <string name="charge_section" formatted="false">"Ladeanzeige"</string>
+    <string name="charge_enabled" formatted="false">"Ladeanzeige bei angeschlossener Stromversorgung"</string>
+    <string name="charge_display" formatted="false">"Darstellung"</string>
+    <string name="charge_icon" formatted="false">"Akkusymbol mit Prozentwert"</string>
+    <string name="charge_icon_circle" formatted="false">"Akkusymbol, Prozentwert und Rahmenkreis"</string>
+    <string name="charge_preview" formatted="false">"Nur Vorschau: Ladekabel mit 65 % simulieren"</string>
+    <string name="charge_text_color" formatted="false">"Farbe des Prozentwerts"</string>
+    <string name="charge_symbol_color" formatted="false">"Farbe des Akkusymbols"</string>
+    <string name="charge_size" formatted="false">"Ladeanzeige: Schriftgröße (bei 340 px)"</string>
+    <string name="charge_font" formatted="false">"Schriftart des Prozentwerts"</string>
+    <string name="charge_x" formatted="false">"Ladeanzeige X (%)"</string>
+    <string name="charge_y" formatted="false">"Ladeanzeige Y (%)"</string>
+    <string name="charge_ring_color" formatted="false">"Farbe des Ladekreises"</string>
+    <string name="charge_ring_width" formatted="false">"Strichstärke des Ladekreises (bei 340 px)"</string>
+    <string name="charge_ring_style" formatted="false">"Ladekreis-Bewegung"</string>
+    <string name="charge_static" formatted="false">"Statisch"</string>
+    <string name="charge_animated" formatted="false">"Animierter Lichtakzent"</string>
+    <string name="charge_animation_speed" formatted="false">"Sekunden pro Animationszyklus"</string>
+    <string name="charge_help" formatted="false">"Die Anzeige erscheint nur bei angeschlossener Stromversorgung, auch bei 100 %. Der Kreis zeigt den Akkustand als Bogen. Alle Elemente folgen dem Pixelshift und liegen über nativer Uhr und HTML. Die Vorschau-Simulation beeinflusst das Rückdisplay nicht."</string>
+    <string name="web_load_failed" formatted="false">"HTML konnte nicht geladen werden: "</string>
+</resources>

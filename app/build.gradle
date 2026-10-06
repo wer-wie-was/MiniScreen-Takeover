@@ -1,0 +1,13 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'com.miniscreen.takeover'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'com.miniscreen.takeover'
+        minSdk 26
+        targetSdk 34
+        versionCode 14
+        versionName '0.2.2'
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="window_mode" formatted="false">"Vitrine"</string>
+    <string name="window_zoom" formatted="false">"Zoom de la vitrine (%)"</string>
+    <string name="window_speed" formatted="false">"Vitrine : secondes par déplacement"</string>
+    <string name="window_moving" formatted="false">"Activer le mouvement de la vitrine"</string>
+    <string name="window_help" formatted="false">"La vitrine déplace doucement une image agrandie entre des positions aléatoires. Plus de zoom réduit la zone visible. Plus de secondes ralentit le mouvement. Le filtre d’assombrissement reste actif."</string>
+    <string name="external_section" formatted="false">"Autre application"</string>
+    <string name="external_none" formatted="false">"Aucune application sélectionnée"</string>
+    <string name="external_choose" formatted="false">"Choisir une application"</string>
+    <string name="external_empty" formatted="false">"Aucune application lançable trouvée"</string>
+    <string name="external_start" formatted="false">"Lancer l’application sur l’écran arrière"</string>
+    <string name="external_return" formatted="false">"Réafficher MiniScreen Takeover"</string>
+    <string name="external_unavailable" formatted="false">"Sélectionnez une application disponible"</string>
+    <string name="external_requested" formatted="false">"Démarrage demandé. Vérifiez l’écran arrière ; notre surveillance reste en pause."</string>
+    <string name="external_failed" formatted="false">"Échec du démarrage de l’application : "</string>
+    <string name="external_help" formatted="false">"Le mécanisme du fabricant tente de lancer l’application sur l’écran 1. Certaines refusent ou passent à l’écran principal. Notre affichage se ferme et la surveillance est suspendue sans limite. « Réafficher MiniScreen Takeover » reprend le contrôle."</string>
+    <string name="charge_section" formatted="false">"Indicateur de charge"</string>
+    <string name="charge_enabled" formatted="false">"Afficher l’indicateur quand l’alimentation est branchée"</string>
+    <string name="charge_display" formatted="false">"Affichage"</string>
+    <string name="charge_icon" formatted="false">"Icône de batterie avec pourcentage"</string>
+    <string name="charge_icon_circle" formatted="false">"Icône, pourcentage et cercle"</string>
+    <string name="charge_preview" formatted="false">"Aperçu seul : simuler une charge à 65 %"</string>
+    <string name="charge_text_color" formatted="false">"Couleur du pourcentage"</string>
+    <string name="charge_symbol_color" formatted="false">"Couleur de l’icône"</string>
+    <string name="charge_size" formatted="false">"Taille du texte de charge (à 340 px)"</string>
+    <string name="charge_font" formatted="false">"Police du pourcentage"</string>
+    <string name="charge_x" formatted="false">"Position X de charge (%)"</string>
+    <string name="charge_y" formatted="false">"Position Y de charge (%)"</string>
+    <string name="charge_ring_color" formatted="false">"Couleur du cercle de charge"</string>
+    <string name="charge_ring_width" formatted="false">"Épaisseur du cercle (à 340 px)"</string>
+    <string name="charge_ring_style" formatted="false">"Mouvement du cercle"</string>
+    <string name="charge_static" formatted="false">"Statique"</string>
+    <string name="charge_animated" formatted="false">"Accent lumineux animé"</string>
+    <string name="charge_animation_speed" formatted="false">"Secondes par cycle d’animation"</string>
+    <string name="charge_help" formatted="false">"L’indicateur apparaît seulement quand l’alimentation est branchée, même à 100 %. L’arc montre le niveau de batterie. Les éléments suivent le décalage des pixels et recouvrent horloge native et HTML. La simulation d’aperçu n’affecte pas l’écran arrière."</string>
+    <string name="web_load_failed" formatted="false">"Impossible de charger le HTML : "</string>
+</resources>

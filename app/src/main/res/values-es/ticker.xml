@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ticker_section" formatted="false">"Ticker de notificaciones"</string>
+    <string name="ticker_enabled" formatted="false">"Activar ticker"</string>
+    <string name="ticker_access_yes" formatted="false">"Acceso a notificaciones concedido"</string>
+    <string name="ticker_access_no" formatted="false">"Acceso a notificaciones no concedido"</string>
+    <string name="ticker_access" formatted="false">"Conceder acceso a notificaciones"</string>
+    <string name="ticker_apps" formatted="false">"Seleccionar aplicaciones"</string>
+    <string name="ticker_privacy_locked" formatted="false">"Contenido al estar bloqueado"</string>
+    <string name="ticker_privacy_unlocked" formatted="false">"Contenido al estar desbloqueado"</string>
+    <string name="ticker_per_app" formatted="false">"Privacidad por aplicación"</string>
+    <string name="ticker_privacy_help" formatted="false">"El título puede incluir al remitente. Contenido solo en memoria; excluido de perfiles, exportaciones y diagnósticos. Android puede ocultar contenido sensible."</string>
+    <string name="ticker_only_locked" formatted="false">"Mostrar solo al estar bloqueado"</string>
+    <string name="ticker_ongoing" formatted="false">"Incluir notificaciones permanentes"</string>
+    <string name="ticker_groups" formatted="false">"Incluir resúmenes de grupos"</string>
+    <string name="ticker_reminder" formatted="false">"Modo de recordatorio"</string>
+    <string name="ticker_once" formatted="false">"Una vez"</string>
+    <string name="ticker_until_unlock" formatted="false">"Hasta desbloquear"</string>
+    <string name="ticker_until_removed" formatted="false">"Mientras exista la notificación"</string>
+    <string name="ticker_time_limit" formatted="false">"Con límite de tiempo"</string>
+    <string name="ticker_interval" formatted="false">"Pausa de repetición (segundos)"</string>
+    <string name="ticker_limit" formatted="false">"Límite de tiempo (minutos)"</string>
+    <string name="ticker_duration" formatted="false">"Duración (segundos)"</string>
+    <string name="ticker_pause" formatted="false">"Pausa entre mensajes (segundos)"</string>
+    <string name="ticker_scroll" formatted="false">"Texto desplazable"</string>
+    <string name="ticker_speed" formatted="false">"Velocidad (px/s a 340 px)"</string>
+    <string name="ticker_lines" formatted="false">"Líneas de tarjeta estática"</string>
+    <string name="ticker_size" formatted="false">"Tamaño de letra (a 340 px)"</string>
+    <string name="ticker_profile_font" formatted="false">"Fuente del perfil, incluida la importada"</string>
+    <string name="ticker_color" formatted="false">"Color del texto"</string>
+    <string name="ticker_background" formatted="false">"Fondo del ticker"</string>
+    <string name="ticker_opacity" formatted="false">"Opacidad del fondo (%)"</string>
+    <string name="ticker_width" formatted="false">"Ancho (%)"</string>
+    <string name="ticker_x" formatted="false">"Posición X (%)"</string>
+    <string name="ticker_y" formatted="false">"Posición Y (%)"</string>
+    <string name="ticker_icon" formatted="false">"Mostrar icono de aplicación"</string>
+    <string name="ticker_icon_size" formatted="false">"Tamaño del icono (a 340 px)"</string>
+    <string name="ticker_clock" formatted="false">"Reloj durante una notificación"</string>
+    <string name="ticker_clock_keep" formatted="false">"Mantener visible"</string>
+    <string name="ticker_clock_dim" formatted="false">"Atenuar"</string>
+    <string name="ticker_clock_hide" formatted="false">"Ocultar temporalmente"</string>
+    <string name="ticker_html" formatted="false">"El diseño HTML muestra las notificaciones"</string>
+    <string name="ticker_preview" formatted="false">"Vista previa de notificación de ejemplo"</string>
+    <string name="ticker_clear" formatted="false">"Vaciar cola del ticker"</string>
+    <string name="ticker_help" formatted="false">"El apagado manual y el horario tienen prioridad. Desbloquear solo detiene los recordatorios; las notificaciones Android permanecen. Las eliminadas no se repiten. La cola se pierde al reiniciar el proceso. HTML recibe datos filtrados solo si se activa y debe mostrarlos. Ajustes locales, excluidos de perfiles exportados."</string>
+    <string name="ticker_private" formatted="false">"Solo icono y cantidad"</string>
+    <string name="ticker_app_name" formatted="false">"Solo nombre de aplicación"</string>
+    <string name="ticker_title" formatted="false">"Aplicación y título"</string>
+    <string name="ticker_full" formatted="false">"Aplicación, título y mensaje"</string>
+    <string name="ticker_inherit" formatted="false">"Usar ajuste global"</string>
+    <string name="ticker_new" formatted="false">"nueva notificación"</string>
+    <string name="ticker_demo_text" formatted="false">"MiniScreen Takeover · Ejemplo: la pantalla trasera está lista."</string>
+</resources>

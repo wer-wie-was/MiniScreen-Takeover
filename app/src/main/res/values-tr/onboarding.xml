@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_progress" formatted="false">"Adım"</string>
+    <string name="onboarding_background_title" formatted="false">"Arka planda çalışmaya izin ver"</string>
+    <string name="onboarding_background_body" formatted="false">"Android ayarları → Performance Management (önceden DuraSpeed) bölümünü açın. Listede MiniScreen Takeover’ı etkinleştirin. Aksi halde sistem uygulamayı arka planda birkaç dakika sonra kapatabilir. Bu değişikliği elle yapmalısınız."</string>
+    <string name="onboarding_open_settings" formatted="false">"Ayarları aç"</string>
+    <string name="onboarding_manual" formatted="false">"Bu sizin onayınızdır. Uygulama üretici ayarlarını otomatik doğrulayamaz."</string>
+    <string name="onboarding_background_confirm" formatted="false">"MiniScreen Takeover’ı Performance Management içinde etkinleştirdim."</string>
+    <string name="onboarding_miniscreen_title" formatted="false">"Arka ekranı hazırlayın"</string>
+    <string name="onboarding_miniscreen_body" formatted="false">"Üreticinin Miniscreen / Subscreen ayarlarını açıp aşağıdaki ayarları uygulayın. İngilizce adlar seçenekleri bulmanıza yardımcı olur."</string>
+    <string name="onboarding_off" formatted="false">"Kapalı"</string>
+    <string name="onboarding_other_switches" formatted="false">"Arama ve bildirim seçenekleri dahil diğer tüm anahtarları kapatın."</string>
+    <string name="onboarding_music" formatted="false">"İstisna: müzik çalar anahtarı açık kalabilir."</string>
+    <string name="onboarding_scroll" formatted="false">"En alta kaydırıp tüm bölümleri kontrol edin. Arka ışık ayrı ayarlanabilir."</string>
+    <string name="onboarding_open_miniscreen" formatted="false">"Miniscreen ayarlarını aç"</string>
+    <string name="onboarding_settings_fallback" formatted="false">"İlgili sayfayı Android ayarlarından elle açın."</string>
+    <string name="onboarding_miniscreen_confirm" formatted="false">"Tüm Miniscreen ayarlarını belirtildiği gibi düzenledim."</string>
+    <string name="onboarding_final_title" formatted="false">"Dil ve isteğe bağlı bildirimler"</string>
+    <string name="onboarding_notifications" formatted="false">"Bildirim erişimi yalnız arka ekranda bildirim göstermek için gereklidir. İzin vermek bandı etkinleştirmez veya uygulama seçmez. Daha sonra da ayarlayabilirsiniz."</string>
+    <string name="onboarding_finish" formatted="false">"Kurulumu tamamla"</string>
+    <string name="onboarding_back" formatted="false">"Geri"</string>
+    <string name="onboarding_next" formatted="false">"İleri"</string>
+    <string name="onboarding_reopen" formatted="false">"Kurulumu yeniden aç"</string>
+    <string name="onboarding_language_title" formatted="false">"Dili seçin"</string>
+    <string name="onboarding_restricted_title" formatted="false">"Kısıtlı ayarlara izin ver"</string>
+    <string name="onboarding_restricted_body" formatted="false">"MiniScreen Takeover uygulama bilgilerini açın. Üstteki üç nokta menüsünden “Kısıtlı ayarlara izin ver” seçeneğini seçin. İstenirse PIN veya parmak iziyle onaylayın. Buraya dönüp aşağıdan isteğe bağlı bildirim erişimi verin. Bunlar ayrı izinlerdir. Seçenek yoksa önce bildirim erişimi vermeyi deneyin, ardından uygulama bilgilerini yeniden kontrol edin."</string>
+    <string name="onboarding_app_details" formatted="false">"Uygulama bilgilerini aç"</string>
+</resources>

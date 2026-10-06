@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="power_button" formatted="false">"Spegni schermo posteriore"</string>
+    <string name="power_intentional" formatted="false">"Spento volontariamente; ripristino automatico bloccato"</string>
+    <string name="power_requested" formatted="false">"Comando di spegnimento inviato"</string>
+    <string name="power_confirmed" formatted="false">"Schermo posteriore confermato spento"</string>
+    <string name="power_unknown" formatted="false">"Comando di spegnimento inviato; stato sconosciuto/privato – controlla lo schermo"</string>
+    <string name="power_unconfirmed" formatted="false">"Comando di spegnimento inviato; spegnimento non ancora confermato"</string>
+    <string name="power_failed" formatted="false">"Spegnimento fallito: "</string>
+    <string name="schedule_section" formatted="false">"Programmazione"</string>
+    <string name="schedule_enable" formatted="false">"Attiva programmazione"</string>
+    <string name="schedule_on" formatted="false">"Ora di accensione: "</string>
+    <string name="schedule_off" formatted="false">"Ora di spegnimento: "</string>
+    <string name="schedule_days" formatted="false">"Scegli giorni della settimana"</string>
+    <string name="day_mon" formatted="false">"Lunedì"</string>
+    <string name="day_tue" formatted="false">"Martedì"</string>
+    <string name="day_wed" formatted="false">"Mercoledì"</string>
+    <string name="day_thu" formatted="false">"Giovedì"</string>
+    <string name="day_fri" formatted="false">"Venerdì"</string>
+    <string name="day_sat" formatted="false">"Sabato"</string>
+    <string name="day_sun" formatted="false">"Domenica"</string>
+    <string name="schedule_permission" formatted="false">"Apri accesso “Sveglie e promemoria”"</string>
+    <string name="schedule_invalid" formatted="false">"Scegli almeno un giorno e orari diversi"</string>
+    <string name="schedule_active" formatted="false">"Programmazione attiva"</string>
+    <string name="schedule_disabled" formatted="false">"Programmazione disattivata"</string>
+    <string name="schedule_exact" formatted="false">"Orari precisi consentiti"</string>
+    <string name="schedule_inexact" formatted="false">"Orari approssimativi – Android può ritardare l’esecuzione"</string>
+    <string name="schedule_next_on" formatted="false">"Prossima accensione: "</string>
+    <string name="schedule_next_off" formatted="false">"Prossimo spegnimento: "</string>
+    <string name="schedule_external" formatted="false">"Programmazione sospesa: altra app sullo schermo posteriore"</string>
+    <string name="schedule_help" formatted="false">"Una fascia per giorno iniziale scelto, anche oltre mezzanotte. “Spegni” dura fino alla prossima accensione prevista. “Mostra” riprende subito fino al prossimo spegnimento. Pause e altre app sospendono la programmazione. “Nascondi e interrompi monitoraggio” disattiva anche il programma. Dopo riavvio si ripristina al primo sblocco."</string>
+    <string name="return_option" formatted="false">"Apri l’altra app sullo schermo principale al ritorno"</string>
+    <string name="return_requested" formatted="false">"Avvio sullo schermo 0 richiesto; l’attività esistente potrebbe essere riportata"</string>
+    <string name="return_failed" formatted="false">"Ritorno allo schermo principale fallito: "</string>
+    <string name="return_help" formatted="false">"Facoltativamente l’app scelta viene prima aperta sullo schermo 0, poi i nostri controlli tornano in primo piano e Takeover parte. Android può aprire una nuova istanza. L’altra app resta in background e non viene chiusa forzatamente."</string>
+</resources>

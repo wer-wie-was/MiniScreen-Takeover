@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_progress" formatted="false">"Step"</string>
+    <string name="onboarding_background_title" formatted="false">"Allow background operation"</string>
+    <string name="onboarding_background_body" formatted="false">"Open Android settings → Performance Management (formerly DuraSpeed). Enable MiniScreen Takeover in its app list. Otherwise the system may terminate the app after a few minutes in the background. You must make this change manually."</string>
+    <string name="onboarding_open_settings" formatted="false">"Open settings"</string>
+    <string name="onboarding_manual" formatted="false">"This is your confirmation. The app cannot automatically verify these manufacturer settings."</string>
+    <string name="onboarding_background_confirm" formatted="false">"I have enabled MiniScreen Takeover in Performance Management."</string>
+    <string name="onboarding_miniscreen_title" formatted="false">"Prepare the rear display"</string>
+    <string name="onboarding_miniscreen_body" formatted="false">"Open the manufacturer’s Miniscreen / Subscreen Settings and apply the following settings. The English names below help you find the options."</string>
+    <string name="onboarding_off" formatted="false">"Off"</string>
+    <string name="onboarding_other_switches" formatted="false">"Turn off every other switch, including call and notification options."</string>
+    <string name="onboarding_music" formatted="false">"Exception: the music player switch may stay on."</string>
+    <string name="onboarding_scroll" formatted="false">"Scroll to the bottom and check every section. Backlight level can be adjusted separately."</string>
+    <string name="onboarding_open_miniscreen" formatted="false">"Open Miniscreen settings"</string>
+    <string name="onboarding_settings_fallback" formatted="false">"Open the relevant page manually in Android settings."</string>
+    <string name="onboarding_miniscreen_confirm" formatted="false">"I have adjusted all Miniscreen settings as described."</string>
+    <string name="onboarding_final_title" formatted="false">"Language and optional notifications"</string>
+    <string name="onboarding_notifications" formatted="false">"Notification access is required only to show notifications on the rear display. Granting access does not enable the ticker or select apps. You can also set it up later."</string>
+    <string name="onboarding_finish" formatted="false">"Finish setup"</string>
+    <string name="onboarding_back" formatted="false">"Back"</string>
+    <string name="onboarding_next" formatted="false">"Next"</string>
+    <string name="onboarding_reopen" formatted="false">"Open setup again"</string>
+    <string name="onboarding_language_title" formatted="false">"Choose your language"</string>
+    <string name="onboarding_restricted_title" formatted="false">"Allow restricted settings"</string>
+    <string name="onboarding_restricted_body" formatted="false">"Open the app details for MiniScreen Takeover. In the three-dot menu at the top, select “Allow restricted settings”. Confirm with your PIN or fingerprint if requested. Then return here and optionally grant notification access below. This step allows restricted settings; notification access is granted separately. If the menu item is absent, try granting notification access first and check the app details again."</string>
+    <string name="onboarding_app_details" formatted="false">"Open app details"</string>
+</resources>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_000" formatted="false">"Sprache"</string>
+    <string name="msg_001" formatted="false">"App-Sprache"</string>
+    <string name="language_system" formatted="false">"Systemsprache"</string>
+    <string name="msg_003" formatted="false">"Steuerung"</string>
+    <string name="msg_004" formatted="false">"Design &amp; Profile"</string>
+    <string name="msg_005" formatted="false">"LIVE-VORSCHAU"</string>
+    <string name="msg_006" formatted="false">"Pixelshift-Rand"</string>
+    <string name="msg_007" formatted="false">"Dateivorgang läuft …"</string>
+    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.2.2 · schwingungscodiert"</string>
+    <string name="msg_009" formatted="false">", aufklappbarer Abschnitt"</string>
+    <string name="msg_010" formatted="false">"Noch keine Anzeige gestartet"</string>
+    <string name="msg_011" formatted="false">"▶ Auf Rückdisplay anzeigen"</string>
+    <string name="msg_012" formatted="false">"■ Ausblenden und Überwachung beenden"</string>
+    <string name="msg_013" formatted="false">"Überwachung startet beim Anzeigen"</string>
+    <string name="msg_014" formatted="false">"Betriebsart"</string>
+    <string name="msg_015" formatted="false">"Manuell"</string>
+    <string name="msg_016" formatted="false">"Anzeige erhalten (empfohlen)"</string>
+    <string name="msg_017" formatted="false">"Takeover erzwingen"</string>
+    <string name="msg_018" formatted="false">"Nur bei gesperrtem Hauptbildschirm aktiv"</string>
+    <string name="msg_019" formatted="false">"Nach Neustart / erstem Entsperren wiederherstellen"</string>
+    <string name="msg_020" formatted="false">"Kontrollprüfung (Sekunden; zusätzlich zu Ereignissen)"</string>
+    <string name="msg_021" formatted="false">"Überwachung pausieren …"</string>
+    <string name="msg_022" formatted="false">"Überwachung pausieren"</string>
+    <string name="msg_023" formatted="false">"Bis zum Fortsetzen"</string>
+    <string name="msg_024" formatted="false">"15 Minuten"</string>
+    <string name="msg_025" formatted="false">"1 Stunde"</string>
+    <string name="msg_026" formatted="false">"Überwachung fortsetzen"</string>
+    <string name="msg_027" formatted="false">"Benachrichtigungseinstellungen öffnen"</string>
+    <string name="msg_028" formatted="false">"Pausieren lässt die aktuelle Anzeige stehen. Anzeige erhalten respektiert andere Rückdisplay-Apps; Takeover erzwingen kann sie verdrängen. Ausblenden beendet auch die Überwachung und verhindert die Wiederherstellung nach Neustart. Die Geräteoptionen werden unabhängig vom Designprofil gespeichert."</string>
+    <string name="msg_029" formatted="false">"Helligkeit des Rückdisplays (%)"</string>
+    <string name="msg_030" formatted="false">"Ausblenden beendet unsere Activity und gibt das Display an die Hersteller-App zurück. Es schaltet das Display nicht zwingend aus. Den Hersteller-Timeout auf „Never“ stellen."</string>
+    <string name="msg_031" formatted="false">"Displaydiagnose kopieren"</string>
+    <string name="msg_032" formatted="false">" · Zustand "</string>
+    <string name="msg_033" formatted="false">"\nÜberwachung: "</string>
+    <string name="msg_034" formatted="false">"\nModus: "</string>
+    <string name="msg_035" formatted="false">" · aktiviert: "</string>
+    <string name="msg_036" formatted="false">" · nur gesperrt: "</string>
+    <string name="msg_037" formatted="false">" · pausiert: "</string>
+    <string name="msg_038" formatted="false">"MiniScreen Diagnose"</string>
+    <string name="msg_039" formatted="false">"Diagnose kopiert"</string>
+    <string name="msg_040" formatted="false">"Aktives Profil"</string>
+    <string name="msg_041" formatted="false">"Anzeigemodus"</string>
+    <string name="msg_042" formatted="false">"Native Digitaluhr"</string>
+    <string name="msg_043" formatted="false">"Vollständiges HTML-Design"</string>
+    <string name="msg_044" formatted="false">"Beispieldesign wird eingerichtet …"</string>
+    <string name="msg_045" formatted="false">"Neues Profil"</string>
+    <string name="msg_046" formatted="false">"Mein Design"</string>
+    <string name="msg_047" formatted="false">"Profil duplizieren"</string>
+    <string name="msg_048" formatted="false">" Kopie"</string>
+    <string name="msg_049" formatted="false">"Profil wird kopiert …"</string>
+    <string name="msg_050" formatted="false">"Profil umbenennen"</string>
+    <string name="msg_051" formatted="false">"Profilname"</string>
+    <string name="msg_052" formatted="false">"Profil als ZIP exportieren"</string>
+    <string name="msg_053" formatted="false">"Profil-ZIP importieren"</string>
+    <string name="msg_054" formatted="false">"Profil löschen"</string>
+    <string name="msg_055" formatted="false">"Profil löschen?"</string>
+    <string name="msg_056" formatted="false">"Abbrechen"</string>
+    <string name="msg_057" formatted="false">"Löschen"</string>
+    <string name="msg_058" formatted="false">"Speichern"</string>
+    <string name="msg_059" formatted="false">"Uhr &amp; Datum"</string>
+    <string name="msg_060" formatted="false">"Im HTML-Modus werden diese Einstellungen an das Design übergeben. Das Design entscheidet, wie es sie darstellt."</string>
+    <string name="msg_061" formatted="false">"24-Stunden-Format"</string>
+    <string name="msg_062" formatted="false">"Sekunden anzeigen"</string>
+    <string name="msg_063" formatted="false">"Führende Null"</string>
+    <string name="msg_064" formatted="false">"Datum anzeigen"</string>
+    <string name="msg_065" formatted="false">"Uhrfarbe"</string>
+    <string name="msg_066" formatted="false">"Datumsfarbe"</string>
+    <string name="msg_067" formatted="false">"Uhrgröße (bei 340 px)"</string>
+    <string name="msg_068" formatted="false">"Datumsgröße"</string>
+    <string name="msg_069" formatted="false">"Systemschrift"</string>
+    <string name="msg_070" formatted="false">"Fette Schrift"</string>
+    <string name="msg_071" formatted="false">"Eigene Schrift importieren (TTF / OTF)"</string>
+    <string name="msg_072" formatted="false">"Eigene Schrift entfernen"</string>
+    <string name="msg_073" formatted="false">"Systemschrift aktiv"</string>
+    <string name="msg_074" formatted="false">"Uhrposition X (%)"</string>
+    <string name="msg_075" formatted="false">"Uhrposition Y (%)"</string>
+    <string name="msg_076" formatted="false">"Datumsposition X (%)"</string>
+    <string name="msg_077" formatted="false">"Datumsposition Y (%)"</string>
+    <string name="msg_078" formatted="false">"Datumsformat-Vorlagen"</string>
+    <string name="msg_079" formatted="false">"Datumsformat"</string>
+    <string name="msg_080" formatted="false">"Eigenes Datumsformat"</string>
+    <string name="msg_081" formatted="false">"Eigenes Datumsformat übernehmen"</string>
+    <string name="msg_082" formatted="false">"Datum: "</string>
+    <string name="msg_083" formatted="false">"Ungültiges Format, z. B. EEE, dd.MM.yyyy"</string>
+    <string name="msg_084" formatted="false">"dd = Tag · MM = Monat · yyyy = Jahr · EEE = kurzer Wochentag · EEEE = langer Wochentag · MMMM = Monatsname. Die Sprache folgt der App-Auswahl."</string>
+    <string name="msg_085" formatted="false">"Hintergrund"</string>
+    <string name="msg_086" formatted="false">"Hintergrundfarbe"</string>
+    <string name="msg_087" formatted="false">"Hintergrundbild auswählen"</string>
+    <string name="msg_088" formatted="false">"Hintergrundbild entfernen"</string>
+    <string name="msg_089" formatted="false">"Hintergrundbild entfernt"</string>
+    <string name="msg_090" formatted="false">"Fläche füllen / zuschneiden"</string>
+    <string name="msg_091" formatted="false">"Ganzes Bild einpassen"</string>
+    <string name="msg_092" formatted="false">"Bild abdunkeln (%)"</string>
+    <string name="msg_093" formatted="false">"Hintergrundbild ebenfalls verschieben"</string>
+    <string name="msg_094" formatted="false">"Im HTML-Modus stehen Bild und Einstellungen dem Design zur Verfügung. Das mitgelieferte Design unterstützt sie vollständig."</string>
+    <string name="msg_095" formatted="false">"Pixelshifting"</string>
+    <string name="msg_096" formatted="false">"Pixelshifting aktiv"</string>
+    <string name="msg_097" formatted="false">"Bewegungsbereich ± Pixel (bei 340 px)"</string>
+    <string name="msg_098" formatted="false">"Intervall (Sekunden)"</string>
+    <string name="msg_099" formatted="false">"Native Texte werden automatisch verkleinert und innerhalb der sicheren Fläche gehalten. HTML erhält einen reservierten Rand; die App bewegt die gesamte HTML-Fläche. Statische Bilder und hohe Helligkeit können trotz Pixelshifting dauerhaft belasten."</string>
+    <string name="msg_100" formatted="false">"HTML-Design"</string>
+    <string name="msg_101" formatted="false">"Noch kein eigenes Design importiert"</string>
+    <string name="msg_102" formatted="false">"Aktives HTML: "</string>
+    <string name="msg_103" formatted="false">"HTML-Datei oder Design-ZIP importieren"</string>
+    <string name="msg_104" formatted="false">"Mitgeliefertes HTML-Design verwenden"</string>
+    <string name="msg_105" formatted="false">"HTML-Beispiel wird eingerichtet …"</string>
+    <string name="msg_106" formatted="false">"HTML-Design entfernen / native Uhr"</string>
+    <string name="msg_107" formatted="false">"ZIP: index.html plus lokale CSS-, JS-, Bild- und Schriftdateien. Einzel-HTML: Ressourcen direkt einbetten. Maximal 20 MiB entpackt, 200 Einträge und 1 MiB je HTML-Datei. Offline, ohne Android-Bridge und ohne Touchaktionen."</string>
+    <string name="msg_108" formatted="false">"HTML-Schnittstelle anzeigen"</string>
+    <string name="msg_109" formatted="false">"Für eigene Designs"</string>
+    <string name="msg_110" formatted="false">"window.miniScreen enthält den letzten Zustand.\n\nwindow.addEventListener(\'miniscreen:update\', e =&gt; { const d = e.detail; });\n\nFelder: time, date, epochMs, showDate, width, height, cssWidth, cssHeight, timeZone, locale, preview, shiftX, shiftY, settings, backgroundUrl, fontUrl.\n\nCSS: --time-color, --date-color, --background-color.\n\nUpdates im Minuten- oder Sekundentakt entsprechend der Sekundenoption; zusätzlich bei Pixelshift, Einstellungen und Zeitänderungen.\n\nVollständige Dokumentation und Beispiel: docs/HTML-DESIGNS.md im Quellcode. Der Import aktiviert den HTML-Modus."</string>
+    <string name="msg_111" formatted="false">"1 bis 80 Zeichen"</string>
+    <string name="msg_112" formatted="false">"Profil wird exportiert …"</string>
+    <string name="msg_113" formatted="false">"Profil exportiert"</string>
+    <string name="msg_114" formatted="false">"Datei wird importiert …"</string>
+    <string name="msg_115" formatted="false">"Bildformat nicht lesbar"</string>
+    <string name="msg_116" formatted="false">"Schriftdatei nicht lesbar"</string>
+    <string name="msg_117" formatted="false">"Unbekannter Dateivorgang"</string>
+    <string name="msg_118" formatted="false">"Importiert"</string>
+    <string name="msg_119" formatted="false">"Vorschau"</string>
+    <string name="msg_120" formatted="false">"Farbton · im Feld Sättigung und Helligkeit wählen"</string>
+    <string name="msg_121" formatted="false">"Übernehmen"</string>
+    <string name="msg_122" formatted="false">"Bitte #RRGGBB eingeben"</string>
+    <string name="msg_123" formatted="false">"Farbfläche: Sättigung horizontal, Helligkeit vertikal"</string>
+    <string name="msg_124" formatted="false">"Rückdisplay-Steuerung"</string>
+    <string name="msg_125" formatted="false">"Rückdisplay-Steuerung wird gestartet …"</string>
+    <string name="msg_126" formatted="false">"Wartet auf gesperrten Hauptbildschirm"</string>
+    <string name="msg_127" formatted="false">"Überwachung pausiert"</string>
+    <string name="msg_128" formatted="false">"Manuelle Anzeige gestartet; Überwachung beendet"</string>
+    <string name="msg_129" formatted="false">"Anzeige aktiv · "</string>
+    <string name="msg_130" formatted="false">"Sperrbedingung überwacht"</string>
+    <string name="msg_131" formatted="false">"Manuelle Anzeige unterbrochen · erneut Anzeigen oder nächsten Sperrzyklus abwarten"</string>
+    <string name="msg_132" formatted="false">"Manueller Modus; Überwachung beendet"</string>
+    <string name="msg_133" formatted="false">"Andere Rückdisplay-App wird respektiert · erneut Anzeigen zum Übernehmen"</string>
+    <string name="msg_134" formatted="false">"Manueller Start nach mehreren Versuchen fehlgeschlagen"</string>
+    <string name="msg_135" formatted="false">"Rückdisplay einschalten angefordert …"</string>
+    <string name="msg_136" formatted="false">"Einschalten: "</string>
+    <string name="msg_137" formatted="false">"Activity-Start auf Rückdisplay angefordert · Displayzustand "</string>
+    <string name="msg_138" formatted="false">"unbekannt/privat"</string>
+    <string name="msg_139" formatted="false">"Activity-Start: "</string>
+    <string name="msg_140" formatted="false">"Hersteller-Start versucht, aber keine Activity-Bestätigung; Rückdisplay bleibt in der Displayliste unsichtbar"</string>
+    <string name="msg_141" formatted="false">"Display ist ON, aber unsere Activity wurde nicht sichtbar"</string>
+    <string name="msg_142" formatted="false">"Hersteller-Start versucht, aber keine sichtbare Activity; gemeldeter Displayzustand "</string>
+    <string name="msg_143" formatted="false">" · neuer Versuch frühestens in "</string>
+    <string name="msg_144" formatted="false">"Anzeige erhalten"</string>
+    <string name="msg_145" formatted="false">"Fortsetzen"</string>
+    <string name="msg_146" formatted="false">"Pausieren"</string>
+    <string name="msg_147" formatted="false">"Beenden"</string>
+    <string name="msg_148" formatted="false">"Anzeige ausgeblendet"</string>
+    <string name="msg_149" formatted="false">"Überwachung beendet"</string>
+    <string name="msg_150" formatted="false">"Dienststart fehlgeschlagen: "</string>
+    <string name="msg_151" formatted="false">"Start fehlgeschlagen: Ziel "</string>
+    <string name="msg_152" formatted="false">", tatsächliches Display "</string>
+    <string name="msg_153" formatted="false">"Anzeige läuft auf Display "</string>
+    <string name="msg_154" formatted="false">"Startziel oder Betriebszustand passt nicht zur laufenden Activity."</string>
+    <string name="msg_155" formatted="false">"Anzeige sichtbar auf Display "</string>
+    <string name="msg_156" formatted="false">"Anzeige derzeit überlagert oder im Hintergrund (Display "</string>
+    <string name="msg_157" formatted="false">"Anzeige beendet"</string>
+    <string name="msg_158" formatted="false">"HTML-Prozess beendet. Design erneut auswählen oder zur nativen Uhr wechseln."</string>
+    <string name="msg_159" formatted="false">"HTML-Design: "</string>
+    <string name="msg_160" formatted="false">"HTML-Daten: "</string>
+    <string name="msg_161" formatted="false">"Ungültige Profil-ID"</string>
+    <string name="msg_162" formatted="false">"Profil konnte nicht gespeichert werden"</string>
+    <string name="msg_163" formatted="false">"Profil fehlt"</string>
+    <string name="msg_164" formatted="false">"Pfad außerhalb des Designs"</string>
+    <string name="msg_165" formatted="false">"Datei nicht lesbar"</string>
+    <string name="msg_166" formatted="false">"ZIP braucht index.html im Stamm oder genau eine index.html in einem Unterordner"</string>
+    <string name="msg_167" formatted="false">"Ordnernamen für index.html: Buchstaben, Ziffern, _ und - verwenden"</string>
+    <string name="msg_168" formatted="false">"HTML ist größer als 1 MiB"</string>
+    <string name="msg_169" formatted="false">"Unbekanntes Profilformat"</string>
+    <string name="msg_170" formatted="false">"HTML-Design muss in einem eigenen Unterordner liegen"</string>
+    <string name="msg_171" formatted="false">"Profil enthält fehlende Dateien"</string>
+    <string name="msg_172" formatted="false">"HTML-Profil hat kein Design"</string>
+    <string name="msg_173" formatted="false">"Profilimport: "</string>
+    <string name="msg_174" formatted="false">"Ziel nicht beschreibbar"</string>
+    <string name="msg_175" formatted="false">"Datei/Design zu groß (max. "</string>
+    <string name="msg_176" formatted="false">"Zu viele ZIP-Einträge (max. "</string>
+    <string name="msg_177" formatted="false">"Ungültiger oder zu langer ZIP-Pfad"</string>
+    <string name="msg_178" formatted="false">"Ungültiger oder doppelter ZIP-Pfad"</string>
+    <string name="msg_179" formatted="false">"Bildanpassung"</string>
+</resources>

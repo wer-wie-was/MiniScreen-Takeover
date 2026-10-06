@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="window_mode" formatted="false">"Escaparate"</string>
+    <string name="window_zoom" formatted="false">"Zoom del escaparate (%)"</string>
+    <string name="window_speed" formatted="false">"Escaparate: segundos por tramo"</string>
+    <string name="window_moving" formatted="false">"Activar movimiento del escaparate"</string>
+    <string name="window_help" formatted="false">"El escaparate mueve suavemente una imagen ampliada entre posiciones aleatorias. Más zoom muestra una zona menor. Más segundos ralentizan el movimiento. El filtro de oscurecimiento sigue activo."</string>
+    <string name="external_section" formatted="false">"Otra aplicación"</string>
+    <string name="external_none" formatted="false">"Ninguna aplicación seleccionada"</string>
+    <string name="external_choose" formatted="false">"Elegir aplicación"</string>
+    <string name="external_empty" formatted="false">"No se encontraron aplicaciones iniciables"</string>
+    <string name="external_start" formatted="false">"Iniciar app seleccionada en pantalla trasera"</string>
+    <string name="external_return" formatted="false">"Volver a mostrar MiniScreen Takeover"</string>
+    <string name="external_unavailable" formatted="false">"Selecciona una aplicación disponible"</string>
+    <string name="external_requested" formatted="false">"Inicio solicitado. Comprueba la pantalla trasera; nuestra supervisión sigue pausada."</string>
+    <string name="external_failed" formatted="false">"Error al iniciar app: "</string>
+    <string name="external_help" formatted="false">"La interfaz del fabricante intenta iniciar la app en la pantalla 1. Algunas apps lo impiden o pasan a la principal. Nuestra pantalla se cierra y la supervisión se pausa indefinidamente. «Volver a mostrar MiniScreen Takeover» recupera el control."</string>
+    <string name="charge_section" formatted="false">"Indicador de carga"</string>
+    <string name="charge_enabled" formatted="false">"Mostrar indicador con alimentación conectada"</string>
+    <string name="charge_display" formatted="false">"Presentación"</string>
+    <string name="charge_icon" formatted="false">"Icono de batería con porcentaje"</string>
+    <string name="charge_icon_circle" formatted="false">"Icono, porcentaje y círculo"</string>
+    <string name="charge_preview" formatted="false">"Solo vista previa: simular conexión al 65 %"</string>
+    <string name="charge_text_color" formatted="false">"Color del porcentaje"</string>
+    <string name="charge_symbol_color" formatted="false">"Color del icono de batería"</string>
+    <string name="charge_size" formatted="false">"Tamaño de texto de carga (a 340 px)"</string>
+    <string name="charge_font" formatted="false">"Fuente del porcentaje"</string>
+    <string name="charge_x" formatted="false">"Posición X del indicador (%)"</string>
+    <string name="charge_y" formatted="false">"Posición Y del indicador (%)"</string>
+    <string name="charge_ring_color" formatted="false">"Color del círculo de carga"</string>
+    <string name="charge_ring_width" formatted="false">"Grosor del círculo (a 340 px)"</string>
+    <string name="charge_ring_style" formatted="false">"Movimiento del círculo"</string>
+    <string name="charge_static" formatted="false">"Estático"</string>
+    <string name="charge_animated" formatted="false">"Acento de luz animado"</string>
+    <string name="charge_animation_speed" formatted="false">"Segundos por ciclo de animación"</string>
+    <string name="charge_help" formatted="false">"El indicador aparece solo con alimentación conectada, también al 100 %. El arco representa el nivel de batería. Los elementos siguen el desplazamiento de píxeles y se superponen al reloj nativo y HTML. La simulación no afecta a la pantalla trasera."</string>
+    <string name="web_load_failed" formatted="false">"No se pudo cargar HTML: "</string>
+</resources>

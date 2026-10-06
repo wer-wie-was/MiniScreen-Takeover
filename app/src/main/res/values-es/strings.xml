@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_000" formatted="false">"Idioma"</string>
+    <string name="msg_001" formatted="false">"Idioma de la aplicación"</string>
+    <string name="language_system" formatted="false">"Idioma del sistema"</string>
+    <string name="msg_003" formatted="false">"Controles"</string>
+    <string name="msg_004" formatted="false">"Diseño y perfiles"</string>
+    <string name="msg_005" formatted="false">"VISTA PREVIA"</string>
+    <string name="msg_006" formatted="false">"Margen de desplazamiento"</string>
+    <string name="msg_007" formatted="false">"Procesando archivo…"</string>
+    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.2.2 · vibe-coded"</string>
+    <string name="msg_009" formatted="false">", sección desplegable"</string>
+    <string name="msg_010" formatted="false">"Pantalla aún sin iniciar"</string>
+    <string name="msg_011" formatted="false">"▶ Mostrar en pantalla trasera"</string>
+    <string name="msg_012" formatted="false">"■ Ocultar y detener supervisión"</string>
+    <string name="msg_013" formatted="false">"La supervisión empieza al mostrar"</string>
+    <string name="msg_014" formatted="false">"Modo de funcionamiento"</string>
+    <string name="msg_015" formatted="false">"Manual"</string>
+    <string name="msg_016" formatted="false">"Mantener pantalla activa (recomendado)"</string>
+    <string name="msg_017" formatted="false">"Forzar control"</string>
+    <string name="msg_018" formatted="false">"Solo activa con pantalla principal bloqueada"</string>
+    <string name="msg_019" formatted="false">"Restaurar tras reinicio / primer desbloqueo"</string>
+    <string name="msg_020" formatted="false">"Intervalo de revisión (segundos; además de eventos)"</string>
+    <string name="msg_021" formatted="false">"Pausar supervisión…"</string>
+    <string name="msg_022" formatted="false">"Pausar supervisión"</string>
+    <string name="msg_023" formatted="false">"Hasta reanudar"</string>
+    <string name="msg_024" formatted="false">"15 minutos"</string>
+    <string name="msg_025" formatted="false">"1 hora"</string>
+    <string name="msg_026" formatted="false">"Reanudar supervisión"</string>
+    <string name="msg_027" formatted="false">"Abrir ajustes de notificaciones"</string>
+    <string name="msg_028" formatted="false">"Pausar conserva la pantalla. Mantenerla activa respeta otras apps; el control forzado puede reemplazarlas. Ocultar detiene la supervisión y la restauración tras reinicio. Las opciones del dispositivo son independientes de los perfiles."</string>
+    <string name="msg_029" formatted="false">"Brillo de pantalla trasera (%)"</string>
+    <string name="msg_030" formatted="false">"Ocultar cierra nuestra actividad y devuelve el control a la app del fabricante. La pantalla puede seguir encendida. Configura el tiempo de espera en «Never»."</string>
+    <string name="msg_031" formatted="false">"Copiar diagnóstico de pantalla"</string>
+    <string name="msg_032" formatted="false">" · Estado "</string>
+    <string name="msg_033" formatted="false">"\nSupervisión: "</string>
+    <string name="msg_034" formatted="false">"\nModo: "</string>
+    <string name="msg_035" formatted="false">" · activado: "</string>
+    <string name="msg_036" formatted="false">" · solo bloqueada: "</string>
+    <string name="msg_037" formatted="false">" · en pausa: "</string>
+    <string name="msg_038" formatted="false">"Diagnóstico MiniScreen"</string>
+    <string name="msg_039" formatted="false">"Diagnóstico copiado"</string>
+    <string name="msg_040" formatted="false">"Perfil activo"</string>
+    <string name="msg_041" formatted="false">"Modo de pantalla"</string>
+    <string name="msg_042" formatted="false">"Reloj digital nativo"</string>
+    <string name="msg_043" formatted="false">"Diseño HTML completo"</string>
+    <string name="msg_044" formatted="false">"Preparando diseño de ejemplo…"</string>
+    <string name="msg_045" formatted="false">"Nuevo perfil"</string>
+    <string name="msg_046" formatted="false">"Mi diseño"</string>
+    <string name="msg_047" formatted="false">"Duplicar perfil"</string>
+    <string name="msg_048" formatted="false">" copia"</string>
+    <string name="msg_049" formatted="false">"Copiando perfil…"</string>
+    <string name="msg_050" formatted="false">"Renombrar perfil"</string>
+    <string name="msg_051" formatted="false">"Nombre del perfil"</string>
+    <string name="msg_052" formatted="false">"Exportar perfil como ZIP"</string>
+    <string name="msg_053" formatted="false">"Importar ZIP de perfil"</string>
+    <string name="msg_054" formatted="false">"Eliminar perfil"</string>
+    <string name="msg_055" formatted="false">"¿Eliminar perfil?"</string>
+    <string name="msg_056" formatted="false">"Cancelar"</string>
+    <string name="msg_057" formatted="false">"Eliminar"</string>
+    <string name="msg_058" formatted="false">"Guardar"</string>
+    <string name="msg_059" formatted="false">"Reloj y fecha"</string>
+    <string name="msg_060" formatted="false">"En modo HTML, estos ajustes se envían al diseño, que decide cómo mostrarlos."</string>
+    <string name="msg_061" formatted="false">"Formato de 24 horas"</string>
+    <string name="msg_062" formatted="false">"Mostrar segundos"</string>
+    <string name="msg_063" formatted="false">"Cero inicial"</string>
+    <string name="msg_064" formatted="false">"Mostrar fecha"</string>
+    <string name="msg_065" formatted="false">"Color del reloj"</string>
+    <string name="msg_066" formatted="false">"Color de fecha"</string>
+    <string name="msg_067" formatted="false">"Tamaño del reloj (a 340 px)"</string>
+    <string name="msg_068" formatted="false">"Tamaño de fecha"</string>
+    <string name="msg_069" formatted="false">"Fuente del sistema"</string>
+    <string name="msg_070" formatted="false">"Texto en negrita"</string>
+    <string name="msg_071" formatted="false">"Importar fuente propia (TTF / OTF)"</string>
+    <string name="msg_072" formatted="false">"Quitar fuente propia"</string>
+    <string name="msg_073" formatted="false">"Fuente del sistema activa"</string>
+    <string name="msg_074" formatted="false">"Posición X del reloj (%)"</string>
+    <string name="msg_075" formatted="false">"Posición Y del reloj (%)"</string>
+    <string name="msg_076" formatted="false">"Posición X de fecha (%)"</string>
+    <string name="msg_077" formatted="false">"Posición Y de fecha (%)"</string>
+    <string name="msg_078" formatted="false">"Formatos de fecha predefinidos"</string>
+    <string name="msg_079" formatted="false">"Formato de fecha"</string>
+    <string name="msg_080" formatted="false">"Formato de fecha propio"</string>
+    <string name="msg_081" formatted="false">"Aplicar formato de fecha propio"</string>
+    <string name="msg_082" formatted="false">"Fecha: "</string>
+    <string name="msg_083" formatted="false">"Formato no válido, p. ej. EEE, dd.MM.yyyy"</string>
+    <string name="msg_084" formatted="false">"dd = día · MM = mes · yyyy = año · EEE = día abreviado · EEEE = día completo · MMMM = nombre del mes. El idioma sigue la selección de la app."</string>
+    <string name="msg_085" formatted="false">"Fondo"</string>
+    <string name="msg_086" formatted="false">"Color de fondo"</string>
+    <string name="msg_087" formatted="false">"Elegir imagen de fondo"</string>
+    <string name="msg_088" formatted="false">"Quitar imagen de fondo"</string>
+    <string name="msg_089" formatted="false">"Imagen de fondo eliminada"</string>
+    <string name="msg_090" formatted="false">"Rellenar / recortar"</string>
+    <string name="msg_091" formatted="false">"Ajustar imagen completa"</string>
+    <string name="msg_092" formatted="false">"Oscurecer imagen (%)"</string>
+    <string name="msg_093" formatted="false">"Desplazar también imagen de fondo"</string>
+    <string name="msg_094" formatted="false">"En modo HTML, el diseño puede usar la imagen y los ajustes. El diseño incluido los admite todos."</string>
+    <string name="msg_095" formatted="false">"Desplazamiento de píxeles"</string>
+    <string name="msg_096" formatted="false">"Activar desplazamiento de píxeles"</string>
+    <string name="msg_097" formatted="false">"Rango ± píxeles (a 340 px)"</string>
+    <string name="msg_098" formatted="false">"Intervalo (segundos)"</string>
+    <string name="msg_099" formatted="false">"El texto nativo se ajusta al área segura. HTML recibe un margen reservado; la app mueve toda la superficie. Las imágenes estáticas y el brillo alto aún pueden causar quemado."</string>
+    <string name="msg_100" formatted="false">"Diseño HTML"</string>
+    <string name="msg_101" formatted="false">"Aún no hay diseño propio importado"</string>
+    <string name="msg_102" formatted="false">"HTML activo: "</string>
+    <string name="msg_103" formatted="false">"Importar archivo HTML o ZIP de diseño"</string>
+    <string name="msg_104" formatted="false">"Usar diseño HTML incluido"</string>
+    <string name="msg_105" formatted="false">"Preparando ejemplo HTML…"</string>
+    <string name="msg_106" formatted="false">"Quitar diseño HTML / reloj nativo"</string>
+    <string name="msg_107" formatted="false">"ZIP: index.html con CSS, JS, imágenes y fuentes locales. HTML único: incrustar recursos. Límites: 20 MiB descomprimidos, 200 entradas, 1 MiB por HTML. Sin conexión, sin puente Android ni acciones táctiles."</string>
+    <string name="msg_108" formatted="false">"Mostrar interfaz HTML"</string>
+    <string name="msg_109" formatted="false">"Para diseños propios"</string>
+    <string name="msg_110" formatted="false">"window.miniScreen contiene el estado actual. Escucha miniscreen:update y lee e.detail. Campos: time, date, epochMs, showDate, width, height, cssWidth, cssHeight, timeZone, locale, preview, shiftX, shiftY, settings, backgroundUrl, fontUrl. CSS: --time-color, --date-color, --background-color. Actualizaciones según los segundos, desplazamientos y cambios de ajustes u hora. Documentación y ejemplo: docs/HTML-DESIGNS.md en el código. Importar activa el modo HTML."</string>
+    <string name="msg_111" formatted="false">"De 1 a 80 caracteres"</string>
+    <string name="msg_112" formatted="false">"Exportando perfil…"</string>
+    <string name="msg_113" formatted="false">"Perfil exportado"</string>
+    <string name="msg_114" formatted="false">"Importando archivo…"</string>
+    <string name="msg_115" formatted="false">"Formato de imagen no legible"</string>
+    <string name="msg_116" formatted="false">"Archivo de fuente no legible"</string>
+    <string name="msg_117" formatted="false">"Operación de archivo desconocida"</string>
+    <string name="msg_118" formatted="false">"Importado"</string>
+    <string name="msg_119" formatted="false">"Vista previa"</string>
+    <string name="msg_120" formatted="false">"Tono · elige saturación y brillo en el cuadro"</string>
+    <string name="msg_121" formatted="false">"Aplicar"</string>
+    <string name="msg_122" formatted="false">"Introduce #RRGGBB"</string>
+    <string name="msg_123" formatted="false">"Cuadro de color: saturación horizontal, brillo vertical"</string>
+    <string name="msg_124" formatted="false">"Control de pantalla trasera"</string>
+    <string name="msg_125" formatted="false">"Iniciando control de pantalla trasera…"</string>
+    <string name="msg_126" formatted="false">"Esperando bloqueo de pantalla principal"</string>
+    <string name="msg_127" formatted="false">"Supervisión en pausa"</string>
+    <string name="msg_128" formatted="false">"Pantalla manual iniciada; supervisión detenida"</string>
+    <string name="msg_129" formatted="false">"Pantalla activa · "</string>
+    <string name="msg_130" formatted="false">"Supervisando bloqueo"</string>
+    <string name="msg_131" formatted="false">"Pantalla manual interrumpida · mostrar otra vez o esperar próximo bloqueo"</string>
+    <string name="msg_132" formatted="false">"Modo manual; supervisión detenida"</string>
+    <string name="msg_133" formatted="false">"Otra app controla la pantalla trasera · mostrar otra vez para tomar control"</string>
+    <string name="msg_134" formatted="false">"Inicio manual fallido tras varios intentos"</string>
+    <string name="msg_135" formatted="false">"Encendido de pantalla trasera solicitado…"</string>
+    <string name="msg_136" formatted="false">"Encendido: "</string>
+    <string name="msg_137" formatted="false">"Inicio de actividad solicitado · estado de pantalla "</string>
+    <string name="msg_138" formatted="false">"desconocido/privado"</string>
+    <string name="msg_139" formatted="false">"Inicio de actividad: "</string>
+    <string name="msg_140" formatted="false">"Inicio del fabricante intentado sin confirmación; pantalla trasera ausente de la lista"</string>
+    <string name="msg_141" formatted="false">"Pantalla encendida, pero nuestra actividad no es visible"</string>
+    <string name="msg_142" formatted="false">"Inicio del fabricante intentado sin actividad visible; estado indicado "</string>
+    <string name="msg_143" formatted="false">" · próximo intento no antes de "</string>
+    <string name="msg_144" formatted="false">"Mantener pantalla activa"</string>
+    <string name="msg_145" formatted="false">"Reanudar"</string>
+    <string name="msg_146" formatted="false">"Pausar"</string>
+    <string name="msg_147" formatted="false">"Detener"</string>
+    <string name="msg_148" formatted="false">"Pantalla oculta"</string>
+    <string name="msg_149" formatted="false">"Supervisión detenida"</string>
+    <string name="msg_150" formatted="false">"Error al iniciar servicio: "</string>
+    <string name="msg_151" formatted="false">"Inicio fallido: destino "</string>
+    <string name="msg_152" formatted="false">", pantalla real "</string>
+    <string name="msg_153" formatted="false">"Mostrando en pantalla "</string>
+    <string name="msg_154" formatted="false">"El destino o estado no coincide con la actividad actual."</string>
+    <string name="msg_155" formatted="false">"Visible en pantalla "</string>
+    <string name="msg_156" formatted="false">"Pantalla cubierta o en segundo plano (pantalla "</string>
+    <string name="msg_157" formatted="false">"Pantalla cerrada"</string>
+    <string name="msg_158" formatted="false">"Proceso HTML detenido. Elige de nuevo el diseño o cambia al reloj nativo."</string>
+    <string name="msg_159" formatted="false">"Diseño HTML: "</string>
+    <string name="msg_160" formatted="false">"Datos HTML: "</string>
+    <string name="msg_161" formatted="false">"ID de perfil no válido"</string>
+    <string name="msg_162" formatted="false">"No se pudo guardar el perfil"</string>
+    <string name="msg_163" formatted="false">"Falta el perfil"</string>
+    <string name="msg_164" formatted="false">"Ruta fuera del diseño"</string>
+    <string name="msg_165" formatted="false">"Archivo no legible"</string>
+    <string name="msg_166" formatted="false">"El ZIP requiere index.html en la raíz o un único index.html en una subcarpeta"</string>
+    <string name="msg_167" formatted="false">"Nombres de carpetas para index.html: letras, dígitos, _ y -"</string>
+    <string name="msg_168" formatted="false">"HTML supera 1 MiB"</string>
+    <string name="msg_169" formatted="false">"Formato de perfil desconocido"</string>
+    <string name="msg_170" formatted="false">"El diseño HTML debe tener su propia subcarpeta"</string>
+    <string name="msg_171" formatted="false">"El perfil referencia archivos ausentes"</string>
+    <string name="msg_172" formatted="false">"El perfil HTML no tiene diseño"</string>
+    <string name="msg_173" formatted="false">"Importación de perfil: "</string>
+    <string name="msg_174" formatted="false">"Destino no escribible"</string>
+    <string name="msg_175" formatted="false">"Archivo/diseño demasiado grande (máx. "</string>
+    <string name="msg_176" formatted="false">"Demasiadas entradas ZIP (máx. "</string>
+    <string name="msg_177" formatted="false">"Ruta ZIP no válida o demasiado larga"</string>
+    <string name="msg_178" formatted="false">"Ruta ZIP no válida o duplicada"</string>
+    <string name="msg_179" formatted="false">"Ajuste de imagen"</string>
+</resources>

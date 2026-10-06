@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>MiniScreen · Classic</title>
+  <style>
+    :root { --time-color: #63e6dc; --date-color: #c7d0df; --background-color: #000; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--background-color); }
+    body { font-family: sans-serif; }
+    #background { position: absolute; left: 0; top: 0; background-repeat: no-repeat; background-size: 100% 100%; }
+    #shade { position: absolute; inset: 0; background: black; opacity: .45; }
+    .label { position: absolute; margin: 0; white-space: nowrap; line-height: 1.2; transform: translate(-50%, -50%); text-align: center; }
+    #time { color: var(--time-color); font-variant-numeric: tabular-nums; font-weight: 400; }
+    #date { color: var(--date-color); }
+  </style>
+</head>
+<body>
+  <div id="background"></div><div id="shade"></div>
+  <div class="label" id="time">--:--</div><div class="label" id="date"></div>
+  <script>
+    const time = document.getElementById('time');
+    const date = document.getElementById('date');
+    const background = document.getElementById('background');
+    const shade = document.getElementById('shade');
+    let fontUrl = '', last = null, customFont = null, imageUrl = '', image = null, animation = 0, lastFrame = 0;
+    function panTarget(segment, axis) {
+      const n = Math.sin(segment * 12.9898 + axis * 78.233) * 43758.5453;
+      return n - Math.floor(n);
+    }
+    function panPosition(now, seconds, axis, moving) {
+      if (!moving) return .5;
+      const phase = now / (seconds * 1000), segment = Math.floor(phase);
+      let t = phase - segment; t = t * t * (3 - 2 * t);
+      return panTarget(segment, axis) * (1 - t) + panTarget(segment + 1, axis) * t;
+    }
+    function drawBackground(now) {
+      if (!last || !image || !image.naturalWidth || !image.naturalHeight) return;
+      const d = last, s = d.settings, w = document.documentElement.clientWidth, h = document.documentElement.clientHeight;
+      if (!w || !h) return;
+      const ratio = window.devicePixelRatio || 1, scale = Math.min(d.width, d.height) / 340 / ratio;
+      const extra = s.shifting && s.imageFit !== 'contain' ? s.shiftRange * scale : 0;
+      let k = s.imageFit === 'contain' ? Math.min(w / image.naturalWidth, h / image.naturalHeight)
+        : Math.max((w + 2 * extra) / image.naturalWidth, (h + 2 * extra) / image.naturalHeight);
+      if (s.imageFit === 'window') k *= s.windowZoom / 100;
+      const iw = image.naturalWidth * k, ih = image.naturalHeight * k;
+      const px = s.imageFit === 'window' ? panPosition(now, s.windowSeconds, 1, s.windowMotion) : .5;
+      const py = s.imageFit === 'window' ? panPosition(now, s.windowSeconds, 2, s.windowMotion) : .5;
+      let x = -extra - (iw - w - 2 * extra) * px, y = -extra - (ih - h - 2 * extra) * py;
+      if (!s.shiftBackground) { x -= d.shiftX * scale; y -= d.shiftY * scale; }
+      if (s.imageFit !== 'contain') { x = Math.max(w - iw, Math.min(0, x)); y = Math.max(h - ih, Math.min(0, y)); }
+      background.style.width = iw + 'px'; background.style.height = ih + 'px';
+      background.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    }
+    function animateBackground(now) {
+      animation = 0;
+      if (document.hidden || !last || !last.running || last.settings.imageFit !== 'window' || !last.settings.windowMotion || !imageUrl) return;
+      if (now - lastFrame >= 33) { drawBackground(Date.now()); lastFrame = now; }
+      animation = requestAnimationFrame(animateBackground);
+    }
+    function refreshMotion() {
+      if (animation) { cancelAnimationFrame(animation); animation = 0; }
+      drawBackground(Date.now());
+      if (!document.hidden && last && last.running && last.settings.imageFit === 'window' && last.settings.windowMotion && imageUrl)
+        animation = requestAnimationFrame(animateBackground);
+    }
+    function fit(el, configuredSize, x, y) {
+      const w = document.documentElement.clientWidth, h = document.documentElement.clientHeight;
+      el.style.fontSize = (configuredSize * Math.min(w, h) / 340) + 'px';
+      const box = el.getBoundingClientRect();
+      const factor = Math.min(1, (w - 6) / Math.max(1, box.width), (h - 6) / Math.max(1, box.height));
+      el.style.fontSize = (configuredSize * Math.min(w, h) / 340 * factor) + 'px';
+      const next = el.getBoundingClientRect();
+      const px = Math.max(next.width / 2 + 2, Math.min(w - next.width / 2 - 2, w * x / 100));
+      const py = Math.max(next.height / 2 + 2, Math.min(h - next.height / 2 - 2, h * y / 100));
+      el.style.left = px + 'px'; el.style.top = py + 'px';
+    }
+    function update(d) {
+      last = d; const s = d.settings;
+      time.textContent = d.time; date.textContent = d.date;
+      date.style.display = d.showDate ? 'block' : 'none';
+      time.style.fontWeight = date.style.fontWeight = s.bold ? '700' : '400';
+      document.documentElement.lang = d.locale;
+      background.style.backgroundImage = d.backgroundUrl ? 'url("' + d.backgroundUrl + '")' : 'none';
+      shade.style.opacity = d.backgroundUrl ? s.dim / 100 : 0;
+      if (imageUrl !== d.backgroundUrl) {
+        imageUrl = d.backgroundUrl; image = null;
+        if (imageUrl) {
+          const wanted = imageUrl, next = new Image();
+          next.onload = () => { if (imageUrl === wanted) { image = next; refreshMotion(); } };
+          next.src = wanted;
+        }
+      }
+      refreshMotion();
+      if (fontUrl !== d.fontUrl) {
+        fontUrl = d.fontUrl;
+        if (customFont) { document.fonts.delete(customFont); customFont = null; }
+        if (fontUrl) {
+          const wanted = fontUrl;
+          const f = new FontFace('UserFont', 'url("' + fontUrl + '")');
+          f.load().then(loaded => { if (fontUrl !== wanted) return; customFont = loaded; document.fonts.add(loaded); update(last); }).catch(() => {});
+        }
+      }
+      document.body.style.fontFamily = fontUrl && customFont ? 'UserFont' : (s.font === 'sans' ? 'sans-serif' : s.font);
+      fit(time, s.timeSize, s.timeX, s.timeY);
+      if (d.showDate) fit(date, s.dateSize, s.dateX, s.dateY);
+    }
+    window.addEventListener('miniscreen:update', e => update(e.detail));
+    window.addEventListener('resize', () => { if (last) update(last); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) { if (animation) cancelAnimationFrame(animation); animation = 0; } else refreshMotion(); });
+    if (window.miniScreen) update(window.miniScreen);
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ticker_section" formatted="false">"通知滚动条"</string>
+    <string name="ticker_enabled" formatted="false">"启用通知滚动条"</string>
+    <string name="ticker_access_yes" formatted="false">"已授予通知访问权限"</string>
+    <string name="ticker_access_no" formatted="false">"尚未授予通知访问权限"</string>
+    <string name="ticker_access" formatted="false">"授予通知访问权限"</string>
+    <string name="ticker_apps" formatted="false">"选择应用"</string>
+    <string name="ticker_privacy_locked" formatted="false">"锁定时显示内容"</string>
+    <string name="ticker_privacy_unlocked" formatted="false">"解锁时显示内容"</string>
+    <string name="ticker_per_app" formatted="false">"各应用隐私设置"</string>
+    <string name="ticker_privacy_help" formatted="false">"标题可能包含发送者姓名。内容仅保留在内存中，不写入配置、导出或诊断。Android 可能隐藏敏感内容。"</string>
+    <string name="ticker_only_locked" formatted="false">"仅在锁定时显示"</string>
+    <string name="ticker_ongoing" formatted="false">"包含持续通知"</string>
+    <string name="ticker_groups" formatted="false">"包含通知分组摘要"</string>
+    <string name="ticker_reminder" formatted="false">"提醒模式"</string>
+    <string name="ticker_once" formatted="false">"仅一次"</string>
+    <string name="ticker_until_unlock" formatted="false">"直到解锁"</string>
+    <string name="ticker_until_removed" formatted="false">"通知存在时持续提醒"</string>
+    <string name="ticker_time_limit" formatted="false">"限时提醒"</string>
+    <string name="ticker_interval" formatted="false">"重复间隔（秒）"</string>
+    <string name="ticker_limit" formatted="false">"时间限制（分钟）"</string>
+    <string name="ticker_duration" formatted="false">"显示时长（秒）"</string>
+    <string name="ticker_pause" formatted="false">"消息间隔（秒）"</string>
+    <string name="ticker_scroll" formatted="false">"滚动文字"</string>
+    <string name="ticker_speed" formatted="false">"滚动速度（340 像素下的像素/秒）"</string>
+    <string name="ticker_lines" formatted="false">"静态卡片行数"</string>
+    <string name="ticker_size" formatted="false">"字体大小（340 像素下）"</string>
+    <string name="ticker_profile_font" formatted="false">"配置字体，包括导入字体"</string>
+    <string name="ticker_color" formatted="false">"文字颜色"</string>
+    <string name="ticker_background" formatted="false">"滚动条背景"</string>
+    <string name="ticker_opacity" formatted="false">"背景不透明度（%）"</string>
+    <string name="ticker_width" formatted="false">"宽度（%）"</string>
+    <string name="ticker_x" formatted="false">"X 位置（%）"</string>
+    <string name="ticker_y" formatted="false">"Y 位置（%）"</string>
+    <string name="ticker_icon" formatted="false">"显示应用图标"</string>
+    <string name="ticker_icon_size" formatted="false">"图标大小（340 像素下）"</string>
+    <string name="ticker_clock" formatted="false">"通知显示期间的时钟"</string>
+    <string name="ticker_clock_keep" formatted="false">"保持显示"</string>
+    <string name="ticker_clock_dim" formatted="false">"变暗"</string>
+    <string name="ticker_clock_hide" formatted="false">"暂时隐藏"</string>
+    <string name="ticker_html" formatted="false">"由 HTML 设计显示通知"</string>
+    <string name="ticker_preview" formatted="false">"预览示例通知"</string>
+    <string name="ticker_clear" formatted="false">"清空通知队列"</string>
+    <string name="ticker_help" formatted="false">"手动关闭和定时设置优先。解锁仅结束滚动条提醒，Android 通知仍保留。已移除通知不再重复。内存队列在进程重启后丢失。仅在启用时向 HTML 提供过滤数据，设计需自行显示。设置仅适用于此设备，不随配置导出。"</string>
+    <string name="ticker_private" formatted="false">"仅图标和数量"</string>
+    <string name="ticker_app_name" formatted="false">"仅应用名称"</string>
+    <string name="ticker_title" formatted="false">"应用和标题"</string>
+    <string name="ticker_full" formatted="false">"应用、标题和消息"</string>
+    <string name="ticker_inherit" formatted="false">"使用全局设置"</string>
+    <string name="ticker_new" formatted="false">"新通知"</string>
+    <string name="ticker_demo_text" formatted="false">"MiniScreen Takeover · 示例通知：背屏已准备就绪。"</string>
+</resources>

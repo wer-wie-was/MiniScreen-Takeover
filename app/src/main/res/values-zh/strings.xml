@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_000" formatted="false">"语言"</string>
+    <string name="msg_001" formatted="false">"应用语言"</string>
+    <string name="language_system" formatted="false">"系统语言"</string>
+    <string name="msg_003" formatted="false">"控制"</string>
+    <string name="msg_004" formatted="false">"设计与配置"</string>
+    <string name="msg_005" formatted="false">"实时预览"</string>
+    <string name="msg_006" formatted="false">"像素偏移边界"</string>
+    <string name="msg_007" formatted="false">"正在处理文件…"</string>
+    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.2.2 · AI 辅助编程"</string>
+    <string name="msg_009" formatted="false">"，可展开部分"</string>
+    <string name="msg_010" formatted="false">"尚未启动显示"</string>
+    <string name="msg_011" formatted="false">"▶ 在背屏显示"</string>
+    <string name="msg_012" formatted="false">"■ 隐藏并停止监控"</string>
+    <string name="msg_013" formatted="false">"显示时启动监控"</string>
+    <string name="msg_014" formatted="false">"运行模式"</string>
+    <string name="msg_015" formatted="false">"手动"</string>
+    <string name="msg_016" formatted="false">"保持显示（推荐）"</string>
+    <string name="msg_017" formatted="false">"强制接管"</string>
+    <string name="msg_018" formatted="false">"仅在主屏锁定时启用"</string>
+    <string name="msg_019" formatted="false">"重启后首次解锁时恢复"</string>
+    <string name="msg_020" formatted="false">"检查间隔（秒；同时响应事件）"</string>
+    <string name="msg_021" formatted="false">"暂停监控…"</string>
+    <string name="msg_022" formatted="false">"暂停监控"</string>
+    <string name="msg_023" formatted="false">"直到恢复"</string>
+    <string name="msg_024" formatted="false">"15 分钟"</string>
+    <string name="msg_025" formatted="false">"1 小时"</string>
+    <string name="msg_026" formatted="false">"恢复监控"</string>
+    <string name="msg_027" formatted="false">"打开通知设置"</string>
+    <string name="msg_028" formatted="false">"暂停会保留当前显示。保持显示模式尊重其他背屏应用；强制接管可能取代它们。隐藏会停止监控和重启恢复。设备设置独立于设计配置。"</string>
+    <string name="msg_029" formatted="false">"背屏亮度（%）"</string>
+    <string name="msg_030" formatted="false">"隐藏会关闭本应用的显示界面并将控制权交还厂商应用，屏幕不一定关闭。请将厂商超时设置为“Never”。"</string>
+    <string name="msg_031" formatted="false">"复制屏幕诊断"</string>
+    <string name="msg_032" formatted="false">" · 状态 "</string>
+    <string name="msg_033" formatted="false">"\n监控："</string>
+    <string name="msg_034" formatted="false">"\n模式："</string>
+    <string name="msg_035" formatted="false">" · 已启用："</string>
+    <string name="msg_036" formatted="false">" · 仅锁定时："</string>
+    <string name="msg_037" formatted="false">" · 已暂停："</string>
+    <string name="msg_038" formatted="false">"MiniScreen 诊断"</string>
+    <string name="msg_039" formatted="false">"已复制诊断"</string>
+    <string name="msg_040" formatted="false">"当前配置"</string>
+    <string name="msg_041" formatted="false">"显示模式"</string>
+    <string name="msg_042" formatted="false">"原生数字时钟"</string>
+    <string name="msg_043" formatted="false">"完整 HTML 设计"</string>
+    <string name="msg_044" formatted="false">"正在设置示例设计…"</string>
+    <string name="msg_045" formatted="false">"新建配置"</string>
+    <string name="msg_046" formatted="false">"我的设计"</string>
+    <string name="msg_047" formatted="false">"复制配置"</string>
+    <string name="msg_048" formatted="false">" 副本"</string>
+    <string name="msg_049" formatted="false">"正在复制配置…"</string>
+    <string name="msg_050" formatted="false">"重命名配置"</string>
+    <string name="msg_051" formatted="false">"配置名称"</string>
+    <string name="msg_052" formatted="false">"将配置导出为 ZIP"</string>
+    <string name="msg_053" formatted="false">"导入配置 ZIP"</string>
+    <string name="msg_054" formatted="false">"删除配置"</string>
+    <string name="msg_055" formatted="false">"删除配置？"</string>
+    <string name="msg_056" formatted="false">"取消"</string>
+    <string name="msg_057" formatted="false">"删除"</string>
+    <string name="msg_058" formatted="false">"保存"</string>
+    <string name="msg_059" formatted="false">"时钟与日期"</string>
+    <string name="msg_060" formatted="false">"HTML 模式下，这些设置会传递给设计，由设计决定如何显示。"</string>
+    <string name="msg_061" formatted="false">"24 小时制"</string>
+    <string name="msg_062" formatted="false">"显示秒"</string>
+    <string name="msg_063" formatted="false">"前导零"</string>
+    <string name="msg_064" formatted="false">"显示日期"</string>
+    <string name="msg_065" formatted="false">"时钟颜色"</string>
+    <string name="msg_066" formatted="false">"日期颜色"</string>
+    <string name="msg_067" formatted="false">"时钟大小（340 px 下）"</string>
+    <string name="msg_068" formatted="false">"日期大小"</string>
+    <string name="msg_069" formatted="false">"系统字体"</string>
+    <string name="msg_070" formatted="false">"粗体"</string>
+    <string name="msg_071" formatted="false">"导入自定义字体（TTF / OTF）"</string>
+    <string name="msg_072" formatted="false">"移除自定义字体"</string>
+    <string name="msg_073" formatted="false">"已启用系统字体"</string>
+    <string name="msg_074" formatted="false">"时钟 X 位置（%）"</string>
+    <string name="msg_075" formatted="false">"时钟 Y 位置（%）"</string>
+    <string name="msg_076" formatted="false">"日期 X 位置（%）"</string>
+    <string name="msg_077" formatted="false">"日期 Y 位置（%）"</string>
+    <string name="msg_078" formatted="false">"日期格式模板"</string>
+    <string name="msg_079" formatted="false">"日期格式"</string>
+    <string name="msg_080" formatted="false">"自定义日期格式"</string>
+    <string name="msg_081" formatted="false">"应用自定义日期格式"</string>
+    <string name="msg_082" formatted="false">"日期："</string>
+    <string name="msg_083" formatted="false">"格式无效，例如 EEE, dd.MM.yyyy"</string>
+    <string name="msg_084" formatted="false">"dd = 日 · MM = 月 · yyyy = 年 · EEE = 星期缩写 · EEEE = 完整星期 · MMMM = 月份名称。语言使用应用设置。"</string>
+    <string name="msg_085" formatted="false">"背景"</string>
+    <string name="msg_086" formatted="false">"背景颜色"</string>
+    <string name="msg_087" formatted="false">"选择背景图片"</string>
+    <string name="msg_088" formatted="false">"移除背景图片"</string>
+    <string name="msg_089" formatted="false">"已移除背景图片"</string>
+    <string name="msg_090" formatted="false">"填充 / 裁剪"</string>
+    <string name="msg_091" formatted="false">"完整显示图片"</string>
+    <string name="msg_092" formatted="false">"图片变暗（%）"</string>
+    <string name="msg_093" formatted="false">"同时移动背景图片"</string>
+    <string name="msg_094" formatted="false">"HTML 模式下，设计可以使用图片和设置。内置设计完整支持这些选项。"</string>
+    <string name="msg_095" formatted="false">"像素偏移"</string>
+    <string name="msg_096" formatted="false">"启用像素偏移"</string>
+    <string name="msg_097" formatted="false">"偏移范围 ± 像素（340 px 下）"</string>
+    <string name="msg_098" formatted="false">"间隔（秒）"</string>
+    <string name="msg_099" formatted="false">"原生文字会缩放至安全区域。HTML 会预留边界，应用移动整个 HTML 画面。静态图片和高亮度仍可能导致烧屏。"</string>
+    <string name="msg_100" formatted="false">"HTML 设计"</string>
+    <string name="msg_101" formatted="false">"尚未导入自定义设计"</string>
+    <string name="msg_102" formatted="false">"当前 HTML："</string>
+    <string name="msg_103" formatted="false">"导入 HTML 文件或设计 ZIP"</string>
+    <string name="msg_104" formatted="false">"使用内置 HTML 设计"</string>
+    <string name="msg_105" formatted="false">"正在设置 HTML 示例…"</string>
+    <string name="msg_106" formatted="false">"移除 HTML 设计 / 原生时钟"</string>
+    <string name="msg_107" formatted="false">"ZIP：index.html 及本地 CSS、JS、图片和字体。单个 HTML：嵌入所有资源。限制：解压后 20 MiB、200 个条目、每个 HTML 文件 1 MiB。离线运行，无 Android 桥接和触摸操作。"</string>
+    <string name="msg_108" formatted="false">"查看 HTML 接口"</string>
+    <string name="msg_109" formatted="false">"自定义设计说明"</string>
+    <string name="msg_110" formatted="false">"window.miniScreen 保存最新状态。监听 miniscreen:update 并读取 e.detail。字段：time, date, epochMs, showDate, width, height, cssWidth, cssHeight, timeZone, locale, preview, shiftX, shiftY, settings, backgroundUrl, fontUrl。CSS：--time-color, --date-color, --background-color。更新频率遵循秒显示设置，偏移、设置或时间变化也会触发更新。完整文档和示例见源码 docs/HTML-DESIGNS.md。导入后启用 HTML 模式。"</string>
+    <string name="msg_111" formatted="false">"1 至 80 个字符"</string>
+    <string name="msg_112" formatted="false">"正在导出配置…"</string>
+    <string name="msg_113" formatted="false">"已导出配置"</string>
+    <string name="msg_114" formatted="false">"正在导入文件…"</string>
+    <string name="msg_115" formatted="false">"无法读取图片格式"</string>
+    <string name="msg_116" formatted="false">"无法读取字体文件"</string>
+    <string name="msg_117" formatted="false">"未知文件操作"</string>
+    <string name="msg_118" formatted="false">"已导入"</string>
+    <string name="msg_119" formatted="false">"预览"</string>
+    <string name="msg_120" formatted="false">"色相 · 在方框中选择饱和度和亮度"</string>
+    <string name="msg_121" formatted="false">"应用"</string>
+    <string name="msg_122" formatted="false">"请输入 #RRGGBB"</string>
+    <string name="msg_123" formatted="false">"颜色方框：水平为饱和度，垂直为亮度"</string>
+    <string name="msg_124" formatted="false">"背屏控制"</string>
+    <string name="msg_125" formatted="false">"正在启动背屏控制…"</string>
+    <string name="msg_126" formatted="false">"等待主屏锁定"</string>
+    <string name="msg_127" formatted="false">"监控已暂停"</string>
+    <string name="msg_128" formatted="false">"手动显示已启动；监控已停止"</string>
+    <string name="msg_129" formatted="false">"显示已启用 · "</string>
+    <string name="msg_130" formatted="false">"监控锁定条件"</string>
+    <string name="msg_131" formatted="false">"手动显示已中断 · 请重新显示或等待下次锁定"</string>
+    <string name="msg_132" formatted="false">"手动模式；监控已停止"</string>
+    <string name="msg_133" formatted="false">"其他背屏应用正在使用屏幕 · 重新显示以接管"</string>
+    <string name="msg_134" formatted="false">"多次尝试后手动启动失败"</string>
+    <string name="msg_135" formatted="false">"已请求唤醒背屏…"</string>
+    <string name="msg_136" formatted="false">"唤醒："</string>
+    <string name="msg_137" formatted="false">"已请求在背屏启动界面 · 屏幕状态 "</string>
+    <string name="msg_138" formatted="false">"未知 / 私有"</string>
+    <string name="msg_139" formatted="false">"界面启动："</string>
+    <string name="msg_140" formatted="false">"已尝试厂商启动，但未确认界面启动；背屏仍未出现在屏幕列表中"</string>
+    <string name="msg_141" formatted="false">"屏幕已开启，但本应用界面未显示"</string>
+    <string name="msg_142" formatted="false">"已尝试厂商启动，但界面不可见；报告的屏幕状态 "</string>
+    <string name="msg_143" formatted="false">" · 最早重试于 "</string>
+    <string name="msg_144" formatted="false">"保持显示"</string>
+    <string name="msg_145" formatted="false">"恢复"</string>
+    <string name="msg_146" formatted="false">"暂停"</string>
+    <string name="msg_147" formatted="false">"停止"</string>
+    <string name="msg_148" formatted="false">"显示已隐藏"</string>
+    <string name="msg_149" formatted="false">"监控已停止"</string>
+    <string name="msg_150" formatted="false">"服务启动失败："</string>
+    <string name="msg_151" formatted="false">"启动失败：目标 "</string>
+    <string name="msg_152" formatted="false">"，实际屏幕 "</string>
+    <string name="msg_153" formatted="false">"正在屏幕上运行："</string>
+    <string name="msg_154" formatted="false">"启动目标或运行状态与当前界面不匹配。"</string>
+    <string name="msg_155" formatted="false">"显示于屏幕 "</string>
+    <string name="msg_156" formatted="false">"当前显示被覆盖或处于后台（屏幕 "</string>
+    <string name="msg_157" formatted="false">"显示已结束"</string>
+    <string name="msg_158" formatted="false">"HTML 进程已结束。请重新选择设计或切换为原生时钟。"</string>
+    <string name="msg_159" formatted="false">"HTML 设计："</string>
+    <string name="msg_160" formatted="false">"HTML 数据："</string>
+    <string name="msg_161" formatted="false">"配置 ID 无效"</string>
+    <string name="msg_162" formatted="false">"无法保存配置"</string>
+    <string name="msg_163" formatted="false">"缺少配置"</string>
+    <string name="msg_164" formatted="false">"路径位于设计目录之外"</string>
+    <string name="msg_165" formatted="false">"无法读取文件"</string>
+    <string name="msg_166" formatted="false">"ZIP 根目录需要 index.html，或子目录中有且只有一个 index.html"</string>
+    <string name="msg_167" formatted="false">"index.html 所在目录名称：使用字母、数字、_ 和 -"</string>
+    <string name="msg_168" formatted="false">"HTML 超过 1 MiB"</string>
+    <string name="msg_169" formatted="false">"未知配置格式"</string>
+    <string name="msg_170" formatted="false">"HTML 设计必须位于独立子目录中"</string>
+    <string name="msg_171" formatted="false">"配置引用了缺失文件"</string>
+    <string name="msg_172" formatted="false">"HTML 配置没有设计"</string>
+    <string name="msg_173" formatted="false">"配置导入："</string>
+    <string name="msg_174" formatted="false">"无法写入目标"</string>
+    <string name="msg_175" formatted="false">"文件 / 设计过大（最大 "</string>
+    <string name="msg_176" formatted="false">"ZIP 条目过多（最大 "</string>
+    <string name="msg_177" formatted="false">"ZIP 路径无效或过长"</string>
+    <string name="msg_178" formatted="false">"ZIP 路径无效或重复"</string>
+    <string name="msg_179" formatted="false">"图片适配"</string>
+</resources>

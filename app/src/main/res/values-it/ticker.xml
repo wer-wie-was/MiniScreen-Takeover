@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ticker_section" formatted="false">"Ticker delle notifiche"</string>
+    <string name="ticker_enabled" formatted="false">"Attiva ticker"</string>
+    <string name="ticker_access_yes" formatted="false">"Accesso alle notifiche concesso"</string>
+    <string name="ticker_access_no" formatted="false">"Accesso alle notifiche non concesso"</string>
+    <string name="ticker_access" formatted="false">"Concedi accesso alle notifiche"</string>
+    <string name="ticker_apps" formatted="false">"Seleziona app"</string>
+    <string name="ticker_privacy_locked" formatted="false">"Contenuto a telefono bloccato"</string>
+    <string name="ticker_privacy_unlocked" formatted="false">"Contenuto a telefono sbloccato"</string>
+    <string name="ticker_per_app" formatted="false">"Privacy per app"</string>
+    <string name="ticker_privacy_help" formatted="false">"Il titolo può contenere il mittente. Contenuti solo in memoria, esclusi da profili, esportazioni e diagnostica. Android può nascondere contenuti sensibili."</string>
+    <string name="ticker_only_locked" formatted="false">"Mostra solo a telefono bloccato"</string>
+    <string name="ticker_ongoing" formatted="false">"Includi notifiche permanenti"</string>
+    <string name="ticker_groups" formatted="false">"Includi riepiloghi di gruppo"</string>
+    <string name="ticker_reminder" formatted="false">"Modalità promemoria"</string>
+    <string name="ticker_once" formatted="false">"Una volta"</string>
+    <string name="ticker_until_unlock" formatted="false">"Fino allo sblocco"</string>
+    <string name="ticker_until_removed" formatted="false">"Finché la notifica esiste"</string>
+    <string name="ticker_time_limit" formatted="false">"Con limite di tempo"</string>
+    <string name="ticker_interval" formatted="false">"Pausa di ripetizione (secondi)"</string>
+    <string name="ticker_limit" formatted="false">"Limite di tempo (minuti)"</string>
+    <string name="ticker_duration" formatted="false">"Durata (secondi)"</string>
+    <string name="ticker_pause" formatted="false">"Pausa tra messaggi (secondi)"</string>
+    <string name="ticker_scroll" formatted="false">"Testo scorrevole"</string>
+    <string name="ticker_speed" formatted="false">"Velocità (px/s a 340 px)"</string>
+    <string name="ticker_lines" formatted="false">"Righe della scheda statica"</string>
+    <string name="ticker_size" formatted="false">"Dimensione carattere (a 340 px)"</string>
+    <string name="ticker_profile_font" formatted="false">"Font del profilo, incluso quello importato"</string>
+    <string name="ticker_color" formatted="false">"Colore del testo"</string>
+    <string name="ticker_background" formatted="false">"Sfondo ticker"</string>
+    <string name="ticker_opacity" formatted="false">"Opacità sfondo (%)"</string>
+    <string name="ticker_width" formatted="false">"Larghezza (%)"</string>
+    <string name="ticker_x" formatted="false">"Posizione X (%)"</string>
+    <string name="ticker_y" formatted="false">"Posizione Y (%)"</string>
+    <string name="ticker_icon" formatted="false">"Mostra icona app"</string>
+    <string name="ticker_icon_size" formatted="false">"Dimensione icona (a 340 px)"</string>
+    <string name="ticker_clock" formatted="false">"Orologio durante una notifica"</string>
+    <string name="ticker_clock_keep" formatted="false">"Mantieni visibile"</string>
+    <string name="ticker_clock_dim" formatted="false">"Attenua"</string>
+    <string name="ticker_clock_hide" formatted="false">"Nascondi temporaneamente"</string>
+    <string name="ticker_html" formatted="false">"Il design HTML mostra le notifiche"</string>
+    <string name="ticker_preview" formatted="false">"Anteprima notifica di esempio"</string>
+    <string name="ticker_clear" formatted="false">"Svuota coda ticker"</string>
+    <string name="ticker_help" formatted="false">"Spegnimento manuale e orari hanno priorità. Lo sblocco termina solo i promemoria; le notifiche Android restano. Le notifiche rimosse non si ripetono. La coda in memoria si perde al riavvio del processo. HTML riceve dati filtrati solo se attivato e deve mostrarli. Impostazioni locali, escluse dai profili esportati."</string>
+    <string name="ticker_private" formatted="false">"Solo icona e numero"</string>
+    <string name="ticker_app_name" formatted="false">"Solo nome app"</string>
+    <string name="ticker_title" formatted="false">"App e titolo"</string>
+    <string name="ticker_full" formatted="false">"App, titolo e messaggio"</string>
+    <string name="ticker_inherit" formatted="false">"Usa impostazione globale"</string>
+    <string name="ticker_new" formatted="false">"nuova notifica"</string>
+    <string name="ticker_demo_text" formatted="false">"MiniScreen Takeover · Esempio: lo schermo posteriore è pronto."</string>
+</resources>

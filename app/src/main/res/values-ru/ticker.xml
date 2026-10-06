@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ticker_section" formatted="false">"Бегущая строка уведомлений"</string>
+    <string name="ticker_enabled" formatted="false">"Включить строку"</string>
+    <string name="ticker_access_yes" formatted="false">"Доступ к уведомлениям разрешён"</string>
+    <string name="ticker_access_no" formatted="false">"Доступ к уведомлениям не разрешён"</string>
+    <string name="ticker_access" formatted="false">"Разрешить доступ к уведомлениям"</string>
+    <string name="ticker_apps" formatted="false">"Выбрать приложения"</string>
+    <string name="ticker_privacy_locked" formatted="false">"Содержимое при блокировке"</string>
+    <string name="ticker_privacy_unlocked" formatted="false">"Содержимое после разблокировки"</string>
+    <string name="ticker_per_app" formatted="false">"Конфиденциальность по приложениям"</string>
+    <string name="ticker_privacy_help" formatted="false">"Заголовок может содержать имя отправителя. Содержимое только в памяти, без профилей, экспорта и диагностики. Android может скрывать чувствительные данные."</string>
+    <string name="ticker_only_locked" formatted="false">"Показывать только при блокировке"</string>
+    <string name="ticker_ongoing" formatted="false">"Включать постоянные уведомления"</string>
+    <string name="ticker_groups" formatted="false">"Включать сводки групп"</string>
+    <string name="ticker_reminder" formatted="false">"Режим напоминания"</string>
+    <string name="ticker_once" formatted="false">"Один раз"</string>
+    <string name="ticker_until_unlock" formatted="false">"До разблокировки"</string>
+    <string name="ticker_until_removed" formatted="false">"Пока уведомление существует"</string>
+    <string name="ticker_time_limit" formatted="false">"С ограничением времени"</string>
+    <string name="ticker_interval" formatted="false">"Пауза повтора (секунды)"</string>
+    <string name="ticker_limit" formatted="false">"Лимит времени (минуты)"</string>
+    <string name="ticker_duration" formatted="false">"Длительность показа (секунды)"</string>
+    <string name="ticker_pause" formatted="false">"Пауза между сообщениями (секунды)"</string>
+    <string name="ticker_scroll" formatted="false">"Бегущая строка"</string>
+    <string name="ticker_speed" formatted="false">"Скорость (пкс/с при 340 пкс)"</string>
+    <string name="ticker_lines" formatted="false">"Строки статической карточки"</string>
+    <string name="ticker_size" formatted="false">"Размер шрифта (при 340 пкс)"</string>
+    <string name="ticker_profile_font" formatted="false">"Шрифт профиля, включая импортированный"</string>
+    <string name="ticker_color" formatted="false">"Цвет текста"</string>
+    <string name="ticker_background" formatted="false">"Фон строки"</string>
+    <string name="ticker_opacity" formatted="false">"Непрозрачность фона (%)"</string>
+    <string name="ticker_width" formatted="false">"Ширина (%)"</string>
+    <string name="ticker_x" formatted="false">"Позиция X (%)"</string>
+    <string name="ticker_y" formatted="false">"Позиция Y (%)"</string>
+    <string name="ticker_icon" formatted="false">"Показывать значок приложения"</string>
+    <string name="ticker_icon_size" formatted="false">"Размер значка (при 340 пкс)"</string>
+    <string name="ticker_clock" formatted="false">"Часы во время уведомления"</string>
+    <string name="ticker_clock_keep" formatted="false">"Оставить видимыми"</string>
+    <string name="ticker_clock_dim" formatted="false">"Затемнить"</string>
+    <string name="ticker_clock_hide" formatted="false">"Временно скрыть"</string>
+    <string name="ticker_html" formatted="false">"Уведомления отображает HTML-дизайн"</string>
+    <string name="ticker_preview" formatted="false">"Предпросмотр примера уведомления"</string>
+    <string name="ticker_clear" formatted="false">"Очистить очередь строки"</string>
+    <string name="ticker_help" formatted="false">"Ручное выключение и расписание имеют приоритет. Разблокировка завершает только напоминания строки; уведомления Android остаются. Удалённые уведомления не повторяются. Очередь в памяти теряется при перезапуске процесса. HTML получает отфильтрованные данные только при включении и должен их отображать. Настройки локальные, без экспорта в профили."</string>
+    <string name="ticker_private" formatted="false">"Только значок и количество"</string>
+    <string name="ticker_app_name" formatted="false">"Только название приложения"</string>
+    <string name="ticker_title" formatted="false">"Приложение и заголовок"</string>
+    <string name="ticker_full" formatted="false">"Приложение, заголовок и текст"</string>
+    <string name="ticker_inherit" formatted="false">"Использовать общую настройку"</string>
+    <string name="ticker_new" formatted="false">"новое уведомление"</string>
+    <string name="ticker_demo_text" formatted="false">"MiniScreen Takeover · Пример: задний экран готов."</string>
+</resources>

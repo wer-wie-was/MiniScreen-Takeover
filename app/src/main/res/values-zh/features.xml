@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="window_mode" formatted="false">"橱窗"</string>
+    <string name="window_zoom" formatted="false">"橱窗缩放（%）"</string>
+    <string name="window_speed" formatted="false">"橱窗：每段移动的秒数"</string>
+    <string name="window_moving" formatted="false">"启用橱窗移动"</string>
+    <string name="window_help" formatted="false">"橱窗模式在随机位置之间平滑移动放大的图片。缩放越大，显示的区域越小。秒数越多，移动越慢。变暗滤镜仍然有效。"</string>
+    <string name="external_section" formatted="false">"其他应用"</string>
+    <string name="external_none" formatted="false">"尚未选择应用"</string>
+    <string name="external_choose" formatted="false">"选择应用"</string>
+    <string name="external_empty" formatted="false">"未找到可启动的应用"</string>
+    <string name="external_start" formatted="false">"在背屏启动所选应用"</string>
+    <string name="external_return" formatted="false">"重新显示 MiniScreen Takeover"</string>
+    <string name="external_unavailable" formatted="false">"请选择可用的应用"</string>
+    <string name="external_requested" formatted="false">"已请求启动。请检查背屏；本应用监控保持暂停。"</string>
+    <string name="external_failed" formatted="false">"应用启动失败："</string>
+    <string name="external_help" formatted="false">"厂商接口尝试在屏幕 1 启动所选应用。某些应用可能拒绝或切换到主屏。本应用显示会关闭，监控无限期暂停。“重新显示 MiniScreen Takeover”可重新接管。"</string>
+    <string name="charge_section" formatted="false">"充电显示"</string>
+    <string name="charge_enabled" formatted="false">"连接电源时显示充电指示"</string>
+    <string name="charge_display" formatted="false">"显示方式"</string>
+    <string name="charge_icon" formatted="false">"电池图标与百分比"</string>
+    <string name="charge_icon_circle" formatted="false">"电池图标、百分比与环形边框"</string>
+    <string name="charge_preview" formatted="false">"仅预览：模拟连接电源，电量 65%"</string>
+    <string name="charge_text_color" formatted="false">"百分比颜色"</string>
+    <string name="charge_symbol_color" formatted="false">"电池图标颜色"</string>
+    <string name="charge_size" formatted="false">"充电显示字号（340 px 下）"</string>
+    <string name="charge_font" formatted="false">"百分比字体"</string>
+    <string name="charge_x" formatted="false">"充电显示 X 位置（%）"</string>
+    <string name="charge_y" formatted="false">"充电显示 Y 位置（%）"</string>
+    <string name="charge_ring_color" formatted="false">"充电环颜色"</string>
+    <string name="charge_ring_width" formatted="false">"充电环线宽（340 px 下）"</string>
+    <string name="charge_ring_style" formatted="false">"充电环动画"</string>
+    <string name="charge_static" formatted="false">"静态"</string>
+    <string name="charge_animated" formatted="false">"动态光效"</string>
+    <string name="charge_animation_speed" formatted="false">"每次动画循环的秒数"</string>
+    <string name="charge_help" formatted="false">"仅在连接电源时显示，包括电量 100% 时。环形弧线表示电量。所有元素随像素偏移移动，叠加在原生时钟和 HTML 上。预览模拟不影响背屏。"</string>
+    <string name="web_load_failed" formatted="false">"无法加载 HTML："</string>
+</resources>
