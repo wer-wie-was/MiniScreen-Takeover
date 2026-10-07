@@ -96,3 +96,11 @@ References: https://developer.android.com/reference/androidx/webkit/Profile#setC
 ## Source checks for 0.3.4
 
 Java syntax parsing, XML/resource consistency, JavaScript syntax, bundled SHA-256 hashes and firmware-only ZIP contents were checked. A controlled asynchronous engine check verified that a restart waits for an existing flash save, requests a new save, then acknowledges the request. The unchanged classic engine booted test images for Aplite, Basalt, Chalk and Diorite under Node.js and produced frames. Basalt exports a 148×172 framebuffer with a two-pixel hardware border; the app crops that known border to the logical 144×168 display. This host boot check does not verify PBW installation or Android operation for the four older targets. No Android compilation was performed.
+
+## Constant display brightness
+
+For the exact bundled modern engine (Gabbro, Emery and Flint), the service starts the engine page with `steady=1`. Before instantiation, the loader verifies the bundled WASM SHA-256 and three instruction byte sequences, then applies equal-length replacements to the display driver's brightness calculation in memory. Its RGB scale becomes constant 255 rather than `170 + 85 * brightness`; palette values and firmware backlight state are preserved. QEMU assets on disk are unchanged. The phone display brightness remains independently controlled by Takeover. No repeated input or firmware command is sent.
+
+A complete imported engine is not patched. Firmware-only imports on the three modern targets use the bundled engine and receive the same correction. The classic engine remains unchanged. A changed module must get a separately verified patch; the hash and instruction checks prevent patching unknown binaries. This change does not alter boot restoration.
+
+Source checks for this change: Java/JavaScript syntax; WASM validation after the four-byte change; rejection of an altered unknown module; host boot/frame generation with the in-memory patch for Gabbro, Emery and Flint. The boot check does not reproduce a particular watchface’s backlight timeout. No APK, firmware or emulator binary was compiled.

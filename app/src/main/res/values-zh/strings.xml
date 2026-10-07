@@ -8,7 +8,7 @@
     <string name="msg_005" formatted="false">"实时预览"</string>
     <string name="msg_006" formatted="false">"像素偏移边界"</string>
     <string name="msg_007" formatted="false">"正在处理文件…"</string>
-    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.3.5 · AI 辅助编程"</string>
+    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.3.6 · AI 辅助编程"</string>
     <string name="msg_009" formatted="false">"，可展开部分"</string>
     <string name="msg_010" formatted="false">"尚未启动显示"</string>
     <string name="msg_011" formatted="false">"▶ 在背屏显示"</string>

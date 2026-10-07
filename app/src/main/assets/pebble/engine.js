@@ -3,6 +3,7 @@ import {parsePbw} from './vendor/pbw.js';
 import {AppInstaller} from './vendor/app-install.js';
 import {AppMessageClient} from './vendor/appmessage.js';
 import {PkjsRuntime,makeIframeSandbox} from './vendor/pkjs-runtime.js';
+import {steadyDisplayBinary} from './vendor/steady-display.js';
 import {PulseConsole} from './vendor/pulse-console.js';
 
 const boards={
@@ -14,7 +15,9 @@ const boards={
  flint:{machine:'pebble-flint',width:144,height:168},
  gabbro:{machine:'pebble-gabbro',width:260,height:260}
 };
-const platform=new URLSearchParams(location.search).get('board'),board=boards[platform];
+const query=new URLSearchParams(location.search),platform=query.get('board'),board=boards[platform];
+// Granted only for our exact bundled modern engine; custom engines stay untouched.
+const steady=query.get('steady')==='1'&&!board?.classic;
 const canvas=document.querySelector('#display'),ctx=canvas.getContext('2d');
 let qemu,phone,pkjs,pulse,frameCount=-1,frameBusy=false,lastFrameTime=0,settings={fps:10},installed=false,installing=false,configCallback=null,installError=false;
 let uartOffset=0,serialAddr=0,buttonMask=0,healthReady=false,healthChecked=false;
@@ -109,7 +112,9 @@ async function boot(){
   const factory=(await import('./'+base+'qemu-system-arm.js')).default;
   const args=['-machine',board.machine,'-kernel','/firmware/qemu_micro_flash.bin','-drive',board.spi?'if=none,id=spi-flash,format=raw,file=/firmware/qemu_spi_flash.bin':'if=mtd,format=raw,file=/firmware/qemu_spi_flash.bin','-display','none','-monitor','none','-parallel','none','-serial','null','-serial','null','-serial','file:/tmp/uart2.log','-rtc','base=localtime'];
   if(board.classic)args.push('-icount','shift=4,sleep=on');
+
   const options={arguments:args,print:log,printErr:log,preRun:[()=>{options.FS.mkdir('/firmware');options.FS.writeFile('/firmware/qemu_micro_flash.bin',micro);options.FS.writeFile('/firmware/qemu_spi_flash.bin',spi);}],locateFile:p=>base+p,onAbort:()=>status('engine_failed')};
+  if(steady)options.wasmBinary=await steadyDisplayBinary(await bytes(base+'qemu-system-arm.wasm'));
   qemu=await factory(options);attach();setInterval(frame,30);setInterval(persist,30000);
  }catch(e){status('engine_failed');}
 }

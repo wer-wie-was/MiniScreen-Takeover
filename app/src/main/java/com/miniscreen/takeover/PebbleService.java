@@ -49,7 +49,7 @@ public final class PebbleService extends Service implements PebbleServer.Events 
                 @Override public void onPageFinished(WebView v,String url){if(server!=null)try{server.command(new JSONObject().put("type","settings").put("value",new JSONObject(options)));}catch(JSONException ignored){}}
                 @Override public boolean onRenderProcessGone(WebView v,RenderProcessGoneDetail detail){status("engine_crashed");closeEngine();return true;}
             });
-            engine.setWebChromeClient(new WebChromeClient());engine.onResume();status("booting");engine.loadUrl(base+"engine.html?board="+Uri.encode(board));
+            engine.setWebChromeClient(new WebChromeClient());engine.onResume();status("booting");engine.loadUrl(base+"engine.html?board="+Uri.encode(board)+"&steady="+(PebbleFiles.steadyDisplay(this,board)?"1":"0"));
         }catch(Exception e){status("engine_failed");closeEngine();}
     }
     private void send(Messenger client,int what,Bundle data){try{Message message=Message.obtain(null,what);message.setData(data);client.send(message);}catch(RemoteException e){clients.remove(client.getBinder());}}

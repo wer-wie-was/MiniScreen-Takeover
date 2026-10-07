@@ -772,8 +772,8 @@ static bool s_color_lut_valid = false;
 
 static void ps_display_rebuild_color_lut(PSDisplayGlobals *s)
 {
-    float brightness = s->backlight_enabled ? s->brightness : 0.0f;
-    int max_val = 170 + (int)((255 - 170) * brightness);
+    // Takeover supplies real display brightness; guest backlight must not dim its RGB output.
+    const int max_val = 255;
 
     for (int i = 0; i < 256; i++) {
         int r = ((i & 0xC0) >> 6) * 255 / 3;

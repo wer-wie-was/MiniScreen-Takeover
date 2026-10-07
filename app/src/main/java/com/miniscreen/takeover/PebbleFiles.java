@@ -80,5 +80,10 @@ final class PebbleFiles {
             default:return platform;
         }
     }
+    static boolean steadyDisplay(Context c,String platform){
+        // Custom firmware may use our built-in engine; a complete imported engine is unknown.
+        return Arrays.asList(BUNDLED).contains(platform)&&(!importedReady(c,platform)
+                ||!new File(runtime(c),platform+"/qemu-system-arm.js").isFile());
+    }
     static void remove(File f){if(f.isDirectory()){File[] children=f.listFiles();if(children!=null)for(File child:children)remove(child);}f.delete();}
 }
