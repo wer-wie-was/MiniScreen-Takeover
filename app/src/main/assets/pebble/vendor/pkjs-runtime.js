@@ -220,7 +220,10 @@ export class PkjsRuntime {
   showConfiguration() {
     if (!this.current) return false;
     const l = this.current.listeners.get('showConfiguration');
-    if (l && l.length) { l.forEach((fn) => fn({ type: 'showConfiguration' })); return true; }
+    if (l && l.length) {
+      try { l.forEach((fn) => fn({ type: 'showConfiguration' })); return true; }
+      catch (e) { this.log('configuration handler failed'); return false; }
+    }
     return false;
   }
 

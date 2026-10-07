@@ -17,7 +17,7 @@ final class PebbleSession implements SharedPreferences.OnSharedPreferenceChangeL
     private final Messenger receiver=new Messenger(new Handler(Looper.getMainLooper(),m->{
         if(m.what==PebbleService.FRAME){byte[] png=m.getData().getByteArray("png");if(png!=null&&png.length<512*1024)frame=BitmapFactory.decodeByteArray(png,0,png.length);notifyObservers();}
         else if(m.what==PebbleService.STATUS){status=m.getData().getString("status","");if(Arrays.asList("booting","runtime_missing","watchface_missing","engine_crashed","engine_failed","webview_incompatible","webview_update_required","webview_isolation_failed","webview_secure_context_missing","webview_shared_memory_missing","webview_wasm_missing","install_failed").contains(status))frame=null;notifyObservers();}
-        else if(m.what==PebbleService.CONFIG){String url=m.getData().getString("url","");openConfig(url);}
+        else if(m.what==PebbleService.CONFIG){openConfig(m.getData().getString("configId",""));}
         return true;
     }));
     private final ServiceConnection connection=new ServiceConnection(){
@@ -25,7 +25,12 @@ final class PebbleSession implements SharedPreferences.OnSharedPreferenceChangeL
         public void onServiceDisconnected(ComponentName name){remote=null;frame=null;status="engine_crashed";notifyObservers();}
         public void onBindingDied(ComponentName name){onServiceDisconnected(name);if(bound){context.unbindService(this);bound=false;}if(!observers.isEmpty())bind();}
     };
-    private void openConfig(String url){if(!url.isEmpty()&&observers.containsValue(true))context.startActivity(new Intent(context,PebbleConfigActivity.class).putExtra("url",url).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));}
+    private void openConfig(String id){
+        if(!observers.containsValue(true)){PebbleConfigStore.remove(context,id);command("configClosed","");return;}
+        try{android.app.ActivityOptions options=android.app.ActivityOptions.makeBasic();options.setLaunchDisplayId(0);context.startActivity(new Intent(context,PebbleConfigActivity.class).putExtra("configId",id).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),options.toBundle());}
+        catch(RuntimeException e){PebbleConfigStore.remove(context,id);command("configClosed","");status="configuration_failed";notifyObservers();}
+    }
+    void closeConfig(String value){if(value.isEmpty()){command("configClosed","");return;}try{command("configClosedFile",PebbleConfigStore.write(context,value));}catch(java.io.IOException e){command("configClosed","");status="configuration_failed";notifyObservers();}}
     private PebbleSession(Context c){context=c;TakeoverControl.prefs(c).registerOnSharedPreferenceChangeListener(this);}
     void subscribe(Observer o,boolean foreground){observers.put(o,foreground);o.changed(frame,status);if(!bound)bind();if(remote!=null){settings();readHealth();}}
     private void bind(){bound=context.bindService(new Intent(context,PebbleService.class),connection,Context.BIND_AUTO_CREATE);if(!bound){status="engine_failed";notifyObservers();}}
