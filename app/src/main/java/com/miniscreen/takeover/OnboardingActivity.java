@@ -85,7 +85,7 @@ public final class OnboardingActivity extends Activity {
         if(!prefs.getBoolean("onboarding_background_confirmed",false)){page(1);return;}
         if(!prefs.getBoolean("onboarding_miniscreen_confirmed",false))return;
         prefs.edit().putBoolean("onboarding_complete",true).putInt("onboarding_step_v2",0).apply();
-        startActivity(new Intent(this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP));finish();
+        startActivity(new Intent(this,PebbleHealthActivity.class).putExtra("onboarding",true));finish();
     }
     private void openGeneralSettings(){
         // Start the Settings root in a fresh Settings task, rather than resume its last subpage.

@@ -33,3 +33,5 @@ Nella massima misura consentita dalla legge, si rinuncia irrevocabilmente a tutt
 ## Русский
 
 В максимально допустимой законом степени осуществляется безотзывный отказ от всех принадлежащих авторских и смежных прав на MiniScreen Takeover согласно CC0 1.0 Universal. Если отказ недействителен, эти права предоставляются без ограничений согласно CC0. Использование, изменение и распространение, включая коммерческие цели, не требуют разрешения или указания авторства. Права третьих лиц не затрагиваются.
+
+Third-party exception / Ausnahme für Drittkomponenten: This dedication applies only to original MiniScreen Takeover code. Imported PBWs, firmware, QEMU, upstream hardware models and vendored JavaScript retain their own licenses. Siehe / see pebble/THIRD-PARTY.md.

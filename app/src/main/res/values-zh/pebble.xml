@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="pebble_section" formatted="false">"Pebble 表盘"</string>
+    <string name="pebble_open" formatted="false">"打开 Pebble 设置"</string>
+    <string name="pebble_import" formatted="false">"导入 .pbw 表盘"</string>
+    <string name="pebble_runtime" formatted="false">"导入模拟器运行包 (.zip)"</string>
+    <string name="pebble_platform" formatted="false">"虚拟手表平台"</string>
+    <string name="pebble_crop" formatted="false">"裁剪填满屏幕"</string>
+    <string name="pebble_network" formatted="false">"允许表盘联网"</string>
+    <string name="pebble_fps" formatted="false">"每秒最大画面更新次数"</string>
+    <string name="pebble_configure" formatted="false">"配置表盘"</string>
+    <string name="pebble_health" formatted="false">"可选健康数据"</string>
+    <string name="pebble_steps" formatted="false">"读取步数"</string>
+    <string name="pebble_heart" formatted="false">"读取心率"</string>
+    <string name="pebble_background" formatted="false">"后台读取"</string>
+    <string name="pebble_grant" formatted="false">"授予所选权限"</string>
+    <string name="pebble_max_age" formatted="false">"心率数据最大时限（分钟）"</string>
+    <string name="pebble_help" formatted="false">"导入 PBW。已内置 Gabbro、Emery 和 Flint 运行包。其他平台需导入可选运行包。标准固件不包含 Health Connect 桥接。在主屏幕配置和操作手表按钮。联网可选。兼容性仍为实验性质。"</string>
+    <string name="pebble_health_help" formatted="false">"可选择将 Health Connect 的步数和最新有效心率共享给虚拟 Pebble，不写回数据。需要支持健康桥接的固件。读取不会产生测量，数据需由其他来源提供。允许联网的表盘可能传输数据。可跳过并稍后修改权限。"</string>
+    <string name="pebble_health_unavailable" formatted="false">"Health Connect 不可用（需要 Android 14 或更新版本）。"</string>
+    <string name="pebble_runtime_missing" formatted="false">"导入模拟器运行包"</string>
+    <string name="pebble_no_face" formatted="false">"请先导入 PBW"</string>
+    <string name="pebble_starting" formatted="false">"Pebble 启动中…"</string>
+    <string name="pebble_installing" formatted="false">"正在安装表盘…"</string>
+    <string name="pebble_running" formatted="false">"表盘运行中"</string>
+    <string name="pebble_bridge_missing" formatted="false">"此固件不支持 Health Connect 桥接"</string>
+    <string name="pebble_webview" formatted="false">"WebView 不支持此模拟器"</string>
+    <string name="pebble_no_config" formatted="false">"此表盘没有配置页面"</string>
+    <string name="pebble_failed" formatted="false">"Pebble 运行错误，请打开设置"</string>
+    <string name="pebble_import_failed" formatted="false">"导入失败"</string>
+    <string name="pebble_bundled" formatted="false">"内置 Gabbro、Emery 和 Flint。自动选择匹配的平台。"</string>
+    <string name="pebble_webview_update" formatted="false">"此 WebView 无法启用模拟器共享内存。请更新 Android System WebView；所安装的提供程序必须支持跨源隔离。"</string>
+    <string name="pebble_webview_isolation" formatted="false">"无法启用模拟器隔离。请检查下方显示的 WebView 版本。"</string>
+    <string name="pebble_webview_memory" formatted="false">"此 WebView 不支持 WebAssembly 共享内存或 Worker。请更新 Android System WebView。"</string>
+    <string name="pebble_use_mode" formatted="false">"用作显示模式"</string>
+</resources>

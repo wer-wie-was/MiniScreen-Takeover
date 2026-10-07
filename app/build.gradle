@@ -6,8 +6,11 @@ android {
         applicationId 'com.miniscreen.takeover'
         minSdk 26
         targetSdk 34
-        versionCode 15
-        versionName '0.2.3'
+        versionCode 19
+        versionName '0.3.3'
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
 }
+
+// Required for Profile.setCrossOriginIsolatedAllowlist; stable 1.17 lacks this API.
+dependencies { implementation 'androidx.webkit:webkit:1.18.0-alpha02' }

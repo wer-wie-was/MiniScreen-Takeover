@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="pebble_section" formatted="false">"Cadrans Pebble"</string>
+    <string name="pebble_open" formatted="false">"Ouvrir les réglages Pebble"</string>
+    <string name="pebble_import" formatted="false">"Importer un cadran .pbw"</string>
+    <string name="pebble_runtime" formatted="false">"Importer le moteur (.zip)"</string>
+    <string name="pebble_platform" formatted="false">"Plateforme de montre virtuelle"</string>
+    <string name="pebble_crop" formatted="false">"Recadrer pour remplir"</string>
+    <string name="pebble_network" formatted="false">"Autoriser Internet pour le cadran"</string>
+    <string name="pebble_fps" formatted="false">"Actualisations maximales par seconde"</string>
+    <string name="pebble_configure" formatted="false">"Configurer le cadran"</string>
+    <string name="pebble_health" formatted="false">"Données de santé facultatives"</string>
+    <string name="pebble_steps" formatted="false">"Lire les pas"</string>
+    <string name="pebble_heart" formatted="false">"Lire la fréquence cardiaque"</string>
+    <string name="pebble_background" formatted="false">"Lire en arrière-plan"</string>
+    <string name="pebble_grant" formatted="false">"Accorder les autorisations choisies"</string>
+    <string name="pebble_max_age" formatted="false">"Âge maximal du pouls (minutes)"</string>
+    <string name="pebble_help" formatted="false">"Importez une PBW. Les moteurs Gabbro, Emery et Flint sont inclus. Les autres plateformes nécessitent un import facultatif. Le firmware standard ne contient pas de liaison Health Connect. Configuration et boutons sur l’écran principal. Internet facultatif. Compatibilité expérimentale."</string>
+    <string name="pebble_health_help" formatted="false">"Partage facultatif des pas et du dernier pouls récent depuis Health Connect avec la Pebble virtuelle, sans écriture. Un firmware compatible est nécessaire. Les mesures doivent provenir d’une autre source. Les cadrans autorisés à accéder à Internet peuvent transmettre ces valeurs. Vous pouvez ignorer cette page et modifier les accès plus tard."</string>
+    <string name="pebble_health_unavailable" formatted="false">"Health Connect indisponible (Android 14 ou ultérieur requis)."</string>
+    <string name="pebble_runtime_missing" formatted="false">"Importer le moteur"</string>
+    <string name="pebble_no_face" formatted="false">"Importer une PBW d’abord"</string>
+    <string name="pebble_starting" formatted="false">"Démarrage de Pebble…"</string>
+    <string name="pebble_installing" formatted="false">"Installation du cadran…"</string>
+    <string name="pebble_running" formatted="false">"Cadran actif"</string>
+    <string name="pebble_bridge_missing" formatted="false">"Ce firmware ne possède pas de pont Health Connect"</string>
+    <string name="pebble_webview" formatted="false">"WebView ne prend pas en charge cet émulateur"</string>
+    <string name="pebble_no_config" formatted="false">"Ce cadran n’a pas de page de configuration"</string>
+    <string name="pebble_failed" formatted="false">"Erreur Pebble ; ouvrir les réglages"</string>
+    <string name="pebble_import_failed" formatted="false">"Échec de l’importation"</string>
+    <string name="pebble_bundled" formatted="false">"Inclus : Gabbro, Emery et Flint. Une plateforme compatible est sélectionnée automatiquement."</string>
+    <string name="pebble_webview_update" formatted="false">"Ce WebView ne peut pas autoriser la mémoire de l’émulateur. Mettez à jour Android System WebView ; le moteur doit prendre en charge l’isolation."</string>
+    <string name="pebble_webview_isolation" formatted="false">"Impossible d’activer l’isolation de l’émulateur. Vérifiez la version WebView ci-dessous."</string>
+    <string name="pebble_webview_memory" formatted="false">"Ce WebView ne fournit pas de mémoire WebAssembly partagée ou de workers. Mettez à jour Android System WebView."</string>
+    <string name="pebble_use_mode" formatted="false">"Utiliser comme mode d’affichage"</string>
+</resources>

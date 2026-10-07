@@ -17,7 +17,7 @@ final class DisplaySurface extends FrameLayout {
     private static final String ORIGIN="https://miniscreen.local";
     private final ProfileStore store;
     private final Handler handler=new Handler(Looper.getMainLooper());
-    private ClockView clock;
+    private ClockView clock;private PebbleView pebble;
     private WebView web;
     private ChargeView charge;
     private TickerView notificationView;private WidgetLayer widgetLayer;private DotView dot;private boolean dotDemo;
@@ -54,8 +54,9 @@ final class DisplaySurface extends FrameLayout {
         config=c;profile=id;loadedDesign=c.design;loadedMode=c.mode;loadedImage=c.image;loadedFont=c.fontFile;
         setBackgroundColor(Color.parseColor(c.backgroundColor));
         if(rebuild) {
-            releaseWeb();if(widgetLayer!=null)widgetLayer.dispose();removeAllViews();clock=null;ready=false;
-            if(c.mode.equals("html")&&!c.design.isEmpty()) createWeb();
+            releaseWeb();if(pebble!=null){pebble.stop();pebble=null;}if(widgetLayer!=null)widgetLayer.dispose();removeAllViews();clock=null;ready=false;
+            if(c.mode.equals("pebble")){pebble=new PebbleView(getContext(),preview);addView(pebble,new LayoutParams(-1,-1));}
+            else if(c.mode.equals("html")&&!c.design.isEmpty()) createWeb();
             else {clock=new ClockView(getContext());addView(clock,new LayoutParams(-1,-1));}
             widgetLayer=new WidgetLayer(getContext());addView(widgetLayer,new LayoutParams(-1,-1));
             dot=new DotView(getContext());addView(dot,new LayoutParams(-1,-1));
@@ -150,6 +151,7 @@ final class DisplaySurface extends FrameLayout {
     void tick() {
         handler.removeCallbacks(ticker);if(config==null||disposed)return;
         long now=System.currentTimeMillis();float[] offset=offset(config,now);float dx=offset[0]*scale(),dy=offset[1]*scale();
+        if(pebble!=null)pebble.update(config,dx,dy,running);
         if(widgetLayer!=null)widgetLayer.update(config,dx,dy,running);
         if(dot!=null)dot.update(preview?(dotDemo?NotificationDot.color(getContext(),true):null):(running?NotificationDot.color(getContext(),false):null),config,dx,dy);
         if(clock!=null)clock.shift(dx,dy);if(charge!=null)charge.shift(dx,dy);
@@ -183,7 +185,7 @@ final class DisplaySurface extends FrameLayout {
         }catch(Exception e){report(I18n.get(R.string.msg_160)+e.getMessage());}
     }
     void start() {if(running||disposed)return;running=true;IntentFilter f=new IntentFilter();f.addAction(Intent.ACTION_TIME_CHANGED);f.addAction(Intent.ACTION_TIMEZONE_CHANGED);f.addAction(Intent.ACTION_DATE_CHANGED);if(Build.VERSION.SDK_INT>=33){getContext().registerReceiver(timeReceiver,f,Context.RECEIVER_NOT_EXPORTED);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED),Context.RECEIVER_NOT_EXPORTED);}else{getContext().registerReceiver(timeReceiver,f);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));}if(web!=null)web.onResume();tick();}
-    void stop() {handler.removeCallbacks(ticker);handler.removeCallbacks(motionFrame);if(running){running=false;getContext().unregisterReceiver(timeReceiver);getContext().unregisterReceiver(batteryReceiver);}notification=null;if(widgetLayer!=null)widgetLayer.stop();if(dot!=null)dot.update(null,config,0,0);if(notificationView!=null)notificationView.stop();if(clock!=null)clock.notificationAlpha(1);if(web!=null){web.setAlpha(1);if(ready&&config!=null)pushData(System.currentTimeMillis(),offset(config,System.currentTimeMillis()));web.onPause();}}
+    void stop() {handler.removeCallbacks(ticker);handler.removeCallbacks(motionFrame);if(running){running=false;getContext().unregisterReceiver(timeReceiver);getContext().unregisterReceiver(batteryReceiver);}notification=null;if(pebble!=null)pebble.stop();if(widgetLayer!=null)widgetLayer.stop();if(dot!=null)dot.update(null,config,0,0);if(notificationView!=null)notificationView.stop();if(clock!=null)clock.notificationAlpha(1);if(web!=null){web.setAlpha(1);if(ready&&config!=null)pushData(System.currentTimeMillis(),offset(config,System.currentTimeMillis()));web.onPause();}}
     void dispose(){stop();disposed=true;if(widgetLayer!=null)widgetLayer.dispose();releaseWeb();removeAllViews();}
     private void releaseWeb(){if(web!=null){removeView(web);web.stopLoading();web.destroy();web=null;}}
     @Override public boolean dispatchTouchEvent(MotionEvent e){return true;}

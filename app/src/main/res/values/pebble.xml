@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="pebble_section" formatted="false">"Pebble Watchfaces"</string>
+    <string name="pebble_open" formatted="false">"Open Pebble settings"</string>
+    <string name="pebble_import" formatted="false">"Import .pbw watchface"</string>
+    <string name="pebble_runtime" formatted="false">"Import emulator runtime (.zip)"</string>
+    <string name="pebble_platform" formatted="false">"Virtual watch platform"</string>
+    <string name="pebble_crop" formatted="false">"Crop to fill display"</string>
+    <string name="pebble_network" formatted="false">"Allow watchface internet access"</string>
+    <string name="pebble_fps" formatted="false">"Maximum display updates per second"</string>
+    <string name="pebble_configure" formatted="false">"Configure watchface"</string>
+    <string name="pebble_health" formatted="false">"Optional health data"</string>
+    <string name="pebble_steps" formatted="false">"Read steps"</string>
+    <string name="pebble_heart" formatted="false">"Read heart rate"</string>
+    <string name="pebble_background" formatted="false">"Read in background"</string>
+    <string name="pebble_grant" formatted="false">"Grant selected permissions"</string>
+    <string name="pebble_max_age" formatted="false">"Maximum heart-rate age (minutes)"</string>
+    <string name="pebble_help" formatted="false">"Import a PBW. Matching Gabbro, Emery and Flint runtimes are included. Other platforms require an optional runtime import. Stock firmware has no Health Connect bridge. Configuration and watch buttons are on the main screen. Internet is optional. Compatibility remains experimental."</string>
+    <string name="pebble_health_help" formatted="false">"Optional: share steps and the latest fresh heart-rate reading from Health Connect with the virtual Pebble. No data is written back. A compatible health-enabled emulator firmware is required. Reading does not create measurements; another source must supply them. Watchfaces with permitted internet access may transmit values. You can skip this page and change access later."</string>
+    <string name="pebble_health_unavailable" formatted="false">"Health Connect is unavailable (Android 14 or later required)."</string>
+    <string name="pebble_runtime_missing" formatted="false">"Import emulator runtime"</string>
+    <string name="pebble_no_face" formatted="false">"Import a PBW first"</string>
+    <string name="pebble_starting" formatted="false">"Starting Pebble…"</string>
+    <string name="pebble_installing" formatted="false">"Installing watchface…"</string>
+    <string name="pebble_running" formatted="false">"Watchface running"</string>
+    <string name="pebble_bridge_missing" formatted="false">"This firmware has no Health Connect bridge"</string>
+    <string name="pebble_webview" formatted="false">"WebView does not support this emulator"</string>
+    <string name="pebble_no_config" formatted="false">"This watchface has no configuration page"</string>
+    <string name="pebble_failed" formatted="false">"Pebble runtime error; open settings"</string>
+    <string name="pebble_import_failed" formatted="false">"Import failed"</string>
+    <string name="pebble_bundled" formatted="false">"Included: Gabbro, Emery and Flint. A matching platform is selected automatically."</string>
+    <string name="pebble_webview_update" formatted="false">"This WebView cannot enable emulator memory. Update Android System WebView; the installed provider must support cross-origin isolation."</string>
+    <string name="pebble_webview_isolation" formatted="false">"Emulator isolation could not be enabled. Check the WebView version shown below."</string>
+    <string name="pebble_webview_memory" formatted="false">"This WebView cannot provide shared WebAssembly memory or workers. Update Android System WebView."</string>
+    <string name="pebble_use_mode" formatted="false">"Use as display mode"</string>
+</resources>

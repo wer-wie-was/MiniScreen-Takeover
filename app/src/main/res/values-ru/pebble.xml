@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="pebble_section" formatted="false">"Циферблаты Pebble"</string>
+    <string name="pebble_open" formatted="false">"Открыть настройки Pebble"</string>
+    <string name="pebble_import" formatted="false">"Импортировать циферблат .pbw"</string>
+    <string name="pebble_runtime" formatted="false">"Импортировать движок (.zip)"</string>
+    <string name="pebble_platform" formatted="false">"Платформа виртуальных часов"</string>
+    <string name="pebble_crop" formatted="false">"Обрезать для заполнения"</string>
+    <string name="pebble_network" formatted="false">"Разрешить циферблату Интернет"</string>
+    <string name="pebble_fps" formatted="false">"Максимум обновлений в секунду"</string>
+    <string name="pebble_configure" formatted="false">"Настроить циферблат"</string>
+    <string name="pebble_health" formatted="false">"Необязательные данные здоровья"</string>
+    <string name="pebble_steps" formatted="false">"Читать шаги"</string>
+    <string name="pebble_heart" formatted="false">"Читать пульс"</string>
+    <string name="pebble_background" formatted="false">"Читать в фоне"</string>
+    <string name="pebble_grant" formatted="false">"Предоставить выбранные разрешения"</string>
+    <string name="pebble_max_age" formatted="false">"Максимальный возраст пульса (минуты)"</string>
+    <string name="pebble_help" formatted="false">"Импортируйте PBW. Движки Gabbro, Emery и Flint включены. Для других платформ нужен дополнительный пакет. Стандартная прошивка не содержит моста Health Connect. Настройка и кнопки на основном экране. Интернет необязателен. Совместимость экспериментальная."</string>
+    <string name="pebble_health_help" formatted="false">"Можно передавать шаги и последний свежий пульс из Health Connect виртуальной Pebble без записи данных. Нужна совместимая прошивка. Измерения поступают из другого источника. Циферблаты с Интернетом могут передавать значения. Страницу можно пропустить и изменить разрешения позже."</string>
+    <string name="pebble_health_unavailable" formatted="false">"Health Connect недоступен (нужен Android 14 или новее)."</string>
+    <string name="pebble_runtime_missing" formatted="false">"Импортировать движок"</string>
+    <string name="pebble_no_face" formatted="false">"Сначала импортируйте PBW"</string>
+    <string name="pebble_starting" formatted="false">"Запуск Pebble…"</string>
+    <string name="pebble_installing" formatted="false">"Установка циферблата…"</string>
+    <string name="pebble_running" formatted="false">"Циферблат работает"</string>
+    <string name="pebble_bridge_missing" formatted="false">"В этой прошивке нет моста Health Connect"</string>
+    <string name="pebble_webview" formatted="false">"WebView не поддерживает эмулятор"</string>
+    <string name="pebble_no_config" formatted="false">"У циферблата нет страницы настройки"</string>
+    <string name="pebble_failed" formatted="false">"Ошибка Pebble; откройте настройки"</string>
+    <string name="pebble_import_failed" formatted="false">"Ошибка импорта"</string>
+    <string name="pebble_bundled" formatted="false">"Включены Gabbro, Emery и Flint. Совместимая платформа выбирается автоматически."</string>
+    <string name="pebble_webview_update" formatted="false">"Этот WebView не может разрешить память эмулятора. Обновите Android System WebView; поставщик должен поддерживать изоляцию."</string>
+    <string name="pebble_webview_isolation" formatted="false">"Не удалось включить изоляцию эмулятора. Проверьте версию WebView ниже."</string>
+    <string name="pebble_webview_memory" formatted="false">"Этот WebView не поддерживает общую память WebAssembly или workers. Обновите Android System WebView."</string>
+    <string name="pebble_use_mode" formatted="false">"Использовать как режим отображения"</string>
+</resources>

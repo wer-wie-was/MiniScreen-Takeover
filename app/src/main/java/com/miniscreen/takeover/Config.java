@@ -20,7 +20,7 @@ final class Config {
     int chargeSize=18,chargeX=50,chargeY=85,chargeRingWidth=3,chargeAnimationSeconds=10;
     static Config from(JSONObject j) {
         Config c=new Config();
-        c.name=j.optString("name",c.name); c.mode="html".equals(j.optString("mode"))?"html":"native";
+        c.name=j.optString("name",c.name); c.mode="pebble".equals(j.optString("mode"))?"pebble":"html".equals(j.optString("mode"))?"html":"native";
         c.datePattern=j.optString("datePattern",c.datePattern); c.font=j.optString("font",c.font);
         if(c.name.isEmpty())c.name=I18n.get(R.string.msg_046);if(c.name.length()>80)c.name=c.name.substring(0,80);
         if(c.datePattern.isEmpty()||c.datePattern.length()>120)c.datePattern="dd.MM.yyyy";

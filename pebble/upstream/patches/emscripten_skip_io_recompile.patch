@@ -1,0 +1,25 @@
+diff --git a/accel/tcg/cputlb.c b/accel/tcg/cputlb.c
+index 6900a12..1a3cdec 100644
+--- a/accel/tcg/cputlb.c
++++ b/accel/tcg/cputlb.c
+@@ -1280,7 +1280,20 @@ io_prepare(hwaddr *out_offset, CPUState *cpu, hwaddr xlat,
+     mr_offset = (xlat & TARGET_PAGE_MASK) + addr;
+     cpu->mem_io_pc = retaddr;
+     if (!cpu->neg.can_do_io) {
++#ifdef __EMSCRIPTEN__
++        /*
++         * Skip I/O recompilation on Emscripten -- it triggers longjmp which
++         * throws a JS exception (very expensive), and in the wasm TCG-JIT
++         * build it traps with a call_indirect "function signature mismatch"
++         * when the guest touches device MMIO mid-TB (e.g. the Pebble audio
++         * DATA register the speaker driver hammers). Let the I/O proceed;
++         * the cost is icount accounting imprecise by at most one TB, which
++         * is negligible here (the Pebble machines run without icount).
++         */
++        cpu->neg.can_do_io = true;
++#else
+         cpu_io_recompile(cpu, retaddr);
++#endif
+     }
+ 
+     *out_offset = mr_offset;

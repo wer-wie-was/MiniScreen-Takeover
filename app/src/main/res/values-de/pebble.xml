@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="pebble_section" formatted="false">"Pebble-Watchfaces"</string>
+    <string name="pebble_open" formatted="false">"Pebble-Einstellungen öffnen"</string>
+    <string name="pebble_import" formatted="false">".pbw-Watchface importieren"</string>
+    <string name="pebble_runtime" formatted="false">"Emulator-Laufzeit importieren (.zip)"</string>
+    <string name="pebble_platform" formatted="false">"Virtuelle Uhrenplattform"</string>
+    <string name="pebble_crop" formatted="false">"Display durch Zuschneiden füllen"</string>
+    <string name="pebble_network" formatted="false">"Internetzugriff für Watchface erlauben"</string>
+    <string name="pebble_fps" formatted="false">"Maximale Bildaktualisierungen pro Sekunde"</string>
+    <string name="pebble_configure" formatted="false">"Watchface konfigurieren"</string>
+    <string name="pebble_health" formatted="false">"Optionale Gesundheitsdaten"</string>
+    <string name="pebble_steps" formatted="false">"Schrittzahl lesen"</string>
+    <string name="pebble_heart" formatted="false">"Herzfrequenz lesen"</string>
+    <string name="pebble_background" formatted="false">"Im Hintergrund lesen"</string>
+    <string name="pebble_grant" formatted="false">"Gewählte Berechtigungen freigeben"</string>
+    <string name="pebble_max_age" formatted="false">"Maximales Alter des Pulswerts (Minuten)"</string>
+    <string name="pebble_help" formatted="false">"Eine PBW importieren. Passende Laufzeiten für Gabbro, Emery und Flint sind enthalten. Andere Plattformen benötigen ein optionales Laufzeitpaket. Die Standard-Firmware enthält keine Health-Connect-Anbindung. Konfiguration und Uhrentasten befinden sich am Hauptbildschirm. Internet ist optional. Die Kompatibilität bleibt experimentell."</string>
+    <string name="pebble_health_help" formatted="false">"Optional: Schritte und den neuesten frischen Pulswert aus Health Connect an die virtuelle Pebble weitergeben. Es werden keine Daten zurückgeschrieben. Eine passende Emulator-Firmware mit Gesundheitsdaten-Anbindung ist erforderlich. Lesen erzeugt keine Messungen; eine andere Quelle muss sie liefern. Watchfaces mit freigegebenem Internetzugriff können Werte übertragen. Diese Seite lässt sich überspringen, die Freigabe später ändern."</string>
+    <string name="pebble_health_unavailable" formatted="false">"Health Connect nicht verfügbar (Android 14 oder neuer erforderlich)."</string>
+    <string name="pebble_runtime_missing" formatted="false">"Emulator-Laufzeit importieren"</string>
+    <string name="pebble_no_face" formatted="false">"Zuerst eine PBW importieren"</string>
+    <string name="pebble_starting" formatted="false">"Pebble startet…"</string>
+    <string name="pebble_installing" formatted="false">"Watchface wird installiert…"</string>
+    <string name="pebble_running" formatted="false">"Watchface läuft"</string>
+    <string name="pebble_bridge_missing" formatted="false">"Dieser Firmware fehlt die Health-Connect-Anbindung"</string>
+    <string name="pebble_webview" formatted="false">"WebView unterstützt diesen Emulator nicht"</string>
+    <string name="pebble_no_config" formatted="false">"Dieses Watchface hat keine Konfigurationsseite"</string>
+    <string name="pebble_failed" formatted="false">"Pebble-Laufzeitfehler; Einstellungen öffnen"</string>
+    <string name="pebble_import_failed" formatted="false">"Import fehlgeschlagen"</string>
+    <string name="pebble_bundled" formatted="false">"Enthalten: Gabbro, Emery und Flint. Eine passende Plattform wird automatisch gewählt."</string>
+    <string name="pebble_webview_update" formatted="false">"Diese WebView kann den Emulator-Speicher nicht freigeben. Android System WebView aktualisieren; der installierte Anbieter muss die Isolation unterstützen."</string>
+    <string name="pebble_webview_isolation" formatted="false">"Die Emulator-Isolation konnte nicht aktiviert werden. Die WebView-Version steht weiter unten."</string>
+    <string name="pebble_webview_memory" formatted="false">"Diese WebView unterstützt keinen gemeinsamen WebAssembly-Speicher oder keine Worker. Android System WebView aktualisieren."</string>
+    <string name="pebble_use_mode" formatted="false">"Als Anzeigemodus verwenden"</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="pebble_section" formatted="false">"Quadranti Pebble"</string>
+    <string name="pebble_open" formatted="false">"Apri impostazioni Pebble"</string>
+    <string name="pebble_import" formatted="false">"Importa quadrante .pbw"</string>
+    <string name="pebble_runtime" formatted="false">"Importa motore (.zip)"</string>
+    <string name="pebble_platform" formatted="false">"Piattaforma orologio virtuale"</string>
+    <string name="pebble_crop" formatted="false">"Ritaglia per riempire"</string>
+    <string name="pebble_network" formatted="false">"Consenti Internet al quadrante"</string>
+    <string name="pebble_fps" formatted="false">"Aggiornamenti massimi al secondo"</string>
+    <string name="pebble_configure" formatted="false">"Configura quadrante"</string>
+    <string name="pebble_health" formatted="false">"Dati sanitari facoltativi"</string>
+    <string name="pebble_steps" formatted="false">"Leggi passi"</string>
+    <string name="pebble_heart" formatted="false">"Leggi frequenza cardiaca"</string>
+    <string name="pebble_background" formatted="false">"Leggi in background"</string>
+    <string name="pebble_grant" formatted="false">"Concedi i permessi selezionati"</string>
+    <string name="pebble_max_age" formatted="false">"Età massima del battito (minuti)"</string>
+    <string name="pebble_help" formatted="false">"Importa una PBW. I motori Gabbro, Emery e Flint sono inclusi. Altre piattaforme richiedono un pacchetto facoltativo. Il firmware standard non include il collegamento Health Connect. Configurazione e tasti sullo schermo principale. Internet facoltativo. Compatibilità sperimentale."</string>
+    <string name="pebble_health_help" formatted="false">"Condividi facoltativamente passi e ultimo battito recente da Health Connect con Pebble virtuale, senza scrivere dati. Serve un firmware compatibile. Le misurazioni devono provenire da un’altra fonte. I quadranti con accesso Internet possono trasmettere valori. Puoi saltare questa pagina e cambiare i permessi dopo."</string>
+    <string name="pebble_health_unavailable" formatted="false">"Health Connect non disponibile (richiede Android 14 o successivo)."</string>
+    <string name="pebble_runtime_missing" formatted="false">"Importa motore"</string>
+    <string name="pebble_no_face" formatted="false">"Importa prima una PBW"</string>
+    <string name="pebble_starting" formatted="false">"Avvio Pebble…"</string>
+    <string name="pebble_installing" formatted="false">"Installazione quadrante…"</string>
+    <string name="pebble_running" formatted="false">"Quadrante attivo"</string>
+    <string name="pebble_bridge_missing" formatted="false">"Questo firmware non ha il ponte Health Connect"</string>
+    <string name="pebble_webview" formatted="false">"WebView non supporta questo emulatore"</string>
+    <string name="pebble_no_config" formatted="false">"Questo quadrante non ha configurazione"</string>
+    <string name="pebble_failed" formatted="false">"Errore Pebble; apri impostazioni"</string>
+    <string name="pebble_import_failed" formatted="false">"Importazione non riuscita"</string>
+    <string name="pebble_bundled" formatted="false">"Inclusi: Gabbro, Emery e Flint. La piattaforma compatibile viene scelta automaticamente."</string>
+    <string name="pebble_webview_update" formatted="false">"Questo WebView non può autorizzare la memoria dell’emulatore. Aggiorna Android System WebView; il motore deve supportare l’isolamento."</string>
+    <string name="pebble_webview_isolation" formatted="false">"Impossibile attivare l’isolamento dell’emulatore. Controlla la versione WebView qui sotto."</string>
+    <string name="pebble_webview_memory" formatted="false">"Questo WebView non fornisce memoria WebAssembly condivisa o worker. Aggiorna Android System WebView."</string>
+    <string name="pebble_use_mode" formatted="false">"Usa come modalità di visualizzazione"</string>
+</resources>

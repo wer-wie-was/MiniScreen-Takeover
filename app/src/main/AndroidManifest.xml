@@ -7,15 +7,24 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.BIND_APPWIDGET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.health.READ_STEPS" />
+    <uses-permission android:name="android.permission.health.READ_HEART_RATE" />
+    <uses-permission android:name="android.permission.health.READ_HEALTH_DATA_IN_BACKGROUND" />
     <queries>
         <intent><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent>
         <package android:name="com.yft.miniscreendisplay" />
         <intent><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent>
     </queries>
-    <application android:name=".MiniScreenApp" android:label="MiniScreen Takeover" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher" android:theme="@style/AppTheme" android:allowBackup="false" android:supportsRtl="true" android:usesCleartextTraffic="false">
+    <application android:name=".MiniScreenApp" android:label="MiniScreen Takeover" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher" android:theme="@style/AppTheme" android:allowBackup="false" android:supportsRtl="true" android:usesCleartextTraffic="true">
         <activity android:name=".MainActivity" android:exported="true" android:launchMode="singleTask">
             <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
         </activity>
+        <activity android:name=".PebbleSettingsActivity" android:exported="false" />
+        <activity android:name=".PebbleConfigActivity" android:exported="false" />
+        <activity android:name=".PebbleHealthActivity" android:exported="true"><intent-filter><action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" /></intent-filter></activity>
+        <activity-alias android:name=".HealthPermissionsUsage" android:targetActivity=".PebbleHealthActivity" android:exported="true" android:permission="android.permission.START_VIEW_PERMISSION_USAGE"><intent-filter><action android:name="android.intent.action.VIEW_PERMISSION_USAGE" /><category android:name="android.intent.category.HEALTH_PERMISSIONS" /></intent-filter></activity-alias>
+        <service android:name=".PebbleService" android:process=":pebble" android:exported="false" />
         <activity android:name=".WidgetSetupActivity" android:exported="false" />
         <activity android:name=".OnboardingActivity" android:exported="false" />
         <activity android:name=".ScreenActivity" android:exported="true" android:resizeableActivity="true" android:launchMode="singleTask" android:taskAffinity="com.miniscreen.takeover.secondary" android:excludeFromRecents="true" />

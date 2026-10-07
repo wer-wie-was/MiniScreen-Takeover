@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "version": 1,
+  "platforms": [
+    "gabbro",
+    "emery",
+    "flint"
+  ],
+  "firmware": "PebbleOS v4.35.0",
+  "healthBridge": false,
+  "binaryRepository": "https://github.com/ericmigi/pebble-qemu-wasm",
+  "binaryRevision": "aefa8f180c31c63e3271fbde60ec2021a4878677",
+  "sha256": {
+    "emery/qemu_micro_flash.bin": "776ef77521f5a2c943c84c2a19eba16adfc8370f927ffac675000e7d49dd09e7",
+    "emery/qemu_spi_flash.bin": "8aff0c0c68dc7b530c2cec7e697d3773be45eb80ab8b0504a73dc01a934f077e",
+    "flint/qemu_micro_flash.bin": "c252716a28569b5fe282543e6f21877c38dd03e90f9fe80f92c26707bb0ef734",
+    "flint/qemu_spi_flash.bin": "7fededa1aa3238e78a4147fee9cb4b1cca9f966e397501474decbf5111040820",
+    "gabbro/qemu_micro_flash.bin": "7bf3280062ab312942be68b7cc4caee5bedeaa44b371d4165d46f525c59e5c7f",
+    "gabbro/qemu_spi_flash.bin": "b38632be1ef57cb0a5d1070a80dc470fa8781893f9d6badf2d4a01d50d643d92",
+    "qemu-system-arm.js": "c92694b0c605aae1546e16174edb9d796bdf6f74c6fce06db4eea59ba433acc9",
+    "qemu-system-arm.wasm": "41ec34518b370fb78bd16b24241ca49f7efa1fc60dc0f0cb17be151dd7251aed"
+  }
+}

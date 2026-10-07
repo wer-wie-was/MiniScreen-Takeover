@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="pebble_section" formatted="false">"Pebble saat yüzleri"</string>
+    <string name="pebble_open" formatted="false">"Pebble ayarlarını aç"</string>
+    <string name="pebble_import" formatted="false">".pbw saat yüzünü içe aktar"</string>
+    <string name="pebble_runtime" formatted="false">"Emülatör paketini içe aktar (.zip)"</string>
+    <string name="pebble_platform" formatted="false">"Sanal saat platformu"</string>
+    <string name="pebble_crop" formatted="false">"Ekranı doldurmak için kırp"</string>
+    <string name="pebble_network" formatted="false">"Saat yüzüne İnternet izni ver"</string>
+    <string name="pebble_fps" formatted="false">"Saniyede azami ekran güncellemesi"</string>
+    <string name="pebble_configure" formatted="false">"Saat yüzünü yapılandır"</string>
+    <string name="pebble_health" formatted="false">"İsteğe bağlı sağlık verileri"</string>
+    <string name="pebble_steps" formatted="false">"Adımları oku"</string>
+    <string name="pebble_heart" formatted="false">"Kalp atış hızını oku"</string>
+    <string name="pebble_background" formatted="false">"Arka planda oku"</string>
+    <string name="pebble_grant" formatted="false">"Seçilen izinleri ver"</string>
+    <string name="pebble_max_age" formatted="false">"Nabzın azami yaşı (dakika)"</string>
+    <string name="pebble_help" formatted="false">"Bir PBW içe aktarın. Gabbro, Emery ve Flint paketleri dahildir. Diğer platformlar isteğe bağlı paket gerektirir. Standart yazılımda Health Connect bağlantısı yoktur. Ayarlar ve saat düğmeleri ana ekrandadır. İnternet isteğe bağlıdır. Uyumluluk deneyseldir."</string>
+    <string name="pebble_health_help" formatted="false">"Health Connect adımlarını ve son güncel nabzı sanal Pebble ile isteğe bağlı paylaşın; veri yazılmaz. Uyumlu yazılım gereklidir. Ölçümleri başka bir kaynak sağlamalıdır. İnternet izni olan saat yüzleri değerleri gönderebilir. Bu sayfayı atlayabilir ve izinleri sonra değiştirebilirsiniz."</string>
+    <string name="pebble_health_unavailable" formatted="false">"Health Connect kullanılamıyor (Android 14 veya üstü gerekir)."</string>
+    <string name="pebble_runtime_missing" formatted="false">"Emülatör paketini içe aktar"</string>
+    <string name="pebble_no_face" formatted="false">"Önce PBW içe aktarın"</string>
+    <string name="pebble_starting" formatted="false">"Pebble başlatılıyor…"</string>
+    <string name="pebble_installing" formatted="false">"Saat yüzü yükleniyor…"</string>
+    <string name="pebble_running" formatted="false">"Saat yüzü çalışıyor"</string>
+    <string name="pebble_bridge_missing" formatted="false">"Bu yazılımda Health Connect köprüsü yok"</string>
+    <string name="pebble_webview" formatted="false">"WebView bu emülatörü desteklemiyor"</string>
+    <string name="pebble_no_config" formatted="false">"Bu saat yüzünün ayar sayfası yok"</string>
+    <string name="pebble_failed" formatted="false">"Pebble hatası; ayarları açın"</string>
+    <string name="pebble_import_failed" formatted="false">"İçe aktarma başarısız"</string>
+    <string name="pebble_bundled" formatted="false">"Dahil: Gabbro, Emery ve Flint. Uyumlu platform otomatik seçilir."</string>
+    <string name="pebble_webview_update" formatted="false">"Bu WebView emülatör belleğine izin veremiyor. Android System WebView güncellenmeli; sağlayıcı izolasyonu desteklemelidir."</string>
+    <string name="pebble_webview_isolation" formatted="false">"Emülatör izolasyonu etkinleştirilemedi. Aşağıdaki WebView sürümünü kontrol edin."</string>
+    <string name="pebble_webview_memory" formatted="false">"Bu WebView paylaşılan WebAssembly belleği veya worker desteği sunmuyor. Android System WebView güncelleyin."</string>
+    <string name="pebble_use_mode" formatted="false">"Görüntüleme modu olarak kullan"</string>
+</resources>
