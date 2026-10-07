@@ -15,8 +15,8 @@
     <string name="external_requested" formatted="false">"Inicio solicitado. Comprueba la pantalla trasera; nuestra supervisión sigue pausada."</string>
     <string name="external_failed" formatted="false">"Error al iniciar app: "</string>
     <string name="external_help" formatted="false">"La interfaz del fabricante intenta iniciar la app en la pantalla 1. Algunas apps lo impiden o pasan a la principal. Nuestra pantalla se cierra y la supervisión se pausa indefinidamente. «Volver a mostrar MiniScreen Takeover» recupera el control."</string>
-    <string name="charge_section" formatted="false">"Indicador de carga"</string>
-    <string name="charge_enabled" formatted="false">"Mostrar indicador con alimentación conectada"</string>
+    <string name="charge_section" formatted="false">"Indicador de carga y batería"</string>
+    <string name="charge_enabled" formatted="false">"Activar indicador de carga y batería"</string>
     <string name="charge_display" formatted="false">"Presentación"</string>
     <string name="charge_icon" formatted="false">"Icono de batería con porcentaje"</string>
     <string name="charge_icon_circle" formatted="false">"Icono, porcentaje y círculo"</string>
@@ -33,6 +33,10 @@
     <string name="charge_static" formatted="false">"Estático"</string>
     <string name="charge_animated" formatted="false">"Acento de luz animado"</string>
     <string name="charge_animation_speed" formatted="false">"Segundos por ciclo de animación"</string>
-    <string name="charge_help" formatted="false">"El indicador aparece solo con alimentación conectada, también al 100 %. El arco representa el nivel de batería. Los elementos siguen el desplazamiento de píxeles y se superponen al reloj nativo y HTML. La simulación no afecta a la pantalla trasera."</string>
+    <string name="charge_help" formatted="false">"Activa el indicador para mostrar la batería con alimentación conectada. La opción permanente también la muestra sin cable. El círculo y el acento animado solo aparecen con alimentación. Todos los elementos siguen el desplazamiento de píxeles. La vista previa simula el 65 % sin afectar a la pantalla trasera."</string>
     <string name="web_load_failed" formatted="false">"No se pudo cargar HTML: "</string>
+    <string name="charge_always" formatted="false">"Mostrar batería sin cable de carga"</string>
+    <string name="charge_gradient" formatted="false">"Degradado del círculo"</string>
+    <string name="charge_ring_color_second" formatted="false">"Color del círculo 2"</string>
+    <string name="charge_accent_color" formatted="false">"Color del acento animado"</string>
 </resources>

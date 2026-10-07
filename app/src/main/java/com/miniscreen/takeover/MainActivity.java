@@ -106,7 +106,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         text(p,I18n.get(R.string.msg_028),13);
         slider(p,I18n.get(R.string.msg_029),1,100,config.brightness,n->{config.brightness=n;changed();});
         text(p,I18n.get(R.string.msg_030),13);
-        button(p,I18n.get(R.string.msg_031),()->{StringBuilder b=new StringBuilder("MiniScreen Takeover 0.3.3\n"+Build.MANUFACTURER+" "+Build.MODEL+" / Android "+Build.VERSION.RELEASE+"\n");for(Display d:displays.getDisplays())b.append("Display ").append(d.getDisplayId()).append(" · ").append(d.getName()).append(" · ").append(d.getMode().getPhysicalWidth()).append('×').append(d.getMode().getPhysicalHeight()).append(I18n.get(R.string.msg_032)).append(d.getState()).append(" · Flags 0x").append(Integer.toHexString(d.getFlags())).append('\n');b.append(store.prefs.getString("status","")).append(I18n.get(R.string.msg_033)).append(store.prefs.getString("monitor_status","")).append(I18n.get(R.string.msg_034)).append(TakeoverControl.mode(store.prefs)).append(I18n.get(R.string.msg_035)).append(store.prefs.getBoolean("enabled",false)).append(I18n.get(R.string.msg_036)).append(store.prefs.getBoolean("only_locked",false)).append(" · Boot: ").append(store.prefs.getBoolean("restore_boot",false)).append(I18n.get(R.string.msg_037)).append(TakeoverControl.paused(store.prefs));b.append("\nschedule_enabled=").append(DisplaySchedule.enabled(store.prefs)).append(" · manual_off=").append(DisplaySchedule.manualOff(store.prefs,System.currentTimeMillis())).append(" · external_active=").append(store.prefs.getBoolean("external_active",false));((ClipboardManager)getSystemService(CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText(I18n.get(R.string.msg_038),b));toast(I18n.get(R.string.msg_039));});
+        button(p,I18n.get(R.string.msg_031),()->{StringBuilder b=new StringBuilder("MiniScreen Takeover 0.3.5\n"+Build.MANUFACTURER+" "+Build.MODEL+" / Android "+Build.VERSION.RELEASE+"\n");for(Display d:displays.getDisplays())b.append("Display ").append(d.getDisplayId()).append(" · ").append(d.getName()).append(" · ").append(d.getMode().getPhysicalWidth()).append('×').append(d.getMode().getPhysicalHeight()).append(I18n.get(R.string.msg_032)).append(d.getState()).append(" · Flags 0x").append(Integer.toHexString(d.getFlags())).append('\n');b.append(store.prefs.getString("status","")).append(I18n.get(R.string.msg_033)).append(store.prefs.getString("monitor_status","")).append(I18n.get(R.string.msg_034)).append(TakeoverControl.mode(store.prefs)).append(I18n.get(R.string.msg_035)).append(store.prefs.getBoolean("enabled",false)).append(I18n.get(R.string.msg_036)).append(store.prefs.getBoolean("only_locked",false)).append(" · Boot: ").append(store.prefs.getBoolean("restore_boot",false)).append(I18n.get(R.string.msg_037)).append(TakeoverControl.paused(store.prefs));b.append("\nschedule_enabled=").append(DisplaySchedule.enabled(store.prefs)).append(" · manual_off=").append(DisplaySchedule.manualOff(store.prefs,System.currentTimeMillis())).append(" · external_active=").append(store.prefs.getBoolean("external_active",false));((ClipboardManager)getSystemService(CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText(I18n.get(R.string.msg_038),b));toast(I18n.get(R.string.msg_039));});
     }
     private void profiles() {
         LinearLayout p=section(I18n.get(R.string.msg_004));List<String> ids=store.ids();String[] names=new String[ids.size()];for(int i=0;i<ids.size();i++)names[i]=store.load(ids.get(i)).name;
@@ -203,6 +203,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private String[] privacyOptions(){return new String[]{tt(R.string.ticker_private),tt(R.string.ticker_app_name),tt(R.string.ticker_title),tt(R.string.ticker_full)};}
     private void tickerSettings(){
         LinearLayout p=section(tt(R.string.ticker_section));TickerSettings s=new TickerSettings(this);
+        check(p,tt(R.string.ticker_preview),tickerPreview,v->{tickerPreview=v;preview.surface.simulateTicker(v);});
         check(p,tt(R.string.ticker_enabled),s.enabled(),v->tickerBool("enabled",v));
         tickerAccessStatus=text(p,"",13);refreshTickerAccess();
         button(p,tt(R.string.ticker_access),()->{try{startActivity(new Intent(android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));}catch(ActivityNotFoundException e){error(e);}});
@@ -235,7 +236,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         slider(p,tt(R.string.ticker_icon_size),8,50,s.number("icon_size",20,8,50),i->tickerInt("icon_size",i));
         choose(p,tt(R.string.ticker_clock),new String[]{tt(R.string.ticker_clock_keep),tt(R.string.ticker_clock_dim),tt(R.string.ticker_clock_hide)},s.number("clock",0,0,2),i->tickerInt("clock",i));
         check(p,tt(R.string.ticker_html),s.html(),v->tickerBool("html",v));
-        check(p,tt(R.string.ticker_preview),tickerPreview,v->{tickerPreview=v;preview.surface.simulateTicker(v);});
+        
         button(p,tt(R.string.ticker_clear),()->{NotificationTicker.dismissQueue();preview.surface.tick();});
         text(p,tt(R.string.ticker_help),13);
     }
@@ -270,7 +271,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private void moduleChanged(){NotificationDot.changed(this);if(preview!=null)preview.surface.tick();}
     private void moduleBool(LinearLayout p,int label,String key,boolean fallback){check(p,tt(label),store.prefs.getBoolean(key,fallback),v->{store.prefs.edit().putBoolean(key,v).apply();moduleChanged();});}
     private void moduleSlider(LinearLayout p,int label,String key,int min,int max,int value){slider(p,tt(label),min,max,Config.clamp(store.prefs.getInt(key,value),min,max),v->{store.prefs.edit().putInt(key,v).apply();moduleChanged();});}
-    private void pebbleSettings(){LinearLayout p=section(tt(R.string.pebble_section));check(p,tt(R.string.pebble_use_mode),config.mode.equals("pebble"),enabled->{config.mode=enabled?"pebble":"native";changed();build();});text(p,tt(R.string.pebble_help),13);button(p,tt(R.string.pebble_open),()->startActivity(new Intent(this,PebbleSettingsActivity.class)));}
+    private void pebbleSettings(){LinearLayout p=section(tt(R.string.pebble_section));check(p,tt(R.string.pebble_use_mode),config.mode.equals("pebble"),enabled->{config.mode=enabled?"pebble":"native";changed();build();});text(p,tt(R.string.pebble_help),13);button(p,tt(R.string.pebble_open),()->startActivity(new Intent(this,PebbleSettingsActivity.class)));button(p,tt(R.string.pebble_restart),()->PebbleSession.get(this).restart());}
     private void widgetSettings(){
         LinearLayout p=section(tt(R.string.widget_section));moduleBool(p,R.string.widget_enabled,"widget_enabled",false);
         text(p,store.prefs.getString("widget_label",tt(R.string.widget_none)),14);
@@ -281,7 +282,8 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         text(p,tt(R.string.widget_help),13);
     }
     private void dotSettings(){
-        LinearLayout p=section(tt(R.string.dot_section));moduleBool(p,R.string.dot_enabled,"dot_enabled",false);
+        LinearLayout p=section(tt(R.string.dot_section));
+        check(p,tt(R.string.dot_preview),dotPreview,v->{dotPreview=v;preview.surface.simulateDot(v);});moduleBool(p,R.string.dot_enabled,"dot_enabled",false);
         dotAccessStatus=text(p,tt(tickerAccess()?R.string.ticker_access_yes:R.string.ticker_access_no),13);
         button(p,tt(R.string.ticker_access),()->{try{startActivity(new Intent(android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));}catch(ActivityNotFoundException e){error(e);}});
         button(p,tt(R.string.dot_apps)+" · "+NotificationDot.apps(this).size(),this::chooseDotApps);
@@ -289,7 +291,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         moduleSlider(p,R.string.module_x,"dot_x",0,100,50);moduleSlider(p,R.string.module_y,"dot_y",0,100,15);moduleSlider(p,R.string.dot_size,"dot_size",2,100,12);
         choose(p,tt(R.string.dot_clear),new String[]{tt(R.string.ticker_until_unlock),tt(R.string.ticker_until_removed)},store.prefs.getBoolean("dot_until_unlock",true)?0:1,i->{store.prefs.edit().putBoolean("dot_until_unlock",i==0).apply();moduleChanged();});
         moduleSlider(p,R.string.dot_interval,"dot_interval",1,30,3);moduleBool(p,R.string.ticker_ongoing,"dot_ongoing",false);moduleBool(p,R.string.ticker_groups,"dot_groups",false);
-        check(p,tt(R.string.dot_preview),dotPreview,v->{dotPreview=v;preview.surface.simulateDot(v);});text(p,tt(R.string.dot_help),13);
+        text(p,tt(R.string.dot_help),13);
     }
     private void chooseDotApps(){
         List<String> apps=tickerApps();Set<String> selected=NotificationDot.apps(this);String[] labels=new String[apps.size()];boolean[] checked=new boolean[apps.size()];for(int i=0;i<apps.size();i++){labels[i]=tickerAppLabel(apps.get(i))+" · "+apps.get(i);checked[i]=selected.contains(apps.get(i));}
@@ -317,9 +319,11 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     }
     private void charging(){
         LinearLayout p=section(I18n.get(R.string.charge_section));
-        check(p,I18n.get(R.string.charge_enabled),config.chargeEnabled,v->{config.chargeEnabled=v;changed();});
-        choose(p,I18n.get(R.string.charge_display),new String[]{I18n.get(R.string.charge_icon),I18n.get(R.string.charge_icon_circle)},config.chargeCircle?1:0,i->{config.chargeCircle=i==1;changed();});
         check(p,I18n.get(R.string.charge_preview),chargePreview,v->{chargePreview=v;preview.surface.simulateCharge(v);});
+        check(p,I18n.get(R.string.charge_enabled),config.chargeEnabled,v->{config.chargeEnabled=v;changed();});
+        check(p,I18n.get(R.string.charge_always),config.chargeAlways,v->{config.chargeAlways=v;changed();});
+        choose(p,I18n.get(R.string.charge_display),new String[]{I18n.get(R.string.charge_icon),I18n.get(R.string.charge_icon_circle)},config.chargeCircle?1:0,i->{config.chargeCircle=i==1;changed();});
+        
         color(p,I18n.get(R.string.charge_text_color),()->config.chargeColor,v->config.chargeColor=v);
         color(p,I18n.get(R.string.charge_symbol_color),()->config.chargeSymbolColor,v->config.chargeSymbolColor=v);
         slider(p,I18n.get(R.string.charge_size),8,50,config.chargeSize,n->{config.chargeSize=n;changed();});
@@ -330,6 +334,9 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         slider(p,I18n.get(R.string.charge_x),0,100,config.chargeX,n->{config.chargeX=n;changed();});
         slider(p,I18n.get(R.string.charge_y),0,100,config.chargeY,n->{config.chargeY=n;changed();});
         color(p,I18n.get(R.string.charge_ring_color),()->config.chargeRingColor,v->config.chargeRingColor=v);
+        check(p,I18n.get(R.string.charge_gradient),config.chargeGradient,v->{config.chargeGradient=v;changed();});
+        color(p,I18n.get(R.string.charge_ring_color_second),()->config.chargeRingColorSecond,v->config.chargeRingColorSecond=v);
+        color(p,I18n.get(R.string.charge_accent_color),()->config.chargeAccentColor,v->config.chargeAccentColor=v);
         slider(p,I18n.get(R.string.charge_ring_width),1,12,config.chargeRingWidth,n->{config.chargeRingWidth=n;changed();});
         choose(p,I18n.get(R.string.charge_ring_style),new String[]{I18n.get(R.string.charge_static),I18n.get(R.string.charge_animated)},config.chargeAnimated?1:0,i->{config.chargeAnimated=i==1;changed();});
         slider(p,I18n.get(R.string.charge_animation_speed),2,60,config.chargeAnimationSeconds,n->{config.chargeAnimationSeconds=n;changed();});

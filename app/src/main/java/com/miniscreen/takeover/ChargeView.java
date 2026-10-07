@@ -28,22 +28,25 @@ final class ChargeView extends View {
     void shift(float x,float y){shiftX=x;shiftY=y;invalidate();}
     boolean animated(){return config!=null&&config.chargeEnabled&&config.chargeCircle&&config.chargeAnimated&&plugged&&level>0;}
     @Override protected void onDraw(Canvas canvas){
-        super.onDraw(canvas);Config c=config;if(c==null||!c.chargeEnabled||!plugged)return;
+        super.onDraw(canvas);Config c=config;if(c==null||!c.chargeEnabled||(!plugged&&!c.chargeAlways))return;
         float scale=Math.min(getWidth(),getHeight())/340f;
         canvas.save();canvas.translate(shiftX,shiftY);
-        if(c.chargeCircle){
+        paint.setShader(null);
+        if(c.chargeCircle&&plugged){
             float width=c.chargeRingWidth*scale,margin=3*scale+(c.shifting?c.shiftRange*scale:0)+width/2;
             RectF ring=new RectF(margin,margin,getWidth()-margin,getHeight()-margin);
-            paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(width);paint.setStrokeCap(Paint.Cap.ROUND);paint.setColor(Color.parseColor(c.chargeRingColor));paint.setAlpha(45);canvas.drawOval(ring,paint);
+            paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(width);paint.setStrokeCap(Paint.Cap.ROUND);paint.setColor(Color.parseColor(c.chargeRingColor));
+            if(c.chargeGradient){int first=Color.parseColor(c.chargeRingColor),second=Color.parseColor(c.chargeRingColorSecond);SweepGradient gradient=new SweepGradient(ring.centerX(),ring.centerY(),new int[]{first,second,first},new float[]{0,.5f,1});Matrix rotation=new Matrix();rotation.setRotate(-90,ring.centerX(),ring.centerY());gradient.setLocalMatrix(rotation);paint.setShader(gradient);}
+            paint.setAlpha(45);canvas.drawOval(ring,paint);
             float sweep=360*level/100f;paint.setAlpha(255);canvas.drawArc(ring,-90,sweep,false,paint);
             if(c.chargeAnimated&&sweep>0){
                 double phase=(System.currentTimeMillis()%(c.chargeAnimationSeconds*1000L))/(c.chargeAnimationSeconds*1000.0);
                 // The accent stays inside the charged portion, including at low battery levels.
                 float accent=Math.min(22,sweep),start=-90+(sweep-accent)*(float)(.5-.5*Math.cos(phase*2*Math.PI));
-                paint.setColor(Color.WHITE);paint.setAlpha(200);canvas.drawArc(ring,start,accent,false,paint);
+                paint.setShader(null);paint.setColor(Color.parseColor(c.chargeAccentColor));paint.setAlpha(200);canvas.drawArc(ring,start,accent,false,paint);
             }
         }
-        paint.setStrokeCap(Paint.Cap.BUTT);paint.setStyle(Paint.Style.FILL);paint.setAlpha(255);paint.setTypeface(font);paint.setTextSize(c.chargeSize*scale);
+        paint.setShader(null);paint.setStrokeCap(Paint.Cap.BUTT);paint.setStyle(Paint.Style.FILL);paint.setAlpha(255);paint.setTypeface(font);paint.setTextSize(c.chargeSize*scale);
         String text=String.format(I18n.locale(),"%d%%",level);Paint.FontMetrics fm=paint.getFontMetrics();
         float height=fm.descent-fm.ascent,iconW=height*1.55f,gap=height*.3f,total=iconW+gap+paint.measureText(text);
         float margin=3*scale+(c.shifting?c.shiftRange*scale:0),fit=Math.min(1,Math.min(Math.max(1,getWidth()-2*margin)/total,Math.max(1,getHeight()-2*margin)/height));

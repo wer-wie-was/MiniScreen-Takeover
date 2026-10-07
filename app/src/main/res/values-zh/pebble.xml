@@ -33,4 +33,6 @@
     <string name="pebble_webview_isolation" formatted="false">"无法启用模拟器隔离。请检查下方显示的 WebView 版本。"</string>
     <string name="pebble_webview_memory" formatted="false">"此 WebView 不支持 WebAssembly 共享内存或 Worker。请更新 Android System WebView。"</string>
     <string name="pebble_use_mode" formatted="false">"用作显示模式"</string>
+    <string name="pebble_restart" formatted="false">"重启模拟器"</string>
+    <string name="pebble_platform_help" formatted="false">"已包含全部七个平台的模拟器引擎。Aplite、Basalt、Chalk 和 Diorite 需要导入固件。优先选择 Gabbro，其次是 Chalk。"</string>
 </resources>

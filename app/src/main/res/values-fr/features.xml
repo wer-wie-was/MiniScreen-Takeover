@@ -15,8 +15,8 @@
     <string name="external_requested" formatted="false">"Démarrage demandé. Vérifiez l’écran arrière ; notre surveillance reste en pause."</string>
     <string name="external_failed" formatted="false">"Échec du démarrage de l’application : "</string>
     <string name="external_help" formatted="false">"Le mécanisme du fabricant tente de lancer l’application sur l’écran 1. Certaines refusent ou passent à l’écran principal. Notre affichage se ferme et la surveillance est suspendue sans limite. « Réafficher MiniScreen Takeover » reprend le contrôle."</string>
-    <string name="charge_section" formatted="false">"Indicateur de charge"</string>
-    <string name="charge_enabled" formatted="false">"Afficher l’indicateur quand l’alimentation est branchée"</string>
+    <string name="charge_section" formatted="false">"Indicateur de charge et de batterie"</string>
+    <string name="charge_enabled" formatted="false">"Activer l’indicateur de charge et de batterie"</string>
     <string name="charge_display" formatted="false">"Affichage"</string>
     <string name="charge_icon" formatted="false">"Icône de batterie avec pourcentage"</string>
     <string name="charge_icon_circle" formatted="false">"Icône, pourcentage et cercle"</string>
@@ -33,6 +33,10 @@
     <string name="charge_static" formatted="false">"Statique"</string>
     <string name="charge_animated" formatted="false">"Accent lumineux animé"</string>
     <string name="charge_animation_speed" formatted="false">"Secondes par cycle d’animation"</string>
-    <string name="charge_help" formatted="false">"L’indicateur apparaît seulement quand l’alimentation est branchée, même à 100 %. L’arc montre le niveau de batterie. Les éléments suivent le décalage des pixels et recouvrent horloge native et HTML. La simulation d’aperçu n’affecte pas l’écran arrière."</string>
+    <string name="charge_help" formatted="false">"Activez l’indicateur pour afficher la batterie quand une alimentation est branchée. L’option permanente l’affiche aussi sans câble. Le cercle et l’accent animé apparaissent seulement avec une alimentation. Tous les éléments suivent le décalage des pixels. L’aperçu simule 65 % sans affecter l’écran arrière."</string>
     <string name="web_load_failed" formatted="false">"Impossible de charger le HTML : "</string>
+    <string name="charge_always" formatted="false">"Afficher la batterie sans câble de charge"</string>
+    <string name="charge_gradient" formatted="false">"Dégradé du cercle"</string>
+    <string name="charge_ring_color_second" formatted="false">"Couleur du cercle 2"</string>
+    <string name="charge_accent_color" formatted="false">"Couleur de l’accent animé"</string>
 </resources>

@@ -1,14 +1,14 @@
-# Vollständige HTML-Designs
+# Complete HTML designs
 
-MiniScreen Takeover zeigt dein Design als komplette Anzeige. Es gibt keine zusätzliche native Uhr darüber. Eine aktivierte Ladeanzeige wird unabhängig vom HTML als native Ebene darüber gezeichnet. Verwende relative CSS-Einheiten oder die tatsächlichen CSS-Abmessungen; die WebView-Fläche wird für Pixelshifting verkleinert und von Android verschoben.
+MiniScreen Takeover displays your design as the entire screen. It does not add a native clock on top. If charging indicators are enabled, Android draws them as an independent native layer above the HTML. Use relative CSS units or the actual CSS dimensions: Android reduces the WebView area to leave room for pixel shifting, then moves the entire view.
 
-## Dateien importieren
+## Importing files
 
-Importiere eine eigenständige `.html`-Datei oder ein ZIP. Für ZIPs empfiehlt sich `index.html` im Stamm, daneben etwa `style.css`, `clock.js`, `images/` und `fonts/`. Relative URLs funktionieren innerhalb des Designordners. Ressourcen außerhalb dieses Ordners und Netzwerkressourcen werden blockiert. Eine einzige `index.html` in einem Unterordner wird ebenfalls erkannt, falls im ZIP-Stamm keine liegt.
+Import a standalone `.html` file or a ZIP archive. For ZIPs, place `index.html` at the root alongside files such as `style.css`, `clock.js`, `images/` and `fonts/`. Relative URLs work inside the design directory. Resources outside that directory and network resources are blocked. A single `index.html` in a subdirectory is also detected if there is none at the ZIP root.
 
-Das mitgelieferte `examples/Classic-HTML-Design.zip` ist direkt importierbar. `examples/minimal.html` ist ein kleines eigenständiges Beispiel.
+The included `examples/Classic-HTML-Design.zip` can be imported directly. `examples/minimal.html` is a small standalone example.
 
-## Daten lesen
+## Reading data
 
 ```js
 function render(d) {
@@ -20,48 +20,48 @@ window.addEventListener('miniscreen:update', event => render(event.detail));
 if (window.miniScreen) render(window.miniScreen);
 ```
 
-Der erste Zustand wird nach Laden der Seite übertragen. Danach erfolgen Updates bei Einstellungen, Zeit-/Zeitzonenänderungen und jedem Pixelshift, sonst an der nächsten vollen Minute oder Sekunde entsprechend der Sekundenoption. `window.miniScreen` bleibt der zuletzt übertragene Zustand. Bei laufenden eigenen Animationen kann JavaScript zusätzlich `Date.now()` verwenden; häufige Animationen erhöhen den Energiebedarf.
+The initial state arrives after the page loads. Further updates occur when settings, time or time zone change, and on every pixel shift. Otherwise, updates arrive at the next whole minute or second, depending on the seconds setting. `window.miniScreen` holds the most recently supplied state. Custom animations can also use `Date.now()`; frequent animations increase power consumption.
 
-| Feld | Bedeutung |
+| Field | Meaning |
 | --- | --- |
-| `epochMs` | Unixzeit in Millisekunden zum Zeitpunkt des Updates |
-| `time` | Bereits formatierte Uhrzeit mit 12/24 Stunden, Sekundenoption und führender Null |
-| `date` | Formatiertes Datum; leer, wenn deaktiviert |
-| `showClock` | Uhranzeige gewünscht; unabhängig vom Datum. Eigene Designs sollen bei `false` ihre Uhr ausblenden. |
-| `showDate` | Datumsanzeige gewünscht |
-| `width`, `height` | Äußere Renderfläche in physischen Pixeln; auf dem Rückdisplay normalerweise 340 × 340 |
-| `cssWidth`, `cssHeight` | Innerer WebView-Bereich in CSS-Pixeln; zusätzlich `innerWidth`, `innerHeight` beziehungsweise `clientWidth` verwenden |
-| `timeZone`, `locale` | Android-Zeitzone und Sprachkennung |
-| `running` | `true`, solange diese Renderfläche aktiv ist; eigene Animationen bei `false` pausieren |
-| `batteryPlugged`, `batteryLevel` | Stromversorgung angeschlossen und Akkustand 0–100; in der simulierten Vorschau `true` und 65 |
-| `preview` | `true` in der Hauptbildschirm-Vorschau |
-| `shiftX`, `shiftY` | Aktuelle Verschiebung in Referenzpixeln bezogen auf 340 Pixel |
-| `settings` | Vollständige Profileinstellungen, siehe folgende Tabelle |
-| `backgroundUrl` | Lokale URL für das gewählte Hintergrundbild oder leer |
-| `fontUrl` | Lokale URL für die gewählte Schrift oder leer |
+| `epochMs` | Unix time in milliseconds at the time of the update |
+| `time` | Formatted time respecting 12/24-hour mode, seconds and leading zero settings |
+| `date` | Formatted date; empty when disabled |
+| `showClock` | Whether the clock should be displayed, independently of the date. Custom designs should hide their clock when this is `false`. |
+| `showDate` | Whether the date should be displayed |
+| `width`, `height` | Outer rendering area in physical pixels; normally 340 × 340 on the rear display |
+| `cssWidth`, `cssHeight` | Inner WebView area in CSS pixels; also use `innerWidth`, `innerHeight` or `clientWidth` as appropriate |
+| `timeZone`, `locale` | Android time zone and language identifier |
+| `running` | `true` while this rendering surface is active; pause custom animations when `false` |
+| `batteryPlugged`, `batteryLevel` | Whether external power is connected and battery level from 0–100; simulated preview values are `true` and 65 |
+| `preview` | `true` in the main-screen preview |
+| `shiftX`, `shiftY` | Current displacement in reference pixels relative to a 340-pixel display |
+| `settings` | Complete profile settings; see the following table |
+| `backgroundUrl` | Local URL of the selected background image, or an empty string |
+| `fontUrl` | Local URL of the selected font, or an empty string |
 
-Die CSS-Variablen `--time-color`, `--date-color` und `--background-color` werden auf `document.documentElement` gesetzt.
+The CSS variables `--time-color`, `--date-color` and `--background-color` are set on `document.documentElement`.
 
-| `settings`-Felder | Bedeutung |
+| `settings` fields | Meaning |
 | --- | --- |
-| `schema`, `name`, `mode` | Profilformat-Version (1), Profilname, `native` oder `html` |
-| `twentyFour`, `seconds`, `leadingZero`, `showClock`, `showDate`, `datePattern` | Zeit-/Datumseinstellungen |
-| `timeColor`, `dateColor`, `backgroundColor` | HEX-Farben `#RRGGBB` |
-| `timeSize`, `dateSize` | Referenzschriftgrößen bezogen auf eine 340-Pixel-Fläche |
-| `timeX`, `timeY`, `dateX`, `dateY` | Gewünschte Mittelpunkte in Prozent; eigene Designs dürfen sie anders interpretieren |
-| `font`, `bold` | Systemschriftname und Fettoption |
-| `imageFit`, `dim`, `shiftBackground` | `cover` oder `contain`, Abdunklung 0–100 %, Hintergrundbewegung |
-| `shifting`, `shiftRange`, `shiftInterval` | Pixelshifting aktiv, Bereich in Referenzpixeln, Intervall in Sekunden |
-| `brightness` | Angeforderte Displayhelligkeit 1–100 %; Android stellt sie außerhalb des HTML ein |
-| `image`, `fontFile`, `design` | Interne relative Assetpfade; für Bilder/Schriften die bereitgestellten URLs verwenden |
+| `schema`, `name`, `mode` | Profile format version (1), profile name and display mode (`native`, `html` or `pebble`) |
+| `twentyFour`, `seconds`, `leadingZero`, `showClock`, `showDate`, `datePattern` | Time and date settings |
+| `timeColor`, `dateColor`, `backgroundColor` | HEX colors in `#RRGGBB` format |
+| `timeSize`, `dateSize` | Reference font sizes relative to a 340-pixel display |
+| `timeX`, `timeY`, `dateX`, `dateY` | Requested center positions as percentages; custom designs may interpret them differently |
+| `font`, `bold` | System font name and bold setting |
+| `imageFit`, `dim`, `shiftBackground` | `cover`, `contain` or `window`; dimming from 0–100%; background shifting |
+| `shifting`, `shiftRange`, `shiftInterval` | Whether pixel shifting is enabled, range in reference pixels and interval in seconds |
+| `brightness` | Requested display brightness from 1–100%; Android applies it outside the HTML |
+| `image`, `fontFile`, `design` | Internal relative asset paths; use the supplied URLs for images and fonts |
 
-## Hintergrund und Schrift
+## Background and font
 
-Setze ein gewähltes Bild über `backgroundUrl` als CSS-Hintergrund. Lade `fontUrl` bei Bedarf mit `FontFace`. Diese URLs bleiben lokal, obwohl sie mit `https://miniscreen.local/` beginnen; die App beantwortet sie aus dem Profilverzeichnis. Im Beispiel werden Fonts nur bei Änderung neu geladen.
+Apply the selected image as a CSS background using `backgroundUrl`. Load `fontUrl` with `FontFace` when needed. These URLs remain local despite starting with `https://miniscreen.local/`: the app serves them from the profile directory. The example reloads a font only when it changes.
 
-Das HTML entscheidet, ob es ein Hintergrundbild, die Datumseinstellung oder Positionsregler berücksichtigt. Die App zwingt diese Gestaltungsoptionen nicht auf. Helligkeit, Touchsperre und Pixelshifting gelten dagegen außerhalb des HTML.
+The HTML design decides whether to use the background image, date option or position sliders. The app does not enforce these design choices. Brightness, touch blocking and pixel shifting are applied outside the HTML.
 
-Die ganze HTML-Fläche bewegt sich mit Pixelshifting. Für eine optisch unbewegte Hintergrundebene kann das Design die Verschiebung entgegenrechnen. Um Referenzpixel in CSS-Pixel umzurechnen:
+Pixel shifting moves the entire HTML surface. For a visually stationary background layer, the design can compensate for that movement. To convert reference pixels into CSS pixels:
 
 ```js
 const factor = Math.min(d.width, d.height) / 340 / (window.devicePixelRatio || 1);
@@ -69,37 +69,37 @@ const dx = d.shiftX * factor, dy = d.shiftY * factor;
 background.style.transform = `translate(${-dx}px, ${-dy}px)`;
 ```
 
-Kein zusätzliches Pixelshifting auf Texte anwenden, wenn die App es bereits ausführt. Achte auf ausreichenden Platz für lange Datumsangaben und 12-Stunden-Uhrzeiten. Der automatische Außenrand verhindert Abschneiden durch die Bewegung; Layoutüberläufe innerhalb deiner Seite musst du selbst vermeiden.
+Do not add another pixel shift to text when the app already shifts the view. Leave enough space for long dates and 12-hour time strings. The automatic outer margin prevents clipping caused by shifting; your page must still avoid internal layout overflow.
 
-## WebView-Regeln
+## WebView rules
 
-JavaScript ist erlaubt, es gibt aber **keine** `addJavascriptInterface`-Bridge. Die App überträgt lediglich JSON-Daten an die Seite. Offline-Ressourcen aus dem Design, `data:`-Bilder/Fonts und unterstützte lokale Medien sind möglich. Externe Verbindungen, eingebettete Webseiten, Popups, Datei-/Content-URLs, Formulare nach außen und Webworker werden nicht freigegeben. Lokale Skripte können keine Android-Aktionen auslösen. DOM-Speicherung ist deaktiviert; Designs sollen beim Laden aus den gelieferten Daten neu aufgebaut werden.
+JavaScript is permitted, but there is **no** `addJavascriptInterface` bridge. The app only supplies JSON data to the page. Offline resources from the design, `data:` images/fonts and supported local media are available. External connections, embedded websites, popups, file/content URLs, external form submissions and web workers are blocked. Local scripts cannot trigger Android actions. DOM storage is disabled; designs should rebuild their state from the supplied data when loaded.
 
-Berührungen werden bereits durch die Android-Anzeige abgefangen. Das gilt auch für die Vorschau; HTML-Buttons sind daher keine Steuerelemente für diese App.
+Android intercepts touches before they reach the page. This also applies to the preview, so HTML buttons cannot control the app.
 
-Limits: 20 MiB pro entpacktem Design, 200 ZIP-Einträge, 1 MiB pro HTML-Datei, 240 Zeichen pro ZIP-Pfad und maximal 12 Pfadebenen. Profile exportieren die aktuell referenzierten Dateien und das aktuelle Design, nicht frühere unbenutzte Importe.
+Limits: 20 MiB per extracted design, 200 ZIP entries, 1 MiB per HTML file, 240 characters per ZIP path and a maximum of 12 path levels. Profile exports contain the currently referenced files and current design, excluding unused earlier imports.
 
-`locale` folgt der gewählten App-Sprache, bei „Systemsprache“ der Android-Locale. Die App übersetzt keine frei formulierten Texte eines importierten HTML-Designs.
+`locale` follows the selected app language, or the Android locale when “System language” is selected. The app does not translate arbitrary text inside an imported HTML design.
 
-## Schaufenster und Ladeanzeige
+## Window background and charging indicators
 
-`settings.imageFit` ist `cover`, `contain` oder `window`. Bei `window` füllt das Bild zunächst die Fläche; `windowZoom` (100–500 %) vergrößert es darüber hinaus. `windowSeconds` (10–180) gibt die Dauer eines Bewegungsabschnitts an und `windowMotion` aktiviert die Bewegung. `dim` bleibt die Abdunklung in Prozent. Das aktuelle Beispiel in `app/src/main/assets/designs/classic/index.html` enthält die Bildberechnung und eine gedrosselte `requestAnimationFrame`-Schleife. Zufallsziele sind deterministisch aus Zeitsegment und Achse berechnet; eine Smoothstep-Interpolation vermeidet sprunghafte Richtungswechsel.
+`settings.imageFit` is `cover`, `contain` or `window`. In `window` mode, the image first fills the display; `windowZoom` (100–500%) magnifies it further. `windowSeconds` (10–180) sets the duration of each movement segment, and `windowMotion` enables movement. `dim` remains the dimming percentage. The example in `app/src/main/assets/designs/classic/index.html` includes the image calculations and a throttled `requestAnimationFrame` loop. Random destinations are derived deterministically from the time segment and axis. Smoothstep interpolation prevents abrupt changes in direction.
 
-Die Ladeanzeige wird automatisch von Android über dem HTML gezeichnet. Dafür muss das Design selbst nichts rendern. Die Einstellungen stehen zusätzlich in `settings`: `chargeEnabled`, `chargeCircle`, `chargeAnimated`, `chargeBold`, `chargeColor`, `chargeSymbolColor`, `chargeRingColor`, `chargeFont`, `chargeFontFile`, `chargeSize`, `chargeX`, `chargeY`, `chargeRingWidth`, `chargeAnimationSeconds`.
+Android automatically draws charging indicators above the HTML. The design does not need to render them. Their settings are also available in `settings`: `chargeEnabled`, `chargeAlways`, `chargeGradient`, `chargeRingColorSecond`, `chargeAccentColor`, `chargeCircle`, `chargeAnimated`, `chargeBold`, `chargeColor`, `chargeSymbolColor`, `chargeRingColor`, `chargeFont`, `chargeFontFile`, `chargeSize`, `chargeX`, `chargeY`, `chargeRingWidth`, `chargeAnimationSeconds`.
 
-`chargeFontFile` ist ein interner Profilpfad für die native Ebene, keine zugängliche HTML-URL. Eigene HTML-Inhalte werden beim Import nicht automatisch umgeschrieben. Das mitgelieferte Design zeichnet keine zweite Ladeanzeige. Updates erfolgen auch bei Akkuänderungen und beim Start/Pausieren der Renderfläche. Die tatsächliche Animate-Rate ist unabhängig vom Minuten-/Sekundentakt der Uhr.
+`chargeFontFile` is an internal profile path for the native layer, not an accessible HTML URL. Imported HTML is not automatically rewritten. The included design does not draw a second charging indicator. Updates also occur when battery state changes and when the rendering surface starts or pauses. The actual animation rate is independent of the clock’s minute/second update interval.
 
-## Benachrichtigungsticker
+## Notification ticker
 
-Standardmäßig zeichnet Android den konfigurierbaren Ticker über dem Design. Die HTML-Seite bekommt in diesem Modus keine Benachrichtigungsinhalte. Mit **„HTML-Design stellt Benachrichtigungen dar“** entfällt diese native Ebene. Die Seite erhält dann im bestehenden `miniscreen:update`-Event:
+By default, Android draws the configurable ticker above the design. In that mode, the HTML page receives no notification content. Enabling **“HTML design renders notifications”** removes that native layer. The page then receives the following fields through the existing `miniscreen:update` event:
 
-- `notification`: aktuell gezeigte Meldung oder `null` während einer Pause.
-- `notifications`: gefilterte Warteschlange, maximal 50 Einträge.
-- `tickerSettings`: Schriftgröße, Schrift, Fett, Farben, Deckkraft, Position, Breite, Laufschrift, Geschwindigkeit, Zeilenzahl, Symbolgröße, Anzeigedauer und `clockMode` (0 = sichtbar, 1 = abdunkeln, 2 = ausblenden).
+- `notification`: the currently displayed notification, or `null` during a pause.
+- `notifications`: the filtered queue, containing at most 50 entries.
+- `tickerSettings`: font size, font, bold, colors, opacity, position, width, scrolling, speed, line count, icon size, display duration and `clockMode` (0 = visible, 1 = dimmed, 2 = hidden).
 
-Eine Meldung enthält `app` (Paketname), `label`, `text`, `count` und `iconUrl` (lokales App-Symbol). `label` ist im diskreten Modus leer; `text` enthält dann nur die Anzahl. In den weiteren Stufen enthält `text` bereits die erlaubte Kombination aus App, Titel und Nachricht. Titel und Nachricht stehen nicht zusätzlich als ungefilterte Felder bereit. `count` zählt aktive erfasste Benachrichtigungen dieser App. `iconUrl` funktioniert nur für erlaubte Apps im aktivierten HTML-Modus, in der Vorschau nur für das Beispielsymbol.
+A notification contains `app` (package name), `label`, `text`, `count` and `iconUrl` (local app icon). In discreet mode, `label` is empty and `text` contains only the count. At other privacy levels, `text` already contains the permitted combination of app, title and message. The title and message are not supplied separately as unfiltered fields. `count` counts active captured notifications from that app. `iconUrl` works only for permitted apps while HTML notification mode is enabled; in the preview it supplies only the example icon.
 
-Die Daten werden **vor** dem JavaScript-Aufruf nach dem aktuellen Sperrzustand gefiltert. Bei Entsperren, Entfernung, Datenschutzänderung und Stop werden sie aktualisiert bzw. geleert. Ein HTML-Design muss alte Texte daraufhin selbst entfernen. Nur Designs aktivieren, denen man die gewählte Inhaltsstufe anvertrauen möchte: bereits übergebene Inhalte kann die App nicht aus beliebigen JavaScript-Variablen eines Designs zurückholen. Keine Benachrichtigungen in eigenes HTML oder Dateien einbetten; `textContent` statt `innerHTML` verwenden.
+Data is filtered **before** being passed to JavaScript, according to the current lock state. It is updated or cleared when the device is unlocked, notifications are removed, privacy settings change or rendering stops. The HTML design must remove old text in response. Enable only designs you trust with the selected content level: the app cannot retrieve already supplied content from arbitrary JavaScript variables. Do not embed notification contents in your HTML or files; use `textContent` instead of `innerHTML`.
 
 ```js
 window.addEventListener('miniscreen:update', ({detail: d}) => {
@@ -110,8 +110,10 @@ window.addEventListener('miniscreen:update', ({detail: d}) => {
 });
 ```
 
-Das vollständige Beispiel `examples/notification-clock.html` zeigt Uhr und gefilterte Meldung. Native Schriftgrößen verwenden die 340px-Referenz; für HTML mit `Math.min(d.cssWidth, d.cssHeight) / 340` skalieren. Schrift `profile` verwendet die Profilschrift, einschließlich `fontUrl` für die importierte Schrift. Pixelshifting erfolgt außerhalb der WebView. Im HTML-Modus steuert das Design selbst das Abdunkeln/Ausblenden der Uhr. Die native Ladeanzeige bleibt unabhängig davon aktiv.
+The complete `examples/notification-clock.html` example displays the clock and a filtered notification. Native font sizes use the 340px reference; scale HTML with `Math.min(d.cssWidth, d.cssHeight) / 340`. The `profile` font uses the profile font, including `fontUrl` for an imported font. Pixel shifting happens outside the WebView. In HTML mode, the design controls clock dimming/hiding itself. Native charging indicators remain independently active.
 
-## Native Zusatzmodule
+## Additional native modules
 
-Widgets und Notification Dot werden als native Ebenen über dem HTML-Design angezeigt. Der Punkt verwendet eine eigene App-/Farbauswahl und erhält keine Nachrichtentexte zur Anzeige. Widget-Bindings und Punkt-Einstellungen sind Geräteoptionen und nicht Teil des Profil-Exports. Der Punkt wird über Ticker und Ladeanzeige gelegt, damit sein Status sichtbar bleibt. Die Uhr und das Datum können unabhängig deaktiviert werden; das eingebaute Design berücksichtigt beide Schalter.
+Widgets and Notification Dot appear as native layers above the HTML design. The dot uses its own app/color selection and does not display notification text. Widget bindings and dot settings are device options and are not included in profile exports. The dot is drawn above the ticker and charging indicators so its status stays visible. Clock and date can be disabled independently; the included design respects both switches.
+
+`chargeAlways` keeps the native battery icon and percentage visible without external power when `chargeEnabled` is enabled. The ring and its accent remain restricted to connected power. `chargeGradient` enables a smooth first–second–first color gradient around the ring; `chargeRingColorSecond` sets the second color. `chargeAccentColor` sets the independent animated accent color.

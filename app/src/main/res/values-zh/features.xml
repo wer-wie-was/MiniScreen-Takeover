@@ -15,8 +15,8 @@
     <string name="external_requested" formatted="false">"已请求启动。请检查背屏；本应用监控保持暂停。"</string>
     <string name="external_failed" formatted="false">"应用启动失败："</string>
     <string name="external_help" formatted="false">"厂商接口尝试在屏幕 1 启动所选应用。某些应用可能拒绝或切换到主屏。本应用显示会关闭，监控无限期暂停。“重新显示 MiniScreen Takeover”可重新接管。"</string>
-    <string name="charge_section" formatted="false">"充电显示"</string>
-    <string name="charge_enabled" formatted="false">"连接电源时显示充电指示"</string>
+    <string name="charge_section" formatted="false">"充电与电池显示"</string>
+    <string name="charge_enabled" formatted="false">"启用充电与电池显示"</string>
     <string name="charge_display" formatted="false">"显示方式"</string>
     <string name="charge_icon" formatted="false">"电池图标与百分比"</string>
     <string name="charge_icon_circle" formatted="false">"电池图标、百分比与环形边框"</string>
@@ -33,6 +33,10 @@
     <string name="charge_static" formatted="false">"静态"</string>
     <string name="charge_animated" formatted="false">"动态光效"</string>
     <string name="charge_animation_speed" formatted="false">"每次动画循环的秒数"</string>
-    <string name="charge_help" formatted="false">"仅在连接电源时显示，包括电量 100% 时。环形弧线表示电量。所有元素随像素偏移移动，叠加在原生时钟和 HTML 上。预览模拟不影响背屏。"</string>
+    <string name="charge_help" formatted="false">"启用后，连接电源时显示电量。开启常显选项后，未连接充电线时也显示电量。充电环和动画高亮仅在连接电源时显示。所有元素均跟随像素位移。预览模拟 65% 电量，不影响背屏。"</string>
     <string name="web_load_failed" formatted="false">"无法加载 HTML："</string>
+    <string name="charge_always" formatted="false">"未连接充电线时也显示电量"</string>
+    <string name="charge_gradient" formatted="false">"充电环渐变色"</string>
+    <string name="charge_ring_color_second" formatted="false">"充电环颜色 2"</string>
+    <string name="charge_accent_color" formatted="false">"动画高亮颜色"</string>
 </resources>

@@ -15,8 +15,8 @@ final class Config {
     int timeSize=68, dateSize=20, timeX=50, timeY=45, dateX=50, dateY=66;
     int shiftRange=8, shiftInterval=60, dim=45, brightness=25;
     int windowZoom=180,windowSeconds=60;
-    boolean windowMotion=true,chargeEnabled=false,chargeCircle=false,chargeAnimated=false,chargeBold=false;
-    String chargeColor="#63E6DC",chargeSymbolColor="#63E6DC",chargeRingColor="#63E6DC",chargeFont="sans",chargeFontFile="";
+    boolean windowMotion=true,chargeEnabled=false,chargeAlways=false,chargeGradient=false,chargeCircle=false,chargeAnimated=false,chargeBold=false;
+    String chargeColor="#63E6DC",chargeSymbolColor="#63E6DC",chargeRingColor="#63E6DC",chargeRingColorSecond="#A78BFA",chargeAccentColor="#FFFFFF",chargeFont="sans",chargeFontFile="";
     int chargeSize=18,chargeX=50,chargeY=85,chargeRingWidth=3,chargeAnimationSeconds=10;
     static Config from(JSONObject j) {
         Config c=new Config();
@@ -36,7 +36,7 @@ final class Config {
         c.shiftRange=clamp(j.optInt("shiftRange",8),1,30); c.shiftInterval=clamp(j.optInt("shiftInterval",60),10,600);
         c.dim=clamp(j.optInt("dim",45),0,100); c.brightness=clamp(j.optInt("brightness",25),1,100);
         c.windowZoom=clamp(j.optInt("windowZoom",180),100,500);c.windowSeconds=clamp(j.optInt("windowSeconds",60),10,180);c.windowMotion=j.optBoolean("windowMotion",true);
-        c.chargeEnabled=j.optBoolean("chargeEnabled",false);c.chargeCircle=j.optBoolean("chargeCircle",false);c.chargeAnimated=j.optBoolean("chargeAnimated",false);c.chargeBold=j.optBoolean("chargeBold",false);
+        c.chargeEnabled=j.optBoolean("chargeEnabled",false);c.chargeAlways=j.optBoolean("chargeAlways",false);c.chargeGradient=j.optBoolean("chargeGradient",false);c.chargeRingColorSecond=color(j.optString("chargeRingColorSecond"),c.chargeRingColorSecond);c.chargeAccentColor=color(j.optString("chargeAccentColor"),c.chargeAccentColor);c.chargeCircle=j.optBoolean("chargeCircle",false);c.chargeAnimated=j.optBoolean("chargeAnimated",false);c.chargeBold=j.optBoolean("chargeBold",false);
         c.chargeColor=color(j.optString("chargeColor"),c.chargeColor);c.chargeSymbolColor=color(j.optString("chargeSymbolColor"),c.chargeSymbolColor);c.chargeRingColor=color(j.optString("chargeRingColor"),c.chargeRingColor);
         c.chargeFont=j.optString("chargeFont",c.chargeFont);c.chargeFontFile=safePath(j.optString("chargeFontFile"));
         c.chargeSize=clamp(j.optInt("chargeSize",18),8,50);c.chargeX=clamp(j.optInt("chargeX",50),0,100);c.chargeY=clamp(j.optInt("chargeY",85),0,100);
@@ -54,7 +54,7 @@ final class Config {
              .put("timeX",timeX).put("timeY",timeY).put("dateX",dateX).put("dateY",dateY).put("shiftRange",shiftRange)
              .put("shiftInterval",shiftInterval).put("dim",dim).put("brightness",brightness)
              .put("windowZoom",windowZoom).put("windowSeconds",windowSeconds).put("windowMotion",windowMotion)
-             .put("chargeEnabled",chargeEnabled).put("chargeCircle",chargeCircle).put("chargeAnimated",chargeAnimated).put("chargeBold",chargeBold)
+             .put("chargeAlways",chargeAlways).put("chargeGradient",chargeGradient).put("chargeRingColorSecond",chargeRingColorSecond).put("chargeAccentColor",chargeAccentColor).put("chargeEnabled",chargeEnabled).put("chargeCircle",chargeCircle).put("chargeAnimated",chargeAnimated).put("chargeBold",chargeBold)
              .put("chargeColor",chargeColor).put("chargeSymbolColor",chargeSymbolColor).put("chargeRingColor",chargeRingColor).put("chargeFont",chargeFont).put("chargeFontFile",chargeFontFile)
              .put("chargeSize",chargeSize).put("chargeX",chargeX).put("chargeY",chargeY).put("chargeRingWidth",chargeRingWidth).put("chargeAnimationSeconds",chargeAnimationSeconds);
         } catch(org.json.JSONException e) {throw new IllegalStateException(e);}

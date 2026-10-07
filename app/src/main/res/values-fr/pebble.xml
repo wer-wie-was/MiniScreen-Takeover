@@ -33,4 +33,6 @@
     <string name="pebble_webview_isolation" formatted="false">"Impossible d’activer l’isolation de l’émulateur. Vérifiez la version WebView ci-dessous."</string>
     <string name="pebble_webview_memory" formatted="false">"Ce WebView ne fournit pas de mémoire WebAssembly partagée ou de workers. Mettez à jour Android System WebView."</string>
     <string name="pebble_use_mode" formatted="false">"Utiliser comme mode d’affichage"</string>
+    <string name="pebble_restart" formatted="false">"Redémarrer l’émulateur"</string>
+    <string name="pebble_platform_help" formatted="false">"Les moteurs des sept plateformes sont inclus. Importez le micrologiciel pour Aplite, Basalt, Chalk ou Diorite. Gabbro est préféré, puis Chalk."</string>
 </resources>

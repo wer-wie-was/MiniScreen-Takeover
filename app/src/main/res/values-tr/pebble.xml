@@ -33,4 +33,6 @@
     <string name="pebble_webview_isolation" formatted="false">"Emülatör izolasyonu etkinleştirilemedi. Aşağıdaki WebView sürümünü kontrol edin."</string>
     <string name="pebble_webview_memory" formatted="false">"Bu WebView paylaşılan WebAssembly belleği veya worker desteği sunmuyor. Android System WebView güncelleyin."</string>
     <string name="pebble_use_mode" formatted="false">"Görüntüleme modu olarak kullan"</string>
+    <string name="pebble_restart" formatted="false">"Emülatörü yeniden başlat"</string>
+    <string name="pebble_platform_help" formatted="false">"Yedi platformun tümü için motorlar dahildir. Aplite, Basalt, Chalk veya Diorite için ürün yazılımını içe aktarın. Önce Gabbro, ardından Chalk tercih edilir."</string>
 </resources>

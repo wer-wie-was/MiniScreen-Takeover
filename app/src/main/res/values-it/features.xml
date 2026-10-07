@@ -15,8 +15,8 @@
     <string name="external_requested" formatted="false">"Avvio richiesto. Controlla lo schermo posteriore; il nostro monitoraggio resta sospeso."</string>
     <string name="external_failed" formatted="false">"Avvio app fallito: "</string>
     <string name="external_help" formatted="false">"Il meccanismo del produttore tenta di avviare l’app sullo schermo 1. Alcune app rifiutano o passano allo schermo principale. Il nostro schermo si chiude e il monitoraggio si sospende senza scadenza. “Mostra di nuovo MiniScreen Takeover” riprende il controllo."</string>
-    <string name="charge_section" formatted="false">"Indicatore di ricarica"</string>
-    <string name="charge_enabled" formatted="false">"Mostra indicatore con alimentazione collegata"</string>
+    <string name="charge_section" formatted="false">"Indicatore di ricarica e batteria"</string>
+    <string name="charge_enabled" formatted="false">"Attiva indicatore di ricarica e batteria"</string>
     <string name="charge_display" formatted="false">"Aspetto"</string>
     <string name="charge_icon" formatted="false">"Icona batteria con percentuale"</string>
     <string name="charge_icon_circle" formatted="false">"Icona, percentuale e cerchio"</string>
@@ -33,6 +33,10 @@
     <string name="charge_static" formatted="false">"Statico"</string>
     <string name="charge_animated" formatted="false">"Accento luminoso animato"</string>
     <string name="charge_animation_speed" formatted="false">"Secondi per ciclo di animazione"</string>
-    <string name="charge_help" formatted="false">"L’indicatore appare solo con alimentazione collegata, anche al 100%. L’arco indica il livello batteria. Gli elementi seguono il pixel shifting e si sovrappongono a orologio nativo e HTML. La simulazione non modifica lo schermo posteriore."</string>
+    <string name="charge_help" formatted="false">"Attiva l’indicatore per mostrare la batteria con alimentazione collegata. L’opzione permanente la mostra anche senza cavo. Cerchio e accento animato appaiono solo con alimentazione collegata. Tutti gli elementi seguono il pixel shifting. L’anteprima simula il 65 % senza modificare lo schermo posteriore."</string>
     <string name="web_load_failed" formatted="false">"Impossibile caricare HTML: "</string>
+    <string name="charge_always" formatted="false">"Mostra la batteria senza cavo di ricarica"</string>
+    <string name="charge_gradient" formatted="false">"Gradiente del cerchio"</string>
+    <string name="charge_ring_color_second" formatted="false">"Colore del cerchio 2"</string>
+    <string name="charge_accent_color" formatted="false">"Colore dell’accento animato"</string>
 </resources>

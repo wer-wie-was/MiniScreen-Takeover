@@ -18,9 +18,11 @@ Not yet established or completed:
 
 ## Included runtime
 
-Gabbro (260×260 round), Emery (200×228) and Flint (144×168) emulator/stock PebbleOS 4.35.0 images are bundled as Android assets. No download, unpacking or user runtime import is required for PBWs that supply one of these targets. The shared engine is stored once; each platform has its own flash images. PBW import chooses a runnable matching platform, preferring round targets. It never runs a binary on a different target. Older Aplite/Basalt/Chalk/Diorite SDK images are not bundled.
+Gabbro (260×260 round), Emery (200×228) and Flint (144×168) emulator/stock PebbleOS 4.35.0 images are bundled as Android assets. No download, unpacking or user runtime import is required for PBWs that supply one of these targets. The shared engine is stored once; each platform has its own flash images. PBW import always prefers Gabbro when supplied by the watchface, then Chalk. Remaining targets prefer installed firmware. A missing preferred firmware is reported rather than silently selecting another target. The dropdown lists only the imported watchface’s targets and shows platform, watch abbreviation, resolution and `(b/w)` for monochrome displays. It never runs a binary on a different target. Older Aplite/Basalt/Chalk/Diorite SDK images are not bundled.
 
-A complete imported runtime overrides its entire platform. Missing files never silently mix a custom firmware with the bundled engine. Runtime HTTP paths are allowlisted. Persisted flash is separated by bundled version versus custom image installation, avoiding stale filesystem reuse after a runtime switch. Built-in source hashes and provenance are recorded in `app/src/main/assets/pebble/bundled/runtime.json`. Firmware snapshots are writable copies held by QEMU; packaged assets are immutable.
+The modern engine is shared by Gabbro/Emery/Flint; a separate bundled classic engine supports Aplite/Basalt/Chalk/Diorite. Firmware for those four old targets must be supplied by the user: the historical SDK distribution terms do not establish permission to bundle these binaries in this application. See https://developer.repebble.com/legal/sdk-license/ and https://developer.rebble.io/legal/.
+
+A complete imported runtime overrides its entire platform. A firmware-only import deliberately uses the matching bundled engine. Partial engine imports (JS without WASM, or vice versa) are rejected. Runtime HTTP paths are allowlisted. Persisted flash is separated by bundled version versus custom image installation, avoiding stale filesystem reuse after a runtime switch. Built-in source hashes and provenance are recorded in `app/src/main/assets/pebble/bundled/runtime.json`. Firmware snapshots are writable copies held by QEMU; packaged assets are immutable.
 
 The stock firmware does **not** contain the Health Connect bridge. Read permissions alone do not make steps/pulse appear in Pebble Health. A patched firmware remains a separate requirement. Android WebView behavior and full PBW installation need device verification.
 
@@ -37,6 +39,8 @@ chalk/qemu_micro_flash.bin
 chalk/qemu_spi_flash.bin
 ```
 
+For a firmware-only ZIP, omit the JavaScript and WASM files and include both flash images. The application uses its bundled classic or modern engine, according to the platform. Importing replaces the previous custom runtime package, so include all custom platforms you want to retain. Supply images and runtimes whose licenses permit your intended use.
+
 `runtime.json`: `{"schema":1,"platforms":["chalk"]}`. Other supported identifiers: aplite, basalt, diorite, emery, flint, gabbro. If an upstream build has a separate worker JS file, include it under the same platform. Limits: 256 files, 256 MiB uncompressed. PBWs are limited to 32 MiB compressed, 64 MiB uncompressed and 2,000 entries.
 
 Use `pebble/tools/prepare_runtime.py` to package **existing** binaries and images:
@@ -49,7 +53,7 @@ python3 pebble/tools/prepare_runtime.py \
   --output Pebble-Runtime.zip
 ```
 
-This command packages files; it does not compile them. The current WASM source reference is recorded in `pebble/UPSTREAM.json`. Upstream hardware-model sources/build scripts are retained in `pebble/upstream`; full QEMU corresponding source is in the upstream repositories named there. Original licenses continue to apply.
+For firmware-only packaging, use `--firmware-only` and omit `--upstream`. This command packages files; it does not compile them. The current WASM source reference is recorded in `pebble/UPSTREAM.json`. Upstream hardware-model sources/build scripts are retained in `pebble/upstream`; full QEMU corresponding source is in the upstream repositories named there. Original licenses continue to apply.
 
 ## Health bridge
 
@@ -69,6 +73,8 @@ The patch supplies current activity metrics and a significant-update event. Miss
 
 One `PebbleService` runs in `:pebble` with its own WebView data directory. A main-process session distributes decoded frames to all surfaces and polls health once per minute. The service is bound while a renderer or Pebble controls are active. When the last client leaves, it requests flash persistence and shuts down after a five-second grace period. This is persistent flash, not a complete CPU/RAM suspend snapshot.
 
+**Restart emulator** is available in the main menu’s Pebble section and on the Pebble settings page. Both controls restart the same shared virtual watch, preserving the imported PBW and selected platform. The engine serializes pending flash saves, writes a fresh snapshot, waits for pending PebbleKit JS storage writes, then acknowledges the request with a unique token. The service creates a fresh WebView and reinstalls the watchface from the selected PBW; preview and rear-display clients remain connected. If the engine is unresponsive, the service restarts after 20 seconds using the last successfully saved state. A stale acknowledgement cannot restart a newer session. If no emulator is running, the button does not start a background watch.
+
 A token-scoped loopback HTTP origin supplies COOP/COEP headers. No JavaScript-to-Java bridge is installed. Frame size, imports, storage and IPC are bounded. Arbitrary filesystem access is unavailable. Network access is off by default; requests use the opt-in broker and private-network destinations are rejected. The broker is not yet a full browser/phone-network implementation (cookies, arbitrary redirects and protocol differences need further work).
 
 Native HTML designs remain network-blocked even though the APK now declares INTERNET for the Pebble broker and loopback engine. Config pages run on the primary screen without a Java bridge. Existing native charging, widget, ticker and dot layers remain above the Pebble renderer; pixelshifting is applied to the renderer.
@@ -86,3 +92,7 @@ All loopback responses, including runtime-file responses, send `Document-Isolati
 The library supplies an API adapter, not a replacement WebView engine. A provider without the required feature remains unable to run this threaded WASM runtime; updating Android System WebView may be necessary but does not guarantee feature availability. No check is bypassed and shared memory is not simulated. A native emulator or a separately built non-threaded engine remains the fallback work if the provider cannot support it. Device testing is still required.
 
 References: https://developer.android.com/reference/androidx/webkit/Profile#setCrossOriginIsolatedAllowlist(java.util.Set) and https://developer.chrome.com/blog/document-isolation-policy.
+
+## Source checks for 0.3.4
+
+Java syntax parsing, XML/resource consistency, JavaScript syntax, bundled SHA-256 hashes and firmware-only ZIP contents were checked. A controlled asynchronous engine check verified that a restart waits for an existing flash save, requests a new save, then acknowledges the request. The unchanged classic engine booted test images for Aplite, Basalt, Chalk and Diorite under Node.js and produced frames. Basalt exports a 148×172 framebuffer with a two-pixel hardware border; the app crops that known border to the logical 144×168 display. This host boot check does not verify PBW installation or Android operation for the four older targets. No Android compilation was performed.

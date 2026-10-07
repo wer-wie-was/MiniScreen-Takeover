@@ -10,6 +10,7 @@ import java.util.zip.*;
 /** Bounded imports; never extracts PBW resources into executable Android paths. */
 final class PebbleFiles {
     static final String[] BUNDLED={"gabbro","emery","flint"};
+    static final String[] CLASSIC={"aplite","basalt","chalk","diorite"};
     static final String[] RUNTIME_FILES={"qemu-system-arm.js","qemu-system-arm.wasm","qemu-system-arm.worker.js","qemu_micro_flash.bin","qemu_spi_flash.bin"};
     static final String[] PLATFORMS={"aplite","basalt","chalk","diorite","emery","flint","gabbro"};
     static File root(Context c){File f=new File(c.getFilesDir(),"pebble");f.mkdirs();return f;}
@@ -33,7 +34,7 @@ final class PebbleFiles {
         File stage=new File(root(c),"runtime-stage"),dest=runtime(c),old=new File(root(c),"runtime-old");remove(stage);stage.mkdirs();long total=0;int count=0;boolean done=false;
         try{try(InputStream input=c.getContentResolver().openInputStream(uri);ZipInputStream zip=new ZipInputStream(input)){ZipEntry e;while((e=zip.getNextEntry())!=null){if(++count>256)throw new IOException("Too many runtime files");String name=e.getName();if(name.startsWith("/")||name.contains("\\"))throw new IOException("Invalid ZIP path");File file=new File(stage,name).getCanonicalFile();if(!file.getPath().startsWith(stage.getCanonicalPath()+File.separator))throw new IOException("Invalid ZIP path");if(e.isDirectory()){file.mkdirs();continue;}if(!allowed(name))throw new IOException("Unexpected runtime file: "+name);file.getParentFile().mkdirs();try(OutputStream out=new FileOutputStream(file)){byte[] b=new byte[32768];int n;while((n=zip.read(b))!=-1){total+=n;if(total>256L*1024*1024)throw new IOException("Runtime too large");out.write(b,0,n);}}}}
             if(!new File(stage,"runtime.json").isFile())throw new IOException("Missing runtime.json");JSONObject manifest=new JSONObject(ProfileStore.readText(new File(stage,"runtime.json"),64*1024));if(manifest.optInt("schema")!=1)throw new IOException("Unsupported runtime schema");
-            JSONArray platforms=manifest.getJSONArray("platforms");if(platforms.length()==0)throw new IOException("No platforms in runtime");for(int i=0;i<platforms.length();i++){String platform=platforms.getString(i);if(!Arrays.asList(PLATFORMS).contains(platform))throw new IOException("Unknown platform");for(String name:new String[]{"qemu-system-arm.js","qemu-system-arm.wasm","qemu_micro_flash.bin","qemu_spi_flash.bin"})if(!new File(stage,platform+"/"+name).isFile())throw new IOException("Missing "+platform+"/"+name);}
+            JSONArray platforms=manifest.getJSONArray("platforms");if(platforms.length()==0)throw new IOException("No platforms in runtime");for(int i=0;i<platforms.length();i++){String platform=platforms.getString(i);if(!Arrays.asList(PLATFORMS).contains(platform))throw new IOException("Unknown platform");for(String name:new String[]{"qemu_micro_flash.bin","qemu_spi_flash.bin"})if(!new File(stage,platform+"/"+name).isFile())throw new IOException("Missing "+platform+"/"+name);boolean js=new File(stage,platform+"/qemu-system-arm.js").isFile(),wasm=new File(stage,platform+"/qemu-system-arm.wasm").isFile();if(js!=wasm)throw new IOException("Include both JS and WASM, or neither, for "+platform);if(!js&&new File(stage,platform+"/qemu-system-arm.worker.js").exists())throw new IOException("Worker requires a complete custom engine");}
             remove(old);if(dest.exists()&&!dest.renameTo(old))throw new IOException("Cannot replace runtime");if(!stage.renameTo(dest)){old.renameTo(dest);throw new IOException("Cannot install runtime");}done=true;remove(old);TakeoverControl.prefs(c).edit().putLong("pebble_revision",System.currentTimeMillis()).apply();
         }finally{if(!done)remove(stage);}
     }
@@ -45,22 +46,39 @@ final class PebbleFiles {
     private static boolean allowed(String n){if(n.equals("runtime.json")||n.equals("LICENSES.txt"))return true;String[] parts=n.split("/");return parts.length==2&&Arrays.asList(PLATFORMS).contains(parts[0])&&Arrays.asList("qemu-system-arm.js","qemu-system-arm.wasm","qemu-system-arm.worker.js","qemu_micro_flash.bin","qemu_spi_flash.bin").contains(parts[1]);}
     static boolean importedReady(Context c,String platform){
         if(!Arrays.asList(PLATFORMS).contains(platform))return false;
-        for(String name:new String[]{"qemu-system-arm.js","qemu-system-arm.wasm","qemu_micro_flash.bin","qemu_spi_flash.bin"})if(!new File(runtime(c),platform+"/"+name).isFile())return false;
+        for(String name:new String[]{"qemu_micro_flash.bin","qemu_spi_flash.bin"})if(!new File(runtime(c),platform+"/"+name).isFile())return false;
+        boolean js=new File(runtime(c),platform+"/qemu-system-arm.js").isFile(),wasm=new File(runtime(c),platform+"/qemu-system-arm.wasm").isFile();if(js!=wasm)return false;
         return true;
     }
     static boolean ready(Context c,String platform){return importedReady(c,platform)||Arrays.asList(BUNDLED).contains(platform);}
     static String choosePlatform(Context c,JSONArray boards)throws JSONException{
-        // Prefer a runnable round target, then a runnable rectangular target. Never substitute a different PBW binary.
+        // Honor the watchface target preference even when its firmware still needs importing.
+        for(String preferred:new String[]{"gabbro","chalk"})
+            for(int i=0;i<boards.length();i++)if(preferred.equals(boards.getString(i)))return preferred;
+        // For the remaining targets prefer one with installed firmware. Never substitute a different PBW binary.
         for(String preferred:new String[]{"gabbro","chalk","emery","basalt","flint","diorite","aplite"})
             for(int i=0;i<boards.length();i++)if(preferred.equals(boards.getString(i))&&ready(c,preferred))return preferred;
         return boards.getString(0);
     }
     static InputStream openRuntime(Context c,String platform,String name)throws IOException{
         if(!Arrays.asList(PLATFORMS).contains(platform)||!Arrays.asList(RUNTIME_FILES).contains(name))throw new FileNotFoundException("Unknown runtime resource");
-        // A complete user runtime overrides the whole platform; never mix its firmware with bundled engine files.
-        if(importedReady(c,platform))return new FileInputStream(new File(runtime(c),platform+"/"+name));
-        if(!Arrays.asList(BUNDLED).contains(platform))throw new FileNotFoundException("Platform is not bundled");
-        return c.getAssets().open("pebble/bundled/"+(name.startsWith("qemu-system-arm.")?name:platform+"/"+name));
+        // Complete custom engines override the bundled engine. Firmware-only imports explicitly use the matching built-in engine.
+        boolean engine=name.startsWith("qemu-system-arm.");
+        if(importedReady(c,platform)&&(!engine||new File(runtime(c),platform+"/qemu-system-arm.js").isFile()))return new FileInputStream(new File(runtime(c),platform+"/"+name));
+        if(!engine&&!Arrays.asList(BUNDLED).contains(platform))throw new FileNotFoundException("Platform firmware is not bundled");
+        return c.getAssets().open("pebble/bundled/"+(engine?(Arrays.asList(CLASSIC).contains(platform)?"classic/":"")+name:platform+"/"+name));
+    }
+    static String platformLabel(String platform){
+        switch(platform){
+            case "aplite":return "Aplite · P/PS · 144×168 (b/w)";
+            case "basalt":return "Basalt · PT/PTS · 144×168";
+            case "chalk":return "Chalk · PTR · 180×180";
+            case "diorite":return "Diorite · P2 · 144×168 (b/w)";
+            case "emery":return "Emery · PT2 · 200×228";
+            case "flint":return "Flint · P2D · 144×168 (b/w)";
+            case "gabbro":return "Gabbro · PR2 · 260×260";
+            default:return platform;
+        }
     }
     static void remove(File f){if(f.isDirectory()){File[] children=f.listFiles();if(children!=null)for(File child:children)remove(child);}f.delete();}
 }

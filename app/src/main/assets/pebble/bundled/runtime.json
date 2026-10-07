@@ -18,6 +18,27 @@
     "gabbro/qemu_micro_flash.bin": "7bf3280062ab312942be68b7cc4caee5bedeaa44b371d4165d46f525c59e5c7f",
     "gabbro/qemu_spi_flash.bin": "b38632be1ef57cb0a5d1070a80dc470fa8781893f9d6badf2d4a01d50d643d92",
     "qemu-system-arm.js": "c92694b0c605aae1546e16174edb9d796bdf6f74c6fce06db4eea59ba433acc9",
-    "qemu-system-arm.wasm": "41ec34518b370fb78bd16b24241ca49f7efa1fc60dc0f0cb17be151dd7251aed"
-  }
+    "qemu-system-arm.wasm": "41ec34518b370fb78bd16b24241ca49f7efa1fc60dc0f0cb17be151dd7251aed",
+    "classic/qemu-system-arm.js": "7ee75a12b60fd0cbfabed551c130b5078e354cd45802b9c3862e02be71a8fbc4",
+    "classic/qemu-system-arm.wasm": "8f6a84b0ac9cfe5de95d3e4a0ad583bd0885366a1e3dec4c979ce93428dbe368"
+  },
+  "engines": {
+    "classic": [
+      "aplite",
+      "basalt",
+      "chalk",
+      "diorite"
+    ],
+    "modern": [
+      "emery",
+      "flint",
+      "gabbro"
+    ]
+  },
+  "firmwareImportRequired": [
+    "aplite",
+    "basalt",
+    "chalk",
+    "diorite"
+  ]
 }

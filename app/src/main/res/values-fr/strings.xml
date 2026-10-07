@@ -8,7 +8,7 @@
     <string name="msg_005" formatted="false">"APERÇU EN DIRECT"</string>
     <string name="msg_006" formatted="false">"Marge de décalage"</string>
     <string name="msg_007" formatted="false">"Traitement du fichier…"</string>
-    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.3.3 · vibe-coded"</string>
+    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.3.5 · vibe-coded"</string>
     <string name="msg_009" formatted="false">", section dépliable"</string>
     <string name="msg_010" formatted="false">"Affichage pas encore démarré"</string>
     <string name="msg_011" formatted="false">"▶ Afficher sur l’écran arrière"</string>

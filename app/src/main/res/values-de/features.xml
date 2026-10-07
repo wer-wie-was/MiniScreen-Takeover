@@ -15,8 +15,8 @@
     <string name="external_requested" formatted="false">"Start angefordert. Rückdisplay prüfen; unsere Überwachung bleibt pausiert."</string>
     <string name="external_failed" formatted="false">"App-Start fehlgeschlagen: "</string>
     <string name="external_help" formatted="false">"Der Hersteller-Aufruf versucht die gewählte App auf Screen 1 zu starten. Manche Apps verhindern das oder wechseln auf den Hauptbildschirm. Unsere Anzeige wird geschlossen und die Überwachung unbefristet pausiert. „MiniScreen Takeover wieder anzeigen“ übernimmt erneut."</string>
-    <string name="charge_section" formatted="false">"Ladeanzeige"</string>
-    <string name="charge_enabled" formatted="false">"Ladeanzeige bei angeschlossener Stromversorgung"</string>
+    <string name="charge_section" formatted="false">"Lade- &amp; Batterieanzeige"</string>
+    <string name="charge_enabled" formatted="false">"Lade- &amp; Batterieanzeige aktivieren"</string>
     <string name="charge_display" formatted="false">"Darstellung"</string>
     <string name="charge_icon" formatted="false">"Akkusymbol mit Prozentwert"</string>
     <string name="charge_icon_circle" formatted="false">"Akkusymbol, Prozentwert und Rahmenkreis"</string>
@@ -33,6 +33,10 @@
     <string name="charge_static" formatted="false">"Statisch"</string>
     <string name="charge_animated" formatted="false">"Animierter Lichtakzent"</string>
     <string name="charge_animation_speed" formatted="false">"Sekunden pro Animationszyklus"</string>
-    <string name="charge_help" formatted="false">"Die Anzeige erscheint nur bei angeschlossener Stromversorgung, auch bei 100 %. Der Kreis zeigt den Akkustand als Bogen. Alle Elemente folgen dem Pixelshift und liegen über nativer Uhr und HTML. Die Vorschau-Simulation beeinflusst das Rückdisplay nicht."</string>
+    <string name="charge_help" formatted="false">"Die aktivierte Anzeige zeigt den Akkustand bei angeschlossener Stromversorgung. Mit der dauerhaften Anzeige erscheint er auch ohne Ladekabel. Kreis und animierter Akzent erscheinen nur mit angeschlossener Stromversorgung. Alle Elemente folgen dem Pixelshift. Die Vorschau simuliert 65 % und beeinflusst das Rückdisplay nicht."</string>
     <string name="web_load_failed" formatted="false">"HTML konnte nicht geladen werden: "</string>
+    <string name="charge_always" formatted="false">"Akkustand auch ohne Ladekabel anzeigen"</string>
+    <string name="charge_gradient" formatted="false">"Farbverlauf im Ladekreis"</string>
+    <string name="charge_ring_color_second" formatted="false">"Ladekreisfarbe 2"</string>
+    <string name="charge_accent_color" formatted="false">"Farbe des animierten Akzents"</string>
 </resources>

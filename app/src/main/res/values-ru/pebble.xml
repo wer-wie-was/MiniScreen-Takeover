@@ -33,4 +33,6 @@
     <string name="pebble_webview_isolation" formatted="false">"Не удалось включить изоляцию эмулятора. Проверьте версию WebView ниже."</string>
     <string name="pebble_webview_memory" formatted="false">"Этот WebView не поддерживает общую память WebAssembly или workers. Обновите Android System WebView."</string>
     <string name="pebble_use_mode" formatted="false">"Использовать как режим отображения"</string>
+    <string name="pebble_restart" formatted="false">"Перезапустить эмулятор"</string>
+    <string name="pebble_platform_help" formatted="false">"Движки всех семи платформ включены. Импортируйте прошивку для Aplite, Basalt, Chalk или Diorite. Приоритет: Gabbro, затем Chalk."</string>
 </resources>

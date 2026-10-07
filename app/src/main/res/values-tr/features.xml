@@ -15,8 +15,8 @@
     <string name="external_requested" formatted="false">"Başlatma istendi. Arka ekranı kontrol edin; izlememiz duraklatılmış kalır."</string>
     <string name="external_failed" formatted="false">"Uygulama başlatılamadı: "</string>
     <string name="external_help" formatted="false">"Üretici arayüzü seçili uygulamayı Ekran 1’de başlatmayı dener. Bazı uygulamalar bunu reddeder veya ana ekrana geçer. Ekranımız kapanır ve izleme süresiz duraklatılır. “MiniScreen Takeover’ı yeniden göster” kontrolü geri alır."</string>
-    <string name="charge_section" formatted="false">"Şarj göstergesi"</string>
-    <string name="charge_enabled" formatted="false">"Güç bağlıyken şarj göstergesini göster"</string>
+    <string name="charge_section" formatted="false">"Şarj ve pil göstergesi"</string>
+    <string name="charge_enabled" formatted="false">"Şarj ve pil göstergesini etkinleştir"</string>
     <string name="charge_display" formatted="false">"Görünüm"</string>
     <string name="charge_icon" formatted="false">"Yüzdeli pil simgesi"</string>
     <string name="charge_icon_circle" formatted="false">"Pil simgesi, yüzde ve çember"</string>
@@ -33,6 +33,10 @@
     <string name="charge_static" formatted="false">"Sabit"</string>
     <string name="charge_animated" formatted="false">"Animasyonlu ışık vurgusu"</string>
     <string name="charge_animation_speed" formatted="false">"Animasyon döngüsü başına saniye"</string>
-    <string name="charge_help" formatted="false">"Gösterge yalnızca güç bağlıyken, %100’de de görünür. Çember yayı pil seviyesini gösterir. Tüm öğeler piksel kaydırmayı izler ve yerel saat ile HTML’nin üstünde görünür. Önizleme simülasyonu arka ekranı etkilemez."</string>
+    <string name="charge_help" formatted="false">"Göstergeyi etkinleştirerek güç bağlıyken pil seviyesini gösterin. Sürekli gösterim seçeneği kablo olmadan da gösterir. Çember ve animasyon vurgusu yalnızca güç bağlıyken görünür. Tüm öğeler piksel kaydırmayı izler. Önizleme arka ekranı etkilemeden %65 simüle eder."</string>
     <string name="web_load_failed" formatted="false">"HTML yüklenemedi: "</string>
+    <string name="charge_always" formatted="false">"Şarj kablosu olmadan pil seviyesini göster"</string>
+    <string name="charge_gradient" formatted="false">"Çember renk geçişi"</string>
+    <string name="charge_ring_color_second" formatted="false">"Çember rengi 2"</string>
+    <string name="charge_accent_color" formatted="false">"Animasyon vurgusu rengi"</string>
 </resources>

@@ -15,8 +15,8 @@
     <string name="external_requested" formatted="false">"Запуск запрошен. Проверьте задний экран; наше наблюдение остаётся на паузе."</string>
     <string name="external_failed" formatted="false">"Запуск приложения не удался: "</string>
     <string name="external_help" formatted="false">"Механизм производителя пытается запустить приложение на экране 1. Некоторые приложения это запрещают или переходят на основной экран. Наш показ закрывается, наблюдение приостанавливается без срока. «Снова показать MiniScreen Takeover» возвращает управление."</string>
-    <string name="charge_section" formatted="false">"Индикатор зарядки"</string>
-    <string name="charge_enabled" formatted="false">"Показывать индикатор при подключении питания"</string>
+    <string name="charge_section" formatted="false">"Индикатор зарядки и батареи"</string>
+    <string name="charge_enabled" formatted="false">"Включить индикатор зарядки и батареи"</string>
     <string name="charge_display" formatted="false">"Вид"</string>
     <string name="charge_icon" formatted="false">"Значок батареи с процентом"</string>
     <string name="charge_icon_circle" formatted="false">"Значок, процент и кольцо"</string>
@@ -33,6 +33,10 @@
     <string name="charge_static" formatted="false">"Статично"</string>
     <string name="charge_animated" formatted="false">"Анимированный световой акцент"</string>
     <string name="charge_animation_speed" formatted="false">"Секунд на цикл анимации"</string>
-    <string name="charge_help" formatted="false">"Индикатор виден только при подключённом питании, включая 100 %. Дуга показывает уровень заряда. Все элементы следуют сдвигу пикселей поверх встроенных часов и HTML. Симуляция предпросмотра не влияет на задний экран."</string>
+    <string name="charge_help" formatted="false">"Включённый индикатор показывает заряд при подключённом питании. Постоянный режим показывает его и без кабеля. Кольцо и анимированный акцент видны только при подключённом питании. Все элементы следуют сдвигу пикселей. Предпросмотр имитирует 65 % и не влияет на задний экран."</string>
     <string name="web_load_failed" formatted="false">"Не удалось загрузить HTML: "</string>
+    <string name="charge_always" formatted="false">"Показывать заряд без кабеля"</string>
+    <string name="charge_gradient" formatted="false">"Градиент кольца"</string>
+    <string name="charge_ring_color_second" formatted="false">"Цвет кольца 2"</string>
+    <string name="charge_accent_color" formatted="false">"Цвет анимированного акцента"</string>
 </resources>

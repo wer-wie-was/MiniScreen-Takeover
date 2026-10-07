@@ -16,3 +16,7 @@ Binary supplier: ericmigi/pebble-qemu-wasm, commit aefa8f180c31c63e3271fbde60ec2
 The source archives pin Core Devices QEMU af38a82d208d4cfb7be03ffa95cc12780fbd2965 and PebbleOS v4.35.0 e7fe4f667d8a20603888cbcecebc007c7ff598a8. The binary supplier does not record the exact QEMU source commit/build recipe for these prebuilt bytes. The included source reference must not be described as a verified reproducible corresponding-source build. Before distributing a compiled release, reproduce the runtime from a fully recorded source/toolchain or obtain the supplier’s exact corresponding source. No Android release is compiled here.
 
 AndroidX WebKit 1.18.0-alpha02 (Apache-2.0) is used as a Gradle dependency for the WebView origin allowlist API. Its own and transitive dependencies retain their respective licenses.
+
+## Classic engine
+
+`pebble/bundled/classic/qemu-system-arm.js` and `.wasm` are unchanged prebuilt classic QEMU files from the same supplier commit. Their SHA-256 hashes are recorded in the runtime manifest. They retain the QEMU GPL-2.0 obligations above; the supplier’s classic build notes are retained in `pebble/upstream/CLASSIC-RUNTIME-README.md`. The same exact corresponding-source verification requirement applies to these prebuilt files. Historical SDK firmware for Aplite, Basalt, Chalk and Diorite is not redistributed by this project. Users may import firmware under its applicable license; a source license does not automatically relicense historical SDK binaries.

@@ -33,4 +33,6 @@
     <string name="pebble_webview_isolation" formatted="false">"Emulator isolation could not be enabled. Check the WebView version shown below."</string>
     <string name="pebble_webview_memory" formatted="false">"This WebView cannot provide shared WebAssembly memory or workers. Update Android System WebView."</string>
     <string name="pebble_use_mode" formatted="false">"Use as display mode"</string>
+    <string name="pebble_restart" formatted="false">"Restart emulator"</string>
+    <string name="pebble_platform_help" formatted="false">"Engines for all seven platforms are included. Import firmware for Aplite, Basalt, Chalk or Diorite. Gabbro is preferred, then Chalk."</string>
 </resources>

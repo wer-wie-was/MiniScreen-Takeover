@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/ericmigi/pebble-qemu-wasm",
   "revision": "aefa8f180c31c63e3271fbde60ec2021a4878677",
-  "runtime": "Bundled Gabbro/Emery/Flint engine and stock PebbleOS v4.35.0 images; Android build performs no emulator/firmware compilation",
+  "runtime": "Bundled modern and classic engines for all seven targets; stock PebbleOS v4.35.0 images for Gabbro/Emery/Flint; legacy firmware requires user import; Android build performs no emulator/firmware compilation",
   "sourceReferences": {
     "qemu": "https://github.com/coredevices/qemu",
     "qemuRevision": "af38a82d208d4cfb7be03ffa95cc12780fbd2965",
