@@ -1,0 +1,24 @@
+<resources>
+    <string name="module_clock" formatted="false">"Saati göster"</string>
+    <string name="module_x" formatted="false">"Yatay konum (%)"</string>
+    <string name="module_y" formatted="false">"Dikey konum (%)"</string>
+    <string name="widget_section" formatted="false">"Widget’lar"</string>
+    <string name="widget_enabled" formatted="false">"Widget’ı etkinleştir"</string>
+    <string name="widget_none" formatted="false">"Widget seçilmedi"</string>
+    <string name="widget_choose" formatted="false">"Widget seç ve yapılandır"</string>
+    <string name="widget_remove" formatted="false">"Widget’ı kaldır"</string>
+    <string name="widget_width" formatted="false">"Genişlik (%)"</string>
+    <string name="widget_height" formatted="false">"Yükseklik (%)"</string>
+    <string name="widget_scale" formatted="false">"Ölçek (%)"</string>
+    <string name="widget_empty" formatted="false">"Yüklü widget bulunamadı."</string>
+    <string name="widget_failed" formatted="false">"Widget kurulumu başarısız. Önceki widget seçili kalır."</string>
+    <string name="widget_help" formatted="false">"Yüklü bir widget yerel veya HTML tasarımının üzerinde gösterilebilir. Android bağlama izni ister; yapılandırma ana ekranda yapılır. Arka ekran dokunmaları kapalıdır. Bazı widget’lar etkileşim gerektirir veya yavaş güncellenir. Widget seçimi profillere aktarılmaz."</string>
+    <string name="dot_section" formatted="false">"Bildirim noktası"</string>
+    <string name="dot_enabled" formatted="false">"Bildirim noktasını etkinleştir"</string>
+    <string name="dot_apps" formatted="false">"Uygulamaları ve renkleri seç"</string>
+    <string name="dot_size" formatted="false">"Çap (340 px için px)"</string>
+    <string name="dot_clear" formatted="false">"Noktanın görünme süresi"</string>
+    <string name="dot_interval" formatted="false">"Renk değiştirme aralığı (saniye)"</string>
+    <string name="dot_preview" formatted="false">"Bildirim noktası önizlemesi"</string>
+    <string name="dot_help" formatted="false">"Uygulamaları seçip renk atayın. Birden fazla uygulamada noktanın rengi dönüşümlü değişir; mesaj metni gösterilmez. Kilit açma modunda mevcut bildirimler onaylanır; yeni veya değişen mesajlar yeniden görünür. Kaldırılan bildirimler iki modda da kaybolur. Nokta bilerek kapatılmış ekranı uyandırmaz."</string>
+</resources>

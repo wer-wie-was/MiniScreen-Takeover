@@ -6,8 +6,8 @@ android {
         applicationId 'com.miniscreen.takeover'
         minSdk 26
         targetSdk 34
-        versionCode 14
-        versionName '0.2.2'
+        versionCode 15
+        versionName '0.2.3'
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
 }

@@ -6,7 +6,9 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.BIND_APPWIDGET" />
     <queries>
+        <intent><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent>
         <package android:name="com.yft.miniscreendisplay" />
         <intent><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent>
     </queries>
@@ -14,6 +16,7 @@
         <activity android:name=".MainActivity" android:exported="true" android:launchMode="singleTask">
             <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
         </activity>
+        <activity android:name=".WidgetSetupActivity" android:exported="false" />
         <activity android:name=".OnboardingActivity" android:exported="false" />
         <activity android:name=".ScreenActivity" android:exported="true" android:resizeableActivity="true" android:launchMode="singleTask" android:taskAffinity="com.miniscreen.takeover.secondary" android:excludeFromRecents="true" />
         <service android:name=".WatchService" android:exported="false" android:foregroundServiceType="specialUse">

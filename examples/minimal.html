@@ -13,6 +13,7 @@
 <script>
   function update(d) {
     document.getElementById('clock').textContent = d.time;
+    document.getElementById('clock').hidden = d.showClock === false;
     document.getElementById('date').textContent = d.showDate ? d.date : '';
   }
   window.addEventListener('miniscreen:update', e => update(e.detail));

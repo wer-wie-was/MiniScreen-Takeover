@@ -1,0 +1,24 @@
+<resources>
+    <string name="module_clock" formatted="false">"Uhr anzeigen"</string>
+    <string name="module_x" formatted="false">"Position X (%)"</string>
+    <string name="module_y" formatted="false">"Position Y (%)"</string>
+    <string name="widget_section" formatted="false">"Widgets"</string>
+    <string name="widget_enabled" formatted="false">"Widget aktivieren"</string>
+    <string name="widget_none" formatted="false">"Kein Widget ausgewählt"</string>
+    <string name="widget_choose" formatted="false">"Widget auswählen und einrichten"</string>
+    <string name="widget_remove" formatted="false">"Widget entfernen"</string>
+    <string name="widget_width" formatted="false">"Breite (%)"</string>
+    <string name="widget_height" formatted="false">"Höhe (%)"</string>
+    <string name="widget_scale" formatted="false">"Skalierung (%)"</string>
+    <string name="widget_empty" formatted="false">"Keine installierten Widgets verfügbar."</string>
+    <string name="widget_failed" formatted="false">"Widget-Einrichtung fehlgeschlagen. Das bisherige Widget bleibt ausgewählt."</string>
+    <string name="widget_help" formatted="false">"Ein installiertes Widget lässt sich über nativen oder HTML-Designs anzeigen. Android fragt die Freigabe ab; die Einrichtung erfolgt am Hauptbildschirm. Auf dem Rückdisplay sind Eingaben deaktiviert. Manche Widgets benötigen Interaktion oder aktualisieren sich langsam. Die Widget-Auswahl wird nicht in Profilen exportiert."</string>
+    <string name="dot_section" formatted="false">"Notification Dot"</string>
+    <string name="dot_enabled" formatted="false">"Benachrichtigungspunkt aktivieren"</string>
+    <string name="dot_apps" formatted="false">"Apps und Farben auswählen"</string>
+    <string name="dot_size" formatted="false">"Durchmesser (px bei 340 px)"</string>
+    <string name="dot_clear" formatted="false">"Punkt sichtbar halten"</string>
+    <string name="dot_interval" formatted="false">"Farbwechselintervall (Sekunden)"</string>
+    <string name="dot_preview" formatted="false">"Benachrichtigungspunkt in Vorschau"</string>
+    <string name="dot_help" formatted="false">"Apps auswählen und jeder eine Farbe zuweisen. Bei mehreren Apps wechselt ein Punkt die Farben. Nachrichtentext wird nicht angezeigt. Im Entsperrmodus quittiert Entsperren vorhandene Meldungen; neue oder geänderte erscheinen erneut. Entfernte Meldungen verschwinden in beiden Modi. Der Punkt weckt kein bewusst ausgeschaltetes Display."</string>
+</resources>

@@ -13,6 +13,7 @@ Das mitgelieferte `examples/Classic-HTML-Design.zip` ist direkt importierbar. `e
 ```js
 function render(d) {
   document.querySelector('#clock').textContent = d.time;
+  document.querySelector('#clock').hidden = d.showClock === false;
   document.querySelector('#date').textContent = d.showDate ? d.date : '';
 }
 window.addEventListener('miniscreen:update', event => render(event.detail));
@@ -26,6 +27,7 @@ Der erste Zustand wird nach Laden der Seite übertragen. Danach erfolgen Updates
 | `epochMs` | Unixzeit in Millisekunden zum Zeitpunkt des Updates |
 | `time` | Bereits formatierte Uhrzeit mit 12/24 Stunden, Sekundenoption und führender Null |
 | `date` | Formatiertes Datum; leer, wenn deaktiviert |
+| `showClock` | Uhranzeige gewünscht; unabhängig vom Datum. Eigene Designs sollen bei `false` ihre Uhr ausblenden. |
 | `showDate` | Datumsanzeige gewünscht |
 | `width`, `height` | Äußere Renderfläche in physischen Pixeln; auf dem Rückdisplay normalerweise 340 × 340 |
 | `cssWidth`, `cssHeight` | Innerer WebView-Bereich in CSS-Pixeln; zusätzlich `innerWidth`, `innerHeight` beziehungsweise `clientWidth` verwenden |
@@ -43,7 +45,7 @@ Die CSS-Variablen `--time-color`, `--date-color` und `--background-color` werden
 | `settings`-Felder | Bedeutung |
 | --- | --- |
 | `schema`, `name`, `mode` | Profilformat-Version (1), Profilname, `native` oder `html` |
-| `twentyFour`, `seconds`, `leadingZero`, `showDate`, `datePattern` | Zeit-/Datumseinstellungen |
+| `twentyFour`, `seconds`, `leadingZero`, `showClock`, `showDate`, `datePattern` | Zeit-/Datumseinstellungen |
 | `timeColor`, `dateColor`, `backgroundColor` | HEX-Farben `#RRGGBB` |
 | `timeSize`, `dateSize` | Referenzschriftgrößen bezogen auf eine 340-Pixel-Fläche |
 | `timeX`, `timeY`, `dateX`, `dateY` | Gewünschte Mittelpunkte in Prozent; eigene Designs dürfen sie anders interpretieren |
@@ -109,3 +111,7 @@ window.addEventListener('miniscreen:update', ({detail: d}) => {
 ```
 
 Das vollständige Beispiel `examples/notification-clock.html` zeigt Uhr und gefilterte Meldung. Native Schriftgrößen verwenden die 340px-Referenz; für HTML mit `Math.min(d.cssWidth, d.cssHeight) / 340` skalieren. Schrift `profile` verwendet die Profilschrift, einschließlich `fontUrl` für die importierte Schrift. Pixelshifting erfolgt außerhalb der WebView. Im HTML-Modus steuert das Design selbst das Abdunkeln/Ausblenden der Uhr. Die native Ladeanzeige bleibt unabhängig davon aktiv.
+
+## Native Zusatzmodule
+
+Widgets und Notification Dot werden als native Ebenen über dem HTML-Design angezeigt. Der Punkt verwendet eine eigene App-/Farbauswahl und erhält keine Nachrichtentexte zur Anzeige. Widget-Bindings und Punkt-Einstellungen sind Geräteoptionen und nicht Teil des Profil-Exports. Der Punkt wird über Ticker und Ladeanzeige gelegt, damit sein Status sichtbar bleibt. Die Uhr und das Datum können unabhängig deaktiviert werden; das eingebaute Design berücksichtigt beide Schalter.

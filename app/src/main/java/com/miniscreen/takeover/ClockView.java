@@ -54,7 +54,7 @@ final class ClockView extends View {
         }
         long now=System.currentTimeMillis(),bucket=now/(c.seconds?1000:60000);
         if(bucket!=cachedTick){Date date=new Date(now);cachedTime=c.time(date);cachedDate=c.showDate?c.date(date):"";cachedTick=bucket;}
-        drawText(canvas,cachedTime,c.timeSize*scale,c.timeX,c.timeY,c.timeColor);
+        if(c.showClock)drawText(canvas,cachedTime,c.timeSize*scale,c.timeX,c.timeY,c.timeColor);
         if(c.showDate)drawText(canvas,cachedDate,c.dateSize*scale,c.dateX,c.dateY,c.dateColor);
     }
     private void drawText(Canvas canvas,String text,float size,int xp,int yp,String color) {

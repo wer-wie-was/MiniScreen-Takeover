@@ -1,0 +1,24 @@
+<resources>
+    <string name="module_clock" formatted="false">"Afficher l’horloge"</string>
+    <string name="module_x" formatted="false">"Position horizontale (%)"</string>
+    <string name="module_y" formatted="false">"Position verticale (%)"</string>
+    <string name="widget_section" formatted="false">"Widgets"</string>
+    <string name="widget_enabled" formatted="false">"Activer le widget"</string>
+    <string name="widget_none" formatted="false">"Aucun widget sélectionné"</string>
+    <string name="widget_choose" formatted="false">"Choisir et configurer un widget"</string>
+    <string name="widget_remove" formatted="false">"Supprimer le widget"</string>
+    <string name="widget_width" formatted="false">"Largeur (%)"</string>
+    <string name="widget_height" formatted="false">"Hauteur (%)"</string>
+    <string name="widget_scale" formatted="false">"Échelle (%)"</string>
+    <string name="widget_empty" formatted="false">"Aucun widget installé disponible."</string>
+    <string name="widget_failed" formatted="false">"Échec de la configuration. Le widget précédent reste sélectionné."</string>
+    <string name="widget_help" formatted="false">"Un widget installé peut apparaître au-dessus des designs natifs ou HTML. Android demande une autorisation ; la configuration se fait sur l’écran principal. Le toucher arrière est désactivé. Certains widgets nécessitent une interaction ou se mettent à jour lentement. Le choix du widget ne fait pas partie des profils exportés."</string>
+    <string name="dot_section" formatted="false">"Point de notification"</string>
+    <string name="dot_enabled" formatted="false">"Activer le point"</string>
+    <string name="dot_apps" formatted="false">"Choisir les applications et couleurs"</string>
+    <string name="dot_size" formatted="false">"Diamètre (px sur 340 px)"</string>
+    <string name="dot_clear" formatted="false">"Garder le point visible"</string>
+    <string name="dot_interval" formatted="false">"Intervalle de couleur (secondes)"</string>
+    <string name="dot_preview" formatted="false">"Aperçu du point"</string>
+    <string name="dot_help" formatted="false">"Choisissez les applications et leurs couleurs. Plusieurs applications font alterner les couleurs du point, sans texte. En mode déverrouillage, les notifications existantes sont acquittées ; les nouvelles ou modifiées réapparaissent. Les notifications supprimées disparaissent dans les deux modes. Le point ne réveille pas un écran volontairement éteint."</string>
+</resources>

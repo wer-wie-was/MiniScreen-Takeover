@@ -20,7 +20,7 @@ import java.util.concurrent.*;
 import java.util.function.*;
 
 public final class MainActivity extends Activity implements SharedPreferences.OnSharedPreferenceChangeListener,DisplayManager.DisplayListener {
-    private static final int IMAGE=11,FONT=12,DESIGN=13,IMPORT_PROFILE=14,EXPORT_PROFILE=15,CHARGE_FONT=16;
+    private static final int IMAGE=11,FONT=12,DESIGN=13,IMPORT_PROFILE=14,EXPORT_PROFILE=15,CHARGE_FONT=16,WIDGET=80;
     private final ExecutorService worker=Executors.newSingleThreadExecutor();
     private final Handler handler=new Handler(Looper.getMainLooper());
     private final Set<String> opened=new HashSet<>(Arrays.asList(I18n.get(R.string.msg_003),I18n.get(R.string.msg_004)));
@@ -29,9 +29,9 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private DisplayManager displays;
     private LinearLayout root;
     private ScrollView scroll;
-    private TextView status,workStatus,monitorStatus,scheduleStatus,tickerAccessStatus;
+    private TextView status,workStatus,monitorStatus,scheduleStatus,tickerAccessStatus,dotAccessStatus;
     private PreviewFrame preview;
-    private boolean busy,resumed,guides=true,chargePreview,tickerPreview;
+    private boolean busy,resumed,guides=true,chargePreview,tickerPreview,dotPreview;
     private String pendingProfile="",uiLanguage="";
     private int pendingRequest;
     private int dp(int n){return Math.round(n*getResources().getDisplayMetrics().density);}
@@ -40,7 +40,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         if(getWindowManager().getDefaultDisplay().getDisplayId()!=Display.DEFAULT_DISPLAY){startActivity(new Intent(this,ScreenActivity.class));finish();return;}
         if(!TakeoverControl.prefs(this).getBoolean("onboarding_complete",false)){startActivity(new Intent(this,OnboardingActivity.class));finish();return;}
         store=new ProfileStore(this);uiLanguage=store.prefs.getString("language","");displays=(DisplayManager)getSystemService(DISPLAY_SERVICE);config=store.load();
-        if(saved!=null){pendingProfile=saved.getString("pendingProfile","");pendingRequest=saved.getInt("pendingRequest");guides=saved.getBoolean("guides",true);chargePreview=saved.getBoolean("chargePreview",false);tickerPreview=saved.getBoolean("tickerPreview",false);String[] sections=saved.getStringArray("opened");if(sections!=null&&saved.getString("language","").equals(store.prefs.getString("language",""))){opened.clear();Collections.addAll(opened,sections);}}
+        if(saved!=null){pendingProfile=saved.getString("pendingProfile","");pendingRequest=saved.getInt("pendingRequest");guides=saved.getBoolean("guides",true);chargePreview=saved.getBoolean("chargePreview",false);tickerPreview=saved.getBoolean("tickerPreview",false);dotPreview=saved.getBoolean("dotPreview",false);String[] sections=saved.getStringArray("opened");if(sections!=null&&saved.getString("language","").equals(store.prefs.getString("language",""))){opened.clear();Collections.addAll(opened,sections);}}
         store.prefs.registerOnSharedPreferenceChangeListener(this);build();
     }
     private void build() {
@@ -57,10 +57,10 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         text(info,I18n.get(R.string.msg_005),11).setTextColor(0xFF63E6DC);
         text(info,w+" × "+h+" · Display "+target,12).setTextColor(0xFF9FACBE);
         CheckBox guide=new CheckBox(this);guide.setText(I18n.get(R.string.msg_006));guide.setTextSize(12);guide.setTextColor(0xFFCBD5E1);guide.setChecked(guides);info.addView(guide);guide.setOnCheckedChangeListener((v,checked)->{guides=checked;preview.guides(checked,config.shifting?config.shiftRange:0);});
-        preview.surface.apply(config);preview.surface.simulateCharge(chargePreview);preview.surface.simulateTicker(tickerPreview);preview.guides(guides,config.shifting?config.shiftRange:0);if(resumed)preview.surface.start();
+        preview.surface.apply(config);preview.surface.simulateCharge(chargePreview);preview.surface.simulateTicker(tickerPreview);preview.surface.simulateDot(dotPreview);preview.guides(guides,config.shifting?config.shiftRange:0);if(resumed)preview.surface.start();
         workStatus=text(info,I18n.get(R.string.msg_007),12);workStatus.setTextColor(0xFF63E6DC);workStatus.setVisibility(busy?View.VISIBLE:View.GONE);
         scroll=new ScrollView(this);scroll.setFillViewport(true);root=new LinearLayout(this);root.setOrientation(LinearLayout.VERTICAL);root.setPadding(dp(18),0,dp(18),dp(32));scroll.addView(root);layout.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));setContentView(layout);
-        languageSettings();controls();scheduleSettings();externalApps();profiles();clockSettings();background();charging();tickerSettings();shifting();html();
+        languageSettings();controls();scheduleSettings();externalApps();profiles();clockSettings();background();charging();widgetSettings();tickerSettings();dotSettings();shifting();html();
         text(root,I18n.get(R.string.msg_008),12).setTextColor(0xFF9FACBE);
         scroll.post(()->scroll.scrollTo(0,y));
     }
@@ -88,7 +88,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private void slider(LinearLayout p,String label,int min,int max,int value,IntConsumer change){TextView t=text(p,label+": "+value,14);SeekBar s=new SeekBar(this);s.setMax(max-min);s.setProgress(value-min);p.addView(s);s.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){public void onProgressChanged(SeekBar bar,int n,boolean user){t.setText(label+": "+(n+min));if(user&&!busy)change.accept(n+min);}public void onStartTrackingTouch(SeekBar s){}public void onStopTrackingTouch(SeekBar s){}});}
     private void choose(LinearLayout p,String label,String[] options,int selected,IntConsumer change){text(p,label,14);Spinner spinner=new Spinner(this);ArrayAdapter<String> a=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,options);a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);spinner.setAdapter(a);spinner.setSelection(selected);p.addView(spinner);int[] last={selected};spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){public void onNothingSelected(AdapterView<?> v){}public void onItemSelected(AdapterView<?> p,View v,int position,long id){if(position!=last[0]){last[0]=position;if(!busy)change.accept(position);}}});}
     private void color(LinearLayout p,String title,Supplier<String> get,Consumer<String> set){Button b=button(p,title+" · "+get.get(),()->ColorPicker.show(this,title,get.get(),v->{set.accept(v);changed();build();}));b.setTextColor(Color.parseColor(get.get()));if(get.get().equals("#000000"))b.setTextColor(0xFFCBD5E1);}
-    private void changed(){if(busy)return;try{store.save(config);preview.surface.apply(config);preview.surface.simulateCharge(chargePreview);preview.surface.simulateTicker(tickerPreview);preview.guides(guides,config.shifting?config.shiftRange:0);}catch(RuntimeException e){error(e);}}
+    private void changed(){if(busy)return;try{store.save(config);preview.surface.apply(config);preview.surface.simulateCharge(chargePreview);preview.surface.simulateTicker(tickerPreview);preview.surface.simulateDot(dotPreview);preview.guides(guides,config.shifting?config.shiftRange:0);}catch(RuntimeException e){error(e);}}
     private void controls() {
         LinearLayout p=section(I18n.get(R.string.msg_003));status=text(p,store.prefs.getString("status",I18n.get(R.string.msg_010)),14);
         Button start=button(p,I18n.get(R.string.msg_011),this::manufacturerStart);start.setBackground(controlBackground(0xFF63E6DC,0,10));start.setTextColor(0xFF102329);
@@ -106,7 +106,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         text(p,I18n.get(R.string.msg_028),13);
         slider(p,I18n.get(R.string.msg_029),1,100,config.brightness,n->{config.brightness=n;changed();});
         text(p,I18n.get(R.string.msg_030),13);
-        button(p,I18n.get(R.string.msg_031),()->{StringBuilder b=new StringBuilder("MiniScreen Takeover 0.2.2\n"+Build.MANUFACTURER+" "+Build.MODEL+" / Android "+Build.VERSION.RELEASE+"\n");for(Display d:displays.getDisplays())b.append("Display ").append(d.getDisplayId()).append(" · ").append(d.getName()).append(" · ").append(d.getMode().getPhysicalWidth()).append('×').append(d.getMode().getPhysicalHeight()).append(I18n.get(R.string.msg_032)).append(d.getState()).append(" · Flags 0x").append(Integer.toHexString(d.getFlags())).append('\n');b.append(store.prefs.getString("status","")).append(I18n.get(R.string.msg_033)).append(store.prefs.getString("monitor_status","")).append(I18n.get(R.string.msg_034)).append(TakeoverControl.mode(store.prefs)).append(I18n.get(R.string.msg_035)).append(store.prefs.getBoolean("enabled",false)).append(I18n.get(R.string.msg_036)).append(store.prefs.getBoolean("only_locked",false)).append(" · Boot: ").append(store.prefs.getBoolean("restore_boot",false)).append(I18n.get(R.string.msg_037)).append(TakeoverControl.paused(store.prefs));b.append("\nschedule_enabled=").append(DisplaySchedule.enabled(store.prefs)).append(" · manual_off=").append(DisplaySchedule.manualOff(store.prefs,System.currentTimeMillis())).append(" · external_active=").append(store.prefs.getBoolean("external_active",false));((ClipboardManager)getSystemService(CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText(I18n.get(R.string.msg_038),b));toast(I18n.get(R.string.msg_039));});
+        button(p,I18n.get(R.string.msg_031),()->{StringBuilder b=new StringBuilder("MiniScreen Takeover 0.2.3\n"+Build.MANUFACTURER+" "+Build.MODEL+" / Android "+Build.VERSION.RELEASE+"\n");for(Display d:displays.getDisplays())b.append("Display ").append(d.getDisplayId()).append(" · ").append(d.getName()).append(" · ").append(d.getMode().getPhysicalWidth()).append('×').append(d.getMode().getPhysicalHeight()).append(I18n.get(R.string.msg_032)).append(d.getState()).append(" · Flags 0x").append(Integer.toHexString(d.getFlags())).append('\n');b.append(store.prefs.getString("status","")).append(I18n.get(R.string.msg_033)).append(store.prefs.getString("monitor_status","")).append(I18n.get(R.string.msg_034)).append(TakeoverControl.mode(store.prefs)).append(I18n.get(R.string.msg_035)).append(store.prefs.getBoolean("enabled",false)).append(I18n.get(R.string.msg_036)).append(store.prefs.getBoolean("only_locked",false)).append(" · Boot: ").append(store.prefs.getBoolean("restore_boot",false)).append(I18n.get(R.string.msg_037)).append(TakeoverControl.paused(store.prefs));b.append("\nschedule_enabled=").append(DisplaySchedule.enabled(store.prefs)).append(" · manual_off=").append(DisplaySchedule.manualOff(store.prefs,System.currentTimeMillis())).append(" · external_active=").append(store.prefs.getBoolean("external_active",false));((ClipboardManager)getSystemService(CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText(I18n.get(R.string.msg_038),b));toast(I18n.get(R.string.msg_039));});
     }
     private void profiles() {
         LinearLayout p=section(I18n.get(R.string.msg_004));List<String> ids=store.ids();String[] names=new String[ids.size()];for(int i=0;i<ids.size();i++)names[i]=store.load(ids.get(i)).name;
@@ -120,6 +120,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     }
     private void clockSettings() {
         LinearLayout p=section(I18n.get(R.string.msg_059));text(p,I18n.get(R.string.msg_060),13);
+        check(p,tt(R.string.module_clock),config.showClock,v->{config.showClock=v;changed();});
         check(p,I18n.get(R.string.msg_061),config.twentyFour,v->{config.twentyFour=v;changed();});check(p,I18n.get(R.string.msg_062),config.seconds,v->{config.seconds=v;changed();});check(p,I18n.get(R.string.msg_063),config.leadingZero,v->{config.leadingZero=v;changed();});check(p,I18n.get(R.string.msg_064),config.showDate,v->{config.showDate=v;changed();});
         color(p,I18n.get(R.string.msg_065),()->config.timeColor,v->config.timeColor=v);color(p,I18n.get(R.string.msg_066),()->config.dateColor,v->config.dateColor=v);
         slider(p,I18n.get(R.string.msg_067),12,130,config.timeSize,n->{config.timeSize=n;changed();});slider(p,I18n.get(R.string.msg_068),8,50,config.dateSize,n->{config.dateSize=n;changed();});
@@ -191,14 +192,14 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         scheduleStatus.setText(text);
     }
     private String tt(int id){return I18n.get(id);}
-    private void tickerChanged(){NotificationTicker.settingsChanged(this);if(preview!=null){preview.surface.simulateTicker(tickerPreview);preview.surface.tick();}}
+    private void tickerChanged(){NotificationTicker.settingsChanged(this);if(preview!=null){preview.surface.simulateTicker(tickerPreview);preview.surface.simulateDot(dotPreview);preview.surface.tick();}}
     private void tickerBool(String key,boolean value){store.prefs.edit().putBoolean("ticker_"+key,value).apply();tickerChanged();}
     private void tickerInt(String key,int value){store.prefs.edit().putInt("ticker_"+key,value).apply();tickerChanged();}
     private void tickerColor(LinearLayout p,int label,String key,String fallback){
         TickerSettings s=new TickerSettings(this);button(p,tt(label)+" · "+s.color(key,fallback),()->ColorPicker.show(this,tt(label),s.color(key,fallback),v->{store.prefs.edit().putString("ticker_"+key,v).apply();tickerChanged();build();}));
     }
     private boolean tickerAccess(){String flat=android.provider.Settings.Secure.getString(getContentResolver(),"enabled_notification_listeners");if(flat==null)return false;ComponentName own=new ComponentName(this,TickerListener.class);for(String item:flat.split(":"))if(own.equals(ComponentName.unflattenFromString(item)))return true;return false;}
-    private void refreshTickerAccess(){if(tickerAccessStatus!=null)tickerAccessStatus.setText(tt(tickerAccess()?R.string.ticker_access_yes:R.string.ticker_access_no));}
+    private void refreshTickerAccess(){String label=tt(tickerAccess()?R.string.ticker_access_yes:R.string.ticker_access_no);if(tickerAccessStatus!=null)tickerAccessStatus.setText(label);if(dotAccessStatus!=null)dotAccessStatus.setText(label);}
     private String[] privacyOptions(){return new String[]{tt(R.string.ticker_private),tt(R.string.ticker_app_name),tt(R.string.ticker_title),tt(R.string.ticker_full)};}
     private void tickerSettings(){
         LinearLayout p=section(tt(R.string.ticker_section));TickerSettings s=new TickerSettings(this);
@@ -239,7 +240,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         text(p,tt(R.string.ticker_help),13);
     }
     private List<String> tickerApps(){
-        Set<String> names=new HashSet<>(NotificationTicker.observedApps);for(ExternalAppLauncher.Entry e:ExternalAppLauncher.apps(this))names.add(e.component.getPackageName());names.addAll(new TickerSettings(this).apps());names.remove(getPackageName());
+        Set<String> names=new HashSet<>(NotificationTicker.observedApps);for(ExternalAppLauncher.Entry e:ExternalAppLauncher.apps(this))names.add(e.component.getPackageName());names.addAll(new TickerSettings(this).apps());names.addAll(NotificationDot.apps(this));names.remove(getPackageName());
         List<String> apps=new ArrayList<>(names);apps.sort((a,b)->tickerAppLabel(a).compareToIgnoreCase(tickerAppLabel(b)));return apps;
     }
     private String tickerAppLabel(String app){try{return getPackageManager().getApplicationLabel(getPackageManager().getApplicationInfo(app,0)).toString();}catch(Exception e){return app;}}
@@ -264,6 +265,34 @@ public final class MainActivity extends Activity implements SharedPreferences.On
                 choose(box,tt(state.equals("locked")?R.string.ticker_privacy_locked:R.string.ticker_privacy_unlocked),levels,store.prefs.contains(key)?Config.clamp(store.prefs.getInt(key,1),0,3)+1:0,n->{SharedPreferences.Editor edit=store.prefs.edit();if(n==0)edit.remove(key);else edit.putInt(key,n-1);edit.apply();tickerChanged();});}
             new AlertDialog.Builder(this).setTitle(tickerAppLabel(app)).setView(box).setPositiveButton(android.R.string.ok,null).show();
         }).setNegativeButton(tt(R.string.msg_056),null).show();
+    }
+
+    private void moduleChanged(){NotificationDot.changed(this);if(preview!=null)preview.surface.tick();}
+    private void moduleBool(LinearLayout p,int label,String key,boolean fallback){check(p,tt(label),store.prefs.getBoolean(key,fallback),v->{store.prefs.edit().putBoolean(key,v).apply();moduleChanged();});}
+    private void moduleSlider(LinearLayout p,int label,String key,int min,int max,int value){slider(p,tt(label),min,max,Config.clamp(store.prefs.getInt(key,value),min,max),v->{store.prefs.edit().putInt(key,v).apply();moduleChanged();});}
+    private void widgetSettings(){
+        LinearLayout p=section(tt(R.string.widget_section));moduleBool(p,R.string.widget_enabled,"widget_enabled",false);
+        text(p,store.prefs.getString("widget_label",tt(R.string.widget_none)),14);
+        button(p,tt(R.string.widget_choose),()->startActivityForResult(new Intent(this,WidgetSetupActivity.class),WIDGET));
+        button(p,tt(R.string.widget_remove),()->{int id=store.prefs.getInt("widget_id",-1);store.prefs.edit().remove("widget_id").remove("widget_label").putBoolean("widget_enabled",false).apply();WidgetHostManager.delete(this,id);build();});
+        moduleSlider(p,R.string.module_x,"widget_x",0,100,50);moduleSlider(p,R.string.module_y,"widget_y",0,100,50);
+        moduleSlider(p,R.string.widget_width,"widget_width",10,100,65);moduleSlider(p,R.string.widget_height,"widget_height",10,100,40);moduleSlider(p,R.string.widget_scale,"widget_scale",50,200,100);
+        text(p,tt(R.string.widget_help),13);
+    }
+    private void dotSettings(){
+        LinearLayout p=section(tt(R.string.dot_section));moduleBool(p,R.string.dot_enabled,"dot_enabled",false);
+        dotAccessStatus=text(p,tt(tickerAccess()?R.string.ticker_access_yes:R.string.ticker_access_no),13);
+        button(p,tt(R.string.ticker_access),()->{try{startActivity(new Intent(android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));}catch(ActivityNotFoundException e){error(e);}});
+        button(p,tt(R.string.dot_apps)+" · "+NotificationDot.apps(this).size(),this::chooseDotApps);
+        for(String app:NotificationDot.apps(this)){String key="dot_color_"+app;String value=Config.color(store.prefs.getString(key,"#63E6DC"),"#63E6DC");Button b=button(p,tickerAppLabel(app)+" · "+value,()->ColorPicker.show(this,tickerAppLabel(app),value,c->{store.prefs.edit().putString(key,c).apply();moduleChanged();build();}));b.setTextColor(Color.parseColor(value));}
+        moduleSlider(p,R.string.module_x,"dot_x",0,100,50);moduleSlider(p,R.string.module_y,"dot_y",0,100,15);moduleSlider(p,R.string.dot_size,"dot_size",2,100,12);
+        choose(p,tt(R.string.dot_clear),new String[]{tt(R.string.ticker_until_unlock),tt(R.string.ticker_until_removed)},store.prefs.getBoolean("dot_until_unlock",true)?0:1,i->{store.prefs.edit().putBoolean("dot_until_unlock",i==0).apply();moduleChanged();});
+        moduleSlider(p,R.string.dot_interval,"dot_interval",1,30,3);moduleBool(p,R.string.ticker_ongoing,"dot_ongoing",false);moduleBool(p,R.string.ticker_groups,"dot_groups",false);
+        check(p,tt(R.string.dot_preview),dotPreview,v->{dotPreview=v;preview.surface.simulateDot(v);});text(p,tt(R.string.dot_help),13);
+    }
+    private void chooseDotApps(){
+        List<String> apps=tickerApps();Set<String> selected=NotificationDot.apps(this);String[] labels=new String[apps.size()];boolean[] checked=new boolean[apps.size()];for(int i=0;i<apps.size();i++){labels[i]=tickerAppLabel(apps.get(i))+" · "+apps.get(i);checked[i]=selected.contains(apps.get(i));}
+        new AlertDialog.Builder(this).setTitle(tt(R.string.dot_apps)).setMultiChoiceItems(labels,checked,(d,i,value)->{if(value)selected.add(apps.get(i));else selected.remove(apps.get(i));}).setNegativeButton(tt(R.string.msg_056),null).setPositiveButton(android.R.string.ok,(d,w)->{store.prefs.edit().putStringSet("dot_apps",selected).apply();moduleChanged();build();}).show();
     }
 
     private void externalApps(){
@@ -328,7 +357,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         i.addCategory(Intent.CATEGORY_OPENABLE);try{startActivityForResult(i,request);}catch(ActivityNotFoundException e){error(e);}
     }
     @Override protected void onActivityResult(int request,int result,Intent data) {
-        super.onActivityResult(request,result,data);if(result!=RESULT_OK||data==null||data.getData()==null||store==null)return;
+        super.onActivityResult(request,result,data);if(request==WIDGET){if(store!=null)build();return;}if(result!=RESULT_OK||data==null||data.getData()==null||store==null)return;
         final Uri uri=data.getData();final String id=pendingProfile.isEmpty()?store.active():pendingProfile;
         if(request!=pendingRequest)return;
         String name="";try(Cursor cursor=getContentResolver().query(uri,new String[]{OpenableColumns.DISPLAY_NAME},null,null,null)){if(cursor!=null&&cursor.moveToFirst())name=cursor.getString(0);}catch(Exception ignored){}
@@ -348,10 +377,10 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private void failed(Exception e){runOnUiThread(()->{if(isDestroyed())return;busy=false;workStatus.setVisibility(View.GONE);config=store.load();build();error(e);});}
     private void toast(String s){Toast.makeText(this,s,Toast.LENGTH_SHORT).show();}
     private void error(Exception e){new AlertDialog.Builder(this).setTitle("MiniScreen Takeover").setMessage(e.getMessage()==null?e.toString():e.getMessage()).setPositiveButton("OK",null).show();}
-    @Override public void onSharedPreferenceChanged(SharedPreferences prefs,String key){if(key.startsWith("ticker_")&&preview!=null)preview.surface.tick();if(key.startsWith("schedule_")||key.equals("external_active")||key.equals("pause_until")||key.equals("manual_off"))refreshSchedule();if(status!=null&&(key.equals("status")||key.equals("actual")))status.setText(prefs.getString("status",""));if(monitorStatus!=null&&key.equals("monitor_status"))monitorStatus.setText(prefs.getString("monitor_status",""));if(!busy&&(key.equals("revision")||key.equals("active"))){Config next=store.load();if(!next.json().toString().equals(config.json().toString())){config=next;build();}}}
+    @Override public void onSharedPreferenceChanged(SharedPreferences prefs,String key){if((key.startsWith("ticker_")||key.startsWith("dot_")||key.startsWith("widget_"))&&preview!=null)preview.surface.tick();if(key.startsWith("schedule_")||key.equals("external_active")||key.equals("pause_until")||key.equals("manual_off"))refreshSchedule();if(status!=null&&(key.equals("status")||key.equals("actual")))status.setText(prefs.getString("status",""));if(monitorStatus!=null&&key.equals("monitor_status"))monitorStatus.setText(prefs.getString("monitor_status",""));if(!busy&&(key.equals("revision")||key.equals("active"))){Config next=store.load();if(!next.json().toString().equals(config.json().toString())){config=next;build();}}}
     @Override protected void onResume(){super.onResume();resumed=true;if(store!=null){if(!uiLanguage.equals(store.prefs.getString("language",""))){recreate();return;}refreshTickerAccess();DisplaySchedule.reconcile(this);refreshSchedule();config=store.load();if(preview!=null){preview.surface.apply(config);preview.surface.start();}displays.registerDisplayListener(this,handler);}}
     @Override protected void onPause(){resumed=false;if(preview!=null)preview.surface.stop();if(displays!=null)displays.unregisterDisplayListener(this);super.onPause();}
-    @Override protected void onSaveInstanceState(Bundle out){super.onSaveInstanceState(out);out.putString("language",uiLanguage);out.putString("pendingProfile",pendingProfile);out.putInt("pendingRequest",pendingRequest);out.putBoolean("guides",guides);out.putBoolean("chargePreview",chargePreview);out.putBoolean("tickerPreview",tickerPreview);out.putStringArray("opened",opened.toArray(new String[0]));}
+    @Override protected void onSaveInstanceState(Bundle out){super.onSaveInstanceState(out);out.putString("language",uiLanguage);out.putString("pendingProfile",pendingProfile);out.putInt("pendingRequest",pendingRequest);out.putBoolean("guides",guides);out.putBoolean("chargePreview",chargePreview);out.putBoolean("tickerPreview",tickerPreview);out.putBoolean("dotPreview",dotPreview);out.putStringArray("opened",opened.toArray(new String[0]));}
     @Override protected void onDestroy(){handler.removeCallbacksAndMessages(null);if(preview!=null)preview.surface.dispose();if(store!=null)store.prefs.unregisterOnSharedPreferenceChangeListener(this);worker.shutdown();super.onDestroy();}
     @Override public void onDisplayAdded(int id){if(!busy)build();}
     @Override public void onDisplayRemoved(int id){if(!busy)build();}

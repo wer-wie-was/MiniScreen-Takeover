@@ -78,7 +78,7 @@
     }
     function update(d) {
       last = d; const s = d.settings;
-      time.textContent = d.time; date.textContent = d.date;
+      time.textContent = d.time; time.style.display = d.showClock === false ? 'none' : 'block'; date.textContent = d.date;
       date.style.display = d.showDate ? 'block' : 'none';
       time.style.fontWeight = date.style.fontWeight = s.bold ? '700' : '400';
       document.documentElement.lang = d.locale;

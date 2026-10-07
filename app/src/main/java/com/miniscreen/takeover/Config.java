@@ -11,7 +11,7 @@ final class Config {
     String name=I18n.get(R.string.msg_046), mode="native", datePattern="EEE, dd.MM.yyyy", font="sans", imageFit="cover";
     String timeColor="#63E6DC", dateColor="#C7D0DF", backgroundColor="#000000";
     String image="", fontFile="", design="";
-    boolean twentyFour=true, seconds=false, leadingZero=true, showDate=true, bold=false, shifting=true, shiftBackground=false;
+    boolean twentyFour=true, seconds=false, leadingZero=true, showClock=true, showDate=true, bold=false, shifting=true, shiftBackground=false;
     int timeSize=68, dateSize=20, timeX=50, timeY=45, dateX=50, dateY=66;
     int shiftRange=8, shiftInterval=60, dim=45, brightness=25;
     int windowZoom=180,windowSeconds=60;
@@ -29,7 +29,7 @@ final class Config {
         c.backgroundColor=color(j.optString("backgroundColor"),c.backgroundColor);
         c.image=safePath(j.optString("image")); c.fontFile=safePath(j.optString("fontFile")); c.design=safePath(j.optString("design"));
         c.twentyFour=j.optBoolean("twentyFour",true); c.seconds=j.optBoolean("seconds",false); c.leadingZero=j.optBoolean("leadingZero",true);
-        c.showDate=j.optBoolean("showDate",true); c.bold=j.optBoolean("bold",false); c.shifting=j.optBoolean("shifting",true); c.shiftBackground=j.optBoolean("shiftBackground",false);
+        c.showClock=j.optBoolean("showClock",true); c.showDate=j.optBoolean("showDate",true); c.bold=j.optBoolean("bold",false); c.shifting=j.optBoolean("shifting",true); c.shiftBackground=j.optBoolean("shiftBackground",false);
         c.timeSize=clamp(j.optInt("timeSize",68),12,130); c.dateSize=clamp(j.optInt("dateSize",20),8,50);
         c.timeX=clamp(j.optInt("timeX",50),0,100); c.timeY=clamp(j.optInt("timeY",45),0,100);
         c.dateX=clamp(j.optInt("dateX",50),0,100); c.dateY=clamp(j.optInt("dateY",66),0,100);
@@ -49,7 +49,7 @@ final class Config {
         try {
             j.put("schema",1).put("name",name).put("mode",mode).put("datePattern",datePattern).put("font",font).put("imageFit",imageFit)
              .put("timeColor",timeColor).put("dateColor",dateColor).put("backgroundColor",backgroundColor).put("image",image).put("fontFile",fontFile).put("design",design)
-             .put("twentyFour",twentyFour).put("seconds",seconds).put("leadingZero",leadingZero).put("showDate",showDate).put("bold",bold)
+             .put("twentyFour",twentyFour).put("seconds",seconds).put("leadingZero",leadingZero).put("showClock",showClock).put("showDate",showDate).put("bold",bold)
              .put("shifting",shifting).put("shiftBackground",shiftBackground).put("timeSize",timeSize).put("dateSize",dateSize)
              .put("timeX",timeX).put("timeY",timeY).put("dateX",dateX).put("dateY",dateY).put("shiftRange",shiftRange)
              .put("shiftInterval",shiftInterval).put("dim",dim).put("brightness",brightness)

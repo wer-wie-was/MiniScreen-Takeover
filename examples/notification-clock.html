@@ -12,7 +12,7 @@ const nodes=Object.fromEntries(['background','clock','time','date','notification
 window.addEventListener('miniscreen:update',async({detail:d})=>{
  const factor=Math.min(d.cssWidth,d.cssHeight)/340,s=d.tickerSettings,n=d.notification;
  nodes.background.style.backgroundImage=d.backgroundUrl?`url("${d.backgroundUrl}")`:'none';nodes.background.style.opacity=1-d.settings.dim/100;
- nodes.time.textContent=d.time;nodes.time.style.fontSize=d.settings.timeSize*factor+'px';nodes.time.style.color=d.settings.timeColor;
+ nodes.time.hidden=d.showClock===false;nodes.date.hidden=!d.showDate;nodes.time.textContent=d.time;nodes.time.style.fontSize=d.settings.timeSize*factor+'px';nodes.time.style.color=d.settings.timeColor;
  nodes.date.textContent=d.date;nodes.date.style.fontSize=d.settings.dateSize*factor+'px';nodes.date.style.color=d.settings.dateColor;
  nodes.clock.style.opacity=n?(s.clockMode===1?.25:s.clockMode===2?0:1):1;
  nodes.notification.hidden=!n;nodes.text.textContent=n?n.text:'';

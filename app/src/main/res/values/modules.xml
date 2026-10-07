@@ -1,0 +1,24 @@
+<resources>
+    <string name="module_clock" formatted="false">"Show clock"</string>
+    <string name="module_x" formatted="false">"Horizontal position (%)"</string>
+    <string name="module_y" formatted="false">"Vertical position (%)"</string>
+    <string name="widget_section" formatted="false">"Widgets"</string>
+    <string name="widget_enabled" formatted="false">"Enable widget"</string>
+    <string name="widget_none" formatted="false">"No widget selected"</string>
+    <string name="widget_choose" formatted="false">"Choose and configure widget"</string>
+    <string name="widget_remove" formatted="false">"Remove widget"</string>
+    <string name="widget_width" formatted="false">"Width (%)"</string>
+    <string name="widget_height" formatted="false">"Height (%)"</string>
+    <string name="widget_scale" formatted="false">"Scale (%)"</string>
+    <string name="widget_empty" formatted="false">"No installed widgets available."</string>
+    <string name="widget_failed" formatted="false">"Widget setup failed. The previous widget remains selected."</string>
+    <string name="widget_help" formatted="false">"One installed widget can be displayed over native or HTML designs. Android asks permission to bind it; configuration happens on the main screen. Rear-screen touch is disabled. Some widgets need interaction or may update slowly. Widget selection is not exported in profiles."</string>
+    <string name="dot_section" formatted="false">"Notification Dot"</string>
+    <string name="dot_enabled" formatted="false">"Enable notification dot"</string>
+    <string name="dot_apps" formatted="false">"Choose apps and colors"</string>
+    <string name="dot_size" formatted="false">"Diameter (px at 340 px)"</string>
+    <string name="dot_clear" formatted="false">"Keep dot visible"</string>
+    <string name="dot_interval" formatted="false">"Color change interval (seconds)"</string>
+    <string name="dot_preview" formatted="false">"Preview notification dot"</string>
+    <string name="dot_help" formatted="false">"Choose apps, then assign each a color. Multiple apps share one dot with rotating colors. No message text is displayed. Unlock acknowledges existing notifications in the unlock mode; new or changed messages appear again. Removed notifications disappear in both modes. The dot does not wake an intentionally disabled screen."</string>
+</resources>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="module_clock" formatted="false">"显示时钟"</string>
+    <string name="module_x" formatted="false">"水平位置 (%)"</string>
+    <string name="module_y" formatted="false">"垂直位置 (%)"</string>
+    <string name="widget_section" formatted="false">"小组件"</string>
+    <string name="widget_enabled" formatted="false">"启用小组件"</string>
+    <string name="widget_none" formatted="false">"未选择小组件"</string>
+    <string name="widget_choose" formatted="false">"选择并配置小组件"</string>
+    <string name="widget_remove" formatted="false">"移除小组件"</string>
+    <string name="widget_width" formatted="false">"宽度 (%)"</string>
+    <string name="widget_height" formatted="false">"高度 (%)"</string>
+    <string name="widget_scale" formatted="false">"缩放 (%)"</string>
+    <string name="widget_empty" formatted="false">"没有可用的已安装小组件。"</string>
+    <string name="widget_failed" formatted="false">"小组件设置失败，保留原有选择。"</string>
+    <string name="widget_help" formatted="false">"可在原生或 HTML 设计上显示一个已安装的小组件。Android 会请求绑定授权，在主屏幕上完成配置。背屏禁止触摸。有些小组件需要交互或更新较慢。配置文件不导出小组件选择。"</string>
+    <string name="dot_section" formatted="false">"通知圆点"</string>
+    <string name="dot_enabled" formatted="false">"启用通知圆点"</string>
+    <string name="dot_apps" formatted="false">"选择应用和颜色"</string>
+    <string name="dot_size" formatted="false">"直径（340 像素基准）"</string>
+    <string name="dot_clear" formatted="false">"圆点显示时长"</string>
+    <string name="dot_interval" formatted="false">"颜色切换间隔（秒）"</string>
+    <string name="dot_preview" formatted="false">"预览通知圆点"</string>
+    <string name="dot_help" formatted="false">"选择应用并分别设置颜色。多个应用的通知使圆点轮换颜色，不显示消息文字。解锁模式会确认现有通知，新通知或内容变化后再次显示。移除的通知在两种模式下都会消失。圆点不会唤醒主动关闭的背屏。"</string>
+</resources>

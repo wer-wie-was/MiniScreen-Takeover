@@ -20,7 +20,8 @@ final class DisplaySurface extends FrameLayout {
     private ClockView clock;
     private WebView web;
     private ChargeView charge;
-    private TickerView notificationView;
+    private TickerView notificationView;private WidgetLayer widgetLayer;private DotView dot;private boolean dotDemo;
+    void simulateDot(boolean value){dotDemo=preview&&value;tick();}
     private NotificationTicker.Message notification;
     private boolean tickerDemo;
     void simulateTicker(boolean value){tickerDemo=preview&&value;tick();}
@@ -53,9 +54,11 @@ final class DisplaySurface extends FrameLayout {
         config=c;profile=id;loadedDesign=c.design;loadedMode=c.mode;loadedImage=c.image;loadedFont=c.fontFile;
         setBackgroundColor(Color.parseColor(c.backgroundColor));
         if(rebuild) {
-            releaseWeb();removeAllViews();clock=null;ready=false;
+            releaseWeb();if(widgetLayer!=null)widgetLayer.dispose();removeAllViews();clock=null;ready=false;
             if(c.mode.equals("html")&&!c.design.isEmpty()) createWeb();
             else {clock=new ClockView(getContext());addView(clock,new LayoutParams(-1,-1));}
+            widgetLayer=new WidgetLayer(getContext());addView(widgetLayer,new LayoutParams(-1,-1));
+            dot=new DotView(getContext());addView(dot,new LayoutParams(-1,-1));
             charge=new ChargeView(getContext());addView(charge,new LayoutParams(-1,-1));
             notificationView=new TickerView(getContext());addView(notificationView,new LayoutParams(-1,-1));
         }
@@ -65,7 +68,7 @@ final class DisplaySurface extends FrameLayout {
             clock.configure(c,store.dir(profile));
         }
         if(web!=null&&reloadAssets&&!rebuild)web.reload();
-        if(notificationView!=null)notificationView.bringToFront();updateWebLayout();tick();
+        if(notificationView!=null)notificationView.bringToFront();if(dot!=null)dot.bringToFront();updateWebLayout();tick();
     }
     private void createWeb() {
         try {
@@ -137,7 +140,7 @@ final class DisplaySurface extends FrameLayout {
     }
     private float scale(){return Math.min(getWidth(),getHeight())/340f;}
     private void updateWebLayout(){if(web==null||config==null)return;int margin=config.shifting?Math.round(config.shiftRange*scale()):0;LayoutParams lp=new LayoutParams(Math.max(1,getWidth()-2*margin),Math.max(1,getHeight()-2*margin));lp.leftMargin=margin;lp.topMargin=margin;web.setLayoutParams(lp);}
-    @Override protected void onSizeChanged(int w,int h,int ow,int oh){super.onSizeChanged(w,h,ow,oh);if(notificationView!=null)notificationView.bringToFront();updateWebLayout();tick();}
+    @Override protected void onSizeChanged(int w,int h,int ow,int oh){super.onSizeChanged(w,h,ow,oh);if(notificationView!=null)notificationView.bringToFront();if(dot!=null)dot.bringToFront();updateWebLayout();tick();}
     static float[] offset(Config c,long now) {
         if(!c.shifting)return new float[]{0,0};
         long step=now/(c.shiftInterval*1000L);int n=c.shiftRange*2+1;
@@ -147,6 +150,8 @@ final class DisplaySurface extends FrameLayout {
     void tick() {
         handler.removeCallbacks(ticker);if(config==null||disposed)return;
         long now=System.currentTimeMillis();float[] offset=offset(config,now);float dx=offset[0]*scale(),dy=offset[1]*scale();
+        if(widgetLayer!=null)widgetLayer.update(config,dx,dy,running);
+        if(dot!=null)dot.update(preview?(dotDemo?NotificationDot.color(getContext(),true):null):(running?NotificationDot.color(getContext(),false):null),config,dx,dy);
         if(clock!=null)clock.shift(dx,dy);if(charge!=null)charge.shift(dx,dy);
         TickerSettings ts=new TickerSettings(getContext());
         notification=preview?(tickerDemo?NotificationTicker.demo():null):(running?NotificationTicker.present(getContext()):null);
@@ -156,14 +161,14 @@ final class DisplaySurface extends FrameLayout {
         if(clock!=null)clock.notificationAlpha(alpha);if(web!=null)web.setAlpha(ownHtml?1:alpha);
         if(web!=null){web.setTranslationX(dx);web.setTranslationY(dy);if(ready)pushData(now,offset);}
         handler.removeCallbacks(motionFrame);if(running)handler.post(motionFrame);
-        if(running){long refresh=(ts.enabled()||tickerDemo)?250:config.seconds?1000:60000;long next=refresh-now%refresh;
+        if(running){long refresh=(ts.enabled()||tickerDemo||NotificationDot.enabled(getContext())||dotDemo)?250:config.seconds?1000:60000;long next=refresh-now%refresh;
             if(config.shifting)next=Math.min(next,config.shiftInterval*1000L-now%(config.shiftInterval*1000L));handler.postDelayed(ticker,Math.max(30,next));}
     }
     private void pushData(long now,float[] offset) {
         try {
             JSONObject d=new JSONObject();Date date=new Date(now);
             d.put("epochMs",now).put("time",config.time(date)).put("date",config.showDate?config.date(date):"")
-             .put("showDate",config.showDate).put("width",getWidth()).put("height",getHeight())
+             .put("showClock",config.showClock).put("showDate",config.showDate).put("width",getWidth()).put("height",getHeight())
              .put("cssWidth",web.getWidth()/getResources().getDisplayMetrics().density).put("cssHeight",web.getHeight()/getResources().getDisplayMetrics().density)
              .put("timeZone",TimeZone.getDefault().getID()).put("locale",I18n.locale().toLanguageTag())
              .put("preview",preview).put("running",running).put("batteryPlugged",preview&&simulateCharge||plugged).put("batteryLevel",preview&&simulateCharge?65:batteryLevel).put("shiftX",offset[0]).put("shiftY",offset[1]).put("settings",config.json())
@@ -178,8 +183,8 @@ final class DisplaySurface extends FrameLayout {
         }catch(Exception e){report(I18n.get(R.string.msg_160)+e.getMessage());}
     }
     void start() {if(running||disposed)return;running=true;IntentFilter f=new IntentFilter();f.addAction(Intent.ACTION_TIME_CHANGED);f.addAction(Intent.ACTION_TIMEZONE_CHANGED);f.addAction(Intent.ACTION_DATE_CHANGED);if(Build.VERSION.SDK_INT>=33){getContext().registerReceiver(timeReceiver,f,Context.RECEIVER_NOT_EXPORTED);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED),Context.RECEIVER_NOT_EXPORTED);}else{getContext().registerReceiver(timeReceiver,f);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));}if(web!=null)web.onResume();tick();}
-    void stop() {handler.removeCallbacks(ticker);handler.removeCallbacks(motionFrame);if(running){running=false;getContext().unregisterReceiver(timeReceiver);getContext().unregisterReceiver(batteryReceiver);}notification=null;if(notificationView!=null)notificationView.stop();if(clock!=null)clock.notificationAlpha(1);if(web!=null){web.setAlpha(1);if(ready&&config!=null)pushData(System.currentTimeMillis(),offset(config,System.currentTimeMillis()));web.onPause();}}
-    void dispose(){stop();disposed=true;releaseWeb();removeAllViews();}
+    void stop() {handler.removeCallbacks(ticker);handler.removeCallbacks(motionFrame);if(running){running=false;getContext().unregisterReceiver(timeReceiver);getContext().unregisterReceiver(batteryReceiver);}notification=null;if(widgetLayer!=null)widgetLayer.stop();if(dot!=null)dot.update(null,config,0,0);if(notificationView!=null)notificationView.stop();if(clock!=null)clock.notificationAlpha(1);if(web!=null){web.setAlpha(1);if(ready&&config!=null)pushData(System.currentTimeMillis(),offset(config,System.currentTimeMillis()));web.onPause();}}
+    void dispose(){stop();disposed=true;if(widgetLayer!=null)widgetLayer.dispose();releaseWeb();removeAllViews();}
     private void releaseWeb(){if(web!=null){removeView(web);web.stopLoading();web.destroy();web=null;}}
     @Override public boolean dispatchTouchEvent(MotionEvent e){return true;}
     @Override public boolean dispatchGenericMotionEvent(MotionEvent e){return true;}
