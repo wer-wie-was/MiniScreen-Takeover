@@ -180,4 +180,18 @@
     <string name="msg_177" formatted="false">"Geçersiz veya çok uzun ZIP yolu"</string>
     <string name="msg_178" formatted="false">"Geçersiz veya yinelenen ZIP yolu"</string>
     <string name="msg_179" formatted="false">"Resim uyumu"</string>
+    <string name="update_title">Güncellemeler</string>
+    <string name="update_available">Güncelleme mevcut</string>
+    <string name="update_download">İndir ve yükle</string>
+    <string name="update_confirm">Yüklemeyi onayla</string>
+    <string name="update_auto">Otomatik kontrol et</string>
+    <string name="update_help">İnternet bağlantısı varsa GitHub yaklaşık günde bir kez kontrol edilir. İndirme yalnızca siz seçtiğinizde başlar. Android bu kaynaktan yükleme izni ve yükleme onayı ister.</string>
+    <string name="update_check">Şimdi kontrol et</string>
+    <string name="update_notes">Sürüm notları</string>
+    <string name="update_skip">Bu sürümü atla</string>
+    <string name="update_checking">Kontrol ediliyor…</string>
+    <string name="update_downloading">İndiriliyor…</string>
+    <string name="update_ready">Yüklemeye hazır</string>
+    <string name="update_failed">Güncelleme başarısız. Tekrar deneyin.</string>
+    <string name="update_current">Güncel</string>
 </resources>

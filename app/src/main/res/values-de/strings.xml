@@ -180,4 +180,18 @@
     <string name="msg_177" formatted="false">"Ungültiger oder zu langer ZIP-Pfad"</string>
     <string name="msg_178" formatted="false">"Ungültiger oder doppelter ZIP-Pfad"</string>
     <string name="msg_179" formatted="false">"Bildanpassung"</string>
+    <string name="update_title">Updates</string>
+    <string name="update_available">Update verfügbar</string>
+    <string name="update_download">Herunterladen und installieren</string>
+    <string name="update_confirm">Installation bestätigen</string>
+    <string name="update_auto">Automatisch prüfen</string>
+    <string name="update_help">Prüft GitHub ungefähr einmal täglich bei vorhandener Internetverbindung. Der Download startet erst auf Wunsch. Android verlangt die Erlaubnis zur Installation aus dieser Quelle und eine Installationsbestätigung.</string>
+    <string name="update_check">Jetzt prüfen</string>
+    <string name="update_notes">Versionshinweise</string>
+    <string name="update_skip">Diese Version überspringen</string>
+    <string name="update_checking">Wird geprüft…</string>
+    <string name="update_downloading">Wird heruntergeladen…</string>
+    <string name="update_ready">Bereit zur Installation</string>
+    <string name="update_failed">Update fehlgeschlagen. Bitte erneut versuchen.</string>
+    <string name="update_current">Aktuell</string>
 </resources>

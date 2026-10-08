@@ -180,4 +180,18 @@
     <string name="msg_177" formatted="false">"Chemin ZIP invalide ou trop long"</string>
     <string name="msg_178" formatted="false">"Chemin ZIP invalide ou en double"</string>
     <string name="msg_179" formatted="false">"Ajustement de l’image"</string>
+    <string name="update_title">Mises à jour</string>
+    <string name="update_available">Mise à jour disponible</string>
+    <string name="update_download">Télécharger et installer</string>
+    <string name="update_confirm">Confirmer l’installation</string>
+    <string name="update_auto">Vérifier automatiquement</string>
+    <string name="update_help">Vérifie GitHub environ une fois par jour avec une connexion Internet. Le téléchargement commence à votre demande. Android exige une autorisation pour cette source et une confirmation de l’installation.</string>
+    <string name="update_check">Vérifier maintenant</string>
+    <string name="update_notes">Notes de version</string>
+    <string name="update_skip">Ignorer cette version</string>
+    <string name="update_checking">Vérification…</string>
+    <string name="update_downloading">Téléchargement…</string>
+    <string name="update_ready">Prêt à installer</string>
+    <string name="update_failed">Échec de la mise à jour. Réessayez.</string>
+    <string name="update_current">À jour</string>
 </resources>

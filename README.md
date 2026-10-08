@@ -30,6 +30,16 @@ General settings links request the Android settings home page with a fresh Setti
 
 After setup, the control interface opens. Use **Show on rear display** to activate the display. Setup can be reopened from the language section.
 
+### App updates
+
+The **Updates** section checks the latest stable release at https://github.com/wer-wie-was/MiniScreen-Takeover approximately once per day. Android schedules background checks when a network is available; battery restrictions can delay them. You can disable automatic checks, check manually, read release notes, or skip a version. A new release appears prominently below the preview and, if notifications are allowed, as a notification.
+
+Choose **Download and install** to download the APK. Allow installation from MiniScreen Takeover if Android requests it, then confirm the system installation dialog. Installation uses an Android PackageInstaller session, so no APK-handler chooser appears. Downloads are not installed silently. If you leave the app during downloading, reopen Updates to continue installation.
+
+The downloaded APK must use package `com.miniscreen.takeover`, have a higher version code, and be signed with the same signing certificates as the installed app. Its size and any SHA-256 digest supplied by GitHub are checked. Settings remain in place during an accepted update. Update preferences belong to this device and are not exported with design profiles.
+
+Releases must be stable GitHub releases marked as latest, with a numeric `vX.Y.Z` or `X.Y.Z` tag. Attach one APK, or name the intended APK `MiniScreenTakeover-X.Y.Z.apk` when attaching multiple APKs. The publisher must keep the signing key and increase the Android version code for each update.
+
 ### Everyday use
 
 Choose a native clock or HTML design in **Design & Profiles**, then adjust the appearance. The preview stays visible while scrolling through settings; optional guides mark the pixelshifting margin and appear only in the preview. Settings are applied to the active rear-screen design as you change them.
@@ -160,6 +170,16 @@ The ticker supports speeds up to 360 px/s at 340 px display width. Open **Word f
 MiniScreen Takeover zeigt eine anpassbare Digitaluhr, ein vollständiges HTML-Design oder ein experimentelles Pebble-Watchface auf dem Rückdisplay des **Ulefone Armor 28 Ultra**. Bedienung und angeheftete Live-Vorschau erscheinen auf dem Hauptbildschirm. Die Rückdisplay-Anzeige ignoriert Berührungen und Navigationseingaben und kann bei gesperrtem Handy sichtbar bleiben.
 
 Die App verwendet **Display 1** für das Rückdisplay und **Display 0** für die Bedienung. Das Rückdisplay misst normalerweise 340 × 340 Pixel. Seine Steuerung benötigt die Hersteller-Systemapp `com.yft.miniscreendisplay`; die App ist keine allgemeine Lösung für beliebige Android-Zweitbildschirme.
+
+### App-Updates
+
+Der Abschnitt **Updates** prüft ungefähr einmal täglich die neueste stabile Veröffentlichung unter https://github.com/wer-wie-was/MiniScreen-Takeover. Android plant Hintergrundprüfungen bei vorhandener Netzwerkverbindung; Energiesparregeln können sie verzögern. Automatische Prüfungen lassen sich abschalten. Außerdem können Sie manuell prüfen, Versionshinweise lesen und eine Version überspringen. Neue Versionen erscheinen prominent unter der Vorschau und bei erlaubten Benachrichtigungen zusätzlich als Meldung.
+
+Wählen Sie **Herunterladen und installieren**. Erlauben Sie auf Nachfrage die Installation aus MiniScreen Takeover und bestätigen Sie anschließend den Android-Installationsdialog. Die Installation erfolgt über eine Android-PackageInstaller-Sitzung; eine Auswahl anderer APK-Handler erscheint dabei nicht. Updates werden nicht still installiert. Verlassen Sie die App während des Downloads, öffnen Sie Updates erneut, um die Installation fortzusetzen.
+
+Die APK muss den Paketnamen `com.miniscreen.takeover`, einen höheren Versionscode und dieselben Signaturzertifikate wie die installierte App besitzen. Dateigröße und ein von GitHub bereitgestellter SHA-256-Prüfwert werden kontrolliert. Einstellungen bleiben bei einem akzeptierten Update erhalten. Update-Einstellungen gelten für dieses Gerät und werden nicht mit Designprofilen exportiert.
+
+Veröffentlichungen müssen stabile GitHub-Releases mit Latest-Markierung und einem numerischen Tag `vX.Y.Z` oder `X.Y.Z` sein. Hängen Sie eine einzelne APK an oder benennen Sie bei mehreren APKs die gewünschte Datei `MiniScreenTakeover-X.Y.Z.apk`. Für jedes Update muss der Herausgeber denselben Signaturschlüssel verwenden und den Android-Versionscode erhöhen.
 
 ### Ersteinrichtung
 

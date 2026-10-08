@@ -180,4 +180,18 @@
     <string name="msg_177" formatted="false">"Percorso ZIP non valido o troppo lungo"</string>
     <string name="msg_178" formatted="false">"Percorso ZIP non valido o duplicato"</string>
     <string name="msg_179" formatted="false">"Adattamento immagine"</string>
+    <string name="update_title">Aggiornamenti</string>
+    <string name="update_available">Aggiornamento disponibile</string>
+    <string name="update_download">Scarica e installa</string>
+    <string name="update_confirm">Conferma installazione</string>
+    <string name="update_auto">Controlla automaticamente</string>
+    <string name="update_help">Controlla GitHub circa una volta al giorno quando Internet è disponibile. Il download inizia su richiesta. Android richiede il permesso per questa fonte e la conferma dell’installazione.</string>
+    <string name="update_check">Controlla ora</string>
+    <string name="update_notes">Note di versione</string>
+    <string name="update_skip">Ignora questa versione</string>
+    <string name="update_checking">Controllo…</string>
+    <string name="update_downloading">Download…</string>
+    <string name="update_ready">Pronto per installare</string>
+    <string name="update_failed">Aggiornamento non riuscito. Riprova.</string>
+    <string name="update_current">Aggiornato</string>
 </resources>

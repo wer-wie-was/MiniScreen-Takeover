@@ -180,4 +180,18 @@
     <string name="msg_177" formatted="false">"Неверный или слишком длинный путь ZIP"</string>
     <string name="msg_178" formatted="false">"Неверный или повторяющийся путь ZIP"</string>
     <string name="msg_179" formatted="false">"Масштабирование изображения"</string>
+    <string name="update_title">Обновления</string>
+    <string name="update_available">Доступно обновление</string>
+    <string name="update_download">Скачать и установить</string>
+    <string name="update_confirm">Подтвердить установку</string>
+    <string name="update_auto">Проверять автоматически</string>
+    <string name="update_help">GitHub проверяется примерно раз в сутки при наличии Интернета. Загрузка начинается по вашему запросу. Android требует разрешение на установку из этого источника и подтверждение установки.</string>
+    <string name="update_check">Проверить сейчас</string>
+    <string name="update_notes">Описание версии</string>
+    <string name="update_skip">Пропустить эту версию</string>
+    <string name="update_checking">Проверка…</string>
+    <string name="update_downloading">Загрузка…</string>
+    <string name="update_ready">Готово к установке</string>
+    <string name="update_failed">Не удалось обновить. Повторите попытку.</string>
+    <string name="update_current">Установлена актуальная версия</string>
 </resources>

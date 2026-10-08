@@ -10,6 +10,7 @@ public final class BootReceiver extends BroadcastReceiver {
     @Override public void onReceive(Context c,Intent i){String action=i.getAction();if(!Intent.ACTION_BOOT_COMPLETED.equals(action)&&!Intent.ACTION_MY_PACKAGE_REPLACED.equals(action))return;
         SharedPreferences p=TakeoverControl.prefs(c);UserManager users=(UserManager)c.getSystemService(Context.USER_SERVICE);
         if(!users.isUserUnlocked())return;
+        AppUpdates.schedule(c);
         if(Intent.ACTION_MY_PACKAGE_REPLACED.equals(action)){
             // Updating is independent of the user's opt-in for boot restoration.
             // Restore the existing intent; never reset pause, lock, external-app or power controls.

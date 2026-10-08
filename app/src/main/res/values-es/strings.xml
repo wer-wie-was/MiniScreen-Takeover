@@ -180,4 +180,18 @@
     <string name="msg_177" formatted="false">"Ruta ZIP no válida o demasiado larga"</string>
     <string name="msg_178" formatted="false">"Ruta ZIP no válida o duplicada"</string>
     <string name="msg_179" formatted="false">"Ajuste de imagen"</string>
+    <string name="update_title">Actualizaciones</string>
+    <string name="update_available">Actualización disponible</string>
+    <string name="update_download">Descargar e instalar</string>
+    <string name="update_confirm">Confirmar instalación</string>
+    <string name="update_auto">Comprobar automáticamente</string>
+    <string name="update_help">Consulta GitHub aproximadamente una vez al día con conexión a Internet. La descarga comienza cuando lo eliges. Android requiere permiso para esta fuente y confirmación de la instalación.</string>
+    <string name="update_check">Comprobar ahora</string>
+    <string name="update_notes">Notas de la versión</string>
+    <string name="update_skip">Omitir esta versión</string>
+    <string name="update_checking">Comprobando…</string>
+    <string name="update_downloading">Descargando…</string>
+    <string name="update_ready">Listo para instalar</string>
+    <string name="update_failed">La actualización falló. Inténtalo de nuevo.</string>
+    <string name="update_current">Actualizado</string>
 </resources>

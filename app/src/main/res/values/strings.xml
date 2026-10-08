@@ -180,4 +180,18 @@
     <string name="msg_177" formatted="false">"Invalid or overly long ZIP path"</string>
     <string name="msg_178" formatted="false">"Invalid or duplicate ZIP path"</string>
     <string name="msg_179" formatted="false">"Image fit"</string>
+    <string name="update_title">Updates</string>
+    <string name="update_available">Update available</string>
+    <string name="update_download">Download and install</string>
+    <string name="update_confirm">Confirm installation</string>
+    <string name="update_auto">Check automatically</string>
+    <string name="update_help">Checks GitHub roughly once per day when internet is available. Download starts only when you choose it. Android requires permission to install apps from this source and asks you to confirm installation.</string>
+    <string name="update_check">Check now</string>
+    <string name="update_notes">Release notes</string>
+    <string name="update_skip">Skip this version</string>
+    <string name="update_checking">Checking…</string>
+    <string name="update_downloading">Downloading…</string>
+    <string name="update_ready">Ready to install</string>
+    <string name="update_failed">Update failed. Please try again.</string>
+    <string name="update_current">Up to date</string>
 </resources>
