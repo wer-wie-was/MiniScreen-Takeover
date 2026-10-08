@@ -67,7 +67,7 @@ async function install(){
 }
 function attach(){
  if(!qemu||phone)return;phone=new PebblePhone(qemu,log);
- phone.onPhoneVersionRequest=()=>{syncTime();setTimeout(install,1500);};
+ phone.onPhoneVersionRequest=()=>{syncTime();phone.sendQemuFrame(5,Uint8Array.of(settings.battery?.level??100,0));setTimeout(install,1500);};
  const am=new AppMessageClient(phone,log);
  pkjs=new PkjsRuntime(phone,am,{createSandbox:makeIframeSandbox(new URL('network?url=',location.href).href,log),storage:scope,tokenStore:localStorage,openUrl:(url,onClosed)=>{configCallback=onClosed;fetch('config',{method:'POST',body:url}).catch(()=>{});},log});
  pulse=new PulseConsole(writeConsole,{onPrompt:(text)=>{if(text&&text.includes('TAKEOVER_HEALTH_V1'))healthReady=true;},onLog:log,onRaw:log,log});
@@ -76,7 +76,8 @@ function attach(){
  setTimeout(()=>{pulse.command('takeover_health version');healthChecked=true;},10000);
 }
 async function execute(cmd){
- if(cmd.type==='settings'){settings=cmd.value||{};if(phone){syncTime();phone.sendQemuFrame(9,Uint8Array.of(settings.twentyFour?1:0));if(settings.battery)phone.sendQemuFrame(5,Uint8Array.of(settings.battery.level,settings.battery.charging?1:0));}return;}
+ // Always report unplugged to PebbleOS, avoiding its charging-screen takeover.
+ if(cmd.type==='settings'){settings=cmd.value||{};if(phone){syncTime();phone.sendQemuFrame(9,Uint8Array.of(settings.twentyFour?1:0));if(settings.battery)phone.sendQemuFrame(5,Uint8Array.of(settings.battery.level,0));}return;}
  if(cmd.type==='restart'){await persist(true);await Promise.all([...storageWrites]);await status('restart_ready:'+String(cmd.value));return;}
  if(cmd.type==='persist'){await persist(true);return;}
  if(cmd.type==='configClosed'){if(configCallback){const callback=configCallback;configCallback=null;callback(cmd.value||'');}return;}

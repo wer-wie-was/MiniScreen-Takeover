@@ -1,0 +1,15 @@
+<resources>
+    <string name="slider_decrease" formatted="false">"减少"</string>
+    <string name="slider_increase" formatted="false">"增加"</string>
+    <string name="brightness_curve_enable" formatted="false">"使用亮度曲线"</string>
+    <string name="brightness_curve_edit" formatted="false">"亮度曲线"</string>
+    <string name="brightness_curve_interval" formatted="false">"更新间隔（分钟）"</string>
+    <string name="brightness_curve_help" formatted="false">"点击添加或编辑点，拖动移动。午夜的两个端点保持同步。"</string>
+    <string name="brightness_curve_reset" formatted="false">"重置"</string>
+    <string name="brightness_curve_apply" formatted="false">"应用"</string>
+    <string name="brightness_curve_time" formatted="false">"时间（HH:MM）"</string>
+    <string name="brightness_curve_level" formatted="false">"亮度（%）"</string>
+    <string name="brightness_curve_point" formatted="false">"曲线控制点"</string>
+    <string name="brightness_curve_delete" formatted="false">"删除控制点"</string>
+    <string name="brightness_curve_invalid" formatted="false">"请输入不重复的时间和 0 至 100 的亮度。"</string>
+</resources>

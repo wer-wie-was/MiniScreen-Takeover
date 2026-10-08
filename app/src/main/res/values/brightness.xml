@@ -1,0 +1,15 @@
+<resources>
+    <string name="slider_decrease" formatted="false">"Decrease"</string>
+    <string name="slider_increase" formatted="false">"Increase"</string>
+    <string name="brightness_curve_enable" formatted="false">"Use brightness curve"</string>
+    <string name="brightness_curve_edit" formatted="false">"Brightness curve"</string>
+    <string name="brightness_curve_interval" formatted="false">"Update interval (minutes)"</string>
+    <string name="brightness_curve_help" formatted="false">"Tap to add or edit a point. Drag to move. Midnight endpoints are linked."</string>
+    <string name="brightness_curve_reset" formatted="false">"Reset"</string>
+    <string name="brightness_curve_apply" formatted="false">"Apply"</string>
+    <string name="brightness_curve_time" formatted="false">"Time (HH:MM)"</string>
+    <string name="brightness_curve_level" formatted="false">"Brightness (%)"</string>
+    <string name="brightness_curve_point" formatted="false">"Curve point"</string>
+    <string name="brightness_curve_delete" formatted="false">"Delete point"</string>
+    <string name="brightness_curve_invalid" formatted="false">"Enter a unique time and brightness from 0 to 100."</string>
+</resources>

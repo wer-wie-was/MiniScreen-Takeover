@@ -1,0 +1,15 @@
+<resources>
+    <string name="slider_decrease" formatted="false">"Verringern"</string>
+    <string name="slider_increase" formatted="false">"Erhöhen"</string>
+    <string name="brightness_curve_enable" formatted="false">"Helligkeitskurve nutzen"</string>
+    <string name="brightness_curve_edit" formatted="false">"Helligkeitskurve"</string>
+    <string name="brightness_curve_interval" formatted="false">"Aktualisierungsintervall (Minuten)"</string>
+    <string name="brightness_curve_help" formatted="false">"Tippen fügt Punkte hinzu oder bearbeitet sie. Ziehen verschiebt sie. Die Mitternachtspunkte sind gekoppelt."</string>
+    <string name="brightness_curve_reset" formatted="false">"Zurücksetzen"</string>
+    <string name="brightness_curve_apply" formatted="false">"Übernehmen"</string>
+    <string name="brightness_curve_time" formatted="false">"Uhrzeit (HH:MM)"</string>
+    <string name="brightness_curve_level" formatted="false">"Helligkeit (%)"</string>
+    <string name="brightness_curve_point" formatted="false">"Kurvenpunkt"</string>
+    <string name="brightness_curve_delete" formatted="false">"Punkt löschen"</string>
+    <string name="brightness_curve_invalid" formatted="false">"Eindeutige Uhrzeit und Helligkeit von 0 bis 100 eingeben."</string>
+</resources>

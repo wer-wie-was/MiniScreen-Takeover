@@ -1,0 +1,15 @@
+<resources>
+    <string name="slider_decrease" formatted="false">"Riduci"</string>
+    <string name="slider_increase" formatted="false">"Aumenta"</string>
+    <string name="brightness_curve_enable" formatted="false">"Usa curva di luminosità"</string>
+    <string name="brightness_curve_edit" formatted="false">"Curva di luminosità"</string>
+    <string name="brightness_curve_interval" formatted="false">"Intervallo di aggiornamento (minuti)"</string>
+    <string name="brightness_curve_help" formatted="false">"Tocca per aggiungere o modificare un punto. Trascina per spostare. I punti di mezzanotte sono collegati."</string>
+    <string name="brightness_curve_reset" formatted="false">"Ripristina"</string>
+    <string name="brightness_curve_apply" formatted="false">"Applica"</string>
+    <string name="brightness_curve_time" formatted="false">"Ora (HH:MM)"</string>
+    <string name="brightness_curve_level" formatted="false">"Luminosità (%)"</string>
+    <string name="brightness_curve_point" formatted="false">"Punto della curva"</string>
+    <string name="brightness_curve_delete" formatted="false">"Elimina punto"</string>
+    <string name="brightness_curve_invalid" formatted="false">"Inserisci un orario univoco e una luminosità da 0 a 100."</string>
+</resources>

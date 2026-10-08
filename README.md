@@ -97,6 +97,8 @@ The dot displays no notification text and retains only app identifiers and conte
 
 ### Experimental Pebble watchfaces
 
+Pebble receives the phone battery percentage but is always told that no charger is connected. Takeover’s own charging indicator still shows the real charging state.
+
 Enable **Use as display mode** in the **Pebble Watchfaces** section and open its settings. The switch changes the active profile’s display mode; disabling it returns to native mode. The same selection is available under Design & Profiles. Use **Show on rear display** under Controls to start the rear display. Import a `.pbw`. Emulator and PebbleOS 4.35.0 images for Gabbro, Emery and Flint are included; Gabbro is selected first when supported by the PBW, followed by Chalk. The platform dropdown shows the watch abbreviation and resolution. Engines for all seven platforms are included; Aplite, Basalt, Chalk and Diorite require imported firmware (a firmware-only ZIP is sufficient). **Restart emulator** is available here and on the Pebble settings page; it restarts the shared watch while preserving its saved state. Configure it and operate its virtual buttons on the main screen. Rear display and preview share one virtual watch. Scaling/cropping, frame rate and optional internet access are adjustable. The Pebble watchface’s own clock is independent of the native clock switch.
 
 The bundled modern emulator keeps its framebuffer brightness independent of the virtual watch backlight. Actual rear-display brightness remains controlled by the profile setting. Complete imported engines keep their own rendering behavior.
@@ -144,6 +146,10 @@ Power-off cancels recovery, releases the Takeover window’s `KEEP_SCREEN_ON` fl
 The manufacturer app performs the privileged display operation. Takeover does not send `GC_POWER`, `GC_POWER_ON`, `GC_POWER_OFF` or synthetic Android screen-on/off broadcasts. Hiding Takeover does not send `GC_SCREEN_OFF`. Onboarding opens settings through activity intents, not manufacturer power broadcasts.
 
 ---
+
+### Brightness curve
+
+Enable **Use brightness curve** below rear-display brightness to follow a daily schedule. Open **Brightness curve** to tap in new points, drag points or tap a point for exact time/brightness entry and deletion. The initial curve is flat at the fixed brightness. Values between points are interpolated linearly; 00:00 and 24:00 are linked. Apply saves the curve to the active profile, Cancel discards edits, Reset restores a flat curve in the editor. Set the update interval from 1 to 30 minutes (default 1). Profile changes, display starts and time/timezone changes apply immediately. Zero requests the minimum display brightness (1%), not screen-off. Disabling the curve restores fixed brightness. The curve controls Takeover’s own rear-display window; it does not control another app launched on that display. All sliders include minus/plus controls with hold-to-repeat.
 
 ## Deutsch
 
@@ -242,6 +248,8 @@ Der Punkt zeigt keine Nachrichtentexte und hält nur App-Kennungen und Inhaltspr
 
 ### Experimentelle Pebble-Watchfaces
 
+Pebble erhält den Akkustand des Handys, aber immer die Meldung, dass kein Ladegerät angeschlossen ist. Die eigene Ladeanzeige von Takeover zeigt weiterhin den tatsächlichen Ladestatus.
+
 Im Abschnitt **Pebble-Watchfaces** den Schalter **Als Anzeigemodus verwenden** aktivieren und die Einstellungen öffnen. Der Schalter ändert den Anzeigemodus des aktiven Profils; Ausschalten wählt die native Anzeige. Dieselbe Auswahl befindet sich unter Design & Profile. Mit **Auf Rückdisplay anzeigen** unter Steuerung das Rückdisplay starten. Eine `.pbw` importieren. Emulator und PebbleOS-4.35.0-Images für Gabbro, Emery und Flint sind enthalten; Gabbro wird bevorzugt, wenn die PBW-Datei es unterstützt, danach Chalk. Die Plattformauswahl zeigt Uhr-Abkürzung und Auflösung. Emulator-Engines für alle sieben Plattformen sind enthalten; Aplite, Basalt, Chalk und Diorite benötigen importierte Firmware (ein ZIP nur mit Firmware reicht). **Emulator neu starten** steht hier und auf der Pebble-Einstellungsseite zur Verfügung; der gespeicherte Zustand bleibt beim Neustart erhalten. Konfiguration und virtuelle Uhrentasten werden am Hauptbildschirm bedient. Rückdisplay und Vorschau teilen eine virtuelle Uhr. Skalierung/Zuschneiden, Bildrate und optionaler Internetzugriff sind einstellbar. Die eigene Uhr des Pebble-Watchfaces ist unabhängig vom nativen Uhr-Schalter.
 
 Die mitgelieferte moderne Engine gibt das Bild unabhängig von der virtuellen Uhrenbeleuchtung aus. Die tatsächliche Rückdisplay-Helligkeit bleibt über die Profileinstellung steuerbar. Vollständig importierte Engines behalten ihr eigenes Anzeigeverhalten.
@@ -288,3 +296,9 @@ Beim Ausschalten werden Wiederherstellungsversuche abgebrochen, das `KEEP_SCREEN
 
 Die privilegierte Displayoperation führt die Hersteller-App aus. Takeover sendet weder `GC_POWER`, `GC_POWER_ON`, `GC_POWER_OFF` noch künstliche Android-Screen-On/Off-Broadcasts. Reines Ausblenden sendet kein `GC_SCREEN_OFF`. Das Onboarding öffnet Einstellungen über Activity-Intents und verwendet dafür keine Hersteller-Power-Broadcasts.
 
+
+
+
+### Helligkeitskurve
+
+Aktiviere **Helligkeitskurve nutzen** unter der Rückdisplay-Helligkeit. Unter **Helligkeitskurve** lassen sich Punkte durch Tippen hinzufügen, durch Ziehen verschieben und durch erneutes Tippen exakt bearbeiten oder löschen. Anfangs gilt eine waagerechte Linie auf der festen Helligkeit. Zwischen den Punkten wird linear interpoliert; 00:00 und 24:00 sind gekoppelt. Übernehmen speichert im aktiven Profil, Abbrechen verwirft Änderungen, Zurücksetzen stellt im Editor eine gerade Linie her. Das Aktualisierungsintervall beträgt 1–30 Minuten (Standard 1). Profilwechsel, Displaystarts sowie Uhrzeit- und Zeitzonenänderungen werden sofort berücksichtigt. 0 % fordert die minimale Displayhelligkeit (1 %) an und schaltet das Display nicht aus. Ohne Kurve gilt wieder die feste Helligkeit. Die Kurve steuert das eigene Takeover-Fenster auf dem Rückdisplay, keine dort gestartete fremde App. Alle Schieberegler haben −/+-Knöpfe mit Wiederholung beim Gedrückthalten.

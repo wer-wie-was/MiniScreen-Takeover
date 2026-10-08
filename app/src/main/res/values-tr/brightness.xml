@@ -1,0 +1,15 @@
+<resources>
+    <string name="slider_decrease" formatted="false">"Azalt"</string>
+    <string name="slider_increase" formatted="false">"Artır"</string>
+    <string name="brightness_curve_enable" formatted="false">"Parlaklık eğrisini kullan"</string>
+    <string name="brightness_curve_edit" formatted="false">"Parlaklık eğrisi"</string>
+    <string name="brightness_curve_interval" formatted="false">"Güncelleme aralığı (dakika)"</string>
+    <string name="brightness_curve_help" formatted="false">"Nokta eklemek veya düzenlemek için dokunun. Taşımak için sürükleyin. Gece yarısı noktaları bağlantılıdır."</string>
+    <string name="brightness_curve_reset" formatted="false">"Sıfırla"</string>
+    <string name="brightness_curve_apply" formatted="false">"Uygula"</string>
+    <string name="brightness_curve_time" formatted="false">"Saat (HH:MM)"</string>
+    <string name="brightness_curve_level" formatted="false">"Parlaklık (%)"</string>
+    <string name="brightness_curve_point" formatted="false">"Eğri noktası"</string>
+    <string name="brightness_curve_delete" formatted="false">"Noktayı sil"</string>
+    <string name="brightness_curve_invalid" formatted="false">"Benzersiz bir saat ve 0–100 arasında parlaklık girin."</string>
+</resources>

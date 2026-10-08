@@ -17,7 +17,7 @@ final class ColorPicker {
         TextView swatch=new TextView(c);swatch.setText(I18n.get(R.string.msg_119));swatch.setGravity(Gravity.CENTER);root.addView(swatch,new LinearLayout.LayoutParams(-1,pad*2));
         SV square=new SV(c,hsv);root.addView(square,new LinearLayout.LayoutParams(-1,pad*9));
         TextView hueLabel=new TextView(c);hueLabel.setText(I18n.get(R.string.msg_120));root.addView(hueLabel);
-        SeekBar hue=new SeekBar(c);hue.setMax(359);hue.setProgress((int)hsv[0]);root.addView(hue);root.addView(hex);
+        SeekBar hue=new SeekBar(c);hue.setMax(359);hue.setProgress((int)hsv[0]);StepSlider.add(root,hue,()->{hsv[0]=hue.getProgress();hex.setText(String.format("#%06X",0xFFFFFF&Color.HSVToColor(hsv)));});root.addView(hex);
         final boolean[] updating={false};
         Runnable sync=()->{updating[0]=true;String value=String.format(Locale.ROOT,"#%06X",Color.HSVToColor(hsv)&0xffffff);hex.setText(value);swatch.setBackgroundColor(Color.HSVToColor(hsv));swatch.setTextColor(hsv[2]>.65&&hsv[1]<.6?Color.BLACK:Color.WHITE);square.invalidate();updating[0]=false;};
         square.change=sync;

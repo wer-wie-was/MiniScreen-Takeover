@@ -1,0 +1,15 @@
+<resources>
+    <string name="slider_decrease" formatted="false">"Reducir"</string>
+    <string name="slider_increase" formatted="false">"Aumentar"</string>
+    <string name="brightness_curve_enable" formatted="false">"Usar curva de brillo"</string>
+    <string name="brightness_curve_edit" formatted="false">"Curva de brillo"</string>
+    <string name="brightness_curve_interval" formatted="false">"Intervalo de actualización (minutos)"</string>
+    <string name="brightness_curve_help" formatted="false">"Toque para añadir o editar un punto. Arrastre para mover. Los puntos de medianoche están vinculados."</string>
+    <string name="brightness_curve_reset" formatted="false">"Restablecer"</string>
+    <string name="brightness_curve_apply" formatted="false">"Aplicar"</string>
+    <string name="brightness_curve_time" formatted="false">"Hora (HH:MM)"</string>
+    <string name="brightness_curve_level" formatted="false">"Brillo (%)"</string>
+    <string name="brightness_curve_point" formatted="false">"Punto de la curva"</string>
+    <string name="brightness_curve_delete" formatted="false">"Eliminar punto"</string>
+    <string name="brightness_curve_invalid" formatted="false">"Introduzca una hora única y un brillo de 0 a 100."</string>
+</resources>

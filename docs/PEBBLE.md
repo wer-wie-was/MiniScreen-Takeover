@@ -110,3 +110,7 @@ The C files under `pebble/upstream/hw/display` illustrate the corresponding rend
 ## Watchface configuration transport
 
 Configuration URLs (including large inline Clay HTML pages) and returned settings are stored as bounded UTF-8 files in the app's private cache. Binder messages and Activity intents carry only UUID identifiers. Both processes share the same application storage; WebView file access remains disabled. Files are removed after use, and abandoned files expire after 24 hours on the next write. The configuration Activity keeps the emulator connection alive while the settings/preview Activity is paused, including across rotation. It opens on display 0. Configuration-handler exceptions are contained, failed parcels no longer silently unregister a live client, and restart can recreate a missing engine. No Android compilation was performed for this source release.
+
+## Battery state
+
+The virtual watch receives the current battery percentage, but its charger flag is always zero. The native bridge also reports charging as false. This prevents PebbleOS from replacing a watchface with its charging screen when the Android phone is plugged in. Takeover’s own charging and battery indicator continues to use the real Android battery state.

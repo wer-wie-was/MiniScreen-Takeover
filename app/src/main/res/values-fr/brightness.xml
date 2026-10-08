@@ -1,0 +1,15 @@
+<resources>
+    <string name="slider_decrease" formatted="false">"Diminuer"</string>
+    <string name="slider_increase" formatted="false">"Augmenter"</string>
+    <string name="brightness_curve_enable" formatted="false">"Utiliser la courbe de luminosité"</string>
+    <string name="brightness_curve_edit" formatted="false">"Courbe de luminosité"</string>
+    <string name="brightness_curve_interval" formatted="false">"Intervalle de mise à jour (minutes)"</string>
+    <string name="brightness_curve_help" formatted="false">"Touchez pour ajouter ou modifier un point. Faites glisser pour déplacer. Les points de minuit sont liés."</string>
+    <string name="brightness_curve_reset" formatted="false">"Réinitialiser"</string>
+    <string name="brightness_curve_apply" formatted="false">"Appliquer"</string>
+    <string name="brightness_curve_time" formatted="false">"Heure (HH:MM)"</string>
+    <string name="brightness_curve_level" formatted="false">"Luminosité (%)"</string>
+    <string name="brightness_curve_point" formatted="false">"Point de la courbe"</string>
+    <string name="brightness_curve_delete" formatted="false">"Supprimer le point"</string>
+    <string name="brightness_curve_invalid" formatted="false">"Saisissez une heure unique et une luminosité de 0 à 100."</string>
+</resources>

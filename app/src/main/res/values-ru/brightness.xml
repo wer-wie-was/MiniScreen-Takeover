@@ -1,0 +1,15 @@
+<resources>
+    <string name="slider_decrease" formatted="false">"Уменьшить"</string>
+    <string name="slider_increase" formatted="false">"Увеличить"</string>
+    <string name="brightness_curve_enable" formatted="false">"Использовать кривую яркости"</string>
+    <string name="brightness_curve_edit" formatted="false">"Кривая яркости"</string>
+    <string name="brightness_curve_interval" formatted="false">"Интервал обновления (минуты)"</string>
+    <string name="brightness_curve_help" formatted="false">"Коснитесь для добавления или изменения точки. Перетаскивайте для перемещения. Точки полуночи связаны."</string>
+    <string name="brightness_curve_reset" formatted="false">"Сбросить"</string>
+    <string name="brightness_curve_apply" formatted="false">"Применить"</string>
+    <string name="brightness_curve_time" formatted="false">"Время (HH:MM)"</string>
+    <string name="brightness_curve_level" formatted="false">"Яркость (%)"</string>
+    <string name="brightness_curve_point" formatted="false">"Точка кривой"</string>
+    <string name="brightness_curve_delete" formatted="false">"Удалить точку"</string>
+    <string name="brightness_curve_invalid" formatted="false">"Введите уникальное время и яркость от 0 до 100."</string>
+</resources>
