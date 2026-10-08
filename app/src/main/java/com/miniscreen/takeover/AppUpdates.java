@@ -22,7 +22,7 @@ final class AppUpdates {
  static SharedPreferences prefs(Context c){return TakeoverControl.prefs(c);}
  static File apk(Context c){return new File(c.getCacheDir(),"takeover-update.apk");}
  static void state(Context c,String state){prefs(c).edit().putString("update_state",state).apply();}
- static void schedule(Context c){JobScheduler jobs=(JobScheduler)c.getSystemService(Context.JOB_SCHEDULER_SERVICE);if(!prefs(c).getBoolean("update_auto",true)){jobs.cancel(JOB);return;}if(jobs.getPendingJob(JOB)==null)jobs.schedule(new JobInfo.Builder(JOB,new ComponentName(c,UpdateJob.class)).setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY).setPeriodic(DAY).setPersisted(true).build());}
+ static void schedule(Context c){try{JobScheduler jobs=(JobScheduler)c.getSystemService(Context.JOB_SCHEDULER_SERVICE);if(!prefs(c).getBoolean("update_auto",true)){jobs.cancel(JOB);return;}if(jobs.getPendingJob(JOB)==null)jobs.schedule(new JobInfo.Builder(JOB,new ComponentName(c,UpdateJob.class)).setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY).setPeriodic(DAY).setPersisted(true).build());}catch(RuntimeException e){android.util.Log.w("AppUpdates","Unable to schedule update check",e);state(c,"failed");}}
  static void check(Context context,boolean force,Runnable done){Context c=context.getApplicationContext();if(!busy.compareAndSet(false,true)){if(done!=null)done.run();return;}worker.execute(()->{try{
   long last=prefs(c).getLong("update_checked",0);if(!force&&System.currentTimeMillis()-last<DAY)return;state(c,"checking");
   HttpURLConnection conn=open("https://api.github.com/repos/"+REPOSITORY+"/releases/latest");conn.setRequestProperty("Accept","application/vnd.github+json");conn.setRequestProperty("X-GitHub-Api-Version","2022-11-28");JSONObject release;
