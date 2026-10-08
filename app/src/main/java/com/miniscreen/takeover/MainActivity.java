@@ -46,6 +46,8 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private void build() {
         int y=scroll==null?0:scroll.getScrollY();if(preview!=null)preview.surface.dispose();
         LinearLayout layout=new LinearLayout(this);layout.setOrientation(LinearLayout.VERTICAL);
+        // The decor fits system bars; do not add navigation-bar height again.
+        layout.setFitsSystemWindows(true);
         LinearLayout pinned=new LinearLayout(this);pinned.setOrientation(LinearLayout.HORIZONTAL);pinned.setGravity(Gravity.CENTER_VERTICAL);pinned.setPadding(dp(18),dp(12),dp(18),dp(12));pinned.setBackgroundColor(0xFF15212D);
         layout.addView(pinned,new LinearLayout.LayoutParams(-1,-2));
         int target=1;Display d=displays.getDisplay(target);int w=340,h=340;Context dc=this;
@@ -59,9 +61,9 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         CheckBox guide=new CheckBox(this);guide.setText(I18n.get(R.string.msg_006));guide.setTextSize(12);guide.setTextColor(0xFFCBD5E1);guide.setChecked(guides);info.addView(guide);guide.setOnCheckedChangeListener((v,checked)->{guides=checked;preview.guides(checked,config.shifting?config.shiftRange:0);});
         preview.surface.apply(config);preview.surface.simulateCharge(chargePreview);preview.surface.simulateTicker(tickerPreview);preview.surface.simulateDot(dotPreview);preview.guides(guides,config.shifting?config.shiftRange:0);if(resumed)preview.surface.start();
         workStatus=text(info,I18n.get(R.string.msg_007),12);workStatus.setTextColor(0xFF63E6DC);workStatus.setVisibility(busy?View.VISIBLE:View.GONE);
-        scroll=new ScrollView(this);scroll.setFillViewport(true);root=new LinearLayout(this);root.setOrientation(LinearLayout.VERTICAL);root.setPadding(dp(18),0,dp(18),dp(32));scroll.addView(root);layout.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));setContentView(layout);
+        scroll=new ScrollView(this);scroll.setFillViewport(true);root=new LinearLayout(this);root.setOrientation(LinearLayout.VERTICAL);root.setPadding(dp(18),0,dp(18),dp(8));scroll.addView(root);layout.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));setContentView(layout);
         languageSettings();controls();scheduleSettings();externalApps();profiles();clockSettings();background();charging();pebbleSettings();widgetSettings();tickerSettings();dotSettings();shifting();html();
-        text(root,I18n.get(R.string.msg_008),12).setTextColor(0xFF9FACBE);
+        text(root,I18n.get(R.string.msg_008).replace("%1$s",AppVersion.name(this)),12).setTextColor(0xFF9FACBE);
         scroll.post(()->scroll.scrollTo(0,y));
     }
     @Override protected void attachBaseContext(Context base){super.attachBaseContext(I18n.wrap(base));}
@@ -109,7 +111,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         button(p,I18n.get(R.string.brightness_curve_edit),()->BrightnessCurveDialog.show(this,config,points->{config.brightnessPoints=points;changed();}));
         slider(p,I18n.get(R.string.brightness_curve_interval),1,30,config.brightnessCurveMinutes,n->{config.brightnessCurveMinutes=n;changed();});
         text(p,I18n.get(R.string.msg_030),13);
-        button(p,I18n.get(R.string.msg_031),()->{StringBuilder b=new StringBuilder("MiniScreen Takeover 0.3.6\n"+Build.MANUFACTURER+" "+Build.MODEL+" / Android "+Build.VERSION.RELEASE+"\n");for(Display d:displays.getDisplays())b.append("Display ").append(d.getDisplayId()).append(" · ").append(d.getName()).append(" · ").append(d.getMode().getPhysicalWidth()).append('×').append(d.getMode().getPhysicalHeight()).append(I18n.get(R.string.msg_032)).append(d.getState()).append(" · Flags 0x").append(Integer.toHexString(d.getFlags())).append('\n');b.append(store.prefs.getString("status","")).append(I18n.get(R.string.msg_033)).append(store.prefs.getString("monitor_status","")).append(I18n.get(R.string.msg_034)).append(TakeoverControl.mode(store.prefs)).append(I18n.get(R.string.msg_035)).append(store.prefs.getBoolean("enabled",false)).append(I18n.get(R.string.msg_036)).append(store.prefs.getBoolean("only_locked",false)).append(" · Boot: ").append(store.prefs.getBoolean("restore_boot",false)).append(I18n.get(R.string.msg_037)).append(TakeoverControl.paused(store.prefs));b.append("\nschedule_enabled=").append(DisplaySchedule.enabled(store.prefs)).append(" · manual_off=").append(DisplaySchedule.manualOff(store.prefs,System.currentTimeMillis())).append(" · external_active=").append(store.prefs.getBoolean("external_active",false));((ClipboardManager)getSystemService(CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText(I18n.get(R.string.msg_038),b));toast(I18n.get(R.string.msg_039));});
+        button(p,I18n.get(R.string.msg_031),()->{StringBuilder b=new StringBuilder("MiniScreen Takeover "+AppVersion.name(this)+"\n"+Build.MANUFACTURER+" "+Build.MODEL+" / Android "+Build.VERSION.RELEASE+"\n");for(Display d:displays.getDisplays())b.append("Display ").append(d.getDisplayId()).append(" · ").append(d.getName()).append(" · ").append(d.getMode().getPhysicalWidth()).append('×').append(d.getMode().getPhysicalHeight()).append(I18n.get(R.string.msg_032)).append(d.getState()).append(" · Flags 0x").append(Integer.toHexString(d.getFlags())).append('\n');b.append(store.prefs.getString("status","")).append(I18n.get(R.string.msg_033)).append(store.prefs.getString("monitor_status","")).append(I18n.get(R.string.msg_034)).append(TakeoverControl.mode(store.prefs)).append(I18n.get(R.string.msg_035)).append(store.prefs.getBoolean("enabled",false)).append(I18n.get(R.string.msg_036)).append(store.prefs.getBoolean("only_locked",false)).append(" · Boot: ").append(store.prefs.getBoolean("restore_boot",false)).append(I18n.get(R.string.msg_037)).append(TakeoverControl.paused(store.prefs));b.append("\nschedule_enabled=").append(DisplaySchedule.enabled(store.prefs)).append(" · manual_off=").append(DisplaySchedule.manualOff(store.prefs,System.currentTimeMillis())).append(" · external_active=").append(store.prefs.getBoolean("external_active",false));((ClipboardManager)getSystemService(CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText(I18n.get(R.string.msg_038),b));toast(I18n.get(R.string.msg_039));});
     }
     private void profiles() {
         LinearLayout p=section(I18n.get(R.string.msg_004));List<String> ids=store.ids();String[] names=new String[ids.size()];for(int i=0;i<ids.size();i++)names[i]=store.load(ids.get(i)).name;
@@ -224,7 +226,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         slider(p,tt(R.string.ticker_duration),3,60,s.duration(),i->tickerInt("duration",i));
         slider(p,tt(R.string.ticker_pause),0,60,s.pause(),i->tickerInt("pause",i));
         check(p,tt(R.string.ticker_scroll),s.bool("scroll",true),v->tickerBool("scroll",v));
-        slider(p,tt(R.string.ticker_speed),5,120,s.number("speed",28,5,120),i->tickerInt("speed",i));
+        slider(p,tt(R.string.ticker_speed),5,360,s.number("speed",28,5,360),i->tickerInt("speed",i));
         slider(p,tt(R.string.ticker_lines),1,5,s.number("lines",2,1,5),i->tickerInt("lines",i));
         slider(p,tt(R.string.ticker_size),8,50,s.number("size",18,8,50),i->tickerInt("size",i));
         String[] fonts={"sans","sans-serif-light","sans-serif-condensed","monospace","serif","profile"};String[] labels=fonts.clone();labels[5]=tt(R.string.ticker_profile_font);
@@ -240,6 +242,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         choose(p,tt(R.string.ticker_clock),new String[]{tt(R.string.ticker_clock_keep),tt(R.string.ticker_clock_dim),tt(R.string.ticker_clock_hide)},s.number("clock",0,0,2),i->tickerInt("clock",i));
         check(p,tt(R.string.ticker_html),s.html(),v->tickerBool("html",v));
         
+        button(p,tt(R.string.ticker_word_filter),()->TickerWordFilter.show(this,()->preview.surface.tick()));
         button(p,tt(R.string.ticker_clear),()->{NotificationTicker.dismissQueue();preview.surface.tick();});
         text(p,tt(R.string.ticker_help),13);
     }

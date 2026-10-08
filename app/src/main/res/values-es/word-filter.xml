@@ -1,0 +1,11 @@
+<resources>
+    <string name="ticker_word_filter" formatted="false">"Filtro de palabras"</string>
+    <string name="ticker_filter_enable" formatted="false">"Activar filtro"</string>
+    <string name="ticker_filter_contains" formatted="false">"Contiene este texto"</string>
+    <string name="ticker_filter_whole" formatted="false">"Palabra completa"</string>
+    <string name="ticker_filter_help" formatted="false">"No distingue mayúsculas. Excluye títulos y mensajes coincidentes del ticker y los recordatorios, incluso con contenido oculto. El punto y las notificaciones Android no cambian. También revisa la cola."</string>
+    <string name="ticker_filter_keyword" formatted="false">"Palabra clave"</string>
+    <string name="ticker_filter_add" formatted="false">"Añadir"</string>
+    <string name="ticker_filter_remove" formatted="false">"Eliminar palabra clave"</string>
+    <string name="ticker_filter_limit" formatted="false">"Máximo 100 palabras clave."</string>
+</resources>

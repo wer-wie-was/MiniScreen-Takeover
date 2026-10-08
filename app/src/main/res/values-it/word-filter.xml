@@ -1,0 +1,11 @@
+<resources>
+    <string name="ticker_word_filter" formatted="false">"Filtro parole"</string>
+    <string name="ticker_filter_enable" formatted="false">"Attiva filtro"</string>
+    <string name="ticker_filter_contains" formatted="false">"Contiene questo testo"</string>
+    <string name="ticker_filter_whole" formatted="false">"Parola intera"</string>
+    <string name="ticker_filter_help" formatted="false">"Ignora maiuscole e minuscole. Esclude titoli e messaggi corrispondenti dal ticker e dai promemoria anche con contenuto nascosto. Il punto e le notifiche Android restano invariati. Controlla anche la coda."</string>
+    <string name="ticker_filter_keyword" formatted="false">"Parola chiave"</string>
+    <string name="ticker_filter_add" formatted="false">"Aggiungi"</string>
+    <string name="ticker_filter_remove" formatted="false">"Rimuovi parola chiave"</string>
+    <string name="ticker_filter_limit" formatted="false">"Massimo 100 parole chiave."</string>
+</resources>

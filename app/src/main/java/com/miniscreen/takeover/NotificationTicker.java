@@ -30,7 +30,7 @@ final class NotificationTicker {
     static void settingsChanged(Context c){
         TickerSettings s=new TickerSettings(c);
         if(!s.enabled()){clear();return;}
-        entries.values().removeIf(e->!s.apps().contains(e.app));
+        entries.values().removeIf(e->!s.apps().contains(e.app)||TickerWordFilter.blocked(c,e.title,e.body));
         if(current!=null&&!entries.containsKey(current.key))current=null;
         // Drop cached content immediately when a privacy level is reduced.
         for(Entry e:entries.values()){int max=Math.max(s.level(e.app,true),s.level(e.app,false));if(max<2)e.title="";if(max<3)e.body="";}
@@ -43,6 +43,7 @@ final class NotificationTicker {
         if(!s.enabled()||!s.apps().contains(app)||app.equals(c.getPackageName())||
             (!s.bool("ongoing",false)&&(n.flags&Notification.FLAG_ONGOING_EVENT)!=0)||
             (!s.bool("groups",false)&&(n.flags&Notification.FLAG_GROUP_SUMMARY)!=0)){removed(key);return;}
+        if(TickerWordFilter.blockedNotification(c,n)){removed(key);return;}
         int max=Math.max(s.level(app,true),s.level(app,false));
         String title=max>=2?plain(n.extras.getCharSequence(Notification.EXTRA_TITLE)):"";
         String body="";

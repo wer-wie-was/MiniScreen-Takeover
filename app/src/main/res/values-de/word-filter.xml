@@ -1,0 +1,11 @@
+<resources>
+    <string name="ticker_word_filter" formatted="false">"Wortfilter"</string>
+    <string name="ticker_filter_enable" formatted="false">"Wortfilter aktivieren"</string>
+    <string name="ticker_filter_contains" formatted="false">"Enthält diesen Text"</string>
+    <string name="ticker_filter_whole" formatted="false">"Ganzes Wort"</string>
+    <string name="ticker_filter_help" formatted="false">"Groß-/Kleinschreibung wird ignoriert. Passende Titel oder Nachrichtentexte werden aus Ticker und Remindern ausgeschlossen, auch bei ausgeblendeten Inhalten. Notification Dot und Android-Benachrichtigungen bleiben unverändert. Übernehmen prüft auch die Warteschlange."</string>
+    <string name="ticker_filter_keyword" formatted="false">"Keyword"</string>
+    <string name="ticker_filter_add" formatted="false">"Hinzufügen"</string>
+    <string name="ticker_filter_remove" formatted="false">"Keyword entfernen"</string>
+    <string name="ticker_filter_limit" formatted="false">"Maximal 100 Keywords."</string>
+</resources>

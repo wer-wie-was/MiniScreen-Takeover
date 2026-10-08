@@ -1,0 +1,11 @@
+<resources>
+    <string name="ticker_word_filter" formatted="false">"Kelime filtresi"</string>
+    <string name="ticker_filter_enable" formatted="false">"Filtreyi etkinleştir"</string>
+    <string name="ticker_filter_contains" formatted="false">"Bu metni içerir"</string>
+    <string name="ticker_filter_whole" formatted="false">"Tam kelime"</string>
+    <string name="ticker_filter_help" formatted="false">"Büyük/küçük harf ayrımı yapılmaz. Eşleşen başlıklar ve mesajlar, içerik gizliyken de kayan yazıdan ve hatırlatıcılardan çıkarılır. Bildirim noktası ve Android bildirimleri değişmez. Kuyruk da kontrol edilir."</string>
+    <string name="ticker_filter_keyword" formatted="false">"Anahtar kelime"</string>
+    <string name="ticker_filter_add" formatted="false">"Ekle"</string>
+    <string name="ticker_filter_remove" formatted="false">"Anahtar kelimeyi kaldır"</string>
+    <string name="ticker_filter_limit" formatted="false">"En fazla 100 anahtar kelime."</string>
+</resources>

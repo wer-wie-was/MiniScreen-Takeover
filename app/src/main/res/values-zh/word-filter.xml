@@ -1,0 +1,11 @@
+<resources>
+    <string name="ticker_word_filter" formatted="false">"关键词过滤"</string>
+    <string name="ticker_filter_enable" formatted="false">"启用关键词过滤"</string>
+    <string name="ticker_filter_contains" formatted="false">"包含此文本"</string>
+    <string name="ticker_filter_whole" formatted="false">"完整单词"</string>
+    <string name="ticker_filter_help" formatted="false">"忽略大小写。匹配的标题或消息不会进入通知滚动条或提醒，即使内容被隐藏。通知圆点和 Android 通知不受影响。应用时也会检查队列。"</string>
+    <string name="ticker_filter_keyword" formatted="false">"关键词"</string>
+    <string name="ticker_filter_add" formatted="false">"添加"</string>
+    <string name="ticker_filter_remove" formatted="false">"删除关键词"</string>
+    <string name="ticker_filter_limit" formatted="false">"最多 100 个关键词。"</string>
+</resources>

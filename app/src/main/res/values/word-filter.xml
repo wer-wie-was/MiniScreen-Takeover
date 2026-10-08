@@ -1,0 +1,11 @@
+<resources>
+    <string name="ticker_word_filter" formatted="false">"Word filter"</string>
+    <string name="ticker_filter_enable" formatted="false">"Enable word filter"</string>
+    <string name="ticker_filter_contains" formatted="false">"Contains this text"</string>
+    <string name="ticker_filter_whole" formatted="false">"Whole word"</string>
+    <string name="ticker_filter_help" formatted="false">"Ignores case. Matching titles or message text are excluded from the ticker and reminders, even when content is hidden. Notification Dot and Android notifications remain unchanged. Apply also checks queued messages."</string>
+    <string name="ticker_filter_keyword" formatted="false">"Keyword"</string>
+    <string name="ticker_filter_add" formatted="false">"Add"</string>
+    <string name="ticker_filter_remove" formatted="false">"Remove keyword"</string>
+    <string name="ticker_filter_limit" formatted="false">"Maximum 100 keywords."</string>
+</resources>

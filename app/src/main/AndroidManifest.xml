@@ -1,4 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="34" />
     <uses-feature android:name="android.software.activities_on_secondary_displays" android:required="false" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
@@ -12,18 +14,35 @@
     <uses-permission android:name="android.permission.health.READ_HEART_RATE" />
     <uses-permission android:name="android.permission.health.READ_HEALTH_DATA_IN_BACKGROUND" />
     <queries>
-        <intent><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent>
+        <intent>
+            <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+        </intent>
         <package android:name="com.yft.miniscreendisplay" />
-        <intent><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
     </queries>
     <application android:name=".MiniScreenApp" android:label="MiniScreen Takeover" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher" android:theme="@style/AppTheme" android:allowBackup="false" android:supportsRtl="true" android:usesCleartextTraffic="true">
         <activity android:name=".MainActivity" android:exported="true" android:launchMode="singleTask">
-            <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".PebbleSettingsActivity" android:exported="false" />
         <activity android:name=".PebbleConfigActivity" android:exported="false" />
-        <activity android:name=".PebbleHealthActivity" android:exported="true"><intent-filter><action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" /></intent-filter></activity>
-        <activity-alias android:name=".HealthPermissionsUsage" android:targetActivity=".PebbleHealthActivity" android:exported="true" android:permission="android.permission.START_VIEW_PERMISSION_USAGE"><intent-filter><action android:name="android.intent.action.VIEW_PERMISSION_USAGE" /><category android:name="android.intent.category.HEALTH_PERMISSIONS" /></intent-filter></activity-alias>
+        <activity android:name=".PebbleHealthActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+            </intent-filter>
+        </activity>
+        <activity-alias android:name=".HealthPermissionsUsage" android:targetActivity=".PebbleHealthActivity" android:exported="true" android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+                <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
+            </intent-filter>
+        </activity-alias>
         <service android:name=".PebbleService" android:process=":pebble" android:exported="false" />
         <activity android:name=".WidgetSetupActivity" android:exported="false" />
         <activity android:name=".OnboardingActivity" android:exported="false" />
@@ -32,10 +51,15 @@
             <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="User-enabled monitoring and recovery of the built-in rear display clock, with pause and stop notification controls" />
         </service>
         <service android:name=".TickerListener" android:label="@string/ticker_section" android:exported="true" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter><action android:name="android.service.notification.NotificationListenerService" /></intent-filter>
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
         </service>
         <receiver android:name=".BootReceiver" android:exported="true">
-            <intent-filter><action android:name="android.intent.action.BOOT_COMPLETED" /><action android:name="android.intent.action.MY_PACKAGE_REPLACED" /></intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
         </receiver>
         <receiver android:name=".ScheduleReceiver" android:exported="false">
             <intent-filter>

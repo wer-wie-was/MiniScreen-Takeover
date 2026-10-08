@@ -8,7 +8,7 @@
     <string name="msg_005" formatted="false">"ANTEPRIMA LIVE"</string>
     <string name="msg_006" formatted="false">"Margine pixel shifting"</string>
     <string name="msg_007" formatted="false">"Elaborazione del file…"</string>
-    <string name="msg_008" formatted="false">"MiniScreen Takeover 0.3.6 · vibe-coded"</string>
+    <string name="msg_008" formatted="false">"MiniScreen Takeover %1$s · vibe-coded"</string>
     <string name="msg_009" formatted="false">", sezione espandibile"</string>
     <string name="msg_010" formatted="false">"Schermo non ancora avviato"</string>
     <string name="msg_011" formatted="false">"▶ Mostra sullo schermo posteriore"</string>

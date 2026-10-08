@@ -66,7 +66,7 @@ final class TickerView extends View {
         canvas.clipRect(left,textTop,x+width-pad,y+height-pad);
         if(scroll){
             String value=message.text.replace('\n',' ');float length=text.measureText(value),position=left+Math.max(0,(available-length)/2);
-            if(length>available){float distance=(SystemClock.elapsedRealtime()-message.started)/1000f*settings.number("speed",28,5,120)*scale;position=left-(distance%(length+available+30*scale));if(position+length<left)position+=length+available+30*scale;}
+            if(length>available){float distance=(SystemClock.elapsedRealtime()-message.started)/1000f*settings.number("speed",28,5,360)*scale;position=left-(distance%(length+available+30*scale));if(position+length<left)position+=length+available+30*scale;}
             Paint.FontMetrics fm=text.getFontMetrics();canvas.drawText(value,position,textTop+(textHeight-fm.ascent-fm.descent)/2,text);
             if(running&&length>available)postInvalidateOnAnimation();
         }else{

@@ -1,0 +1,11 @@
+<resources>
+    <string name="ticker_word_filter" formatted="false">"Фильтр слов"</string>
+    <string name="ticker_filter_enable" formatted="false">"Включить фильтр"</string>
+    <string name="ticker_filter_contains" formatted="false">"Содержит этот текст"</string>
+    <string name="ticker_filter_whole" formatted="false">"Целое слово"</string>
+    <string name="ticker_filter_help" formatted="false">"Регистр игнорируется. Совпадающие заголовки и сообщения исключаются из строки и напоминаний даже при скрытом тексте. Точка и уведомления Android не меняются. Очередь также проверяется."</string>
+    <string name="ticker_filter_keyword" formatted="false">"Ключевое слово"</string>
+    <string name="ticker_filter_add" formatted="false">"Добавить"</string>
+    <string name="ticker_filter_remove" formatted="false">"Удалить ключевое слово"</string>
+    <string name="ticker_filter_limit" formatted="false">"Не более 100 ключевых слов."</string>
+</resources>

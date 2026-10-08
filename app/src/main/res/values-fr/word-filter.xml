@@ -1,0 +1,11 @@
+<resources>
+    <string name="ticker_word_filter" formatted="false">"Filtre de mots"</string>
+    <string name="ticker_filter_enable" formatted="false">"Activer le filtre"</string>
+    <string name="ticker_filter_contains" formatted="false">"Contient ce texte"</string>
+    <string name="ticker_filter_whole" formatted="false">"Mot entier"</string>
+    <string name="ticker_filter_help" formatted="false">"La casse est ignorée. Les titres et messages correspondants sont exclus du ticker et des rappels, même si le contenu est masqué. Le point et les notifications Android restent inchangés. La file est aussi vérifiée."</string>
+    <string name="ticker_filter_keyword" formatted="false">"Mot-clé"</string>
+    <string name="ticker_filter_add" formatted="false">"Ajouter"</string>
+    <string name="ticker_filter_remove" formatted="false">"Supprimer le mot-clé"</string>
+    <string name="ticker_filter_limit" formatted="false">"Maximum 100 mots-clés."</string>
+</resources>
