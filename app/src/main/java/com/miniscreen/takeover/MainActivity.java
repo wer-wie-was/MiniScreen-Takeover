@@ -20,7 +20,7 @@ import java.util.concurrent.*;
 import java.util.function.*;
 
 public final class MainActivity extends Activity implements SharedPreferences.OnSharedPreferenceChangeListener,DisplayManager.DisplayListener {
-    private static final int IMAGE=11,FONT=12,DESIGN=13,IMPORT_PROFILE=14,EXPORT_PROFILE=15,CHARGE_FONT=16,WIDGET=80;
+    private static final int IMAGE=11,FONT=12,DESIGN=13,IMPORT_PROFILE=14,EXPORT_PROFILE=15,CHARGE_FONT=16,WIDGET=80,WFZ=81;
     private final ExecutorService worker=Executors.newSingleThreadExecutor();
     private boolean zoomAdjusting;
     private final Runnable zoomLease=new Runnable(){public void run(){if(!zoomAdjusting)return;zoomPause(1500);handler.postDelayed(this,500);}};
@@ -68,7 +68,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         layout.addView(new UpdatePanel(this));
         scroll=new ScrollView(this);scroll.setFillViewport(true);root=new LinearLayout(this);root.setOrientation(LinearLayout.VERTICAL);root.setPadding(dp(18),0,dp(18),dp(8));scroll.addView(root);layout.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));setContentView(layout);
         button(root,I18n.get(R.string.update_title),()->startActivity(new Intent(this,UpdateActivity.class)));
-        languageSettings();controls();scheduleSettings();externalApps();profiles();clockSettings();background();charging();pebbleSettings();widgetSettings();tickerSettings();dotSettings();shifting();html();
+        languageSettings();controls();scheduleSettings();externalApps();profiles();clockSettings();background();charging();pebbleSettings();wfzSettings();widgetSettings();tickerSettings();dotSettings();shifting();html();
         text(root,I18n.get(R.string.msg_008).replace("%1$s",AppVersion.name(this)),12).setTextColor(0xFF9FACBE);
         scroll.post(()->scroll.scrollTo(0,y));
     }
@@ -123,7 +123,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private void profiles() {
         LinearLayout p=section(I18n.get(R.string.msg_004));List<String> ids=store.ids();String[] names=new String[ids.size()];for(int i=0;i<ids.size();i++)names[i]=store.load(ids.get(i)).name;
         choose(p,I18n.get(R.string.msg_040),names,Math.max(0,ids.indexOf(store.active())),i->{store.select(ids.get(i));config=store.load();build();});
-        choose(p,I18n.get(R.string.msg_041),new String[]{I18n.get(R.string.msg_042),I18n.get(R.string.msg_043),I18n.get(R.string.pebble_section)},config.mode.equals("pebble")?2:config.mode.equals("html")?1:0,i->{if(i==2){config.mode="pebble";changed();build();startActivity(new Intent(this,PebbleSettingsActivity.class));return;}if(i==1&&config.design.isEmpty()){String id=store.active();backgroundWork(I18n.get(R.string.msg_044),()->{Config c=store.load(id);c.design=store.builtIn(id);c.mode="html";store.save(id,c);return id;},v->{config=store.load();build();});}else{config.mode=i==1?"html":"native";changed();build();}});
+        choose(p,I18n.get(R.string.msg_041),new String[]{I18n.get(R.string.msg_042),I18n.get(R.string.msg_043),I18n.get(R.string.pebble_section),I18n.get(R.string.wfz_section)},config.mode.equals("wfz")?3:config.mode.equals("pebble")?2:config.mode.equals("html")?1:0,i->{if(i==3){config.mode="wfz";changed();build();return;}if(i==2){config.mode="pebble";changed();build();startActivity(new Intent(this,PebbleSettingsActivity.class));return;}if(i==1&&config.design.isEmpty()){String id=store.active();backgroundWork(I18n.get(R.string.msg_044),()->{Config c=store.load(id);c.design=store.builtIn(id);c.mode="html";store.save(id,c);return id;},v->{config=store.load();build();});}else{config.mode=i==1?"html":"native";changed();build();}});
         button(p,I18n.get(R.string.msg_045),()->nameDialog(I18n.get(R.string.msg_045),I18n.get(R.string.msg_046),name->{try{store.create(name,false);config=store.load();build();}catch(Exception e){error(e);}}));
         button(p,I18n.get(R.string.msg_047),()->nameDialog(I18n.get(R.string.msg_047),config.name+I18n.get(R.string.msg_048),name->backgroundWork(I18n.get(R.string.msg_049),()->store.create(name,true),id->{config=store.load();build();})));
         button(p,I18n.get(R.string.msg_050),()->nameDialog(I18n.get(R.string.msg_051),config.name,name->{config.name=name;changed();build();}));
@@ -290,6 +290,41 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private void moduleChanged(){NotificationDot.changed(this);if(preview!=null)preview.surface.tick();}
     private void moduleBool(LinearLayout p,int label,String key,boolean fallback){check(p,tt(label),store.prefs.getBoolean(key,fallback),v->{store.prefs.edit().putBoolean(key,v).apply();moduleChanged();});}
     private void moduleSlider(LinearLayout p,int label,String key,int min,int max,int value){slider(p,tt(label),min,max,Config.clamp(store.prefs.getInt(key,value),min,max),v->{store.prefs.edit().putInt(key,v).apply();moduleChanged();});}
+    private void wfzSettings(){
+        LinearLayout p=section(tt(R.string.wfz_section));
+        check(p,tt(R.string.wfz_enable),config.mode.equals("wfz"),v->{config.mode=v?"wfz":"native";changed();build();});
+        text(p,tt(R.string.wfz_help),13);
+        button(p,tt(R.string.wfz_import),()->pick(WFZ));
+        text(p,config.wfz.isEmpty()?tt(R.string.wfz_empty):WfzImport.report(new File(store.dir(store.active()),config.wfz)),13);
+        button(p,tt(R.string.wfz_remove),()->{String old=config.wfz;String profileId=store.active();config.wfz="";config.wfzWidgets=new org.json.JSONObject();if(config.mode.equals("wfz"))config.mode="native";changed();build();if(old.startsWith("wfz-"))worker.execute(()->{try{ProfileStore.deleteTree(store.resolve(profileId,old.split("/")[0]));}catch(Exception ignored){}});});
+        if(!config.wfz.isEmpty())button(p,tt(R.string.wfz_widgets),this::wfzWidgetSettings);
+        slider(p,tt(R.string.wfz_step_goal),1000,50000,config.wfzStepGoal,v->{config.wfzStepGoal=v;changed();});
+        button(p,tt(R.string.wfz_widget_color),()->ColorPicker.show(this,tt(R.string.wfz_widget_color),config.wfzWidgetColor,v->{config.wfzWidgetColor=v;changed();}));
+        check(p,tt(R.string.wfz_seconds),config.wfzSeconds,v->{config.wfzSeconds=v;changed();});
+        check(p,tt(R.string.wfz_crop),config.wfzCrop,v->{config.wfzCrop=v;changed();});
+        int[] sizes={0,320,360,454,466,480};String[] labels={tt(R.string.wfz_auto),"320 × 320","360 × 360","454 × 454","466 × 466","480 × 480"};int selection=0;for(int i=0;i<sizes.length;i++)if(config.wfzSize==sizes[i])selection=i;
+        choose(p,tt(R.string.wfz_resolution),labels,selection,i->{config.wfzSize=sizes[i];changed();});
+        check(p,tt(R.string.wfz_health),config.wfzHealth,v->{config.wfzHealth=v;changed();});
+        button(p,tt(R.string.pebble_health),()->startActivity(new Intent(this,PebbleHealthActivity.class)));
+    }
+    private void wfzWidgetSettings(){
+        final String profileId=store.active(),face=config.wfz;final File root=new File(store.dir(profileId),face);
+        final java.util.concurrent.atomic.AtomicReference<java.util.List<WfzWidgets.Spec>> result=new java.util.concurrent.atomic.AtomicReference<>();
+        backgroundWork(tt(R.string.msg_007),()->{result.set(WfzWidgets.read(root));return "";},unused->{
+            if(!profileId.equals(store.active())||!face.equals(config.wfz))return;
+            LinearLayout box=new LinearLayout(this);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(dp(16),dp(8),dp(16),dp(8));
+            text(box,tt(R.string.wfz_widget_help),13);
+            for(WfzWidgets.Spec spec:result.get()){
+                String[] labels=new String[spec.choices.size()];int selected=0;
+                for(int i=0;i<labels.length;i++){WfzWidgets.Choice c=spec.choices.get(i);labels[i]=c.label();if(c.token().equals(spec.selected(config).token()))selected=i;}
+                choose(box,tt(R.string.wfz_widget)+" "+(Integer.parseInt(spec.key.substring(7))+1)+" · "+spec.x+", "+spec.y,labels,selected,i->{
+                    if(!profileId.equals(store.active())||!face.equals(config.wfz))return;
+                    try{config.wfzWidgets.put(spec.key,spec.choices.get(i).token());changed();}catch(org.json.JSONException e){error(e);}
+                });
+            }
+            ScrollView scroll=new ScrollView(this);scroll.addView(box);new AlertDialog.Builder(this).setTitle(tt(R.string.wfz_widgets)).setView(scroll).setPositiveButton(android.R.string.ok,null).show();
+        });
+    }
     private void pebbleSettings(){LinearLayout p=section(tt(R.string.pebble_section));check(p,tt(R.string.pebble_use_mode),config.mode.equals("pebble"),enabled->{config.mode=enabled?"pebble":"native";changed();build();});text(p,tt(R.string.pebble_help),13);button(p,tt(R.string.pebble_open),()->startActivity(new Intent(this,PebbleSettingsActivity.class)));button(p,tt(R.string.pebble_restart),()->PebbleSession.get(this).restart());}
     private void widgetSettings(){
         LinearLayout p=section(tt(R.string.widget_section));moduleBool(p,R.string.widget_enabled,"widget_enabled",false);
@@ -395,9 +430,10 @@ public final class MainActivity extends Activity implements SharedPreferences.On
             Config c=store.load(id);
             if(request==IMAGE){String path=store.importAsset(id,uri,"background",".img");Bitmap image=ClockView.decodeImage(store.resolve(id,path));if(image==null){store.resolve(id,path).delete();throw new IOException(I18n.get(R.string.msg_115));}image.recycle();c.image=path;}
             else if(request==FONT||request==CHARGE_FONT){String ext=fileName.endsWith(".otf")?".otf":".ttf";String path=store.importAsset(id,uri,request==CHARGE_FONT?"charge-font":"font",ext);try{Typeface.createFromFile(store.resolve(id,path));}catch(RuntimeException e){store.resolve(id,path).delete();throw new IOException(I18n.get(R.string.msg_116));}if(request==CHARGE_FONT)c.chargeFontFile=path;else c.fontFile=path;}
+            else if(request==WFZ){c.wfz=WfzImport.importFile(this,store,id,uri);c.wfzWidgets=new org.json.JSONObject();}
             else if(request==DESIGN){boolean zip=fileName.endsWith(".zip")||"application/zip".equals(getContentResolver().getType(uri));c.design=store.importDesign(id,uri,zip);c.mode="html";}
             else throw new IOException(I18n.get(R.string.msg_117));store.save(id,c);return id;
-        },newId->{config=store.load();build();toast(I18n.get(R.string.msg_118));});
+        },newId->{config=store.load();build();if(request==WFZ)new AlertDialog.Builder(this).setTitle(tt(R.string.wfz_section)).setMessage(WfzImport.report(new File(store.dir(id),store.load(id).wfz))).setPositiveButton(android.R.string.ok,null).show();else toast(I18n.get(R.string.msg_118));});
     }
     private interface Job {String run() throws Exception;}
     private void backgroundWork(String message,Job job,Consumer<String> done){busy=true;workStatus.setVisibility(View.VISIBLE);workStatus.setText(message);worker.execute(()->{try{String value=job.run();runOnUiThread(()->{if(isDestroyed())return;busy=false;workStatus.setVisibility(View.GONE);done.accept(value);});}catch(Exception e){failed(e);}});}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wfz_variant" formatted="false">"样式"</string>
+    <string name="wfz_distance" formatted="false">"每日距离"</string>
+    <string name="wfz_workout_distance" formatted="false">"训练距离"</string>
+    <string name="wfz_calories" formatted="false">"活动卡路里"</string>
+    <string name="wfz_weather" formatted="false">"天气"</string>
+    <string name="wfz_date" formatted="false">"日期"</string>
+    <string name="wfz_battery" formatted="false">"电池"</string>
+    <string name="wfz_widgets" formatted="false">"WFZ 组件"</string>
+    <string name="wfz_step_goal" formatted="false">"进度环的步数目标"</string>
+    <string name="wfz_widget_color" formatted="false">"组件强调色"</string>
+    <string name="wfz_widget" formatted="false">"组件"</string>
+    <string name="wfz_widget_help" formatted="false">"选择组件样式。不可用的数据显示为 --。天气和训练距离尚无数据源。系统组件使用原生替代图形。"</string>
+</resources>

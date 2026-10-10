@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wfz_variant" formatted="false">"Вариант"</string>
+    <string name="wfz_distance" formatted="false">"Дистанция за день"</string>
+    <string name="wfz_workout_distance" formatted="false">"Дистанция тренировки"</string>
+    <string name="wfz_calories" formatted="false">"Активные калории"</string>
+    <string name="wfz_weather" formatted="false">"Погода"</string>
+    <string name="wfz_date" formatted="false">"Дата"</string>
+    <string name="wfz_battery" formatted="false">"Батарея"</string>
+    <string name="wfz_widgets" formatted="false">"Виджеты WFZ"</string>
+    <string name="wfz_step_goal" formatted="false">"Цель шагов для кольца прогресса"</string>
+    <string name="wfz_widget_color" formatted="false">"Цвет виджетов"</string>
+    <string name="wfz_widget" formatted="false">"Виджет"</string>
+    <string name="wfz_widget_help" formatted="false">"Выберите вариант. Недоступные данные отображаются как --. Для погоды и дистанции тренировки нет источника данных. Системные виджеты заменяются собственной графикой."</string>
+</resources>

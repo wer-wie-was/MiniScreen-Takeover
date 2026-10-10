@@ -17,6 +17,7 @@ final class DisplaySurface extends FrameLayout {
     private static final String ORIGIN="https://miniscreen.local";
     private final ProfileStore store;
     private final Handler handler=new Handler(Looper.getMainLooper());
+    private WfzView wfz;
     private ClockView clock;private PebbleView pebble;
     private WebView web;
     private ChargeView charge;
@@ -26,7 +27,7 @@ final class DisplaySurface extends FrameLayout {
     private boolean tickerDemo;
     void simulateTicker(boolean value){tickerDemo=preview&&value;tick();}
     private boolean plugged,simulateCharge;
-    private int batteryLevel;
+    private int batteryLevel;private boolean batteryKnown;
     private Config config;
     private String profile="",loadedDesign="",loadedMode="",loadedImage="",loadedFont="";
     private File designRoot;
@@ -41,7 +42,7 @@ final class DisplaySurface extends FrameLayout {
         if(moving||(charge!=null&&charge.animated()))handler.postDelayed(this,33);
     }};
     private final BroadcastReceiver batteryReceiver=new BroadcastReceiver(){@Override public void onReceive(Context c,Intent i){readBattery(i);tick();}};
-    private void readBattery(Intent i){if(i==null)return;int max=i.getIntExtra(BatteryManager.EXTRA_SCALE,0),level=i.getIntExtra(BatteryManager.EXTRA_LEVEL,-1);plugged=i.getIntExtra(BatteryManager.EXTRA_PLUGGED,0)!=0&&max>0&&level>=0;batteryLevel=max>0?Config.clamp(Math.round(level*100f/max),0,100):0;updateBattery();}
+    private void readBattery(Intent i){if(i==null)return;int max=i.getIntExtra(BatteryManager.EXTRA_SCALE,0),level=i.getIntExtra(BatteryManager.EXTRA_LEVEL,-1);batteryKnown=max>0&&level>=0;plugged=i.getIntExtra(BatteryManager.EXTRA_PLUGGED,0)!=0&&max>0&&level>=0;batteryLevel=max>0?Config.clamp(Math.round(level*100f/max),0,100):0;updateBattery();}
     private void updateBattery(){if(charge!=null)charge.battery(preview&&simulateCharge||plugged,preview&&simulateCharge?65:batteryLevel);}
     void simulateCharge(boolean enabled){simulateCharge=preview&&enabled;updateBattery();tick();}
     private final BroadcastReceiver timeReceiver=new BroadcastReceiver(){@Override public void onReceive(Context c,Intent i){tick();}};
@@ -55,8 +56,9 @@ final class DisplaySurface extends FrameLayout {
         config=c;profile=id;loadedDesign=c.design;loadedMode=c.mode;loadedImage=c.image;loadedFont=c.fontFile;
         setBackgroundColor(Color.parseColor(c.backgroundColor));
         if(rebuild) {
-            releaseWeb();if(pebble!=null){pebble.stop();pebble=null;}if(widgetLayer!=null)widgetLayer.dispose();removeAllViews();clock=null;ready=false;
+            releaseWeb();if(wfz!=null){wfz.dispose();wfz=null;}if(pebble!=null){pebble.stop();pebble=null;}if(widgetLayer!=null)widgetLayer.dispose();removeAllViews();clock=null;ready=false;
             if(c.mode.equals("pebble")){pebble=new PebbleView(getContext(),preview);addView(pebble,new LayoutParams(-1,-1));}
+            else if(c.mode.equals("wfz")){wfz=new WfzView(getContext(),preview);addView(wfz,new LayoutParams(-1,-1));}
             else if(c.mode.equals("html")&&!c.design.isEmpty()) createWeb();
             else {clock=new ClockView(getContext());addView(clock,new LayoutParams(-1,-1));}
             widgetLayer=new WidgetLayer(getContext());addView(widgetLayer,new LayoutParams(-1,-1));
@@ -64,6 +66,7 @@ final class DisplaySurface extends FrameLayout {
             charge=new ChargeView(getContext());addView(charge,new LayoutParams(-1,-1));
             notificationView=new TickerView(getContext(),preview);addView(notificationView,new LayoutParams(-1,-1));
         }
+        if(wfz!=null)wfz.configure(c,store.dir(profile));
         if(charge!=null){charge.configure(c,store.dir(profile));updateBattery();charge.bringToFront();}
         if(clock!=null) {
             // Colors, sizing and typefaces are applied with the current profile. Image decoding is cached separately below.
@@ -152,6 +155,7 @@ final class DisplaySurface extends FrameLayout {
     void tick() {
         handler.removeCallbacks(ticker);if(config==null||disposed)return;
         long now=System.currentTimeMillis();float[] offset=offset(config,now);float dx=offset[0]*scale(),dy=offset[1]*scale();
+        if(wfz!=null)wfz.update(batteryKnown?batteryLevel:-1,dx,dy,running);
         if(pebble!=null)pebble.update(config,dx,dy,running);
         if(widgetLayer!=null)widgetLayer.update(config,dx,dy,running);
         if(dot!=null)dot.update(preview?(dotDemo?NotificationDot.color(getContext(),true):null):(running?NotificationDot.color(getContext(),false):null),config,dx,dy);
@@ -161,10 +165,10 @@ final class DisplaySurface extends FrameLayout {
         boolean ownHtml=web!=null&&ts.html();
         if(notificationView!=null)notificationView.update(ownHtml?null:notification,config,store.dir(profile),dx,dy,running);
         float alpha=notification==null?1:ts.number("clock",0,0,2)==1?.25f:ts.number("clock",0,0,2)==2?0:1;
-        if(clock!=null)clock.notificationAlpha(alpha);if(web!=null)web.setAlpha(ownHtml?1:alpha);
+        if(wfz!=null)wfz.setAlpha(alpha);if(clock!=null)clock.notificationAlpha(alpha);if(web!=null)web.setAlpha(ownHtml?1:alpha);
         if(web!=null){web.setTranslationX(dx);web.setTranslationY(dy);if(ready)pushData(now,offset);}
         handler.removeCallbacks(motionFrame);if(running)handler.post(motionFrame);
-        if(running){long refresh=(ts.enabled()||tickerDemo||NotificationDot.enabled(getContext())||dotDemo)?250:config.seconds?1000:60000;long next=refresh-now%refresh;
+        if(running){long refresh=(ts.enabled()||tickerDemo||NotificationDot.enabled(getContext())||dotDemo)?250:(wfz!=null?config.wfzSeconds:config.seconds)?1000:60000;long next=refresh-now%refresh;
             if(config.shifting)next=Math.min(next,config.shiftInterval*1000L-now%(config.shiftInterval*1000L));handler.postDelayed(ticker,Math.max(30,next));}
     }
     private void pushData(long now,float[] offset) {
@@ -187,9 +191,9 @@ final class DisplaySurface extends FrameLayout {
             web.evaluateJavascript(js,null);
         }catch(Exception e){report(I18n.get(R.string.msg_160)+e.getMessage());}
     }
-    void start() {if(running||disposed)return;running=true;store.prefs.registerOnSharedPreferenceChangeListener(zoomListener);IntentFilter f=new IntentFilter();f.addAction(Intent.ACTION_TIME_CHANGED);f.addAction(Intent.ACTION_TIMEZONE_CHANGED);f.addAction(Intent.ACTION_DATE_CHANGED);if(Build.VERSION.SDK_INT>=33){getContext().registerReceiver(timeReceiver,f,Context.RECEIVER_NOT_EXPORTED);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED),Context.RECEIVER_NOT_EXPORTED);}else{getContext().registerReceiver(timeReceiver,f);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));}if(web!=null)web.onResume();tick();}
-    void stop() {handler.removeCallbacks(ticker);handler.removeCallbacks(motionFrame);if(running){running=false;store.prefs.unregisterOnSharedPreferenceChangeListener(zoomListener);getContext().unregisterReceiver(timeReceiver);getContext().unregisterReceiver(batteryReceiver);}notification=null;if(pebble!=null)pebble.stop();if(widgetLayer!=null)widgetLayer.stop();if(dot!=null)dot.update(null,config,0,0);if(notificationView!=null)notificationView.stop();if(clock!=null){clock.motionRunning(false);clock.notificationAlpha(1);}if(web!=null){web.setAlpha(1);if(ready&&config!=null)pushData(System.currentTimeMillis(),offset(config,System.currentTimeMillis()));web.onPause();}}
-    void dispose(){stop();disposed=true;if(widgetLayer!=null)widgetLayer.dispose();releaseWeb();removeAllViews();}
+    void start() {if(running||disposed)return;readBattery(getContext().registerReceiver(null,new IntentFilter(Intent.ACTION_BATTERY_CHANGED)));running=true;store.prefs.registerOnSharedPreferenceChangeListener(zoomListener);IntentFilter f=new IntentFilter();f.addAction(Intent.ACTION_TIME_CHANGED);f.addAction(Intent.ACTION_TIMEZONE_CHANGED);f.addAction(Intent.ACTION_DATE_CHANGED);if(Build.VERSION.SDK_INT>=33){getContext().registerReceiver(timeReceiver,f,Context.RECEIVER_NOT_EXPORTED);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED),Context.RECEIVER_NOT_EXPORTED);}else{getContext().registerReceiver(timeReceiver,f);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));}if(web!=null)web.onResume();tick();}
+    void stop() {handler.removeCallbacks(ticker);handler.removeCallbacks(motionFrame);if(running){running=false;store.prefs.unregisterOnSharedPreferenceChangeListener(zoomListener);getContext().unregisterReceiver(timeReceiver);getContext().unregisterReceiver(batteryReceiver);}notification=null;if(wfz!=null)wfz.stop();if(pebble!=null)pebble.stop();if(widgetLayer!=null)widgetLayer.stop();if(dot!=null)dot.update(null,config,0,0);if(notificationView!=null)notificationView.stop();if(clock!=null){clock.motionRunning(false);clock.notificationAlpha(1);}if(web!=null){web.setAlpha(1);if(ready&&config!=null)pushData(System.currentTimeMillis(),offset(config,System.currentTimeMillis()));web.onPause();}}
+    void dispose(){stop();disposed=true;if(wfz!=null)wfz.dispose();if(widgetLayer!=null)widgetLayer.dispose();releaseWeb();removeAllViews();}
     private void releaseWeb(){if(web!=null){removeView(web);web.stopLoading();web.destroy();web=null;}}
     @Override public boolean dispatchTouchEvent(MotionEvent e){return true;}
     @Override public boolean dispatchGenericMotionEvent(MotionEvent e){return true;}

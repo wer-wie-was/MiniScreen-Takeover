@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wfz_section">Amazfit 表盘（实验性）</string>
+    <string name="wfz_enable">使用 WFZ 表盘</string>
+    <string name="wfz_help">原生渲染部分 Stratos/Pace 元素和简单的 Stratos 3 组件。导入 .wfz 文件后，请先检查报告再启用。未知组件和动画会被省略，部分系统组件使用纯文字替代。不支持 BIN、Zepp OS 或 APK 表盘。默认不显示秒。</string>
+    <string name="wfz_import">导入 .wfz 表盘</string>
+    <string name="wfz_remove">移除表盘</string>
+    <string name="wfz_empty">尚未导入 WFZ 表盘</string>
+    <string name="wfz_seconds">显示秒（每秒更新一次）</string>
+    <string name="wfz_crop">裁剪以填满屏幕</string>
+    <string name="wfz_auto">自动</string>
+    <string name="wfz_resolution">原始分辨率</string>
+    <string name="wfz_health">使用可选健康数据</string>
+    <string name="wfz_supported">支持的功能子集，请检查预览</string>
+    <string name="wfz_partial">部分支持，请查看详情</string>
+    <string name="wfz_invalid">WFZ 无效或不受支持</string>
+    <string name="wfz_loading">正在加载 WFZ…</string>
+    <string name="wfz_no_report">请重新导入以生成兼容性报告</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wfz_section">Quadranti Amazfit (sperimentale)</string>
+    <string name="wfz_enable">Usa quadrante WFZ</string>
+    <string name="wfz_help">Rendering nativo di alcuni elementi Stratos/Pace e componenti semplici Stratos 3. Importa un file .wfz e verifica il rapporto prima di attivarlo. Widget sconosciuti e animazioni vengono omessi; alcuni widget di sistema sono sostituiti da testo. BIN, Zepp OS e APK non sono supportati. Secondi disattivati per impostazione predefinita.</string>
+    <string name="wfz_import">Importa quadrante .wfz</string>
+    <string name="wfz_remove">Rimuovi quadrante</string>
+    <string name="wfz_empty">Nessun quadrante WFZ importato</string>
+    <string name="wfz_seconds">Mostra secondi (1 aggiornamento/s)</string>
+    <string name="wfz_crop">Ritaglia per riempire lo schermo</string>
+    <string name="wfz_auto">Automatico</string>
+    <string name="wfz_resolution">Risoluzione originale</string>
+    <string name="wfz_health">Usa dati sanitari facoltativi</string>
+    <string name="wfz_supported">Sottoinsieme supportato — verifica anteprima</string>
+    <string name="wfz_partial">Supporto parziale — vedi dettagli</string>
+    <string name="wfz_invalid">WFZ non valido o non supportato</string>
+    <string name="wfz_loading">Caricamento WFZ…</string>
+    <string name="wfz_no_report">Importa nuovamente per generare un rapporto di compatibilità</string>
+</resources>

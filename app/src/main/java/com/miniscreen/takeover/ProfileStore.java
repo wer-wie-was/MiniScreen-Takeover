@@ -67,12 +67,13 @@ final class ProfileStore {
     String importProfile(Uri uri) throws IOException {
         String id=UUID.randomUUID().toString();File folder=dir(id);folder.mkdirs();
         try {
-            try(InputStream in=context.getContentResolver().openInputStream(uri)){if(in==null)throw new IOException(I18n.get(R.string.msg_165));extract(in,folder,64*1024*1024,220);}
+            try(InputStream in=context.getContentResolver().openInputStream(uri)){if(in==null)throw new IOException(I18n.get(R.string.msg_165));extract(in,folder,64*1024*1024,2000);}
             JSONObject j=new JSONObject(readText(new File(folder,"profile.json"),1024*1024));
             if(j.optInt("schema")!=1)throw new IOException(I18n.get(R.string.msg_169));Config c=Config.from(j);
             if(!c.design.isEmpty()&&c.design.indexOf('/')<1)throw new IOException(I18n.get(R.string.msg_170));
             for(String path:new String[]{c.image,c.fontFile,c.chargeFontFile,c.design})if(!path.isEmpty()&&!resolve(id,path).isFile())throw new IOException(I18n.get(R.string.msg_171));
             if(c.mode.equals("html")&&c.design.isEmpty())throw new IOException(I18n.get(R.string.msg_172));
+            if(!c.wfz.isEmpty())WfzScene.load(resolve(id,c.wfz));
             save(id,c);return id;
         }catch(Exception e){deleteTree(folder);throw new IOException(I18n.get(R.string.msg_173)+e.getMessage(),e);}
     }
@@ -84,6 +85,7 @@ final class ProfileStore {
             if(!c.fontFile.isEmpty())files.add(resolve(id,c.fontFile));
             if(!c.chargeFontFile.isEmpty())files.add(resolve(id,c.chargeFontFile));
             if(!c.design.isEmpty())collectFiles(resolve(id,c.design.substring(0,c.design.indexOf('/'))),files);
+            if(!c.wfz.isEmpty())collectFiles(resolve(id,c.wfz.split("/")[0]),files);
             for(File file:files)zipFile(folder,file,z);
         }}
     }

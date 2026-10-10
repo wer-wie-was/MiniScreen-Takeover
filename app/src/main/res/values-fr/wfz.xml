@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wfz_section">Cadrans Amazfit (expérimental)</string>
+    <string name="wfz_enable">Utiliser le cadran WFZ</string>
+    <string name="wfz_help">Rendu natif de certains éléments Stratos/Pace et composants simples Stratos 3. Importez un fichier .wfz et vérifiez le rapport avant activation. Les widgets inconnus et animations sont omis ; certains widgets système sont remplacés par du texte. BIN, Zepp OS et APK ne sont pas pris en charge. Les secondes sont désactivées par défaut.</string>
+    <string name="wfz_import">Importer un cadran .wfz</string>
+    <string name="wfz_remove">Supprimer le cadran</string>
+    <string name="wfz_empty">Aucun cadran WFZ importé</string>
+    <string name="wfz_seconds">Afficher les secondes (1 mise à jour/s)</string>
+    <string name="wfz_crop">Recadrer pour remplir l’écran</string>
+    <string name="wfz_auto">Automatique</string>
+    <string name="wfz_resolution">Résolution source</string>
+    <string name="wfz_health">Utiliser les données de santé facultatives</string>
+    <string name="wfz_supported">Sous-ensemble pris en charge — vérifier l’aperçu</string>
+    <string name="wfz_partial">Partiellement pris en charge — voir les détails</string>
+    <string name="wfz_invalid">WFZ invalide ou non pris en charge</string>
+    <string name="wfz_loading">Chargement WFZ…</string>
+    <string name="wfz_no_report">Réimporter pour générer un rapport de compatibilité</string>
+</resources>

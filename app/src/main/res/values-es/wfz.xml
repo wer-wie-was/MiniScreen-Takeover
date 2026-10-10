@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wfz_section">Esferas Amazfit (experimental)</string>
+    <string name="wfz_enable">Usar esfera WFZ</string>
+    <string name="wfz_help">Renderizado nativo de ciertos elementos Stratos/Pace y componentes simples Stratos 3. Importa un archivo .wfz y revisa el informe antes de activarlo. Se omiten widgets desconocidos y animaciones; algunos widgets del sistema se sustituyen por texto. BIN, Zepp OS y APK no son compatibles. Los segundos están desactivados por defecto.</string>
+    <string name="wfz_import">Importar esfera .wfz</string>
+    <string name="wfz_remove">Eliminar esfera</string>
+    <string name="wfz_empty">Ninguna esfera WFZ importada</string>
+    <string name="wfz_seconds">Mostrar segundos (1 actualización/s)</string>
+    <string name="wfz_crop">Recortar para llenar la pantalla</string>
+    <string name="wfz_auto">Automático</string>
+    <string name="wfz_resolution">Resolución original</string>
+    <string name="wfz_health">Usar datos de salud opcionales</string>
+    <string name="wfz_supported">Subconjunto compatible — revisar vista previa</string>
+    <string name="wfz_partial">Parcialmente compatible — ver detalles</string>
+    <string name="wfz_invalid">WFZ no válido o incompatible</string>
+    <string name="wfz_loading">Cargando WFZ…</string>
+    <string name="wfz_no_report">Vuelve a importar para generar un informe de compatibilidad</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wfz_variant" formatted="false">"Variant"</string>
+    <string name="wfz_distance" formatted="false">"Daily distance"</string>
+    <string name="wfz_workout_distance" formatted="false">"Workout distance"</string>
+    <string name="wfz_calories" formatted="false">"Active calories"</string>
+    <string name="wfz_weather" formatted="false">"Weather"</string>
+    <string name="wfz_date" formatted="false">"Date"</string>
+    <string name="wfz_battery" formatted="false">"Battery"</string>
+    <string name="wfz_widgets" formatted="false">"WFZ widgets"</string>
+    <string name="wfz_step_goal" formatted="false">"Step goal for progress ring"</string>
+    <string name="wfz_widget_color" formatted="false">"Widget accent colour"</string>
+    <string name="wfz_widget" formatted="false">"Widget"</string>
+    <string name="wfz_widget_help" formatted="false">"Choose a widget variant. Unavailable data is shown as --. Weather and workout distance have no data source. System widget artwork is replaced by native graphics."</string>
+</resources>
