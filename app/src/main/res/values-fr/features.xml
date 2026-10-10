@@ -2,9 +2,9 @@
 <resources>
     <string name="window_mode" formatted="false">"Vitrine"</string>
     <string name="window_zoom" formatted="false">"Zoom de la vitrine (%)"</string>
-    <string name="window_speed" formatted="false">"Vitrine : secondes par déplacement"</string>
+    <string name="window_speed" formatted="false">Vitesse de déplacement (px/s pour 340 px)</string>
     <string name="window_moving" formatted="false">"Activer le mouvement de la vitrine"</string>
-    <string name="window_help" formatted="false">"La vitrine déplace doucement une image agrandie entre des positions aléatoires. Plus de zoom réduit la zone visible. Plus de secondes ralentit le mouvement. Le filtre d’assombrissement reste actif."</string>
+    <string name="window_help" formatted="false">Déplacement régulier avec changements de direction aléatoires et doux. Le zoom reste centré sur le point actuel de l’image. Le déplacement reprend une seconde après avoir relâché le zoom.</string>
     <string name="external_section" formatted="false">"Autre application"</string>
     <string name="external_none" formatted="false">"Aucune application sélectionnée"</string>
     <string name="external_choose" formatted="false">"Choisir une application"</string>

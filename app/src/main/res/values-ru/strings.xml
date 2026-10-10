@@ -194,4 +194,8 @@
     <string name="update_ready">Готово к установке</string>
     <string name="update_failed">Не удалось обновить. Повторите попытку.</string>
     <string name="update_current">Установлена актуальная версия</string>
+    <string name="ticker_height_auto">Автоматическая высота строки уведомлений</string>
+    <string name="ticker_height">Высота строки (px при 340 px)</string>
+    <string name="ticker_frame">Рамка строки в предпросмотре</string>
+    <string name="ticker_height_help">При фиксированной высоте текст ограничен выбранной областью. Круг и отступ сдвига пикселей ограничивают доступную область. Рамка видна только в предпросмотре.</string>
 </resources>

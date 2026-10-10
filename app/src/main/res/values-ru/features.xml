@@ -2,9 +2,9 @@
 <resources>
     <string name="window_mode" formatted="false">"Витрина"</string>
     <string name="window_zoom" formatted="false">"Масштаб витрины (%)"</string>
-    <string name="window_speed" formatted="false">"Витрина: секунд на участок движения"</string>
+    <string name="window_speed" formatted="false">Скорость движения (px/с при 340 px)</string>
     <string name="window_moving" formatted="false">"Включить движение витрины"</string>
-    <string name="window_help" formatted="false">"Витрина плавно перемещает увеличенное изображение между случайными точками. Чем больше масштаб, тем меньше видимый участок. Больше секунд — медленнее движение. Затемнение остаётся активным."</string>
+    <string name="window_help" formatted="false">Равномерное движение с плавными случайными поворотами. Масштабирование сохраняет текущую точку изображения в центре. Движение возобновляется через секунду после отпускания регулятора масштаба.</string>
     <string name="external_section" formatted="false">"Другое приложение"</string>
     <string name="external_none" formatted="false">"Приложение ещё не выбрано"</string>
     <string name="external_choose" formatted="false">"Выбрать приложение"</string>

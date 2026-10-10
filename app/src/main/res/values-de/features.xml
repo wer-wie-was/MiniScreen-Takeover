@@ -2,9 +2,9 @@
 <resources>
     <string name="window_mode" formatted="false">"Schaufenster"</string>
     <string name="window_zoom" formatted="false">"Schaufenster-Zoom (%)"</string>
-    <string name="window_speed" formatted="false">"Schaufenster: Sekunden pro Bewegungsabschnitt"</string>
+    <string name="window_speed" formatted="false">Schwenkgeschwindigkeit (px/s bei 340 px)</string>
     <string name="window_moving" formatted="false">"Schaufenster-Bewegung aktiv"</string>
-    <string name="window_help" formatted="false">"Schaufenster bewegt ein vergrößertes Bild weich zwischen Zufallspositionen. Mehr Zoom zeigt einen kleineren Ausschnitt. Mehr Sekunden bedeutet langsamere Bewegung. Der Abdunklungsfilter bleibt aktiv."</string>
+    <string name="window_help" formatted="false">Gleichmäßige Bewegung mit sanften zufälligen Richtungswechseln. Der Zoom bleibt um den aktuellen Bildpunkt zentriert. Beim Verstellen des Zooms pausiert die Bewegung bis eine Sekunde nach dem Loslassen.</string>
     <string name="external_section" formatted="false">"Andere App"</string>
     <string name="external_none" formatted="false">"Noch keine App ausgewählt"</string>
     <string name="external_choose" formatted="false">"App auswählen"</string>

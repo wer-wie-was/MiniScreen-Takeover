@@ -83,7 +83,7 @@ Limits: 20 MiB per extracted design, 200 ZIP entries, 1 MiB per HTML file, 240 c
 
 ## Window background and charging indicators
 
-`settings.imageFit` is `cover`, `contain` or `window`. In `window` mode, the image first fills the display; `windowZoom` (100–500%) magnifies it further. `windowSeconds` (10–180) sets the duration of each movement segment, and `windowMotion` enables movement. `dim` remains the dimming percentage. The example in `app/src/main/assets/designs/classic/index.html` includes the image calculations and a throttled `requestAnimationFrame` loop. Random destinations are derived deterministically from the time segment and axis. Smoothstep interpolation prevents abrupt changes in direction.
+`settings.imageFit` is `cover`, `contain` or `window`. In `window` mode, the image fills the display and `windowZoom` (100–3,000%) magnifies it further. `windowSpeed` (1–100 design px/s at 340 px, default 20) controls travel speed; `windowMotion` enables movement. `dim` remains the dimming percentage. The old `windowSeconds` duration is no longer used. The included classic design keeps a stateful image-space centre and heading: zoom preserves the current centre, speed affects future motion, and random direction changes turn smoothly without segment-start acceleration. Clamp the centre at image edges so the background continues to fill the display. The top-level `windowZoomPauseMs` field is the remaining zoom-adjustment pause (0–2,000 ms); custom designs can honour it relative to their local monotonic clock. The example uses `performance.now()` and a throttled `requestAnimationFrame` loop and never catches up after suspension. Position and heading are retained during changes within the current view, not across process restarts.
 
 Android automatically draws charging indicators above the HTML. The design does not need to render them. Their settings are also available in `settings`: `chargeEnabled`, `chargeAlways`, `chargeGradient`, `chargeRingColorSecond`, `chargeAccentColor`, `chargeCircle`, `chargeAnimated`, `chargeBold`, `chargeColor`, `chargeSymbolColor`, `chargeRingColor`, `chargeFont`, `chargeFontFile`, `chargeSize`, `chargeX`, `chargeY`, `chargeRingWidth`, `chargeAnimationSeconds`.
 
@@ -95,7 +95,7 @@ By default, Android draws the configurable ticker above the design. In that mode
 
 - `notification`: the currently displayed notification, or `null` during a pause.
 - `notifications`: the filtered queue, containing at most 50 entries.
-- `tickerSettings`: font size, font, bold, colors, opacity, position, width, scrolling, speed, line count, icon size, display duration and `clockMode` (0 = visible, 1 = dimmed, 2 = hidden).
+- `tickerSettings`: font size, font, bold, colors, opacity, position, width, `heightAuto` (default true), `height` (20–300 design pixels at 340 px), scrolling, speed (up to 1,080 design px/s), line count, icon size, display duration and `clockMode` (0 = visible, 1 = dimmed, 2 = hidden).
 
 A notification contains `app` (package name), `label`, `text`, `count` and `iconUrl` (local app icon). In discreet mode, `label` is empty and `text` contains only the count. At other privacy levels, `text` already contains the permitted combination of app, title and message. The title and message are not supplied separately as unfiltered fields. `count` counts active captured notifications from that app. `iconUrl` works only for permitted apps while HTML notification mode is enabled; in the preview it supplies only the example icon.
 

@@ -22,6 +22,10 @@ import java.util.function.*;
 public final class MainActivity extends Activity implements SharedPreferences.OnSharedPreferenceChangeListener,DisplayManager.DisplayListener {
     private static final int IMAGE=11,FONT=12,DESIGN=13,IMPORT_PROFILE=14,EXPORT_PROFILE=15,CHARGE_FONT=16,WIDGET=80;
     private final ExecutorService worker=Executors.newSingleThreadExecutor();
+    private boolean zoomAdjusting;
+    private final Runnable zoomLease=new Runnable(){public void run(){if(!zoomAdjusting)return;zoomPause(1500);handler.postDelayed(this,500);}};
+    private void zoomPause(long millis){if(store!=null)store.prefs.edit().putLong("window_zoom_pause_until",SystemClock.elapsedRealtime()+millis).apply();}
+    private void zoomTracking(boolean active){zoomAdjusting=active;handler.removeCallbacks(zoomLease);if(active)zoomLease.run();else zoomPause(1000);}
     private final Handler handler=new Handler(Looper.getMainLooper());
     private final Set<String> opened=new HashSet<>(Arrays.asList(I18n.get(R.string.msg_003),I18n.get(R.string.msg_004)));
     private ProfileStore store;
@@ -89,7 +93,8 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         head.setOnClickListener(v->{if(body.getVisibility()==View.VISIBLE){opened.remove(title);body.setVisibility(View.GONE);head.setText("▸ "+title);}else{opened.add(title);body.setVisibility(View.VISIBLE);head.setText("▾ "+title);}});return body;
     }
     private void check(LinearLayout p,String title,boolean value,Consumer<Boolean> change){Switch s=new Switch(this);s.setText(title);s.setTextColor(0xFFE5EDF7);s.setPadding(0,dp(8),0,dp(8));s.setChecked(value);p.addView(s);s.setOnCheckedChangeListener((b,v)->{if(!busy)change.accept(v);});}
-    private void slider(LinearLayout p,String label,int min,int max,int value,IntConsumer change){TextView t=text(p,label+": "+value,14);SeekBar s=new SeekBar(this);s.setMax(max-min);s.setProgress(value-min);StepSlider.add(p,s,()->{if(!busy)change.accept(s.getProgress()+min);});s.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){public void onProgressChanged(SeekBar bar,int n,boolean user){t.setText(label+": "+(n+min));if(user&&!busy)change.accept(n+min);}public void onStartTrackingTouch(SeekBar s){}public void onStopTrackingTouch(SeekBar s){}});}
+    private void slider(LinearLayout p,String label,int min,int max,int value,IntConsumer change){slider(p,label,min,max,value,change,null);}
+    private void slider(LinearLayout p,String label,int min,int max,int value,IntConsumer change,Consumer<Boolean> tracking){TextView t=text(p,label+": "+value,14);SeekBar s=new SeekBar(this);s.setMax(max-min);s.setProgress(value-min);StepSlider.add(p,s,()->{if(!busy)change.accept(s.getProgress()+min);});s.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){public void onProgressChanged(SeekBar bar,int n,boolean user){t.setText(label+": "+(n+min));if(user&&!busy)change.accept(n+min);}public void onStartTrackingTouch(SeekBar s){if(tracking!=null)tracking.accept(true);}public void onStopTrackingTouch(SeekBar s){if(tracking!=null)tracking.accept(false);}});}
     private void choose(LinearLayout p,String label,String[] options,int selected,IntConsumer change){text(p,label,14);Spinner spinner=new Spinner(this);ArrayAdapter<String> a=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,options);a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);spinner.setAdapter(a);spinner.setSelection(selected);p.addView(spinner);int[] last={selected};spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){public void onNothingSelected(AdapterView<?> v){}public void onItemSelected(AdapterView<?> p,View v,int position,long id){if(position!=last[0]){last[0]=position;if(!busy)change.accept(position);}}});}
     private void color(LinearLayout p,String title,Supplier<String> get,Consumer<String> set){Button b=button(p,title+" · "+get.get(),()->ColorPicker.show(this,title,get.get(),v->{set.accept(v);changed();build();}));b.setTextColor(Color.parseColor(get.get()));if(get.get().equals("#000000"))b.setTextColor(0xFFCBD5E1);}
     private void changed(){if(busy)return;try{store.save(config);preview.surface.apply(config);preview.surface.simulateCharge(chargePreview);preview.surface.simulateTicker(tickerPreview);preview.surface.simulateDot(dotPreview);preview.guides(guides,config.shifting?config.shiftRange:0);}catch(RuntimeException e){error(e);}}
@@ -146,8 +151,8 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         LinearLayout p=section(I18n.get(R.string.msg_085));color(p,I18n.get(R.string.msg_086),()->config.backgroundColor,v->config.backgroundColor=v);
         button(p,I18n.get(R.string.msg_087),()->pick(IMAGE));button(p,I18n.get(R.string.msg_088),()->{config.image="";changed();toast(I18n.get(R.string.msg_089));});
         choose(p,I18n.get(R.string.msg_179),new String[]{I18n.get(R.string.msg_090),I18n.get(R.string.msg_091),I18n.get(R.string.window_mode)},config.imageFit.equals("window")?2:config.imageFit.equals("contain")?1:0,i->{config.imageFit=i==2?"window":i==1?"contain":"cover";changed();});
-        slider(p,I18n.get(R.string.window_zoom),100,500,config.windowZoom,n->{config.windowZoom=n;changed();});
-        slider(p,I18n.get(R.string.window_speed),10,180,config.windowSeconds,n->{config.windowSeconds=n;changed();});
+        slider(p,I18n.get(R.string.window_zoom),100,3000,config.windowZoom,n->{config.windowZoom=n;zoomPause(1000);changed();},this::zoomTracking);
+        slider(p,I18n.get(R.string.window_speed),1,100,config.windowSpeed,n->{config.windowSpeed=n;changed();});
         check(p,I18n.get(R.string.window_moving),config.windowMotion,v->{config.windowMotion=v;changed();});
         text(p,I18n.get(R.string.window_help),13);
         slider(p,I18n.get(R.string.msg_092),0,100,config.dim,n->{config.dim=n;changed();});check(p,I18n.get(R.string.msg_093),config.shiftBackground,v->{config.shiftBackground=v;changed();});
@@ -211,6 +216,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private void tickerSettings(){
         LinearLayout p=section(tt(R.string.ticker_section));TickerSettings s=new TickerSettings(this);
         check(p,tt(R.string.ticker_preview),tickerPreview,v->{tickerPreview=v;preview.surface.simulateTicker(v);});
+        check(p,tt(R.string.ticker_frame),s.bool("frame",false),v->tickerBool("frame",v));
         check(p,tt(R.string.ticker_enabled),s.enabled(),v->tickerBool("enabled",v));
         tickerAccessStatus=text(p,"",13);refreshTickerAccess();
         button(p,tt(R.string.ticker_access),()->{try{startActivity(new Intent(android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));}catch(ActivityNotFoundException e){error(e);}});
@@ -228,7 +234,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         slider(p,tt(R.string.ticker_duration),3,60,s.duration(),i->tickerInt("duration",i));
         slider(p,tt(R.string.ticker_pause),0,60,s.pause(),i->tickerInt("pause",i));
         check(p,tt(R.string.ticker_scroll),s.bool("scroll",true),v->tickerBool("scroll",v));
-        slider(p,tt(R.string.ticker_speed),5,360,s.number("speed",28,5,360),i->tickerInt("speed",i));
+        slider(p,tt(R.string.ticker_speed),5,1080,s.number("speed",28,5,1080),i->tickerInt("speed",i));
         slider(p,tt(R.string.ticker_lines),1,5,s.number("lines",2,1,5),i->tickerInt("lines",i));
         slider(p,tt(R.string.ticker_size),8,50,s.number("size",18,8,50),i->tickerInt("size",i));
         String[] fonts={"sans","sans-serif-light","sans-serif-condensed","monospace","serif","profile"};String[] labels=fonts.clone();labels[5]=tt(R.string.ticker_profile_font);
@@ -237,6 +243,11 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         tickerColor(p,R.string.ticker_color,"color","#FFFFFF");tickerColor(p,R.string.ticker_background,"background","#000000");
         slider(p,tt(R.string.ticker_opacity),0,100,s.number("opacity",75,0,100),i->tickerInt("opacity",i));
         slider(p,tt(R.string.ticker_width),20,100,s.number("width",90,20,100),i->tickerInt("width",i));
+        LinearLayout heightControls=new LinearLayout(this);heightControls.setOrientation(LinearLayout.VERTICAL);
+        check(p,tt(R.string.ticker_height_auto),s.bool("height_auto",true),v->{tickerBool("height_auto",v);heightControls.setVisibility(v?View.GONE:View.VISIBLE);});
+        p.addView(heightControls);slider(heightControls,tt(R.string.ticker_height),20,300,s.number("height",100,20,300),i->tickerInt("height",i));
+        heightControls.setVisibility(s.bool("height_auto",true)?View.GONE:View.VISIBLE);
+        text(p,tt(R.string.ticker_height_help),13);
         slider(p,tt(R.string.ticker_x),0,100,s.number("x",50,0,100),i->tickerInt("x",i));
         slider(p,tt(R.string.ticker_y),0,100,s.number("y",82,0,100),i->tickerInt("y",i));
         check(p,tt(R.string.ticker_icon),s.bool("icon",true),v->tickerBool("icon",v));
@@ -395,7 +406,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private void error(Exception e){new AlertDialog.Builder(this).setTitle("MiniScreen Takeover").setMessage(e.getMessage()==null?e.toString():e.getMessage()).setPositiveButton("OK",null).show();}
     @Override public void onSharedPreferenceChanged(SharedPreferences prefs,String key){if((key.startsWith("ticker_")||key.startsWith("dot_")||key.startsWith("widget_"))&&preview!=null)preview.surface.tick();if(key.startsWith("schedule_")||key.equals("external_active")||key.equals("pause_until")||key.equals("manual_off"))refreshSchedule();if(status!=null&&(key.equals("status")||key.equals("actual")))status.setText(prefs.getString("status",""));if(monitorStatus!=null&&key.equals("monitor_status"))monitorStatus.setText(prefs.getString("monitor_status",""));if(!busy&&(key.equals("revision")||key.equals("active"))){Config next=store.load();if(!next.json().toString().equals(config.json().toString())){config=next;build();}}}
     @Override protected void onResume(){super.onResume();resumed=true;AppUpdates.schedule(this);if(AppUpdates.prefs(this).getBoolean("update_auto",true))AppUpdates.check(this,false,null);if(store!=null){if(!uiLanguage.equals(store.prefs.getString("language",""))){recreate();return;}refreshTickerAccess();DisplaySchedule.reconcile(this);refreshSchedule();config=store.load();if(preview!=null){preview.surface.apply(config);preview.surface.start();}displays.registerDisplayListener(this,handler);}}
-    @Override protected void onPause(){resumed=false;if(preview!=null)preview.surface.stop();if(displays!=null)displays.unregisterDisplayListener(this);super.onPause();}
+    @Override protected void onPause(){if(zoomAdjusting)zoomTracking(false);resumed=false;if(preview!=null)preview.surface.stop();if(displays!=null)displays.unregisterDisplayListener(this);super.onPause();}
     @Override protected void onSaveInstanceState(Bundle out){super.onSaveInstanceState(out);out.putString("language",uiLanguage);out.putString("pendingProfile",pendingProfile);out.putInt("pendingRequest",pendingRequest);out.putBoolean("guides",guides);out.putBoolean("chargePreview",chargePreview);out.putBoolean("tickerPreview",tickerPreview);out.putBoolean("dotPreview",dotPreview);out.putStringArray("opened",opened.toArray(new String[0]));}
     @Override protected void onDestroy(){handler.removeCallbacksAndMessages(null);if(preview!=null)preview.surface.dispose();if(store!=null)store.prefs.unregisterOnSharedPreferenceChangeListener(this);worker.shutdown();super.onDestroy();}
     @Override public void onDisplayAdded(int id){if(!busy)build();}

@@ -10,6 +10,8 @@ import java.io.File;
 
 /** Read-only ticker overlay; all dimensions use the existing 340px design coordinates. */
 final class TickerView extends View {
+    private final boolean preview;
+    private final Paint guide=new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint background=new Paint(Paint.ANTI_ALIAS_FLAG);
     private final TextPaint text=new TextPaint(Paint.ANTI_ALIAS_FLAG);
     private NotificationTicker.Message message;
@@ -19,7 +21,7 @@ final class TickerView extends View {
     private boolean running;
     private String fontKey="",iconKey="";
     private Drawable icon;
-    TickerView(Context c){super(c);setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);}
+    TickerView(Context c,boolean preview){super(c);this.preview=preview;setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);}
     void update(NotificationTicker.Message m,Config c,File folder,float dx,float dy,boolean run){
         message=m;config=c;this.dx=dx;this.dy=dy;running=run;settings=new TickerSettings(getContext());
         String family=settings.p.getString("ticker_font","sans"),path=family.equals("profile")?c.fontFile:"";
@@ -39,7 +41,8 @@ final class TickerView extends View {
         boolean showIcon=settings.bool("icon",true)&&icon!=null;
         float iconSize=showIcon?settings.number("icon_size",20,8,50)*scale:0;
         float textHeight=(scroll?1:lines)*text.getFontSpacing();
-        float height=textHeight+2*pad+(showIcon?iconSize+pad:0);
+        boolean autoHeight=settings.bool("height_auto",true);
+        float height=autoHeight?textHeight+2*pad+(showIcon?iconSize+pad:0):settings.number("height",100,20,300)*scale;
         // Width takes priority. Move the card inward instead of narrowing it at its requested Y position.
         float radius=Math.max(1,Math.min(getWidth(),getHeight())/2f-margin);
         float minimumHeight=Math.min(height,(scroll?1:lines)*10*scale+6*scale+(showIcon?11*scale:0));
@@ -47,7 +50,9 @@ final class TickerView extends View {
         width=Math.max(1,Math.min(width,maxWidth));
         float maxHeight=2*(float)Math.sqrt(Math.max(0,radius*radius-width*width/4));
         float fit=Math.min(1,maxHeight/height);
-        height*=fit;pad*=fit;iconSize*=fit;textHeight*=fit;text.setTextSize(text.getTextSize()*fit);
+        height*=fit;
+        if(autoHeight){pad*=fit;iconSize*=fit;textHeight*=fit;text.setTextSize(text.getTextSize()*fit);}
+        else {pad=Math.min(pad,height/6);iconSize=Math.min(iconSize,Math.max(0,(height-3*pad)/2));}
         float halfChord=(float)Math.sqrt(Math.max(0,radius*radius-height*height/4));
         float centerX=getWidth()*settings.number("x",50,0,100)/100f;
         float horizontalTravel=Math.max(0,halfChord-width/2);
@@ -60,20 +65,25 @@ final class TickerView extends View {
         canvas.save();canvas.translate(dx,dy);
         background.setColor(Color.parseColor(settings.color("background","#000000")));background.setAlpha(settings.number("opacity",75,0,100)*255/100);
         canvas.drawRoundRect(new RectF(x,y,x+width,y+height),5*scale,5*scale,background);
+        canvas.save();canvas.clipRect(x,y,x+width,y+height);
         if(showIcon){iconSize=Math.min(iconSize,Math.max(1,width-2*pad));int size=Math.max(1,Math.round(iconSize));int ix=Math.round(centerX-size/2f),iy=Math.round(y+pad);icon.setBounds(ix,iy,ix+size,iy+size);icon.draw(canvas);}
         float left=x+pad,available=Math.max(1,width-2*pad);
         float textTop=y+pad+(showIcon?iconSize+pad:0);
+        float availableHeight=Math.max(0,y+height-pad-textTop);
         canvas.clipRect(left,textTop,x+width-pad,y+height-pad);
-        if(scroll){
+        if(scroll&&availableHeight>0){
             String value=message.text.replace('\n',' ');float length=text.measureText(value),position=left+Math.max(0,(available-length)/2);
-            if(length>available){float distance=(SystemClock.elapsedRealtime()-message.started)/1000f*settings.number("speed",28,5,360)*scale;position=left-(distance%(length+available+30*scale));if(position+length<left)position+=length+available+30*scale;}
-            Paint.FontMetrics fm=text.getFontMetrics();canvas.drawText(value,position,textTop+(textHeight-fm.ascent-fm.descent)/2,text);
+            if(length>available){float distance=(SystemClock.elapsedRealtime()-message.started)/1000f*settings.number("speed",28,5,1080)*scale;position=left-(distance%(length+available+30*scale));if(position+length<left)position+=length+available+30*scale;}
+            Paint.FontMetrics fm=text.getFontMetrics();canvas.drawText(value,position,textTop+((autoHeight?textHeight:availableHeight)-fm.ascent-fm.descent)/2,text);
             if(running&&length>available)postInvalidateOnAnimation();
-        }else{
+        }else if(availableHeight>0){
+            int visibleLines=autoHeight?lines:Math.max(1,Math.min(lines,(int)(availableHeight/text.getFontSpacing())));
             StaticLayout layout=StaticLayout.Builder.obtain(message.text,0,message.text.length(),text,Math.max(1,Math.round(available)))
-                .setAlignment(Layout.Alignment.ALIGN_CENTER).setIncludePad(false).setMaxLines(lines).setEllipsize(TextUtils.TruncateAt.END).build();
-            canvas.translate(left,textTop+(textHeight-layout.getHeight())/2);layout.draw(canvas);
+                .setAlignment(Layout.Alignment.ALIGN_CENTER).setIncludePad(false).setMaxLines(visibleLines).setEllipsize(TextUtils.TruncateAt.END).build();
+            canvas.translate(left,textTop+Math.max(0,((autoHeight?textHeight:availableHeight)-layout.getHeight())/2));layout.draw(canvas);
         }
+        canvas.restore();
+        if(preview&&settings.bool("frame",false)){guide.setStyle(Paint.Style.STROKE);guide.setStrokeWidth(Math.max(1,scale));guide.setColor(Color.CYAN);canvas.drawRect(x,y,x+width,y+height,guide);}
         canvas.restore();
     }
 }

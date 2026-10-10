@@ -194,4 +194,8 @@
     <string name="update_ready">Pronto per installare</string>
     <string name="update_failed">Aggiornamento non riuscito. Riprova.</string>
     <string name="update_current">Aggiornato</string>
+    <string name="ticker_height_auto">Altezza automatica del ticker</string>
+    <string name="ticker_height">Altezza del ticker (px a 340 px)</string>
+    <string name="ticker_frame">Mostra cornice nell’anteprima</string>
+    <string name="ticker_height_help">Con altezza fissa, il testo è limitato all’area scelta. Il cerchio e il margine di spostamento dei pixel limitano l’area disponibile. La cornice appare solo nell’anteprima.</string>
 </resources>

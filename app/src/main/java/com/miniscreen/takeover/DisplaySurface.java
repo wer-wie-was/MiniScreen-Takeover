@@ -32,6 +32,7 @@ final class DisplaySurface extends FrameLayout {
     private File designRoot;
     private boolean ready,running,disposed;
     private final boolean preview;
+    private final android.content.SharedPreferences.OnSharedPreferenceChangeListener zoomListener=(p,key)->{if("window_zoom_pause_until".equals(key))tick();};
     private final Runnable ticker=()->tick();
     private final Runnable motionFrame=new Runnable(){@Override public void run(){
         if(!running||disposed||config==null)return;
@@ -61,7 +62,7 @@ final class DisplaySurface extends FrameLayout {
             widgetLayer=new WidgetLayer(getContext());addView(widgetLayer,new LayoutParams(-1,-1));
             dot=new DotView(getContext());addView(dot,new LayoutParams(-1,-1));
             charge=new ChargeView(getContext());addView(charge,new LayoutParams(-1,-1));
-            notificationView=new TickerView(getContext());addView(notificationView,new LayoutParams(-1,-1));
+            notificationView=new TickerView(getContext(),preview);addView(notificationView,new LayoutParams(-1,-1));
         }
         if(charge!=null){charge.configure(c,store.dir(profile));updateBattery();charge.bringToFront();}
         if(clock!=null) {
@@ -154,7 +155,7 @@ final class DisplaySurface extends FrameLayout {
         if(pebble!=null)pebble.update(config,dx,dy,running);
         if(widgetLayer!=null)widgetLayer.update(config,dx,dy,running);
         if(dot!=null)dot.update(preview?(dotDemo?NotificationDot.color(getContext(),true):null):(running?NotificationDot.color(getContext(),false):null),config,dx,dy);
-        if(clock!=null)clock.shift(dx,dy);if(charge!=null)charge.shift(dx,dy);
+        if(clock!=null){clock.motionRunning(running);clock.shift(dx,dy);}if(charge!=null)charge.shift(dx,dy);
         TickerSettings ts=new TickerSettings(getContext());
         notification=preview?(tickerDemo?NotificationTicker.demo():null):(running?NotificationTicker.present(getContext()):null);
         boolean ownHtml=web!=null&&ts.html();
@@ -168,11 +169,13 @@ final class DisplaySurface extends FrameLayout {
     }
     private void pushData(long now,float[] offset) {
         try {
+            long zoomPause=store.prefs.getLong("window_zoom_pause_until",0)-android.os.SystemClock.elapsedRealtime();
             JSONObject d=new JSONObject();Date date=new Date(now);
             d.put("epochMs",now).put("time",config.time(date)).put("date",config.showDate?config.date(date):"")
              .put("showClock",config.showClock).put("showDate",config.showDate).put("width",getWidth()).put("height",getHeight())
              .put("cssWidth",web.getWidth()/getResources().getDisplayMetrics().density).put("cssHeight",web.getHeight()/getResources().getDisplayMetrics().density)
              .put("timeZone",TimeZone.getDefault().getID()).put("locale",I18n.locale().toLanguageTag())
+             .put("windowZoomPauseMs",zoomPause>0&&zoomPause<=2000?zoomPause:0)
              .put("preview",preview).put("running",running).put("batteryPlugged",preview&&simulateCharge||plugged).put("batteryLevel",preview&&simulateCharge?65:batteryLevel).put("shiftX",offset[0]).put("shiftY",offset[1]).put("settings",config.json())
              .put("backgroundUrl",config.image.isEmpty()?"":ORIGIN+"/shared/background").put("fontUrl",config.fontFile.isEmpty()?"":ORIGIN+"/shared/font");
             TickerSettings ts=new TickerSettings(getContext());
@@ -184,8 +187,8 @@ final class DisplaySurface extends FrameLayout {
             web.evaluateJavascript(js,null);
         }catch(Exception e){report(I18n.get(R.string.msg_160)+e.getMessage());}
     }
-    void start() {if(running||disposed)return;running=true;IntentFilter f=new IntentFilter();f.addAction(Intent.ACTION_TIME_CHANGED);f.addAction(Intent.ACTION_TIMEZONE_CHANGED);f.addAction(Intent.ACTION_DATE_CHANGED);if(Build.VERSION.SDK_INT>=33){getContext().registerReceiver(timeReceiver,f,Context.RECEIVER_NOT_EXPORTED);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED),Context.RECEIVER_NOT_EXPORTED);}else{getContext().registerReceiver(timeReceiver,f);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));}if(web!=null)web.onResume();tick();}
-    void stop() {handler.removeCallbacks(ticker);handler.removeCallbacks(motionFrame);if(running){running=false;getContext().unregisterReceiver(timeReceiver);getContext().unregisterReceiver(batteryReceiver);}notification=null;if(pebble!=null)pebble.stop();if(widgetLayer!=null)widgetLayer.stop();if(dot!=null)dot.update(null,config,0,0);if(notificationView!=null)notificationView.stop();if(clock!=null)clock.notificationAlpha(1);if(web!=null){web.setAlpha(1);if(ready&&config!=null)pushData(System.currentTimeMillis(),offset(config,System.currentTimeMillis()));web.onPause();}}
+    void start() {if(running||disposed)return;running=true;store.prefs.registerOnSharedPreferenceChangeListener(zoomListener);IntentFilter f=new IntentFilter();f.addAction(Intent.ACTION_TIME_CHANGED);f.addAction(Intent.ACTION_TIMEZONE_CHANGED);f.addAction(Intent.ACTION_DATE_CHANGED);if(Build.VERSION.SDK_INT>=33){getContext().registerReceiver(timeReceiver,f,Context.RECEIVER_NOT_EXPORTED);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED),Context.RECEIVER_NOT_EXPORTED);}else{getContext().registerReceiver(timeReceiver,f);getContext().registerReceiver(batteryReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));}if(web!=null)web.onResume();tick();}
+    void stop() {handler.removeCallbacks(ticker);handler.removeCallbacks(motionFrame);if(running){running=false;store.prefs.unregisterOnSharedPreferenceChangeListener(zoomListener);getContext().unregisterReceiver(timeReceiver);getContext().unregisterReceiver(batteryReceiver);}notification=null;if(pebble!=null)pebble.stop();if(widgetLayer!=null)widgetLayer.stop();if(dot!=null)dot.update(null,config,0,0);if(notificationView!=null)notificationView.stop();if(clock!=null){clock.motionRunning(false);clock.notificationAlpha(1);}if(web!=null){web.setAlpha(1);if(ready&&config!=null)pushData(System.currentTimeMillis(),offset(config,System.currentTimeMillis()));web.onPause();}}
     void dispose(){stop();disposed=true;if(widgetLayer!=null)widgetLayer.dispose();releaseWeb();removeAllViews();}
     private void releaseWeb(){if(web!=null){removeView(web);web.stopLoading();web.destroy();web=null;}}
     @Override public boolean dispatchTouchEvent(MotionEvent e){return true;}

@@ -194,4 +194,8 @@
     <string name="update_ready">准备安装</string>
     <string name="update_failed">更新失败，请重试。</string>
     <string name="update_current">已是最新版本</string>
+    <string name="ticker_height_auto">自动设置通知条高度</string>
+    <string name="ticker_height">通知条高度（340 像素屏幕上的像素）</string>
+    <string name="ticker_frame">在预览中显示通知条边框</string>
+    <string name="ticker_height_help">使用固定高度时，文字限制在所选区域内。圆形屏幕和像素偏移边距会限制可用区域。边框仅在预览中显示。</string>
 </resources>

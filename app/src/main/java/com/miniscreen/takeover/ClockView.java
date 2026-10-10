@@ -9,6 +9,9 @@ import java.util.Date;
 final class ClockView extends View {
     private final Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG);
     private Config config;
+    private final WindowPan pan=new WindowPan();
+    private boolean motionRunning;
+    void motionRunning(boolean value){motionRunning=value;}
     private Bitmap image;
     private Typeface typeface=Typeface.DEFAULT;
     private String cachedImage="";
@@ -21,7 +24,7 @@ final class ClockView extends View {
     void configure(Config c,File folder) {
         config=c;cachedTick=Long.MIN_VALUE;
         String imageKey=c.image.isEmpty()?"":new File(folder,c.image).getPath();
-        if(!cachedImage.equals(imageKey)){cachedImage=imageKey;image=c.image.isEmpty()?null:decodeImage(new File(folder,c.image));}
+        if(!cachedImage.equals(imageKey)){cachedImage=imageKey;pan.reset();image=c.image.isEmpty()?null:decodeImage(new File(folder,c.image));}
         try {typeface=!c.fontFile.isEmpty()?Typeface.createFromFile(new File(folder,c.fontFile)):Typeface.create(c.font,c.bold?Typeface.BOLD:Typeface.NORMAL);
             if(!c.fontFile.isEmpty()&&c.bold)typeface=Typeface.create(typeface,Typeface.BOLD);
         }catch(RuntimeException e){typeface=Typeface.DEFAULT;}
@@ -44,11 +47,14 @@ final class ClockView extends View {
             if(!c.imageFit.equals("contain"))k=Math.max(k,Math.max((getWidth()+2*extra)/image.getWidth(),(getHeight()+2*extra)/image.getHeight()));
             if(c.imageFit.equals("window"))k*=c.windowZoom/100f;
             float w=image.getWidth()*k,h=image.getHeight()*k;
-            long now=System.currentTimeMillis();
-            float px=c.imageFit.equals("window")?WindowPan.position(now,c.windowSeconds,1,c.windowMotion):.5f;
-            float py=c.imageFit.equals("window")?WindowPan.position(now,c.windowSeconds,2,c.windowMotion):.5f;
-            float x=-extra-(w-getWidth()-2*extra)*px+(c.shiftBackground?shiftX:0);
-            float y=-extra-(h-getHeight()-2*extra)*py+(c.shiftBackground?shiftY:0);
+            float x=(getWidth()-w)/2,y=(getHeight()-h)/2;
+            if(c.imageFit.equals("window")){
+                long now=android.os.SystemClock.elapsedRealtime();
+                pan.update(now,c.windowZoom,c.windowSpeed,c.windowMotion&&motionRunning,
+                    TakeoverControl.prefs(getContext()).getLong("window_zoom_pause_until",0),w,h,getWidth(),getHeight(),extra,scale);
+                x=pan.left(w,getWidth());y=pan.top(h,getHeight());
+            }
+            x+=c.shiftBackground?shiftX:0;y+=c.shiftBackground?shiftY:0;
             paint.setColor(Color.WHITE);paint.setAlpha(255);canvas.drawBitmap(image,null,new RectF(x,y,x+w,y+h),paint);
             paint.setColor(Color.BLACK);paint.setAlpha(Math.round(c.dim*2.55f));canvas.drawRect(0,0,getWidth(),getHeight(),paint);paint.setAlpha(255);
         }

@@ -194,4 +194,8 @@
     <string name="update_ready">Bereit zur Installation</string>
     <string name="update_failed">Update fehlgeschlagen. Bitte erneut versuchen.</string>
     <string name="update_current">Aktuell</string>
+    <string name="ticker_height_auto">Ticker-Höhe automatisch</string>
+    <string name="ticker_height">Ticker-Höhe (px bei 340 px)</string>
+    <string name="ticker_frame">Ticker-Rahmen in der Vorschau</string>
+    <string name="ticker_height_help">Bei fester Höhe wird Text auf die gewählte Fläche begrenzt. Kreisform und Pixelshifting-Rand begrenzen die verfügbare Fläche. Der Rahmen erscheint nur in der Vorschau.</string>
 </resources>

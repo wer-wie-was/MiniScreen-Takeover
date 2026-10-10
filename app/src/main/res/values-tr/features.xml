@@ -2,9 +2,9 @@
 <resources>
     <string name="window_mode" formatted="false">"Vitrin"</string>
     <string name="window_zoom" formatted="false">"Vitrin yakınlaştırması (%)"</string>
-    <string name="window_speed" formatted="false">"Vitrin: hareket bölümü başına saniye"</string>
+    <string name="window_speed" formatted="false">Kaydırma hızı (340 pikselde px/sn)</string>
     <string name="window_moving" formatted="false">"Vitrin hareketini etkinleştir"</string>
-    <string name="window_help" formatted="false">"Vitrin, büyütülmüş resmi rastgele konumlar arasında yumuşakça hareket ettirir. Daha fazla yakınlaştırma daha küçük bir kesit gösterir. Daha fazla saniye daha yavaş hareket demektir. Karartma filtresi etkin kalır."</string>
+    <string name="window_help" formatted="false">Yumuşak ve rastgele yön değişiklikleriyle sabit hızda hareket eder. Yakınlaştırma mevcut görüntü noktasında ortalanır. Yakınlaştırma ayarı bırakıldıktan bir saniye sonra hareket devam eder.</string>
     <string name="external_section" formatted="false">"Başka uygulama"</string>
     <string name="external_none" formatted="false">"Henüz uygulama seçilmedi"</string>
     <string name="external_choose" formatted="false">"Uygulama seç"</string>

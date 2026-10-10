@@ -22,7 +22,8 @@ final class TickerSettings {
             j.put("enabled",enabled()).put("fontSize",number("size",18,8,50)).put("font",p.getString("ticker_font","sans"))
              .put("bold",bool("bold",false)).put("color",color("color","#FFFFFF")).put("background",color("background","#000000"))
              .put("opacity",number("opacity",75,0,100)).put("width",number("width",90,20,100)).put("x",number("x",50,0,100)).put("y",number("y",82,0,100))
-             .put("scroll",bool("scroll",true)).put("speed",number("speed",28,5,360)).put("lines",number("lines",2,1,5))
+             .put("heightAuto",bool("height_auto",true)).put("height",number("height",100,20,300))
+             .put("scroll",bool("scroll",true)).put("speed",number("speed",28,5,1080)).put("lines",number("lines",2,1,5))
              .put("icon",bool("icon",true)).put("iconSize",number("icon_size",20,8,50)).put("duration",duration()).put("clockMode",number("clock",0,0,2));
         }catch(org.json.JSONException ignored){}return j;
     }

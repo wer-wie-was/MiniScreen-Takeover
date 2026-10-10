@@ -2,9 +2,9 @@
 <resources>
     <string name="window_mode" formatted="false">"Showcase"</string>
     <string name="window_zoom" formatted="false">"Showcase zoom (%)"</string>
-    <string name="window_speed" formatted="false">"Showcase: seconds per movement segment"</string>
+    <string name="window_speed" formatted="false">Panning speed (px/s at 340 px)</string>
     <string name="window_moving" formatted="false">"Enable showcase movement"</string>
-    <string name="window_help" formatted="false">"Showcase smoothly moves a zoomed image between random positions. More zoom shows a smaller section. More seconds means slower movement. The dimming filter remains active."</string>
+    <string name="window_help" formatted="false">Moves at a steady speed with gently changing random directions. Zoom stays centred on the current image point. While adjusting zoom, movement pauses until one second after release.</string>
     <string name="external_section" formatted="false">"Other app"</string>
     <string name="external_none" formatted="false">"No app selected yet"</string>
     <string name="external_choose" formatted="false">"Choose app"</string>

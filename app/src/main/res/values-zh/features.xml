@@ -2,9 +2,9 @@
 <resources>
     <string name="window_mode" formatted="false">"橱窗"</string>
     <string name="window_zoom" formatted="false">"橱窗缩放（%）"</string>
-    <string name="window_speed" formatted="false">"橱窗：每段移动的秒数"</string>
+    <string name="window_speed" formatted="false">平移速度（340 像素屏幕上的像素/秒）</string>
     <string name="window_moving" formatted="false">"启用橱窗移动"</string>
-    <string name="window_help" formatted="false">"橱窗模式在随机位置之间平滑移动放大的图片。缩放越大，显示的区域越小。秒数越多，移动越慢。变暗滤镜仍然有效。"</string>
+    <string name="window_help" formatted="false">以稳定速度移动，并平滑随机改变方向。缩放以当前图像中心点为中心。调整缩放时暂停移动，松开一秒后继续。</string>
     <string name="external_section" formatted="false">"其他应用"</string>
     <string name="external_none" formatted="false">"尚未选择应用"</string>
     <string name="external_choose" formatted="false">"选择应用"</string>

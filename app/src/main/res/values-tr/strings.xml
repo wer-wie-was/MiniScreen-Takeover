@@ -194,4 +194,8 @@
     <string name="update_ready">Yüklemeye hazır</string>
     <string name="update_failed">Güncelleme başarısız. Tekrar deneyin.</string>
     <string name="update_current">Güncel</string>
+    <string name="ticker_height_auto">Otomatik bildirim şeridi yüksekliği</string>
+    <string name="ticker_height">Şerit yüksekliği (340 pikselde px)</string>
+    <string name="ticker_frame">Önizlemede şerit çerçevesini göster</string>
+    <string name="ticker_height_help">Sabit yükseklikte metin seçilen alanla sınırlıdır. Daire ve piksel kaydırma kenar boşluğu kullanılabilir alanı sınırlar. Çerçeve yalnızca önizlemede görünür.</string>
 </resources>

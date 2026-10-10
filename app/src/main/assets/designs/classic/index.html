@@ -25,16 +25,36 @@
     const background = document.getElementById('background');
     const shade = document.getElementById('shade');
     let fontUrl = '', last = null, customFont = null, imageUrl = '', image = null, animation = 0, lastFrame = 0;
-    function panTarget(segment, axis) {
-      const n = Math.sin(segment * 12.9898 + axis * 78.233) * 43758.5453;
-      return n - Math.floor(n);
-    }
-    function panPosition(now, seconds, axis, moving) {
-      if (!moving) return .5;
-      const phase = now / (seconds * 1000), segment = Math.floor(phase);
-      let t = phase - segment; t = t * t * (3 - 2 * t);
-      return panTarget(segment, axis) * (1 - t) + panTarget(segment + 1, axis) * t;
-    }
+    const pan = {
+      u: .5, v: .5, angle: .63, target: .63, last: -1, zoom: -1, pauseUntil: 0, externalPause: 0, nextTurn: 0, turn: 0,
+      reset() { this.u = this.v = .5; this.angle = this.target = .63; this.last = -1; this.zoom = -1; this.pauseUntil = this.nextTurn = 0; this.turn = 0; },
+      random() { const n = Math.sin(++this.turn * 12.9898 + 78.233) * 43758.5453; return n - Math.floor(n); },
+      update(now, zoom, speed, moving, iw, ih, w, h, extra, scale) {
+        const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
+        if (this.zoom !== -1 && this.zoom !== zoom) this.pauseUntil = now + 1000;
+        this.zoom = zoom;
+        const minU = Math.min(.5, (w / 2 + extra) / iw), minV = Math.min(.5, (h / 2 + extra) / ih);
+        this.u = clamp(this.u, minU, 1 - minU); this.v = clamp(this.v, minV, 1 - minV);
+        const dt = this.last < 0 ? 0 : clamp((now - this.last) / 1000, 0, .1); this.last = now;
+        if (!moving || now < this.externalPause || now < this.pauseUntil) { this.nextTurn = now + 4000; return; }
+        if (now >= this.nextTurn) { this.target = this.angle + (this.random() - .5) * Math.PI; this.nextTurn = now + 4000 + this.random() * 6000; }
+        const pixels = speed * scale, x = this.u * iw, y = this.v * ih;
+        const left = minU * iw, right = (1 - minU) * iw, top = minV * ih, bottom = (1 - minV) * ih;
+        const look = Math.max(20 * scale, pixels * 1.5);
+        let sx = Math.cos(this.target), sy = Math.sin(this.target);
+        if (right - left > 1) { sx += Math.max(0, 1 - (x - left) / look) * 2; sx -= Math.max(0, 1 - (right - x) / look) * 2; }
+        if (bottom - top > 1) { sy += Math.max(0, 1 - (y - top) / look) * 2; sy -= Math.max(0, 1 - (bottom - y) / look) * 2; }
+        const wanted = Math.atan2(sy, sx), delta = Math.atan2(Math.sin(wanted - this.angle), Math.cos(wanted - this.angle));
+        this.angle += clamp(delta, -1.2 * dt, 1.2 * dt);
+        let vx = Math.cos(this.angle), vy = Math.sin(this.angle);
+        if (right - left <= 1) { vx = 0; vy = vy < 0 ? -1 : 1; }
+        if (bottom - top <= 1) { vy = 0; vx = vx < 0 ? -1 : 1; }
+        const nx = x + vx * pixels * dt, ny = y + vy * pixels * dt;
+        if (nx < left || nx > right) { this.angle = Math.PI - this.angle; this.target = this.angle; }
+        if (ny < top || ny > bottom) { this.angle = -this.angle; this.target = this.angle; }
+        this.u = clamp(nx / iw, minU, 1 - minU); this.v = clamp(ny / ih, minV, 1 - minV);
+      }
+    };
     function drawBackground(now) {
       if (!last || !image || !image.naturalWidth || !image.naturalHeight) return;
       const d = last, s = d.settings, w = document.documentElement.clientWidth, h = document.documentElement.clientHeight;
@@ -45,9 +65,12 @@
         : Math.max((w + 2 * extra) / image.naturalWidth, (h + 2 * extra) / image.naturalHeight);
       if (s.imageFit === 'window') k *= s.windowZoom / 100;
       const iw = image.naturalWidth * k, ih = image.naturalHeight * k;
-      const px = s.imageFit === 'window' ? panPosition(now, s.windowSeconds, 1, s.windowMotion) : .5;
-      const py = s.imageFit === 'window' ? panPosition(now, s.windowSeconds, 2, s.windowMotion) : .5;
-      let x = -extra - (iw - w - 2 * extra) * px, y = -extra - (ih - h - 2 * extra) * py;
+      let x = (w - iw) / 2, y = (h - ih) / 2;
+      if (s.imageFit === 'window') {
+        pan.update(performance.now(), s.windowZoom, s.windowSpeed || 20,
+          d.running && s.windowMotion && !document.hidden, iw, ih, w, h, extra, scale);
+        x = w / 2 - pan.u * iw; y = h / 2 - pan.v * ih;
+      }
       if (!s.shiftBackground) { x -= d.shiftX * scale; y -= d.shiftY * scale; }
       if (s.imageFit !== 'contain') { x = Math.max(w - iw, Math.min(0, x)); y = Math.max(h - ih, Math.min(0, y)); }
       background.style.width = iw + 'px'; background.style.height = ih + 'px';
@@ -78,6 +101,7 @@
     }
     function update(d) {
       last = d; const s = d.settings;
+      pan.externalPause = performance.now() + Math.max(0, Math.min(2000, d.windowZoomPauseMs || 0));
       time.textContent = d.time; time.style.display = d.showClock === false ? 'none' : 'block'; date.textContent = d.date;
       date.style.display = d.showDate ? 'block' : 'none';
       time.style.fontWeight = date.style.fontWeight = s.bold ? '700' : '400';
@@ -85,7 +109,7 @@
       background.style.backgroundImage = d.backgroundUrl ? 'url("' + d.backgroundUrl + '")' : 'none';
       shade.style.opacity = d.backgroundUrl ? s.dim / 100 : 0;
       if (imageUrl !== d.backgroundUrl) {
-        imageUrl = d.backgroundUrl; image = null;
+        imageUrl = d.backgroundUrl; image = null; pan.reset();
         if (imageUrl) {
           const wanted = imageUrl, next = new Image();
           next.onload = () => { if (imageUrl === wanted) { image = next; refreshMotion(); } };
@@ -108,7 +132,7 @@
     }
     window.addEventListener('miniscreen:update', e => update(e.detail));
     window.addEventListener('resize', () => { if (last) update(last); });
-    document.addEventListener('visibilitychange', () => { if (document.hidden) { if (animation) cancelAnimationFrame(animation); animation = 0; } else refreshMotion(); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) { if (animation) cancelAnimationFrame(animation); animation = 0; pan.last = -1; } else refreshMotion(); });
     if (window.miniScreen) update(window.miniScreen);
   </script>
 </body>

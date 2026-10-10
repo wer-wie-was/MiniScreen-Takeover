@@ -40,6 +40,12 @@ The downloaded APK must use package `com.miniscreen.takeover`, have a higher ver
 
 Releases must be stable GitHub releases marked as latest, with a numeric `vX.Y.Z` or `X.Y.Z` tag. Attach one APK, or name the intended APK `MiniScreenTakeover-X.Y.Z.apk` when attaching multiple APKs. The publisher must keep the signing key and increase the Android version code for each update.
 
+### Ticker dimensions and background motion
+
+Window background zoom ranges from 100% to 3,000%. Panning speed is adjustable from 1 to 100 design pixels per second, independent of zoom. The image moves steadily with smooth random turns. Zoom preserves the current image centre, subject to image-edge limits. Movement pauses while adjusting zoom and resumes one second after release. Position and heading remain in memory for the current view. The dimming filter remains adjustable.
+
+The notification ticker supports speeds up to 1,080 design pixels per second. Its height is automatic by default; turn off automatic height to select 20–300 design pixels, referenced to a 340-pixel display. Fixed height clips content rather than shrinking the selected font. Static text respects the selected line limit. The circular display and pixelshifting margin can limit the effective dimensions. Enable the optional ticker frame to see those dimensions in the preview only. Hold the −/+ buttons to adjust sliders increasingly quickly; a single press changes one step.
+
 ### Everyday use
 
 Choose a native clock or HTML design in **Design & Profiles**, then adjust the appearance. The preview stays visible while scrolling through settings; optional guides mark the pixelshifting margin and appear only in the preview. Settings are applied to the active rear-screen design as you change them.
@@ -170,6 +176,12 @@ The ticker supports speeds up to 360 px/s at 340 px display width. Open **Word f
 MiniScreen Takeover zeigt eine anpassbare Digitaluhr, ein vollständiges HTML-Design oder ein experimentelles Pebble-Watchface auf dem Rückdisplay des **Ulefone Armor 28 Ultra**. Bedienung und angeheftete Live-Vorschau erscheinen auf dem Hauptbildschirm. Die Rückdisplay-Anzeige ignoriert Berührungen und Navigationseingaben und kann bei gesperrtem Handy sichtbar bleiben.
 
 Die App verwendet **Display 1** für das Rückdisplay und **Display 0** für die Bedienung. Das Rückdisplay misst normalerweise 340 × 340 Pixel. Seine Steuerung benötigt die Hersteller-Systemapp `com.yft.miniscreendisplay`; die App ist keine allgemeine Lösung für beliebige Android-Zweitbildschirme.
+
+### Ticker-Größe und Hintergrundbewegung
+
+Der Schaufenster-Zoom reicht von 100 % bis 3.000 %. Die Schwenkgeschwindigkeit reicht von 1 bis 100 Designpixeln pro Sekunde, unabhängig vom Zoom. Das Bild bewegt sich gleichmäßig mit sanften zufälligen Richtungswechseln. Der Zoom hält den aktuellen Bildmittelpunkt fest, soweit die Bildränder dies erlauben. Während der Zoomverstellung pausiert die Bewegung und läuft eine Sekunde nach dem Loslassen weiter. Position und Richtung bleiben für die aktuelle Ansicht im Speicher. Der Abdunklungsfilter bleibt einstellbar.
+
+Der Benachrichtigungsticker unterstützt bis zu 1.080 Designpixel pro Sekunde. Seine Höhe wird standardmäßig automatisch berechnet. Schalten Sie die automatische Höhe aus, um 20–300 Designpixel bezogen auf ein 340-Pixel-Display zu wählen. Bei fester Höhe wird Inhalt begrenzt, statt die gewählte Schriftgröße zu verkleinern. Statischer Text berücksichtigt weiterhin die Zeilenbegrenzung. Kreisform und Pixelshifting-Rand können die tatsächlichen Abmessungen begrenzen. Ein optionaler Rahmen zeigt die Fläche ausschließlich in der Vorschau. Halten Sie −/+ gedrückt, um Regler zunehmend schneller zu verstellen; ein einzelner Druck ändert einen Schritt.
 
 ### App-Updates
 

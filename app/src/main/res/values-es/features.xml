@@ -2,9 +2,9 @@
 <resources>
     <string name="window_mode" formatted="false">"Escaparate"</string>
     <string name="window_zoom" formatted="false">"Zoom del escaparate (%)"</string>
-    <string name="window_speed" formatted="false">"Escaparate: segundos por tramo"</string>
+    <string name="window_speed" formatted="false">Velocidad de desplazamiento (px/s a 340 px)</string>
     <string name="window_moving" formatted="false">"Activar movimiento del escaparate"</string>
-    <string name="window_help" formatted="false">"El escaparate mueve suavemente una imagen ampliada entre posiciones aleatorias. Más zoom muestra una zona menor. Más segundos ralentizan el movimiento. El filtro de oscurecimiento sigue activo."</string>
+    <string name="window_help" formatted="false">Movimiento uniforme con cambios de dirección aleatorios y suaves. El zoom mantiene centrado el punto actual de la imagen. El movimiento se reanuda un segundo después de soltar el control de zoom.</string>
     <string name="external_section" formatted="false">"Otra aplicación"</string>
     <string name="external_none" formatted="false">"Ninguna aplicación seleccionada"</string>
     <string name="external_choose" formatted="false">"Elegir aplicación"</string>

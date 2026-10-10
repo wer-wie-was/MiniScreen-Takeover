@@ -194,4 +194,8 @@
     <string name="update_ready">Listo para instalar</string>
     <string name="update_failed">La actualización falló. Inténtalo de nuevo.</string>
     <string name="update_current">Actualizado</string>
+    <string name="ticker_height_auto">Altura automática del ticker</string>
+    <string name="ticker_height">Altura del ticker (px a 340 px)</string>
+    <string name="ticker_frame">Mostrar marco en la vista previa</string>
+    <string name="ticker_height_help">Con altura fija, el texto se limita al área elegida. El círculo y el margen de desplazamiento de píxeles limitan el área disponible. El marco solo aparece en la vista previa.</string>
 </resources>

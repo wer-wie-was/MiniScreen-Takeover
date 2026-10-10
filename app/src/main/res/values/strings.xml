@@ -194,4 +194,8 @@
     <string name="update_ready">Ready to install</string>
     <string name="update_failed">Update failed. Please try again.</string>
     <string name="update_current">Up to date</string>
+    <string name="ticker_height_auto">Automatic ticker height</string>
+    <string name="ticker_height">Ticker height (px at 340 px)</string>
+    <string name="ticker_frame">Show ticker frame in preview</string>
+    <string name="ticker_height_help">With automatic height off, text is limited to the selected height. The circle and pixel shift margin limit the available area. The frame appears only in the preview.</string>
 </resources>

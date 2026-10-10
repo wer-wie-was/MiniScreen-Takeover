@@ -2,9 +2,9 @@
 <resources>
     <string name="window_mode" formatted="false">"Vetrina"</string>
     <string name="window_zoom" formatted="false">"Zoom vetrina (%)"</string>
-    <string name="window_speed" formatted="false">"Vetrina: secondi per spostamento"</string>
+    <string name="window_speed" formatted="false">Velocità di movimento (px/s a 340 px)</string>
     <string name="window_moving" formatted="false">"Attiva movimento vetrina"</string>
-    <string name="window_help" formatted="false">"La vetrina sposta dolcemente un’immagine ingrandita tra posizioni casuali. Più zoom mostra una porzione minore. Più secondi rallentano il movimento. Il filtro di oscuramento resta attivo."</string>
+    <string name="window_help" formatted="false">Movimento uniforme con cambi di direzione casuali e graduali. Lo zoom resta centrato sul punto attuale dell’immagine. Il movimento riprende un secondo dopo il rilascio dello zoom.</string>
     <string name="external_section" formatted="false">"Altra app"</string>
     <string name="external_none" formatted="false">"Nessuna app selezionata"</string>
     <string name="external_choose" formatted="false">"Scegli app"</string>

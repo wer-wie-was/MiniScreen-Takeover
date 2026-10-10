@@ -194,4 +194,8 @@
     <string name="update_ready">Prêt à installer</string>
     <string name="update_failed">Échec de la mise à jour. Réessayez.</string>
     <string name="update_current">À jour</string>
+    <string name="ticker_height_auto">Hauteur automatique du ticker</string>
+    <string name="ticker_height">Hauteur du ticker (px pour 340 px)</string>
+    <string name="ticker_frame">Cadre du ticker dans l’aperçu</string>
+    <string name="ticker_height_help">Avec une hauteur fixe, le texte est limité à la zone choisie. Le cercle et la marge de déplacement des pixels limitent la zone disponible. Le cadre apparaît uniquement dans l’aperçu.</string>
 </resources>
