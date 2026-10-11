@@ -11,9 +11,24 @@
     <string name="wfz_auto">Automatique</string>
     <string name="wfz_resolution">Résolution source</string>
     <string name="wfz_health">Utiliser les données de santé facultatives</string>
-    <string name="wfz_supported">Sous-ensemble pris en charge — vérifier l’aperçu</string>
-    <string name="wfz_partial">Partiellement pris en charge — voir les détails</string>
+    <string name="wfz_supported">Cadran chargé — vérifier l’aperçu</string>
+    <string name="wfz_partial">Affichage avec des limitations</string>
     <string name="wfz_invalid">WFZ invalide ou non pris en charge</string>
     <string name="wfz_loading">Chargement WFZ…</string>
     <string name="wfz_no_report">Réimporter pour générer un rapport de compatibilité</string>
+    <string name="wfz_details">Détails WFZ</string>
+    <string name="wfz_unnamed">Cadran sans nom</string>
+    <string name="wfz_report_old">Rapport d’un ancien moteur de rendu. Réimportez pour actualiser les détails de compatibilité.</string>
+    <string name="wfz_note_health">Les valeurs de santé nécessitent Health Connect, votre autorisation et des données disponibles. Sinon, les champs affichent --.</string>
+    <string name="wfz_note_battery">La batterie affichée est celle du téléphone.</string>
+    <string name="wfz_note_connection">Les indicateurs de connexion de la montre Amazfit ne sont pas affichés.</string>
+    <string name="wfz_note_weather">Les champs météo affichent -- faute de données météo.</string>
+    <string name="wfz_note_activity">Les champs de distance d’entraînement et d’étages affichent -- faute de données.</string>
+    <string name="wfz_note_appearance">Certains widgets proposés utilisent des polices ou icônes de remplacement et peuvent avoir un aspect différent.</string>
+    <string name="wfz_note_weekday">Les jours de la semaine utilisent les images anglaises du cadran.</string>
+    <string name="wfz_note_battery_images">Les images de batterie sont réparties proportionnellement à la charge et peuvent différer de l’original.</string>
+    <string name="wfz_note_image">Certaines images supplémentaires ou superpositions ne sont pas affichées.</string>
+    <string name="wfz_note_date">Certaines options de format de date ne sont pas appliquées. Vérifiez la date dans l’aperçu.</string>
+    <string name="wfz_note_layout">Certaines options de disposition ne sont pas appliquées. Vérifiez les positions et superpositions dans l’aperçu.</string>
+    <string name="wfz_note_missing">Certains éléments ou widgets proposés ne sont pas affichés. Vérifiez l’aperçu.</string>
 </resources>

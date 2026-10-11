@@ -11,5 +11,8 @@
     <string name="wfz_step_goal" formatted="false">"Цель шагов для кольца прогресса"</string>
     <string name="wfz_widget_color" formatted="false">"Цвет виджетов"</string>
     <string name="wfz_widget" formatted="false">"Виджет"</string>
-    <string name="wfz_widget_help" formatted="false">"Выберите вариант. Недоступные данные отображаются как --. Для погоды и дистанции тренировки нет источника данных. Системные виджеты заменяются собственной графикой."</string>
+    <string name="wfz_widget_help" formatted="false">"Выберите вариант. Макеты и цвета моделей восстановлены; шрифты и значки приблизительны. Отсутствующие данные отображаются как --. Источников погоды, дистанции тренировки и этажей нет."</string>
+    <string name="wfz_original_colors" formatted="false">"Исходные цвета виджетов"</string>
+    <string name="wfz_floors" formatted="false">"Этажи"</string>
+    <string name="wfz_statusbar" formatted="false">"Строка состояния"</string>
 </resources>

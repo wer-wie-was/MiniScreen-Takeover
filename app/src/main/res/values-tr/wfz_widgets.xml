@@ -11,5 +11,8 @@
     <string name="wfz_step_goal" formatted="false">"İlerleme halkası için adım hedefi"</string>
     <string name="wfz_widget_color" formatted="false">"Widget vurgu rengi"</string>
     <string name="wfz_widget" formatted="false">"Widget"</string>
-    <string name="wfz_widget_help" formatted="false">"Bir varyant seçin. Kullanılamayan veriler -- olarak gösterilir. Hava durumu ve antrenman mesafesi için veri kaynağı yoktur. Sistem widget’ları yerel grafiklerle çizilir."</string>
+    <string name="wfz_widget_help" formatted="false">"Bir varyant seçin. Modele özgü düzenler ve renkler yeniden oluşturuldu; yazı tipleri ve simgeler yaklaşık çizilir. Eksik veriler -- gösterilir. Hava durumu, antrenman mesafesi ve katlar için veri kaynağı yoktur."</string>
+    <string name="wfz_original_colors" formatted="false">"Widget’ların özgün renkleri"</string>
+    <string name="wfz_floors" formatted="false">"Katlar"</string>
+    <string name="wfz_statusbar" formatted="false">"Durum çubuğu"</string>
 </resources>

@@ -11,9 +11,24 @@
     <string name="wfz_auto">Automático</string>
     <string name="wfz_resolution">Resolución original</string>
     <string name="wfz_health">Usar datos de salud opcionales</string>
-    <string name="wfz_supported">Subconjunto compatible — revisar vista previa</string>
-    <string name="wfz_partial">Parcialmente compatible — ver detalles</string>
+    <string name="wfz_supported">Esfera cargada — revisa la vista previa</string>
+    <string name="wfz_partial">Visualización con limitaciones</string>
     <string name="wfz_invalid">WFZ no válido o incompatible</string>
     <string name="wfz_loading">Cargando WFZ…</string>
     <string name="wfz_no_report">Vuelve a importar para generar un informe de compatibilidad</string>
+    <string name="wfz_details">Detalles WFZ</string>
+    <string name="wfz_unnamed">Esfera sin nombre</string>
+    <string name="wfz_report_old">Informe de un renderizador anterior. Importa de nuevo para actualizar los detalles de compatibilidad.</string>
+    <string name="wfz_note_health">Los valores de salud necesitan Health Connect, tu permiso y datos disponibles. Si faltan, los campos muestran --.</string>
+    <string name="wfz_note_battery">La batería mostrada es la de tu teléfono.</string>
+    <string name="wfz_note_connection">No se muestran los indicadores de conexión del reloj Amazfit.</string>
+    <string name="wfz_note_weather">Los campos del tiempo muestran -- porque no hay datos meteorológicos.</string>
+    <string name="wfz_note_activity">Los campos de distancia de entrenamiento y pisos muestran -- porque no hay datos disponibles.</string>
+    <string name="wfz_note_appearance">Algunos widgets seleccionables usan fuentes o iconos de sustitución y pueden verse diferentes.</string>
+    <string name="wfz_note_weekday">Los días de la semana usan las imágenes en inglés de la esfera.</string>
+    <string name="wfz_note_battery_images">Las imágenes de batería se asignan proporcionalmente a la carga y pueden diferir del original.</string>
+    <string name="wfz_note_image">No se muestran algunas imágenes adicionales o superpuestas.</string>
+    <string name="wfz_note_date">No se aplican algunas opciones de formato de fecha. Revisa la fecha en la vista previa.</string>
+    <string name="wfz_note_layout">No se aplican algunas opciones de disposición. Revisa posiciones y superposiciones en la vista previa.</string>
+    <string name="wfz_note_missing">No se muestran algunos elementos o widgets seleccionables. Revisa la vista previa.</string>
 </resources>

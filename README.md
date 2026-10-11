@@ -10,7 +10,7 @@ The app uses **display 1** for the rear screen and **display 0** for its control
 
 In **Amazfit Watchfaces (experimental)**, import a `.wfz` file and review the compatibility report before enabling the mode. Supported elements are drawn natively, without watch firmware. Seconds default to off; enabling them requests one update per second. Source resolution, fit/crop and optional Health Connect data can be configured. Existing overlays and pixelshifting remain available.
 
-Support covers a defined subset of Stratos/Pace WFZ elements and simple Stratos 3 components. Legacy datawidgets have native symbols, values and selectable configList variants; firmware graphics are approximated. Unsupported components and animations are reported. This mode does not support BIN, Zepp OS or APK watchfaces. See [WFZ details](docs/WFZ.md). The source archive includes `samples/Native-WFZ-Demo.wfz` for trying the supported analog/digital elements.
+Support covers a defined subset of Stratos/Pace WFZ elements and simple Stratos 3 components. Legacy datawidgets use reconstructed model-specific sizes, colours, LCD text, calendar formats and selectable configList variants. Original model colours are the default; fonts and symbols are approximated. Unsupported components and animations are reported. This mode does not support BIN, Zepp OS or APK watchfaces. See [WFZ details](docs/WFZ.md). The source archive includes `samples/Native-WFZ-Demo.wfz` for trying the supported analog/digital elements.
 
 ### First-time setup
 
@@ -187,7 +187,7 @@ Die App verwendet **Display 1** für das Rückdisplay und **Display 0** für die
 
 Unter **Amazfit Watchfaces (experimentell)** eine `.wfz`-Datei importieren, den Kompatibilitätsbericht prüfen und anschließend den Modus aktivieren. Unterstützte Elemente werden nativ ohne Uhren-Firmware gezeichnet. Sekunden sind standardmäßig aus; eingeschaltet wird einmal pro Sekunde aktualisiert. Originalauflösung, Einpassen/Zuschneiden und optionale Health-Connect-Daten lassen sich konfigurieren. Vorhandene Anzeigeebenen und Pixelshifting bleiben nutzbar.
 
-Unterstützt wird ein definierter Teilumfang der Stratos/Pace-WFZ-Elemente sowie einfacher Stratos-3-Komponenten. Legacy-Datenwidgets erhalten native Symbole, Werte und auswählbare configList-Varianten; die Firmwaregrafiken werden angenähert. Nicht unterstützte Komponenten und Animationen werden im Bericht genannt. BIN-, Zepp-OS- und APK-Watchfaces werden nicht unterstützt. Die technischen Details stehen in [WFZ](docs/WFZ.md). Im Quellcodearchiv liegt `samples/Native-WFZ-Demo.wfz` zum Ausprobieren der unterstützten analogen und digitalen Elemente.
+Unterstützt wird ein definierter Teilumfang der Stratos/Pace-WFZ-Elemente sowie einfacher Stratos-3-Komponenten. Legacy-Datenwidgets nutzen rekonstruierte modellspezifische Größen, Farben, LCD-Schrift, Datumsformate und auswählbare configList-Varianten. Originalfarben gelten standardmäßig; Schriften und Symbole sind angenähert. Nicht unterstützte Komponenten und Animationen werden im Bericht genannt. BIN-, Zepp-OS- und APK-Watchfaces werden nicht unterstützt. Die technischen Details stehen in [WFZ](docs/WFZ.md). Im Quellcodearchiv liegt `samples/Native-WFZ-Demo.wfz` zum Ausprobieren der unterstützten analogen und digitalen Elemente.
 
 ### Ticker-Größe und Hintergrundbewegung
 

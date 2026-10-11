@@ -1,0 +1,373 @@
+[
+  {
+    "resource": "Images/Widgets/battery/battery_5.png",
+    "DataType": 10,
+    "Model": 0,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/battery/battery_1.png",
+    "DataType": 10,
+    "Model": 1,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/battery/battery_2.png",
+    "DataType": 10,
+    "Model": 2,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/battery/battery_3.png",
+    "DataType": 10,
+    "Model": 3,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "resource": "Images/Widgets/battery/battery_4.png",
+    "DataType": 10,
+    "Model": 4,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/daily_steps/daily_steps_5.png",
+    "DataType": 1,
+    "Model": 0,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/daily_steps/daily_steps_1.png",
+    "DataType": 1,
+    "Model": 1,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/daily_steps/daily_steps_2.png",
+    "DataType": 1,
+    "Model": 2,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/daily_steps/daily_steps_3.png",
+    "DataType": 1,
+    "Model": 3,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "resource": "Images/Widgets/daily_steps/daily_steps_4.png",
+    "DataType": 1,
+    "Model": 4,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/floors/floors_5.png",
+    "DataType": 12,
+    "Model": 0,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/floors/floors_1.png",
+    "DataType": 12,
+    "Model": 1,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/floors/floors_2.png",
+    "DataType": 12,
+    "Model": 2,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/floors/floors_3.png",
+    "DataType": 12,
+    "Model": 3,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "resource": "Images/Widgets/floors/floors_4.png",
+    "DataType": 12,
+    "Model": 4,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/heart_rate/heart_rate_5.png",
+    "DataType": 5,
+    "Model": 0,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/heart_rate/heart_rate_1.png",
+    "DataType": 5,
+    "Model": 1,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/heart_rate/heart_rate_2.png",
+    "DataType": 5,
+    "Model": 2,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/heart_rate/heart_rate_3.png",
+    "DataType": 5,
+    "Model": 3,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "resource": "Images/Widgets/heart_rate/heart_rate_4.png",
+    "DataType": 5,
+    "Model": 4,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/weather/weather_5.png",
+    "DataType": 8,
+    "Model": 0,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/weather/weather_1.png",
+    "DataType": 8,
+    "Model": 1,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/weather/weather_2.png",
+    "DataType": 8,
+    "Model": 2,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/weather/weather_3.png",
+    "DataType": 8,
+    "Model": 3,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "resource": "Images/Widgets/weather/weather_4.png",
+    "DataType": 8,
+    "Model": 4,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/statusbar/status_bar.png",
+    "DataType": 0,
+    "Model": 0,
+    "width": 320,
+    "height": 20
+  },
+  {
+    "resource": "Images/Widgets/date/date_1.png",
+    "DataType": 6,
+    "Model": 1,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/date/date_2.png",
+    "DataType": 6,
+    "Model": 2,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/date/date_3_2.png",
+    "DataType": 6,
+    "Model": 3,
+    "width": 122,
+    "height": 18
+  },
+  {
+    "resource": "Images/Widgets/date/date_7.png",
+    "DataType": 6,
+    "Model": 4,
+    "width": 134,
+    "height": 20
+  },
+  {
+    "resource": "Images/Widgets/date/date_3.png",
+    "DataType": 6,
+    "Model": 5,
+    "width": 32,
+    "height": 32
+  },
+  {
+    "resource": "Images/Widgets/date/date_5.png",
+    "DataType": 6,
+    "Model": 6,
+    "width": 159,
+    "height": 33
+  },
+  {
+    "resource": "Images/Widgets/date/date_6.png",
+    "DataType": 6,
+    "Model": 7,
+    "width": 159,
+    "height": 33
+  },
+  {
+    "resource": "Images/Widgets/date/date_9.png",
+    "DataType": 6,
+    "Model": 8,
+    "width": 162,
+    "height": 18
+  },
+  {
+    "resource": "Images/Widgets/date/date_8.png",
+    "DataType": 6,
+    "Model": 9,
+    "width": 162,
+    "height": 18
+  },
+  {
+    "resource": "Images/Widgets/date/date_10.png",
+    "DataType": 6,
+    "Model": 10,
+    "width": 150,
+    "height": 18
+  },
+  {
+    "resource": "Images/Widgets/date/date_11.png",
+    "DataType": 6,
+    "Model": 11,
+    "width": 156,
+    "height": 18
+  },
+  {
+    "resource": "Images/Widgets/date/date_12.png",
+    "DataType": 6,
+    "Model": 12,
+    "width": 106,
+    "height": 21
+  },
+  {
+    "resource": "Images/Widgets/distance/distance_5.png",
+    "DataType": 3,
+    "Model": 0,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/distance/distance_1.png",
+    "DataType": 3,
+    "Model": 1,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/distance/distance_2.png",
+    "DataType": 3,
+    "Model": 2,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/distance/distance_3.png",
+    "DataType": 3,
+    "Model": 3,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "resource": "Images/Widgets/distance/distance_4.png",
+    "DataType": 3,
+    "Model": 4,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/calories/calories_5.png",
+    "DataType": 4,
+    "Model": 0,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/calories/calories_1.png",
+    "DataType": 4,
+    "Model": 1,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/calories/calories_2.png",
+    "DataType": 4,
+    "Model": 2,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/calories/calories_3.png",
+    "DataType": 4,
+    "Model": 3,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "resource": "Images/Widgets/calories/calories_4.png",
+    "DataType": 4,
+    "Model": 4,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/mileage/mileage_5.png",
+    "DataType": 2,
+    "Model": 0,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/mileage/mileage_1.png",
+    "DataType": 2,
+    "Model": 1,
+    "width": 100,
+    "height": 24
+  },
+  {
+    "resource": "Images/Widgets/mileage/mileage_2.png",
+    "DataType": 2,
+    "Model": 2,
+    "width": 84,
+    "height": 84
+  },
+  {
+    "resource": "Images/Widgets/mileage/mileage_3.png",
+    "DataType": 2,
+    "Model": 3,
+    "width": 100,
+    "height": 100
+  },
+  {
+    "resource": "Images/Widgets/mileage/mileage_4.png",
+    "DataType": 2,
+    "Model": 4,
+    "width": 100,
+    "height": 24
+  }
+]

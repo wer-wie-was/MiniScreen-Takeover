@@ -295,11 +295,13 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         check(p,tt(R.string.wfz_enable),config.mode.equals("wfz"),v->{config.mode=v?"wfz":"native";changed();build();});
         text(p,tt(R.string.wfz_help),13);
         button(p,tt(R.string.wfz_import),()->pick(WFZ));
-        text(p,config.wfz.isEmpty()?tt(R.string.wfz_empty):WfzImport.report(new File(store.dir(store.active()),config.wfz)),13);
+        text(p,config.wfz.isEmpty()?tt(R.string.wfz_empty):WfzImport.summary(new File(store.dir(store.active()),config.wfz)),13);
+        if(!config.wfz.isEmpty())button(p,tt(R.string.wfz_details),()->new AlertDialog.Builder(this).setTitle(tt(R.string.wfz_details)).setMessage(WfzImport.report(new File(store.dir(store.active()),config.wfz))).setPositiveButton(android.R.string.ok,null).show());
         button(p,tt(R.string.wfz_remove),()->{String old=config.wfz;String profileId=store.active();config.wfz="";config.wfzWidgets=new org.json.JSONObject();if(config.mode.equals("wfz"))config.mode="native";changed();build();if(old.startsWith("wfz-"))worker.execute(()->{try{ProfileStore.deleteTree(store.resolve(profileId,old.split("/")[0]));}catch(Exception ignored){}});});
         if(!config.wfz.isEmpty())button(p,tt(R.string.wfz_widgets),this::wfzWidgetSettings);
         slider(p,tt(R.string.wfz_step_goal),1000,50000,config.wfzStepGoal,v->{config.wfzStepGoal=v;changed();});
-        button(p,tt(R.string.wfz_widget_color),()->ColorPicker.show(this,tt(R.string.wfz_widget_color),config.wfzWidgetColor,v->{config.wfzWidgetColor=v;changed();}));
+        check(p,tt(R.string.wfz_original_colors),config.wfzOriginalColors,v->{config.wfzOriginalColors=v;changed();build();});
+        if(!config.wfzOriginalColors)button(p,tt(R.string.wfz_widget_color),()->ColorPicker.show(this,tt(R.string.wfz_widget_color),config.wfzWidgetColor,v->{config.wfzWidgetColor=v;changed();}));
         check(p,tt(R.string.wfz_seconds),config.wfzSeconds,v->{config.wfzSeconds=v;changed();});
         check(p,tt(R.string.wfz_crop),config.wfzCrop,v->{config.wfzCrop=v;changed();});
         int[] sizes={0,320,360,454,466,480};String[] labels={tt(R.string.wfz_auto),"320 × 320","360 × 360","454 × 454","466 × 466","480 × 480"};int selection=0;for(int i=0;i<sizes.length;i++)if(config.wfzSize==sizes[i])selection=i;

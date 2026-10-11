@@ -18,7 +18,7 @@ final class WfzWidgets {
         Choice selected(Config c){String token=c.wfzWidgets.optString(key,initial.token());for(Choice v:choices)if(v.token().equals(token))return v;return initial;}
         void add(Choice c){for(Choice v:choices)if(v.token().equals(c.token()))return;if(choices.size()<64)choices.add(c);}
     }
-    static String type(int n){switch(n){case 1:return "steps";case 2:return "distance";case 3:return "workoutdistance";case 4:return "calories";case 5:return "heart";case 6:return "date";case 8:return "weather";case 10:return "battery";default:return "unsupported-data-"+n;}}
+    static String type(int n){switch(n){case 0:return "statusbar";case 12:return "floors";case 1:return "steps";case 2:return "distance";case 3:return "workoutdistance";case 4:return "calories";case 5:return "heart";case 6:return "date";case 8:return "weather";case 10:return "battery";default:return "unsupported-data-"+n;}}
     static boolean health(String type){return Arrays.asList("steps","distance","calories","heart").contains(type);}
     static String name(String type){switch(type){
         case "steps":return I18n.get(R.string.pebble_steps);
@@ -29,6 +29,8 @@ final class WfzWidgets {
         case "weather":return I18n.get(R.string.wfz_weather);
         case "date":return I18n.get(R.string.wfz_date);
         case "battery":return I18n.get(R.string.wfz_battery);
+        case "floors":return I18n.get(R.string.wfz_floors);
+        case "statusbar":return I18n.get(R.string.wfz_statusbar);
         default:return type;
     }}
     static Spec spec(WfzScene scene,Element e,String key)throws Exception {
@@ -47,12 +49,15 @@ final class WfzWidgets {
             if(c.type.startsWith("unsupported"))scene.warnings.add(key+": unsupported dataType="+c.data+" (placeholder)");
             if(c.type.equals("weather"))scene.warnings.add(key+": weather source unavailable; --");
             if(c.type.equals("workoutdistance"))scene.warnings.add(key+": workout distance unavailable; -- (daily distance is a separate choice)");
-            if(!Arrays.asList(0,1,2,5,6,7).contains(c.model))scene.warnings.add(key+": model="+c.model+" uses a generic native layout");
+            if(c.type.equals("floors"))scene.warnings.add(key+": floors source unavailable; --");
+            if(c.type.equals("statusbar"))scene.warnings.add(key+": statusbar shows phone battery only");
+            if(!WfzWidgetCatalog.known(c.data,c.model))scene.warnings.add(key+": unknown dataType/model="+c.token()+"; plain text fallback");
+            else scene.warnings.add(key+": reconstructed model "+c.token()+"; fonts/icons approximate");
         }
         return s;
     }
-    static int width(Choice c){if(!c.type.equals("date"))return c.model==1||c.model==2?88:80;return c.model==1?74:c.model==2?70:c.model==5?32:c.model==6||c.model==7?116:80;}
-    static int height(Choice c){if(c.type.equals("date"))return c.model==5?30:c.model==0?80:24;return c.model==1||c.model==2?28:80;}
+    static int width(Choice c){return WfzWidgetCatalog.width(c.data,c.model);}
+    static int height(Choice c){return WfzWidgetCatalog.height(c.data,c.model);}
     static List<Spec> read(File folder)throws Exception {
         // XML-only scan for settings; image decoding stays on the scene loader.
         WfzScene scene=WfzScene.descriptions(folder);Element root=WfzScene.xml(new File(folder,"watchface.xml"));

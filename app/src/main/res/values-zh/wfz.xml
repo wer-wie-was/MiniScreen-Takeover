@@ -11,9 +11,24 @@
     <string name="wfz_auto">自动</string>
     <string name="wfz_resolution">原始分辨率</string>
     <string name="wfz_health">使用可选健康数据</string>
-    <string name="wfz_supported">支持的功能子集，请检查预览</string>
-    <string name="wfz_partial">部分支持，请查看详情</string>
+    <string name="wfz_supported">表盘已加载，请检查预览</string>
+    <string name="wfz_partial">显示存在限制</string>
     <string name="wfz_invalid">WFZ 无效或不受支持</string>
     <string name="wfz_loading">正在加载 WFZ…</string>
     <string name="wfz_no_report">请重新导入以生成兼容性报告</string>
+    <string name="wfz_details">WFZ 详情</string>
+    <string name="wfz_unnamed">未命名表盘</string>
+    <string name="wfz_report_old">此报告来自旧版渲染器。请重新导入以更新兼容性详情。</string>
+    <string name="wfz_note_health">健康数值需要 Health Connect、你的授权和可用数据。否则字段显示 --。</string>
+    <string name="wfz_note_battery">电池指示显示手机的电量。</string>
+    <string name="wfz_note_connection">不显示 Amazfit 手表的连接指示。</string>
+    <string name="wfz_note_weather">由于没有天气数据，天气字段显示 --。</string>
+    <string name="wfz_note_activity">由于没有相关数据，运动距离和楼层数字段显示 --。</string>
+    <string name="wfz_note_appearance">部分可选组件使用替代字体或图标，外观可能有所不同。</string>
+    <string name="wfz_note_weekday">星期使用表盘提供的英文图片。</string>
+    <string name="wfz_note_battery_images">电池图片按电量比例选择，可能与原版不同。</string>
+    <string name="wfz_note_image">部分附加图片或叠加图层无法显示。</string>
+    <string name="wfz_note_date">部分日期格式选项未应用，请在预览中检查日期。</string>
+    <string name="wfz_note_layout">部分布局选项未应用，请在预览中检查位置和重叠情况。</string>
+    <string name="wfz_note_missing">部分元素或可选组件无法显示，请检查预览。</string>
 </resources>

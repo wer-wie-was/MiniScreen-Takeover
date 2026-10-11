@@ -11,5 +11,8 @@
     <string name="wfz_step_goal" formatted="false">"Objectif de pas pour l’anneau"</string>
     <string name="wfz_widget_color" formatted="false">"Couleur des widgets"</string>
     <string name="wfz_widget" formatted="false">"Widget"</string>
-    <string name="wfz_widget_help" formatted="false">"Choisir une variante. Les données indisponibles affichent --. La météo et la distance d’entraînement n’ont pas de source. Les widgets système utilisent des graphismes natifs."</string>
+    <string name="wfz_widget_help" formatted="false">"Choisissez une variante. Les dispositions et couleurs sont reconstruites ; les polices et icônes sont approximatives. Les données manquantes affichent --. Aucune source pour la météo, la distance d’entraînement et les étages."</string>
+    <string name="wfz_original_colors" formatted="false">"Couleurs originales des widgets"</string>
+    <string name="wfz_floors" formatted="false">"Étages"</string>
+    <string name="wfz_statusbar" formatted="false">"Barre d’état"</string>
 </resources>

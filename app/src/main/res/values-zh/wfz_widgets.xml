@@ -11,5 +11,8 @@
     <string name="wfz_step_goal" formatted="false">"进度环的步数目标"</string>
     <string name="wfz_widget_color" formatted="false">"组件强调色"</string>
     <string name="wfz_widget" formatted="false">"组件"</string>
-    <string name="wfz_widget_help" formatted="false">"选择组件样式。不可用的数据显示为 --。天气和训练距离尚无数据源。系统组件使用原生替代图形。"</string>
+    <string name="wfz_widget_help" formatted="false">"选择组件样式。已重建各型号的布局和颜色；字体和图标为近似绘制。缺失数据显示为 --。天气、训练距离和楼层暂无数据源。"</string>
+    <string name="wfz_original_colors" formatted="false">"组件原始颜色"</string>
+    <string name="wfz_floors" formatted="false">"楼层"</string>
+    <string name="wfz_statusbar" formatted="false">"状态栏"</string>
 </resources>

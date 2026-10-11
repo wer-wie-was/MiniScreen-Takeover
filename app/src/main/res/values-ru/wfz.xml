@@ -11,9 +11,24 @@
     <string name="wfz_auto">Автоматически</string>
     <string name="wfz_resolution">Исходное разрешение</string>
     <string name="wfz_health">Использовать дополнительные данные здоровья</string>
-    <string name="wfz_supported">Поддерживаемое подмножество — проверьте предпросмотр</string>
-    <string name="wfz_partial">Частичная поддержка — см. подробности</string>
+    <string name="wfz_supported">Циферблат загружен — проверьте предпросмотр</string>
+    <string name="wfz_partial">Отображение с ограничениями</string>
     <string name="wfz_invalid">Некорректный или неподдерживаемый WFZ</string>
     <string name="wfz_loading">Загрузка WFZ…</string>
     <string name="wfz_no_report">Повторите импорт для создания отчёта о совместимости</string>
+    <string name="wfz_details">Подробности WFZ</string>
+    <string name="wfz_unnamed">Циферблат без названия</string>
+    <string name="wfz_report_old">Отчёт предыдущей версии средства отрисовки. Импортируйте снова, чтобы обновить сведения о совместимости.</string>
+    <string name="wfz_note_health">Для показателей здоровья нужны Health Connect, ваше разрешение и доступные данные. Иначе поля показывают --.</string>
+    <string name="wfz_note_battery">Индикатор батареи показывает заряд телефона.</string>
+    <string name="wfz_note_connection">Индикаторы подключения часов Amazfit не отображаются.</string>
+    <string name="wfz_note_weather">Поля погоды показывают --, поскольку данные погоды недоступны.</string>
+    <string name="wfz_note_activity">Поля дистанции тренировки и этажей показывают --, поскольку эти данные недоступны.</string>
+    <string name="wfz_note_appearance">Некоторые доступные виджеты используют заменяющие шрифты или значки и могут выглядеть иначе.</string>
+    <string name="wfz_note_weekday">Дни недели используют английские изображения из циферблата.</string>
+    <string name="wfz_note_battery_images">Изображения батареи выбираются пропорционально заряду и могут отличаться от оригинала.</string>
+    <string name="wfz_note_image">Некоторые дополнительные изображения или наложения не отображаются.</string>
+    <string name="wfz_note_date">Некоторые параметры формата даты не применяются. Проверьте дату в предпросмотре.</string>
+    <string name="wfz_note_layout">Некоторые параметры расположения не применяются. Проверьте позиции и наложения в предпросмотре.</string>
+    <string name="wfz_note_missing">Некоторые элементы или доступные виджеты не отображаются. Проверьте предпросмотр.</string>
 </resources>

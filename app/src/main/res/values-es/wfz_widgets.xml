@@ -11,5 +11,8 @@
     <string name="wfz_step_goal" formatted="false">"Meta de pasos para el anillo"</string>
     <string name="wfz_widget_color" formatted="false">"Color de los widgets"</string>
     <string name="wfz_widget" formatted="false">"Widget"</string>
-    <string name="wfz_widget_help" formatted="false">"Elige una variante. Los datos no disponibles muestran --. El tiempo y la distancia de entrenamiento no tienen fuente. Los widgets del sistema usan gráficos nativos."</string>
+    <string name="wfz_widget_help" formatted="false">"Elige una variante. Los diseños y colores están reconstruidos; las fuentes e iconos son aproximados. Los datos ausentes muestran --. El tiempo, la distancia de entrenamiento y los pisos no tienen fuente."</string>
+    <string name="wfz_original_colors" formatted="false">"Colores originales de los widgets"</string>
+    <string name="wfz_floors" formatted="false">"Pisos"</string>
+    <string name="wfz_statusbar" formatted="false">"Barra de estado"</string>
 </resources>

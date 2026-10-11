@@ -44,8 +44,11 @@ final class WfzView extends View {
         canvas.translate((getWidth()-designW*scale)/2+dx,(getHeight()-designH*scale)/2+dy);canvas.scale(scale,scale);
         Calendar now=Calendar.getInstance();
         for(WfzScene.Part p:scene.parts){
+            // Native clock hands belong above the face and its widgets, even
+            // when the WFZ lists timehand before datawidget elements.
+            if(p.hour!=null)continue;
             if(p.widget!=null){WfzWidgets.Choice choice=p.widget.selected(config);String v=widgetValue(choice,now);float progress=-1;
-                if(choice.type.equals("battery")&&battery>=0)progress=battery/100f;
+                if((choice.type.equals("battery")||choice.type.equals("statusbar"))&&battery>=0)progress=battery/100f;
                 if(choice.type.equals("steps")&&!v.equals("--"))try{progress=Float.parseFloat(v)/config.wfzStepGoal;}catch(Exception ignored){}
                 WfzWidgetPainter.draw(canvas,p,config,v,progress);continue;}
             if(p.type.equals("statusbar"))continue;
@@ -59,15 +62,19 @@ final class WfzView extends View {
                 continue;
             }
             if(p.image!=null){paint.setColor(Color.WHITE);canvas.drawBitmap(p.image,null,new RectF(p.x,p.y,p.x+p.w,p.y+p.h),paint);continue;}
-            if(p.hour!=null){float second=config.wfzSeconds?now.get(Calendar.SECOND):0;float minute=now.get(Calendar.MINUTE)+second/60f;
-                hand(canvas,p.hour,p.x,p.y,p.w,p.h,(now.get(Calendar.HOUR)+minute/60f)*30);hand(canvas,p.minute,p.x,p.y,p.w,p.h,minute*6);
-                if(config.wfzSeconds&&p.second!=null)hand(canvas,p.second,p.x,p.y,p.w,p.h,second*6);continue;}
             if(p.type.equals("second")&&!config.wfzSeconds)continue;
             String text=value(p.type,now);
             if(p.digit>=0&&p.digit<text.length())text=text.substring(p.digit,p.digit+1);
             drawText(canvas,p,text);
         }
-        for(WfzScene.Part p:scene.parts)if(p.type.equals("statusbar"))WfzWidgetPainter.status(canvas,p.x,p.y,battery);
+        for(WfzScene.Part p:scene.parts)if(p.hour!=null){
+            float second=config.wfzSeconds?now.get(Calendar.SECOND):0;
+            float minute=now.get(Calendar.MINUTE)+second/60f;
+            hand(canvas,p.hour,p.x,p.y,p.w,p.h,(now.get(Calendar.HOUR)+minute/60f)*30);
+            hand(canvas,p.minute,p.x,p.y,p.w,p.h,minute*6);
+            if(config.wfzSeconds&&p.second!=null)hand(canvas,p.second,p.x,p.y,p.w,p.h,second*6);
+        }
+        for(WfzScene.Part p:scene.parts)if(p.type.equals("statusbar"))WfzWidgetPainter.status(canvas,p.x,p.y,p.w,p.h,battery<0?"--":battery+"%",battery<0?-1:battery/100f);
         canvas.restore();
     }
     private void hand(Canvas canvas,Bitmap image,float x,float y,float width,float height,float angle){
@@ -93,8 +100,14 @@ final class WfzView extends View {
         case "heart":return TakeoverControl.prefs(getContext()).getBoolean("pebble_health_heart",false)&&validHealth("heartTime",Config.clamp(TakeoverControl.prefs(getContext()).getInt("pebble_health_max_age",15),1,120)*60)?health.optString("heartRate","--"):"--";
         default:return "--";}}
     private String widgetValue(WfzWidgets.Choice c,Calendar now){
-        if(c.type.equals("date")){String pattern=c.model==1?"MM-dd":c.model==2?"EEE":c.model==5?"dd":c.model==6||c.model==7?"dd.MM.yyyy":"dd.MM";return new java.text.SimpleDateFormat(pattern,I18n.locale()).format(now.getTime());}
-        String result=value(c.type,now);return c.type.equals("battery")&&!result.equals("--")?result+"%":result;
+        if(c.type.equals("date"))return WfzWidgetDate.value(c.model,now);
+        String result=value(c.type.equals("statusbar")?"battery":c.type,now);
+        if((c.type.equals("battery")||c.type.equals("statusbar"))&&!result.equals("--"))return result+"%";
+        if(c.type.equals("distance")&&!result.equals("--")){
+            double km=health.optDouble("distanceKm",Double.NaN);
+            return Double.isNaN(km)?"--":String.format(Locale.ROOT,c.model==0?"%.1f":"%.2f",km);
+        }
+        return result;
     }
     private String metric(String prefix,String pref,String field,boolean decimal){
         long today=java.time.LocalDate.now().atStartOfDay(java.time.ZoneId.systemDefault()).toEpochSecond();

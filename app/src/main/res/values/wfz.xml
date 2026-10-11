@@ -11,9 +11,24 @@
     <string name="wfz_auto">Automatic</string>
     <string name="wfz_resolution">Source resolution</string>
     <string name="wfz_health">Use optional health data</string>
-    <string name="wfz_supported">Supported subset — check preview</string>
-    <string name="wfz_partial">Partially supported — check details</string>
+    <string name="wfz_supported">Watchface loaded — check preview</string>
+    <string name="wfz_partial">Display has limitations</string>
     <string name="wfz_invalid">Invalid or unsupported WFZ</string>
     <string name="wfz_loading">Loading WFZ…</string>
     <string name="wfz_no_report">Import again to generate a compatibility report</string>
+    <string name="wfz_details">WFZ details</string>
+    <string name="wfz_unnamed">Unnamed watchface</string>
+    <string name="wfz_report_old">Report from an older renderer. Import again to update the compatibility details.</string>
+    <string name="wfz_note_health">Health values need Health Connect, your permission and available data. Otherwise the fields show --.</string>
+    <string name="wfz_note_battery">The battery display uses your phone battery.</string>
+    <string name="wfz_note_connection">Amazfit watch connection indicators are not displayed.</string>
+    <string name="wfz_note_weather">Weather fields show -- because weather data is unavailable.</string>
+    <string name="wfz_note_activity">Workout distance and floor count fields show -- because their data is unavailable.</string>
+    <string name="wfz_note_appearance">Some selectable widgets use replacement fonts or icons and may look different.</string>
+    <string name="wfz_note_weekday">Weekday labels use the English images supplied by the watchface.</string>
+    <string name="wfz_note_battery_images">Battery images are assigned proportionally to the charge level and may differ from the original.</string>
+    <string name="wfz_note_image">Some extra images or image overlays cannot be displayed.</string>
+    <string name="wfz_note_date">Some date formatting options are not applied. Check the date in the preview.</string>
+    <string name="wfz_note_layout">Some layout options are not applied. Check positions and overlaps in the preview.</string>
+    <string name="wfz_note_missing">Some elements or selectable widgets cannot be displayed. Check the preview.</string>
 </resources>

@@ -11,9 +11,24 @@
     <string name="wfz_auto">Automatisch</string>
     <string name="wfz_resolution">Originalauflösung</string>
     <string name="wfz_health">Optionale Gesundheitsdaten verwenden</string>
-    <string name="wfz_supported">Unterstützter Teilumfang — Vorschau prüfen</string>
-    <string name="wfz_partial">Teilweise unterstützt — Details prüfen</string>
+    <string name="wfz_supported">Watchface geladen — Vorschau prüfen</string>
+    <string name="wfz_partial">Darstellung mit Einschränkungen</string>
     <string name="wfz_invalid">Ungültige oder nicht unterstützte WFZ</string>
     <string name="wfz_loading">WFZ wird geladen…</string>
     <string name="wfz_no_report">Erneut importieren, um einen Kompatibilitätsbericht zu erstellen</string>
+    <string name="wfz_details">WFZ-Details</string>
+    <string name="wfz_unnamed">Unbenanntes Watchface</string>
+    <string name="wfz_report_old">Bericht eines älteren Renderers. Erneut importieren, um die Kompatibilitätsdetails zu aktualisieren.</string>
+    <string name="wfz_note_health">Gesundheitswerte benötigen Health Connect, deine Freigabe und verfügbare Daten. Sonst zeigen die Felder --.</string>
+    <string name="wfz_note_battery">Die Akkuanzeige verwendet den Akku deines Telefons.</string>
+    <string name="wfz_note_connection">Verbindungszeichen der Amazfit-Uhr werden nicht angezeigt.</string>
+    <string name="wfz_note_weather">Wetterfelder zeigen --, weil keine Wetterdaten verfügbar sind.</string>
+    <string name="wfz_note_activity">Felder für Trainingsstrecke und Stockwerke zeigen --, weil diese Daten nicht verfügbar sind.</string>
+    <string name="wfz_note_appearance">Einige auswählbare Widgets verwenden Ersatzschriften oder Symbole und können anders aussehen.</string>
+    <string name="wfz_note_weekday">Die Wochentage verwenden die englischen Bilder aus dem Watchface.</string>
+    <string name="wfz_note_battery_images">Akkubilder werden proportional zum Ladestand zugeordnet und können vom Original abweichen.</string>
+    <string name="wfz_note_image">Einige zusätzliche Bilder oder Bildüberlagerungen werden nicht angezeigt.</string>
+    <string name="wfz_note_date">Einige Formatierungsoptionen für das Datum werden nicht angewendet. Prüfe das Datum in der Vorschau.</string>
+    <string name="wfz_note_layout">Einige Layoutoptionen werden nicht angewendet. Prüfe Positionen und Überlagerungen in der Vorschau.</string>
+    <string name="wfz_note_missing">Einige Elemente oder auswählbare Widgets werden nicht angezeigt. Prüfe die Vorschau.</string>
 </resources>

@@ -11,9 +11,24 @@
     <string name="wfz_auto">Otomatik</string>
     <string name="wfz_resolution">Kaynak çözünürlüğü</string>
     <string name="wfz_health">İsteğe bağlı sağlık verilerini kullan</string>
-    <string name="wfz_supported">Desteklenen alt küme — önizlemeyi kontrol edin</string>
-    <string name="wfz_partial">Kısmen destekleniyor — ayrıntıları inceleyin</string>
+    <string name="wfz_supported">Saat yüzü yüklendi — önizlemeyi kontrol et</string>
+    <string name="wfz_partial">Görüntülemede kısıtlamalar var</string>
     <string name="wfz_invalid">Geçersiz veya desteklenmeyen WFZ</string>
     <string name="wfz_loading">WFZ yükleniyor…</string>
     <string name="wfz_no_report">Uyumluluk raporu için yeniden içe aktarın</string>
+    <string name="wfz_details">WFZ ayrıntıları</string>
+    <string name="wfz_unnamed">Adsız saat yüzü</string>
+    <string name="wfz_report_old">Eski bir işleyicinin raporu. Uyumluluk ayrıntılarını güncellemek için yeniden içe aktarın.</string>
+    <string name="wfz_note_health">Sağlık değerleri Health Connect, iznin ve kullanılabilir veriler gerektirir. Aksi halde alanlarda -- görünür.</string>
+    <string name="wfz_note_battery">Pil göstergesi telefonunun pilini kullanır.</string>
+    <string name="wfz_note_connection">Amazfit saatinin bağlantı göstergeleri görüntülenmez.</string>
+    <string name="wfz_note_weather">Hava durumu verisi olmadığında ilgili alanlarda -- görünür.</string>
+    <string name="wfz_note_activity">Antrenman mesafesi ve kat sayısı verileri olmadığında ilgili alanlarda -- görünür.</string>
+    <string name="wfz_note_appearance">Bazı seçilebilir widget’lar farklı yazı tipleri veya simgeler kullanır ve farklı görünebilir.</string>
+    <string name="wfz_note_weekday">Haftanın günleri saat yüzündeki İngilizce resimleri kullanır.</string>
+    <string name="wfz_note_battery_images">Pil resimleri şarj seviyesine orantılı atanır ve özgün görüntüden farklı olabilir.</string>
+    <string name="wfz_note_image">Bazı ek resimler veya resim katmanları görüntülenmez.</string>
+    <string name="wfz_note_date">Bazı tarih biçimi seçenekleri uygulanmaz. Önizlemede tarihi kontrol et.</string>
+    <string name="wfz_note_layout">Bazı yerleşim seçenekleri uygulanmaz. Önizlemede konumları ve örtüşmeleri kontrol et.</string>
+    <string name="wfz_note_missing">Bazı öğeler veya seçilebilir widget’lar görüntülenmez. Önizlemeyi kontrol et.</string>
 </resources>

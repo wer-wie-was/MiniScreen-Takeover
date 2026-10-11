@@ -27,6 +27,14 @@ final class WfzScene {
         if(!xml.getTagName().equalsIgnoreCase("WatchFace"))throw new IOException("Invalid WatchFace root");
         scene.width=integer(xml,"width",320);scene.height=integer(xml,"height",scene.width);
         scene.parse(xml,0,"");
+        // A face with its own battery field needs no duplicate native battery overlay.
+        boolean ownBattery=false;
+        for(Part p:scene.parts)if(p.type.equals("battery")||p.type.equals("batteryimage")){ownBattery=true;break;}
+        if(ownBattery){
+            scene.parts.removeIf(p->p.type.equals("statusbar"));
+            if(scene.warnings.remove("statusbar: phone battery; watch connectivity indicators unavailable"))
+                scene.warnings.add("statusbar: watch connectivity indicators unavailable");
+        }
         if(scene.health)scene.warnings.add("health: optional Health Connect data; -- when unavailable");
         if(scene.width<100||scene.height<100||scene.width>1024||scene.height>1024)throw new IOException("Unsupported canvas dimensions");
         if(scene.parts.isEmpty())throw new IOException("No supported WFZ elements");
@@ -73,25 +81,33 @@ final class WfzScene {
                 if(hasElements(e)){parse(e,depth+1,data);continue;}
                 if(type.equals("gtrwidget"))type=data;
             }
-            if(type.equals("sec")&&e.hasAttribute("high.x")&&e.hasAttribute("low.x")){
+            String timeType=type.equals("hour")||type.equals("hour_text")?"hour":
+                type.equals("min")||type.equals("minute")||type.equals("minute_text")?"minute":
+                type.equals("sec")||type.equals("second")||type.equals("second_text")?"second":"";
+            if(!timeType.isEmpty()&&e.hasAttribute("high.x")&&e.hasAttribute("low.x")){
                 String folder=e.getAttribute("font");Map<String,Bitmap> glyphs=font(folder);
                 for(int digit=0;digit<2;digit++){
-                    Part split=new Part();split.type="second";split.font=folder;split.digit=digit;
+                    Part split=new Part();split.type=timeType;split.font=folder;split.digit=digit;
                     String prefix=digit==0?"high":"low";split.x=integer(e,prefix+".x",0);split.y=integer(e,prefix+".y",0);
                     for(Bitmap glyph:glyphs.values()){split.w=Math.max(split.w,glyph.getWidth());split.h=Math.max(split.h,glyph.getHeight());}
-                    parts.add(split);
-                }seconds=true;continue;
+                    if(split.w>2048||split.h>2048||Math.abs(split.x)>2048||Math.abs(split.y)>2048)
+                        throw new IOException("Invalid WFZ digit coordinates");
+                    // Some faces repeat the identical hour declaration.
+                    boolean duplicate=false;
+                    for(Part old:parts)if(old.type.equals(split.type)&&old.digit==split.digit&&old.font.equals(split.font)
+                            &&old.x==split.x&&old.y==split.y&&old.w==split.w&&old.h==split.h){duplicate=true;break;}
+                    if(!duplicate)parts.add(split);
+                }if(timeType.equals("second"))seconds=true;continue;
             }
             if(type.equals("datawidget")){
                 Part p=new Part();p.type="widget";p.widget=WfzWidgets.spec(this,e,"widget-"+(widgetCount++));
                 p.x=p.widget.x;p.y=p.widget.y;p.w=p.widget.width;p.h=p.widget.height;
                 if(!e.getAttribute("mask").isEmpty())try{p.mask=bitmap(e.getAttribute("mask"));}catch(Exception ex){warnings.add("missing widget mask: "+e.getAttribute("mask"));}
                 for(WfzWidgets.Choice choice:p.widget.choices)health|=WfzWidgets.health(choice.type);
-                warnings.add("native widget replacement: "+p.widget.key+" (original Amazfit system graphics unavailable)");
                 parts.add(p);continue;
             }
             if(type.equals("statusbar")){
-                Part p=new Part();p.type="statusbar";p.x=integer(e,"x",width/2);p.y=integer(e,"y",height-34);p.w=48;p.h=16;parts.add(p);warnings.add("statusbar: phone battery; watch connectivity indicators unavailable");continue;
+                Part p=new Part();p.type="statusbar";p.x=integer(e,"x",0);p.y=integer(e,"y",height-20);p.w=integer(e,"width",320);p.h=integer(e,"height",20);if(p.w<=0||p.h<=0||p.w>2048||p.h>2048)throw new IOException("Invalid statusbar rectangle");parts.add(p);warnings.add("statusbar: phone battery; watch connectivity indicators unavailable");continue;
             }
             Part p=new Part();p.type=type;p.source=type;p.x=integer(e,"x",integer(e,"x0",0));p.y=integer(e,"y",integer(e,"y0",0));
             p.w=integer(e,"width",integer(e,"x1",(int)p.x)-(int)p.x);p.h=integer(e,"height",integer(e,"y1",(int)p.y)-(int)p.y);
@@ -120,6 +136,14 @@ final class WfzScene {
                 String name=resource(e);if(name.isEmpty()){warnings.add(type);continue;}p.image=bitmap(name);
                 if(type.equals("background")){width=p.image.getWidth();height=p.image.getHeight();p.w=width;p.h=height;}
                 else {if(p.w<=0)p.w=p.image.getWidth();if(p.h<=0)p.h=p.image.getHeight();}
+            }else if(type.equals("graduation")){
+                // Graduation is an image overlay, at this position in XML order.
+                // Its resource may name either the PNG or its containing folder.
+                String name=resource(e);
+                if(name.isEmpty()||name.startsWith("@assets/")){warnings.add("graduation: unavailable resource "+name);continue;}
+                if(path(name).isDirectory())name+="/graduation.png";
+                p.image=bitmap(name);
+                if(p.w<=0)p.w=p.image.getWidth();if(p.h<=0)p.h=p.image.getHeight();
             }else if(type.equals("timehand")){
                 String folder=resource(e);p.hour=bitmap(folder+"/hour.png");
                 // The XML describes the hand canvas, independently of PNG resolution.
@@ -131,8 +155,8 @@ final class WfzScene {
             }else {
                 if((type.equals("text")||type.equals("number")||type.equals("level"))&&!inherited.isEmpty())p.type=inherited;
                 if(type.equals("hour_text")||type.equals("hour"))p.type="hour";
-                if(type.equals("minute_text")||type.equals("minute"))p.type="minute";
-                if(type.equals("second_text")||type.equals("second")){p.type="second";seconds=true;}
+                if(type.equals("minute_text")||type.equals("minute")||type.equals("min"))p.type="minute";
+                if(type.equals("second_text")||type.equals("second")||type.equals("sec")){p.type="second";seconds=true;}
                 if(type.equals("day_text"))p.type="day";
                 if(type.equals("month_text"))p.type="month";
                 if(type.equals("week_text"))p.type="weekday";
