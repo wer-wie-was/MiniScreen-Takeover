@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="wfz_section">Циферблаты Amazfit (экспериментально)</string>
+    <string name="wfz_section">Циферблаты Amazfit</string>
     <string name="wfz_enable">Использовать циферблат WFZ</string>
     <string name="wfz_help">Нативная отрисовка отдельных элементов Stratos/Pace и простых компонентов Stratos 3. Импортируйте .wfz и проверьте отчёт перед включением. Неизвестные виджеты и анимации пропускаются; системные виджеты могут заменяться текстом. BIN, Zepp OS и APK не поддерживаются. Секунды по умолчанию отключены.</string>
     <string name="wfz_import">Импортировать циферблат .wfz</string>

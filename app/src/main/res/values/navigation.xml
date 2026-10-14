@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_design">Design</string>
+    <string name="nav_apps">Apps</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_notices">Notices</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_active_profile">Active profile:</string>
+    <string name="nav_profile_actions">Profile actions</string>
+    <string name="nav_digital_background">Digital Clock + Background</string>
+    <string name="nav_system">System &amp; permissions</string>
+    <string name="nav_digital_clock">Digital Clock</string>
+</resources>

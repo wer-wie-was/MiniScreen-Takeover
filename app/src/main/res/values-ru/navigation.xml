@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_design">Дизайн</string>
+    <string name="nav_apps">Приложения</string>
+    <string name="nav_home">Главная</string>
+    <string name="nav_notices">Уведомления</string>
+    <string name="nav_settings">Настройки</string>
+    <string name="nav_active_profile">Активный профиль:</string>
+    <string name="nav_profile_actions">Действия профиля</string>
+    <string name="nav_digital_background">Цифровые часы + фон</string>
+    <string name="nav_system">Система и разрешения</string>
+    <string name="nav_digital_clock">Цифровые часы</string>
+</resources>

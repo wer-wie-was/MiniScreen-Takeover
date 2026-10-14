@@ -8,7 +8,7 @@ import java.util.*;
 import org.json.*;
 
 final class WfzImport {
-    static final int MAX_ENTRIES=2000,RENDERER_VERSION=46;
+    static final int MAX_ENTRIES=2000,RENDERER_VERSION=51;
     static String importFile(Context c,ProfileStore store,String id,Uri uri)throws Exception {
         File folder=new File(store.dir(id),"wfz-"+UUID.randomUUID());folder.mkdirs();
         try {

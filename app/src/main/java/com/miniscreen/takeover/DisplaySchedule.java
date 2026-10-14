@@ -47,7 +47,7 @@ final class DisplaySchedule {
     static void cancel(Context c){((AlarmManager)c.getSystemService(Context.ALARM_SERVICE)).cancel(pending(c));}
     static void plan(Context c){
         SharedPreferences p=TakeoverControl.prefs(c);AlarmManager alarms=(AlarmManager)c.getSystemService(Context.ALARM_SERVICE);cancel(c);
-        if(!enabled(p)||!valid(p))return;
+        if(!enabled(p)||!valid(p)||!p.getBoolean("enabled",false)||AutomationControl.blocked(p))return;
         long now=System.currentTimeMillis();Edge edge=next(p,now,null);if(edge==null)return;
         long when=edge.time,until=p.getLong("pause_until",0);
         // A finite pause also gets a reevaluation alarm; indefinite pauses retain the next window edge.
@@ -71,7 +71,7 @@ final class DisplaySchedule {
         SharedPreferences p=TakeoverControl.prefs(c);plan(c);
         if(!enabled(p)||!valid(p)||!p.getBoolean("enabled",false))return;
         long now=System.currentTimeMillis();
-        if(TakeoverControl.paused(p)||p.getBoolean("external_active",false))return;
+        if(AutomationControl.blocked(p)||TakeoverControl.paused(p)||p.getBoolean("external_active",false))return;
         if(manualOff(p,now))return;
         if(p.getBoolean("manual_off",false))p.edit().putBoolean("manual_off",false).apply();
         if(!allowed(p,now)){DisplayPower.off(c,false);return;}

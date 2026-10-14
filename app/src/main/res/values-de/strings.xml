@@ -6,7 +6,7 @@
     <string name="msg_003" formatted="false">"Steuerung"</string>
     <string name="msg_004" formatted="false">"Design &amp; Profile"</string>
     <string name="msg_005" formatted="false">"LIVE-VORSCHAU"</string>
-    <string name="msg_006" formatted="false">"Pixelshift-Rand"</string>
+    <string name="msg_006" formatted="false">"Pixelrand in der Vorschau anzeigen"</string>
     <string name="msg_007" formatted="false">"Dateivorgang läuft …"</string>
     <string name="msg_008" formatted="false">"MiniScreen Takeover %1$s · schwingungscodiert"</string>
     <string name="msg_009" formatted="false">", aufklappbarer Abschnitt"</string>

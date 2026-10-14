@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="automation_section" formatted="false">"Automatisierung / Tasker"</string>
+    <string name="automation_allow" formatted="false">"Externe Steuerung erlauben"</string>
+    <string name="automation_help" formatted="false">"Erlaubt Automatisierungs-Apps, Takeover und Rückdisplay zu steuern. Standardmäßig aus. Beim Abschalten bleiben bestehende Suspendierung und Bildschirmsperre erhalten; die Knöpfe darunter heben sie auf."</string>
+    <string name="automation_disabled" formatted="false">"Takeover durch Automatisierung deaktiviert"</string>
+    <string name="automation_suspended" formatted="false">"Takeover durch Automatisierung suspendiert"</string>
+    <string name="automation_screen_off" formatted="false">"Rückdisplay durch Automatisierung ausgeschaltet und gesperrt"</string>
+    <string name="automation_resume" formatted="false">"Takeover fortsetzen"</string>
+    <string name="automation_screen_on" formatted="false">"Rückdisplay einschalten"</string>
+    <string name="automation_error" formatted="false">"Automatisierungsbefehl fehlgeschlagen"</string>
+</resources>

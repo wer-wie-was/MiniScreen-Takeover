@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="automation_section" formatted="false">"Otomasyon / Tasker"</string>
+    <string name="automation_allow" formatted="false">"Harici denetime izin ver"</string>
+    <string name="automation_help" formatted="false">"Uygulamaların Takeover ve arka ekranı yönetmesine izin verir. Varsayılan olarak kapalıdır. Kapatılması mevcut duraklatma ve ekran kilitlerini kaldırmaz; aşağıdaki düğmeler kaldırır."</string>
+    <string name="automation_disabled" formatted="false">"Takeover otomasyonla kapatıldı"</string>
+    <string name="automation_suspended" formatted="false">"Takeover otomasyonla duraklatıldı"</string>
+    <string name="automation_screen_off" formatted="false">"Arka ekran otomasyonla kapalı tutuluyor"</string>
+    <string name="automation_resume" formatted="false">"Takeover devam etsin"</string>
+    <string name="automation_screen_on" formatted="false">"Arka ekranı aç"</string>
+    <string name="automation_error" formatted="false">"Otomasyon komutu başarısız"</string>
+</resources>

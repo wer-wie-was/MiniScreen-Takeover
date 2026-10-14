@@ -10,6 +10,8 @@ final class PreviewFrame extends ViewGroup {
     private final int targetWidth,targetHeight;
     private int range=8;
     private boolean guides=true;
+    private final Path roundClip=new Path();
+    private final RectF roundBounds=new RectF();
     PreviewFrame(Context context,Context displayContext,int w,int h) {
         super(context);targetWidth=Math.max(1,w);targetHeight=Math.max(1,h);surface=new DisplaySurface(displayContext,true);addView(surface);
         setClipChildren(true);setWillNotDraw(false);
@@ -21,5 +23,20 @@ final class PreviewFrame extends ViewGroup {
         setMeasuredDimension(w,h);surface.measure(MeasureSpec.makeMeasureSpec(targetWidth,MeasureSpec.EXACTLY),MeasureSpec.makeMeasureSpec(targetHeight,MeasureSpec.EXACTLY));
     }
     @Override protected void onLayout(boolean changed,int l,int t,int r,int b){surface.layout(0,0,targetWidth,targetHeight);surface.setPivotX(0);surface.setPivotY(0);surface.setScaleX(getWidth()/(float)targetWidth);surface.setScaleY(getHeight()/(float)targetHeight);}
-    @Override protected void dispatchDraw(Canvas canvas){super.dispatchDraw(canvas);if(guides){Paint p=new Paint(Paint.ANTI_ALIAS_FLAG);p.setStyle(Paint.Style.STROKE);p.setColor(0x8863E6DC);p.setStrokeWidth(2);p.setPathEffect(new DashPathEffect(new float[]{8,8},0));float inset=range*Math.min(getWidth(),getHeight())/340f;canvas.drawRect(inset,inset,getWidth()-inset,getHeight()-inset,p);}}
+    @Override protected void onSizeChanged(int w,int h,int oldw,int oldh){
+        super.onSizeChanged(w,h,oldw,oldh);
+        float diameter=Math.min(w,h),left=(w-diameter)/2f,top=(h-diameter)/2f;
+        roundBounds.set(left,top,left+diameter,top+diameter);
+        roundClip.reset();roundClip.addOval(roundBounds,Path.Direction.CW);
+    }
+    @Override protected void dispatchDraw(Canvas canvas){
+        int save=canvas.save();canvas.clipPath(roundClip);
+        super.dispatchDraw(canvas);
+        if(guides){
+            Paint p=new Paint(Paint.ANTI_ALIAS_FLAG);p.setStyle(Paint.Style.STROKE);p.setColor(0x8863E6DC);p.setStrokeWidth(2);p.setPathEffect(new DashPathEffect(new float[]{8,8},0));
+            float inset=Math.max(1,range*Math.min(getWidth(),getHeight())/(float)Math.min(targetWidth,targetHeight));
+            RectF border=new RectF(roundBounds);border.inset(inset,inset);canvas.drawOval(border,p);
+        }
+        canvas.restoreToCount(save);
+    }
 }

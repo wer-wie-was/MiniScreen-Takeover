@@ -6,7 +6,7 @@
     <string name="msg_003" formatted="false">"控制"</string>
     <string name="msg_004" formatted="false">"设计与配置"</string>
     <string name="msg_005" formatted="false">"实时预览"</string>
-    <string name="msg_006" formatted="false">"像素偏移边界"</string>
+    <string name="msg_006" formatted="false">"在预览中显示像素边框"</string>
     <string name="msg_007" formatted="false">"正在处理文件…"</string>
     <string name="msg_008" formatted="false">"MiniScreen Takeover %1$s · AI 辅助编程"</string>
     <string name="msg_009" formatted="false">"，可展开部分"</string>

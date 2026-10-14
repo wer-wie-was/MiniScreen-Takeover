@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="automation_section" formatted="false">"自动化 / Tasker"</string>
+    <string name="automation_allow" formatted="false">"允许外部控制"</string>
+    <string name="automation_help" formatted="false">"允许自动化应用控制 Takeover 和后屏。默认关闭。关闭此权限会保留现有暂停和关屏锁定；可使用下方按钮解除。"</string>
+    <string name="automation_disabled" formatted="false">"自动化已停用 Takeover"</string>
+    <string name="automation_suspended" formatted="false">"自动化已暂停 Takeover"</string>
+    <string name="automation_screen_off" formatted="false">"自动化已锁定后屏为关闭状态"</string>
+    <string name="automation_resume" formatted="false">"恢复 Takeover"</string>
+    <string name="automation_screen_on" formatted="false">"开启后屏"</string>
+    <string name="automation_error" formatted="false">"自动化命令失败"</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_design">设计</string>
+    <string name="nav_apps">应用</string>
+    <string name="nav_home">主页</string>
+    <string name="nav_notices">提示</string>
+    <string name="nav_settings">设置</string>
+    <string name="nav_active_profile">当前配置：</string>
+    <string name="nav_profile_actions">配置操作</string>
+    <string name="nav_digital_background">数字时钟 + 背景</string>
+    <string name="nav_system">系统与权限</string>
+    <string name="nav_digital_clock">数字时钟</string>
+</resources>

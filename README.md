@@ -354,3 +354,12 @@ Aktiviere **Helligkeitskurve nutzen** unter der Rückdisplay-Helligkeit. Unter *
 ### Wortfilter für den Ticker
 
 Der Ticker unterstützt bis zu 360 px/s bei 340 px Displaybreite. Öffne **Wortfilter** über **Ticker-Warteschlange leeren**, aktiviere den Filter und füge Keywords hinzu. Der Minusknopf entfernt Einträge. Groß-/Kleinschreibung wird ignoriert; wählbar sind Teiltext oder ganzes Wort. Titel und Nachrichtentext werden vor der Datenschutz-Ausblendung geprüft, einschließlich mehrzeiliger Meldungen und Chat-Nachrichten. Treffer erscheinen weder im Ticker noch als Reminder. Beim Übernehmen werden bestehende Benachrichtigungen ebenfalls geprüft. Notification Dot und Android-Benachrichtigungen bleiben unverändert. Die Regeln gelten für das Gerät und werden nicht mit Profilen exportiert. Abbrechen verwirft Änderungen.
+
+## Navigation
+
+The bottom navigation has five destinations: **Design · Apps · Home · Notices · Settings**. Home is in the middle and opens first. Design contains profile selection, compact profile actions and only the selected display mode: Digital Clock + Background, HTML, Pebble or Amazfit. Apps contains Android widgets and other apps. Notices contains the ticker, notification dot and charging indicators. Settings contains language, pixel shifting, schedule, system options, health permissions and updates. The preview stays visible on the first four pages; Home uses a smaller preview. Each page remembers its scroll position during the session. Existing profile and global settings keep their storage scope.
+
+## Navigation (Deutsch)
+
+Die untere Navigation bietet **Design · Apps · Home · Hinweise · Einstellungen**. Home sitzt in der Mitte und ist die Startseite. Design enthält die Profilauswahl, kompakte Profilaktionen und nur die Einstellungen des gewählten Modus: Digitaluhr + Hintergrund, HTML, Pebble oder Amazfit. Apps enthält Android-Widgets und andere Apps. Hinweise enthält Ticker, Benachrichtigungspunkt und Ladeanzeigen. Einstellungen enthält Sprache, Pixelverschiebung, Zeitplan, Systemoptionen, Gesundheitsfreigaben und Updates. Die Vorschau bleibt auf den ersten vier Seiten sichtbar und ist auf Home kleiner. Jede Seite merkt sich während der Sitzung ihre Scrollposition. Profilbezogene und allgemeine Einstellungen behalten ihren bisherigen Speicherbereich.
+

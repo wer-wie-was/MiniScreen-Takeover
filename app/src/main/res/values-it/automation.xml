@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="automation_section" formatted="false">"Automazione / Tasker"</string>
+    <string name="automation_allow" formatted="false">"Consenti controllo esterno"</string>
+    <string name="automation_help" formatted="false">"Consente alle app di controllare Takeover e lo schermo posteriore. Disattivato per impostazione predefinita. La disattivazione conserva i blocchi esistenti; i pulsanti sotto li rimuovono."</string>
+    <string name="automation_disabled" formatted="false">"Takeover disattivato tramite automazione"</string>
+    <string name="automation_suspended" formatted="false">"Takeover sospeso tramite automazione"</string>
+    <string name="automation_screen_off" formatted="false">"Schermo posteriore mantenuto spento"</string>
+    <string name="automation_resume" formatted="false">"Riprendi Takeover"</string>
+    <string name="automation_screen_on" formatted="false">"Accendi schermo posteriore"</string>
+    <string name="automation_error" formatted="false">"Comando di automazione non riuscito"</string>
+</resources>

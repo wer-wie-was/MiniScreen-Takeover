@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="automation_section" formatted="false">"Автоматизация / Tasker"</string>
+    <string name="automation_allow" formatted="false">"Разрешить внешнее управление"</string>
+    <string name="automation_help" formatted="false">"Позволяет приложениям управлять Takeover и задним экраном. По умолчанию выключено. Отключение разрешения сохраняет блокировки; кнопки ниже снимают их."</string>
+    <string name="automation_disabled" formatted="false">"Takeover отключён автоматизацией"</string>
+    <string name="automation_suspended" formatted="false">"Takeover приостановлен автоматизацией"</string>
+    <string name="automation_screen_off" formatted="false">"Задний экран удерживается выключенным"</string>
+    <string name="automation_resume" formatted="false">"Возобновить Takeover"</string>
+    <string name="automation_screen_on" formatted="false">"Включить задний экран"</string>
+    <string name="automation_error" formatted="false">"Ошибка команды автоматизации"</string>
+</resources>

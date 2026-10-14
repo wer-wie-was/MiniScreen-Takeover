@@ -6,7 +6,7 @@
     <string name="msg_003" formatted="false">"Comandi"</string>
     <string name="msg_004" formatted="false">"Design e profili"</string>
     <string name="msg_005" formatted="false">"ANTEPRIMA LIVE"</string>
-    <string name="msg_006" formatted="false">"Margine pixel shifting"</string>
+    <string name="msg_006" formatted="false">"Mostra il bordo dei pixel nell’anteprima"</string>
     <string name="msg_007" formatted="false">"Elaborazione del file…"</string>
     <string name="msg_008" formatted="false">"MiniScreen Takeover %1$s · vibe-coded"</string>
     <string name="msg_009" formatted="false">", sezione espandibile"</string>

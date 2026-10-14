@@ -6,7 +6,7 @@
     <string name="msg_003" formatted="false">"Commandes"</string>
     <string name="msg_004" formatted="false">"Design et profils"</string>
     <string name="msg_005" formatted="false">"APERÇU EN DIRECT"</string>
-    <string name="msg_006" formatted="false">"Marge de décalage"</string>
+    <string name="msg_006" formatted="false">"Afficher la bordure de pixels dans l’aperçu"</string>
     <string name="msg_007" formatted="false">"Traitement du fichier…"</string>
     <string name="msg_008" formatted="false">"MiniScreen Takeover %1$s · vibe-coded"</string>
     <string name="msg_009" formatted="false">", section dépliable"</string>

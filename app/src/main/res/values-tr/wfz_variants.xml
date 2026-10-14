@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="wfz_background_variant">Saat yüzü arka planı</string>
+    <string name="wfz_hand_variant">Saat yüzü ibreleri</string>
+</resources>

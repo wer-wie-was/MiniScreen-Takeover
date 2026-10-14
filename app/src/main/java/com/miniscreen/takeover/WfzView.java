@@ -16,9 +16,10 @@ final class WfzView extends View {
     private float dx,dy;private boolean running,healthPending;private long lastHealth,lastBucket=Long.MIN_VALUE;
     private JSONObject health=new JSONObject();
     WfzView(Context c,boolean preview){super(c);this.preview=preview;}
-    void configure(Config c,File profile){config=c;String next=c.wfz.isEmpty()?"":new File(profile,c.wfz).getAbsolutePath();
+    void configure(Config c,File profile){config=c;String path=c.wfz.isEmpty()?"":new File(profile,c.wfz).getAbsolutePath();String next=path.isEmpty()?"":path+"|"+I18n.locale().toLanguageTag()+"|"+c.wfzVariants.toString();
         if(!key.equals(next)){key=next;scene=null;error="";int request=++generation;health=new JSONObject();lastHealth=0;
-            if(!next.isEmpty())LOADER.execute(()->{try{WfzScene loaded=WfzScene.load(new File(next));post(()->{if(request==generation){scene=loaded;update(battery,dx,dy,running);invalidate();}});}catch(Exception ex){post(()->{if(request==generation){error=I18n.get(R.string.wfz_invalid)+"\n"+ex.getMessage();invalidate();}});}});
+            Config snapshot=Config.from(c.json());
+            if(!path.isEmpty())LOADER.execute(()->{try{WfzScene loaded=WfzScene.load(new File(path),snapshot);post(()->{if(request==generation){scene=loaded;update(battery,dx,dy,running);invalidate();}});}catch(Exception ex){post(()->{if(request==generation){error=I18n.get(R.string.wfz_invalid)+"\n"+ex.getMessage();invalidate();}});}});
         }lastHealth=0;lastBucket=Long.MIN_VALUE;invalidate();
     }
     void update(int level,float x,float y,boolean active){
@@ -46,7 +47,15 @@ final class WfzView extends View {
         for(WfzScene.Part p:scene.parts){
             // Native clock hands belong above the face and its widgets, even
             // when the WFZ lists timehand before datawidget elements.
-            if(p.hour!=null)continue;
+            if(p.hour!=null||p.type.equals("hand"))continue;
+            if(p.type.equals("arc")){
+                float progress=progress(p.source,now);if(progress<0)continue;
+                paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(p.stroke);paint.setStrokeCap(p.cap==0?Paint.Cap.BUTT:p.cap==1?Paint.Cap.ROUND:Paint.Cap.SQUARE);
+                paint.setColor(config.wfzOriginalColors?p.color:Color.parseColor(config.wfzWidgetColor));
+                canvas.drawArc(new RectF(p.x-p.w,p.y-p.h,p.x+p.w,p.y+p.h),p.start-90,(p.end-p.start)*progress,false,paint);
+                paint.setStyle(Paint.Style.FILL);paint.setStrokeCap(Paint.Cap.BUTT);continue;
+            }
+            if(p.type.equals("additive")&&progress(p.source,now)<(p.threshold+1f)/p.count)continue;
             if(p.widget!=null){WfzWidgets.Choice choice=p.widget.selected(config);String v=widgetValue(choice,now);float progress=-1;
                 if((choice.type.equals("battery")||choice.type.equals("statusbar"))&&battery>=0)progress=battery/100f;
                 if(choice.type.equals("steps")&&!v.equals("--"))try{progress=Float.parseFloat(v)/config.wfzStepGoal;}catch(Exception ignored){}
@@ -63,9 +72,15 @@ final class WfzView extends View {
             }
             if(p.image!=null){paint.setColor(Color.WHITE);canvas.drawBitmap(p.image,null,new RectF(p.x,p.y,p.x+p.w,p.y+p.h),paint);continue;}
             if(p.type.equals("second")&&!config.wfzSeconds)continue;
-            String text=value(p.type,now);
+            String text=value(p.type,now);if(p.type.equals("day")&&!p.fillZero)text=""+now.get(Calendar.DAY_OF_MONTH);
             if(p.digit>=0&&p.digit<text.length())text=text.substring(p.digit,p.digit+1);
             drawText(canvas,p,text);
+        }
+        for(WfzScene.Part p:scene.parts)if(p.type.equals("hand")){
+            if(p.source.equals("second")&&!config.wfzSeconds)continue;
+            float second=config.wfzSeconds?now.get(Calendar.SECOND):0,minute=now.get(Calendar.MINUTE)+second/60f;
+            float angle=p.source.equals("second")?second*6:p.source.equals("minute")?minute*6:(now.get(Calendar.HOUR)+minute/60f)*30;
+            canvas.save();canvas.rotate(angle,p.x,p.y);canvas.drawBitmap(p.image,p.x-p.pivotX,p.y-p.pivotY,paint);canvas.restore();
         }
         for(WfzScene.Part p:scene.parts)if(p.hour!=null){
             float second=config.wfzSeconds?now.get(Calendar.SECOND):0;
@@ -99,6 +114,11 @@ final class WfzView extends View {
         case "steps":return TakeoverControl.prefs(getContext()).getBoolean("pebble_health_steps",false)&&validHealth("stepsTime",86400)&&health.optLong("dayStart",-1)==java.time.LocalDate.now().atStartOfDay(java.time.ZoneId.systemDefault()).toEpochSecond()?health.optString("steps","--"):"--";
         case "heart":return TakeoverControl.prefs(getContext()).getBoolean("pebble_health_heart",false)&&validHealth("heartTime",Config.clamp(TakeoverControl.prefs(getContext()).getInt("pebble_health_max_age",15),1,120)*60)?health.optString("heartRate","--"):"--";
         default:return "--";}}
+    private float progress(String type,Calendar now){
+        if(type.equals("battery"))return battery<0?-1:Math.max(0,Math.min(1,battery/100f));
+        if(type.equals("steps"))try{return Math.max(0,Math.min(1,Float.parseFloat(value(type,now))/config.wfzStepGoal));}catch(Exception ignored){}
+        return -1;
+    }
     private String widgetValue(WfzWidgets.Choice c,Calendar now){
         if(c.type.equals("date"))return WfzWidgetDate.value(c.model,now);
         String result=value(c.type.equals("statusbar")?"battery":c.type,now);

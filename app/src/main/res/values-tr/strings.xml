@@ -6,7 +6,7 @@
     <string name="msg_003" formatted="false">"Kontroller"</string>
     <string name="msg_004" formatted="false">"Tasarım ve profiller"</string>
     <string name="msg_005" formatted="false">"CANLI ÖNİZLEME"</string>
-    <string name="msg_006" formatted="false">"Piksel kaydırma sınırı"</string>
+    <string name="msg_006" formatted="false">"Önizlemede piksel kenarlığını göster"</string>
     <string name="msg_007" formatted="false">"Dosya işleniyor…"</string>
     <string name="msg_008" formatted="false">"MiniScreen Takeover %1$s · vibe-coded"</string>
     <string name="msg_009" formatted="false">", açılabilir bölüm"</string>

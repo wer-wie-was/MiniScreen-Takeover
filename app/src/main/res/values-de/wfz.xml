@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="wfz_section">Amazfit Watchfaces (experimentell)</string>
+    <string name="wfz_section">Amazfit Watchfaces</string>
     <string name="wfz_enable">WFZ-Watchface verwenden</string>
     <string name="wfz_help">Nativer WFZ-Renderer für ausgewählte Stratos/Pace-Elemente und einfache Stratos-3-Komponenten. Importiere eine .wfz-Datei und prüfe den Bericht vor dem Aktivieren. Unbekannte Widgets und Animationen entfallen; System-Widgets können durch einfachen Text ersetzt werden. BIN, Zepp OS und APK-Watchfaces werden nicht unterstützt. Sekunden sind standardmäßig aus.</string>
     <string name="wfz_import">WFZ-Watchface importieren</string>

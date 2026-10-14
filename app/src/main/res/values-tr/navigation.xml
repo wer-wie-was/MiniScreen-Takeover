@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_design">Tasarım</string>
+    <string name="nav_apps">Uygulamalar</string>
+    <string name="nav_home">Ana sayfa</string>
+    <string name="nav_notices">Bildirimler</string>
+    <string name="nav_settings">Ayarlar</string>
+    <string name="nav_active_profile">Etkin profil:</string>
+    <string name="nav_profile_actions">Profil işlemleri</string>
+    <string name="nav_digital_background">Dijital saat + arka plan</string>
+    <string name="nav_system">Sistem ve izinler</string>
+    <string name="nav_digital_clock">Dijital saat</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="automation_section" formatted="false">"Automation / Tasker"</string>
+    <string name="automation_allow" formatted="false">"Allow external control"</string>
+    <string name="automation_help" formatted="false">"Allows automation apps to control takeover and the rear screen. Disabled by default. Turning this permission off retains existing suspension and screen-off locks; the buttons below can release them."</string>
+    <string name="automation_disabled" formatted="false">"Takeover disabled by automation"</string>
+    <string name="automation_suspended" formatted="false">"Takeover suspended by automation"</string>
+    <string name="automation_screen_off" formatted="false">"Rear screen held off by automation"</string>
+    <string name="automation_resume" formatted="false">"Resume takeover"</string>
+    <string name="automation_screen_on" formatted="false">"Turn rear screen on"</string>
+    <string name="automation_error" formatted="false">"Automation command failed"</string>
+</resources>

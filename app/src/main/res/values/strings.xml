@@ -6,7 +6,7 @@
     <string name="msg_003" formatted="false">"Controls"</string>
     <string name="msg_004" formatted="false">"Design &amp; profiles"</string>
     <string name="msg_005" formatted="false">"LIVE PREVIEW"</string>
-    <string name="msg_006" formatted="false">"Pixel shift border"</string>
+    <string name="msg_006" formatted="false">"Show pixel border in preview"</string>
     <string name="msg_007" formatted="false">"Processing file …"</string>
     <string name="msg_008" formatted="false">"MiniScreen Takeover %1$s · vibe-coded"</string>
     <string name="msg_009" formatted="false">", expandable section"</string>

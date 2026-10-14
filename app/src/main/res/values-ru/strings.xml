@@ -6,7 +6,7 @@
     <string name="msg_003" formatted="false">"Управление"</string>
     <string name="msg_004" formatted="false">"Дизайн и профили"</string>
     <string name="msg_005" formatted="false">"ПРЕДПРОСМОТР"</string>
-    <string name="msg_006" formatted="false">"Граница сдвига пикселей"</string>
+    <string name="msg_006" formatted="false">"Показывать пиксельную границу в предпросмотре"</string>
     <string name="msg_007" formatted="false">"Обработка файла…"</string>
     <string name="msg_008" formatted="false">"MiniScreen Takeover %1$s · vibe-coded"</string>
     <string name="msg_009" formatted="false">", раскрываемый раздел"</string>

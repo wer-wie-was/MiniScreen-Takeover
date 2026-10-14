@@ -35,6 +35,7 @@ public final class WatchService extends Service implements DisplayManager.Displa
         if(Build.VERSION.SDK_INT>=33)registerReceiver(screenEvents,filter,Context.RECEIVER_NOT_EXPORTED);else registerReceiver(screenEvents,filter);
     }
     @Override public int onStartCommand(Intent i,int flags,int id){String action=i==null?TakeoverControl.SYNC:i.getAction();
+        if(AutomationControl.blocked(prefs)&&!TakeoverControl.STOP.equals(action)){cancelAttempt();stopSelf();return START_NOT_STICKY;}
         if(TakeoverControl.STOP.equals(action)){TakeoverControl.stop(this);stopSelf();return START_NOT_STICKY;}
         if(TakeoverControl.PAUSE.equals(action)){prefs.edit().putLong("pause_until",Long.MAX_VALUE).apply();DisplaySchedule.plan(this);}
         if(TakeoverControl.RESUME.equals(action)){prefs.edit().putLong("pause_until",0).putBoolean("external_active",false).apply();DisplaySchedule.plan(this);}
@@ -53,7 +54,7 @@ public final class WatchService extends Service implements DisplayManager.Displa
     private boolean needsMonitor(){return !TakeoverControl.mode(prefs).equals("manual")||prefs.getBoolean("only_locked",false);}
     private void schedule(long ms){handler.removeCallbacks(checkTask);handler.postDelayed(checkTask,Math.max(0,ms));}
     private void check(){
-        if(!prefs.getBoolean("enabled",false)){cancelAttempt();stopSelf();return;}
+        if(!prefs.getBoolean("enabled",false)||AutomationControl.blocked(prefs)){cancelAttempt();ScreenActivity.closeScreen();stopSelf();return;}
         if(DisplaySchedule.manualOff(prefs,System.currentTimeMillis())){cancelAttempt();state(I18n.get(R.string.power_intentional));stopSelf();return;}
         // Intentional schedule-off wins over the ordinary keep/force recovery modes.
         if(!TakeoverControl.paused(prefs)&&!prefs.getBoolean("external_active",false)&&!DisplaySchedule.allowed(prefs,System.currentTimeMillis())){DisplayPower.off(this,false);return;}

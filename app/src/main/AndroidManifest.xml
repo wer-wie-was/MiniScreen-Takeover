@@ -59,6 +59,16 @@
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
+        <receiver android:name=".AutomationReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.miniscreen.takeover.ENABLE" />
+                <action android:name="com.miniscreen.takeover.DISABLE" />
+                <action android:name="com.miniscreen.takeover.SUSPEND" />
+                <action android:name="com.miniscreen.takeover.RESUME" />
+                <action android:name="com.miniscreen.takeover.SCREEN_ON" />
+                <action android:name="com.miniscreen.takeover.SCREEN_OFF" />
+            </intent-filter>
+        </receiver>
         <receiver android:name=".BootReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
