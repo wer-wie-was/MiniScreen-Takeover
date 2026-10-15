@@ -4,7 +4,7 @@ import android.graphics.*;
 /** Independent vector/pixel reconstructions; no editor or firmware assets. */
 final class WfzWidgetPainter {
     private static final int RED=0xFFFF0000,GREEN=0xFF00FF00,CYAN=0xFF00FFFF,YELLOW=0xFFFFFF00;
-    static void draw(Canvas c,WfzScene.Part part,Config config,String value,float progress){
+    static void draw(Canvas c,WfzScene.Part part,Config config,String value,float progress,Typeface weekdayTypeface){
         WfzWidgets.Choice q=part.widget.selected(config);
         float bw=WfzWidgets.width(q),bh=WfzWidgets.height(q);
         float w=part.widget.explicitWidth?part.w:bw,h=part.widget.explicitHeight?part.h:bh;
@@ -12,13 +12,13 @@ final class WfzWidgetPainter {
         c.save();c.translate(part.x,part.y);c.clipRect(0,0,w,h);c.scale(w/bw,h/bh);
         if(!WfzWidgetCatalog.known(q.data,q.model))text(c,p,value,2,2,bw-4,bh-4,Color.WHITE,0,false,false);
         else if(q.data==0)status(c,0,0,bw,bh,value,progress);
-        else if(q.data==6)date(c,p,q.model,value,bw,bh,config.wfzOriginalColors?YELLOW:custom);
+        else if(q.data==6)date(c,p,q.model,value,bw,bh,config.wfzOriginalColors?YELLOW:custom,weekdayTypeface);
         else if(q.model==1||q.model==4)row(c,p,q,value,progress,config.wfzOriginalColors?GREEN:custom);
         else dial(c,p,q,value,progress,config.wfzOriginalColors,custom,bw);
         if(part.mask!=null){p.reset();p.setFilterBitmap(true);c.drawBitmap(part.mask,null,new RectF(0,0,bw,bh),p);}
         c.restore();
     }
-    private static void date(Canvas c,Paint p,int m,String v,float w,float h,int yellow){
+    private static void date(Canvas c,Paint p,int m,String v,float w,float h,int yellow,Typeface weekdayTypeface){
         int color=WfzWidgetCatalog.black(6,m)?Color.BLACK:m==6||m==7?yellow:Color.WHITE;
         // x/y is the widget box, not the first visible pixel. Keep internal padding.
         switch(m){
@@ -34,12 +34,29 @@ final class WfzWidgetPainter {
             case 10:text(c,p,v,32,1,w-32,16,color,0,false,false);break;
             case 11:
                 int split=v.lastIndexOf("  ");
-                if(split>0){lcd(c,p,v.substring(0,split),20,1,99,16,color);text(c,p,v.substring(split+2),126,1,30,16,color,0,false,false);}
+                if(split>0){lcd(c,p,v.substring(0,split),20,1,99,16,color);weekday(c,p,v.substring(split+2),126,1,30,16,color,weekdayTypeface);}
                 else lcd(c,p,v,20,1,w-20,16,color);
                 break;
             case 12:text(c,p,v,10,2,w-10,17,color,0,false,false);break;
             default:text(c,p,"--",0,0,w,h,color,1,false,false);
         }
+    }
+    private static void weekday(Canvas c,Paint p,String value,float x,float y,float w,float h,int color,Typeface typeface){
+        if(value.isEmpty()||w<=0||h<=0)return;
+        p.setStyle(Paint.Style.FILL);p.setColor(color);p.setTypeface(typeface);
+        p.setTextAlign(Paint.Align.LEFT);p.setTextScaleX(1);p.setTextSize(h);
+        // All seven labels share a cap-height and baseline. Font line metrics
+        // include unused ascender/descender space and made this widget too small.
+        String reference="Mon Tue Wed Thu Fri Sat Sun";Rect bounds=new Rect();
+        p.getTextBounds(reference,0,reference.length(),bounds);
+        if(bounds.height()>0)p.setTextSize(h*h/bounds.height());
+        p.getTextBounds(reference,0,reference.length(),bounds);
+        Rect ink=new Rect();p.getTextBounds(value,0,value.length(),ink);
+        float advance=p.measureText(value),left=Math.min(0,ink.left);
+        float width=Math.max(advance,ink.right)-left;
+        float scale=Math.min(1,w/Math.max(1,width));
+        c.save();c.translate(x,y+h-bounds.bottom);c.scale(scale,1);
+        c.drawText(value,-left,0,p);c.restore();
     }
     private static void row(Canvas c,Paint p,WfzWidgets.Choice q,String v,float progress,int accent){
         boolean black=q.model==4;int color=black?Color.BLACK:Color.WHITE,ic=black?Color.BLACK:accent;

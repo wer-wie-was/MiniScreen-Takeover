@@ -12,7 +12,8 @@ final class WfzReport {
         if(s.contains("phone battery")){notes.add(R.string.wfz_note_battery);
             if(s.contains("connectivity"))limitations.add(R.string.wfz_note_connection);return;}
         int message;
-        if(s.contains("weather source"))message=R.string.wfz_note_weather;
+        if(s.contains("heart zone mapping"))message=R.string.wfz_note_heart_zone;
+        else if(s.contains("weather source"))message=R.string.wfz_note_weather;
         else if(s.contains("workout distance")||s.contains("floors source"))message=R.string.wfz_note_activity;
         else if(s.contains("reconstructed model")||s.contains("plain text fallback")||s.startsWith("font:")||s.startsWith("system font:"))message=R.string.wfz_note_appearance;
         else if(s.startsWith("weekday images:"))message=R.string.wfz_note_weekday;

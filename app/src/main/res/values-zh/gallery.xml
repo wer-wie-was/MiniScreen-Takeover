@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="gallery_title" formatted="false">"表盘图库"</string>
+    <string name="gallery_target" formatted="false">"将用于应用配置“%1$s”。"</string>
+    <string name="gallery_import" formatted="false">"导入表盘"</string>
+    <string name="gallery_search" formatted="false">"搜索表盘"</string>
+    <string name="gallery_favorites" formatted="false">"仅收藏"</string>
+    <string name="gallery_empty" formatted="false">"未找到表盘。请导入文件或更改筛选。"</string>
+    <string name="gallery_original_note" formatted="false">WFZ 自带的图片，可能只是占位图。</string>
+    <string name="gallery_live" formatted="false">"实时渲染预览"</string>
+    <string name="gallery_use" formatted="false">"使用表盘"</string>
+    <string name="gallery_favorite" formatted="false">"添加收藏"</string>
+    <string name="gallery_unfavorite" formatted="false">"取消收藏"</string>
+    <string name="gallery_delete" formatted="false">"删除表盘"</string>
+    <string name="gallery_used" formatted="false">"以下应用配置正在使用。请先选择其他表盘："</string>
+    <string name="gallery_delete_confirm" formatted="false">"从图库删除此表盘？"</string>
+    <string name="gallery_migration_failed" formatted="false">"无法迁移 %1$d 个已有导入，仍保留在各自配置中。"</string>
+    <string name="gallery_import_result" formatted="false">"已导入：%1$d · 已存在：%2$d · 失败：%3$d"</string>
+    <string name="gallery_batch_limit" formatted="false">"每次最多选择 32 个表盘。"</string>
+    <string name="gallery_no_preview" formatted="false">"未提供原始预览，可使用实时渲染预览。"</string>
+</resources>

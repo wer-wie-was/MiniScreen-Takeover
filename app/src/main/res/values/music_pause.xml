@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="music_pause_enable">Pause Takeover and turn off rear display during music</string>
+    <string name="music_pause_help">Requires notification access. Active media players pause Takeover; it returns 3 seconds after playback pauses or stops, if manual controls and the schedule allow it.</string>
+    <string name="music_pause_active">Paused during media playback</string>
+</resources>

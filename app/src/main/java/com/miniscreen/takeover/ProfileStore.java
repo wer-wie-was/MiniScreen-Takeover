@@ -70,25 +70,30 @@ final class ProfileStore {
             try(InputStream in=context.getContentResolver().openInputStream(uri)){if(in==null)throw new IOException(I18n.get(R.string.msg_165));extract(in,folder,64*1024*1024,2000);}
             JSONObject j=new JSONObject(readText(new File(folder,"profile.json"),1024*1024));
             if(j.optInt("schema")!=1)throw new IOException(I18n.get(R.string.msg_169));Config c=Config.from(j);
+            if(!c.wfzGallery.isEmpty())throw new IOException("Profile must include portable WFZ assets");
             if(!c.design.isEmpty()&&c.design.indexOf('/')<1)throw new IOException(I18n.get(R.string.msg_170));
             for(String path:new String[]{c.image,c.fontFile,c.chargeFontFile,c.design})if(!path.isEmpty()&&!resolve(id,path).isFile())throw new IOException(I18n.get(R.string.msg_171));
             if(c.mode.equals("html")&&c.design.isEmpty())throw new IOException(I18n.get(R.string.msg_172));
             if(!c.wfz.isEmpty())WfzScene.load(resolve(id,c.wfz));
-            save(id,c);return id;
+            save(id,c);try{WfzGallery.migrate(context);}catch(Exception ignored){}return id;
         }catch(Exception e){deleteTree(folder);throw new IOException(I18n.get(R.string.msg_173)+e.getMessage(),e);}
     }
-    void exportProfile(String id,Uri uri) throws IOException {
-        Config c=load(id);File folder=dir(id).getCanonicalFile();
-        try(OutputStream out=context.getContentResolver().openOutputStream(uri,"wt")) {if(out==null)throw new IOException(I18n.get(R.string.msg_174));try(ZipOutputStream z=new ZipOutputStream(out)){
-            Set<File> files=new LinkedHashSet<>();files.add(new File(folder,"profile.json").getCanonicalFile());
+    void exportProfile(String id,Uri uri) throws IOException {synchronized(WfzGallery.class){
+        Config c=Config.from(load(id).json());File folder=dir(id).getCanonicalFile();
+        File shared=c.wfzGallery.isEmpty()?null:WfzGallery.face(context,folder,c);
+        if(shared!=null){if(!new File(shared,"watchface.xml").isFile())throw new IOException(I18n.get(R.string.wfz_invalid));c.wfzGallery="";c.wfz="wfz-export";}
+        try(OutputStream out=context.getContentResolver().openOutputStream(uri,"wt")){if(out==null)throw new IOException(I18n.get(R.string.msg_174));try(ZipOutputStream z=new ZipOutputStream(out)){
+            z.putNextEntry(new ZipEntry("profile.json"));z.write(c.json().toString().getBytes(StandardCharsets.UTF_8));z.closeEntry();
+            Set<File> files=new LinkedHashSet<>();
             if(!c.image.isEmpty())files.add(resolve(id,c.image));
             if(!c.fontFile.isEmpty())files.add(resolve(id,c.fontFile));
             if(!c.chargeFontFile.isEmpty())files.add(resolve(id,c.chargeFontFile));
             if(!c.design.isEmpty())collectFiles(resolve(id,c.design.substring(0,c.design.indexOf('/'))),files);
-            if(!c.wfz.isEmpty())collectFiles(resolve(id,c.wfz.split("/")[0]),files);
+            if(shared==null&&!c.wfz.isEmpty())collectFiles(resolve(id,c.wfz.split("/")[0]),files);
             for(File file:files)zipFile(folder,file,z);
+            if(shared!=null){Set<File> assets=new LinkedHashSet<>();collectFiles(shared,assets);for(File file:assets){String path=shared.toPath().relativize(file.toPath()).toString().replace(File.separatorChar,'/');z.putNextEntry(new ZipEntry("wfz-export/"+path));try(InputStream in=new FileInputStream(file)){copyLimited(in,z,MAX_BYTES);}z.closeEntry();}}
         }}
-    }
+    }}
     static String readText(File f,int max) throws IOException {try(InputStream in=new FileInputStream(f);ByteArrayOutputStream out=new ByteArrayOutputStream()){copyLimited(in,out,max);return new String(out.toByteArray(),StandardCharsets.UTF_8);}}
     static long copyLimited(InputStream in,OutputStream out,long max) throws IOException {byte[] buffer=new byte[8192];long total=0;int n;while((n=in.read(buffer))!=-1){total+=n;if(total>max)throw new IOException(I18n.get(R.string.msg_175)+max/1024+" KiB)");out.write(buffer,0,n);}return total;}
     static void extract(InputStream source,File folder) throws IOException {extract(source,folder,MAX_BYTES,MAX_FILES);}

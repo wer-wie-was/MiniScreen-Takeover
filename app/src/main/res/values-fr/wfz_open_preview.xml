@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="preview_expand" formatted="false">"Agrandir l’aperçu en direct"</string>
+    <string name="preview_close" formatted="false">"Fermer le grand aperçu"</string>
+    <string name="wfz_open_title" formatted="false">"Importer un cadran WFZ"</string>
+    <string name="wfz_open_help" formatted="false">"Choisissez le profil cible. L’import remplace son cadran actuel et sélectionne le mode Amazfit."</string>
+    <string name="wfz_open_invalid" formatted="false">"Ouvrez un fichier WFZ depuis le gestionnaire de fichiers."</string>
+    <string name="wfz_open_interrupted" formatted="false">"Import interrompu ou profil supprimé. Ouvrez à nouveau le fichier."</string>
+</resources>

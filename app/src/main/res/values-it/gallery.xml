@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="gallery_title" formatted="false">"Galleria quadranti"</string>
+    <string name="gallery_target" formatted="false">"Verrà usato per il profilo dell’app «%1$s»."</string>
+    <string name="gallery_import" formatted="false">"Importa quadranti"</string>
+    <string name="gallery_search" formatted="false">"Cerca quadranti"</string>
+    <string name="gallery_favorites" formatted="false">"Solo preferiti"</string>
+    <string name="gallery_empty" formatted="false">"Nessun quadrante trovato. Importane uno o cambia filtro."</string>
+    <string name="gallery_original_note" formatted="false">Immagine inclusa nel WFZ. Potrebbe essere un segnaposto.</string>
+    <string name="gallery_live" formatted="false">"Anteprima del renderer"</string>
+    <string name="gallery_use" formatted="false">"Usa quadrante"</string>
+    <string name="gallery_favorite" formatted="false">"Aggiungi ai preferiti"</string>
+    <string name="gallery_unfavorite" formatted="false">"Rimuovi dai preferiti"</string>
+    <string name="gallery_delete" formatted="false">"Elimina quadrante"</string>
+    <string name="gallery_used" formatted="false">"Usato da questi profili. Scegli un altro quadrante prima di eliminarlo:"</string>
+    <string name="gallery_delete_confirm" formatted="false">"Eliminare questo quadrante dalla galleria?"</string>
+    <string name="gallery_migration_failed" formatted="false">"Impossibile migrare %1$d importazioni. Restano nei rispettivi profili."</string>
+    <string name="gallery_import_result" formatted="false">"Importati: %1$d · Già presenti: %2$d · Errori: %3$d"</string>
+    <string name="gallery_batch_limit" formatted="false">"Seleziona al massimo 32 quadranti per importazione."</string>
+    <string name="gallery_no_preview" formatted="false">"Anteprima originale assente. Usa l’anteprima del renderer."</string>
+</resources>

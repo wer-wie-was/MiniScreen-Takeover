@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="gallery_title" formatted="false">"Galerie de cadrans"</string>
+    <string name="gallery_target" formatted="false">"Sera utilisé pour le profil de l’application « %1$s »."</string>
+    <string name="gallery_import" formatted="false">"Importer des cadrans"</string>
+    <string name="gallery_search" formatted="false">"Rechercher des cadrans"</string>
+    <string name="gallery_favorites" formatted="false">"Favoris uniquement"</string>
+    <string name="gallery_empty" formatted="false">"Aucun cadran trouvé. Importez-en un ou changez le filtre."</string>
+    <string name="gallery_original_note" formatted="false">Image fournie dans le WFZ. Il peut s’agir d’une image provisoire.</string>
+    <string name="gallery_live" formatted="false">"Aperçu du moteur de rendu"</string>
+    <string name="gallery_use" formatted="false">"Utiliser ce cadran"</string>
+    <string name="gallery_favorite" formatted="false">"Ajouter aux favoris"</string>
+    <string name="gallery_unfavorite" formatted="false">"Retirer des favoris"</string>
+    <string name="gallery_delete" formatted="false">"Supprimer le cadran"</string>
+    <string name="gallery_used" formatted="false">"Utilisé par ces profils. Choisissez un autre cadran avant de supprimer :"</string>
+    <string name="gallery_delete_confirm" formatted="false">"Supprimer ce cadran de la galerie ?"</string>
+    <string name="gallery_migration_failed" formatted="false">"Migration impossible pour %1$d imports. Ils restent dans leurs profils."</string>
+    <string name="gallery_import_result" formatted="false">"Importés : %1$d · Déjà présents : %2$d · Échecs : %3$d"</string>
+    <string name="gallery_batch_limit" formatted="false">"Sélectionnez au maximum 32 cadrans par import."</string>
+    <string name="gallery_no_preview" formatted="false">"Aucun aperçu original. Utilisez l’aperçu du moteur de rendu."</string>
+</resources>

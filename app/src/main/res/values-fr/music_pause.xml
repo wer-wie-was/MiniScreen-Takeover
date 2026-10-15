@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="music_pause_enable">Suspendre Takeover et éteindre l’écran arrière pendant la musique</string>
+    <string name="music_pause_help">Nécessite l’accès aux notifications. Les lecteurs multimédias actifs suspendent Takeover. Retour 3 secondes après la pause ou l’arrêt, si les commandes manuelles et le programme le permettent.</string>
+    <string name="music_pause_active">Suspendu pendant la lecture multimédia</string>
+</resources>

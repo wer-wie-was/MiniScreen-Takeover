@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="gallery_title" formatted="false">"Watchface-Galerie"</string>
+    <string name="gallery_target" formatted="false">"Wird für App-Profil »%1$s« übernommen."</string>
+    <string name="gallery_import" formatted="false">"Watchfaces importieren"</string>
+    <string name="gallery_search" formatted="false">"Watchfaces suchen"</string>
+    <string name="gallery_favorites" formatted="false">"Nur Favoriten"</string>
+    <string name="gallery_empty" formatted="false">"Keine Watchfaces gefunden. Importiere eines oder ändere den Filter."</string>
+    <string name="gallery_original_note" formatted="false">In der WFZ mitgeliefertes Bild. Es kann ein Platzhalter sein.</string>
+    <string name="gallery_live" formatted="false">"Live-Vorschau unseres Renderers"</string>
+    <string name="gallery_use" formatted="false">"Watchface verwenden"</string>
+    <string name="gallery_favorite" formatted="false">"Zu Favoriten hinzufügen"</string>
+    <string name="gallery_unfavorite" formatted="false">"Aus Favoriten entfernen"</string>
+    <string name="gallery_delete" formatted="false">"Watchface löschen"</string>
+    <string name="gallery_used" formatted="false">"Wird von diesen App-Profilen verwendet. Wähle dort vor dem Löschen ein anderes Watchface:"</string>
+    <string name="gallery_delete_confirm" formatted="false">"Dieses Watchface aus der Galerie löschen?"</string>
+    <string name="gallery_migration_failed" formatted="false">"%1$d bestehende Imports konnten nicht übernommen werden. Sie bleiben in ihren App-Profilen erhalten."</string>
+    <string name="gallery_import_result" formatted="false">"Importiert: %1$d · Bereits vorhanden: %2$d · Fehlgeschlagen: %3$d"</string>
+    <string name="gallery_batch_limit" formatted="false">"Wähle höchstens 32 Watchfaces pro Import aus."</string>
+    <string name="gallery_no_preview" formatted="false">"Keine Originalvorschau vorhanden. Du kannst die Live-Vorschau unseres Renderers verwenden."</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="music_pause_enable">Müzik sırasında Takeover ve arka ekranı kapat</string>
+    <string name="music_pause_help">Bildirim erişimi gerekir. Etkin medya oynatıcıları Takeover özelliğini duraklatır. Manuel denetimler ve zamanlama izin verirse oynatma duraklatıldıktan veya durdurulduktan 3 saniye sonra geri döner.</string>
+    <string name="music_pause_active">Medya oynatılırken duraklatıldı</string>
+</resources>

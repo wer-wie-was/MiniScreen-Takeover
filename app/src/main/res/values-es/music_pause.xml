@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="music_pause_enable">Pausar Takeover y apagar la pantalla trasera durante la música</string>
+    <string name="music_pause_help">Requiere acceso a notificaciones. Los reproductores activos pausan Takeover. Vuelve 3 segundos después de pausar o detener la reproducción, si los controles manuales y el horario lo permiten.</string>
+    <string name="music_pause_active">Pausado durante la reproducción multimedia</string>
+</resources>

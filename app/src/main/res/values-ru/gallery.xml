@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="gallery_title" formatted="false">"Галерея циферблатов"</string>
+    <string name="gallery_target" formatted="false">"Будет использован для профиля приложения «%1$s»."</string>
+    <string name="gallery_import" formatted="false">"Импорт циферблатов"</string>
+    <string name="gallery_search" formatted="false">"Поиск циферблатов"</string>
+    <string name="gallery_favorites" formatted="false">"Только избранные"</string>
+    <string name="gallery_empty" formatted="false">"Циферблаты не найдены. Импортируйте файл или измените фильтр."</string>
+    <string name="gallery_original_note" formatted="false">Изображение из WFZ. Оно может быть заглушкой.</string>
+    <string name="gallery_live" formatted="false">"Предпросмотр нашего движка"</string>
+    <string name="gallery_use" formatted="false">"Использовать циферблат"</string>
+    <string name="gallery_favorite" formatted="false">"Добавить в избранное"</string>
+    <string name="gallery_unfavorite" formatted="false">"Убрать из избранного"</string>
+    <string name="gallery_delete" formatted="false">"Удалить циферблат"</string>
+    <string name="gallery_used" formatted="false">"Используется этими профилями. Сначала выберите другой циферблат:"</string>
+    <string name="gallery_delete_confirm" formatted="false">"Удалить этот циферблат из галереи?"</string>
+    <string name="gallery_migration_failed" formatted="false">"Не удалось перенести %1$d импортов. Они остались в своих профилях."</string>
+    <string name="gallery_import_result" formatted="false">"Импортировано: %1$d · Уже есть: %2$d · Ошибок: %3$d"</string>
+    <string name="gallery_batch_limit" formatted="false">"Выберите не более 32 циферблатов за один импорт."</string>
+    <string name="gallery_no_preview" formatted="false">"Оригинальный эскиз отсутствует. Используйте предпросмотр движка."</string>
+</resources>

@@ -12,14 +12,25 @@ import org.json.JSONObject;
 final class WfzView extends View {
     private static final ExecutorService LOADER=Executors.newSingleThreadExecutor();
     private final boolean preview;private final Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG);
+    private final Typeface weekdayTypeface;
     private WfzScene scene;private Config config;private String key="",error="";private int generation,battery=-1;
     private float dx,dy;private boolean running,healthPending;private long lastHealth,lastBucket=Long.MIN_VALUE;
     private JSONObject health=new JSONObject();
-    WfzView(Context c,boolean preview){super(c);this.preview=preview;}
-    void configure(Config c,File profile){config=c;String path=c.wfz.isEmpty()?"":new File(profile,c.wfz).getAbsolutePath();String next=path.isEmpty()?"":path+"|"+I18n.locale().toLanguageTag()+"|"+c.wfzVariants.toString();
+    WfzView(Context c,boolean preview){super(c);this.preview=preview;weekdayTypeface=c.getResources().getFont(R.font.wfz_weekday);}
+    /** One offline frame; does not configure a profile, attach a surface or read health data. */
+    static Bitmap snapshot(Context context,WfzScene scene,int edge){
+        if(Looper.myLooper()!=Looper.getMainLooper())throw new IllegalStateException("Snapshot requires main thread");
+        Config config=new Config();config.mode="wfz";config.shifting=false;config.wfzHealth=false;config.wfzSeconds=true;
+        WfzView view=new WfzView(context,true);view.config=config;view.scene=scene;
+        int spec=MeasureSpec.makeMeasureSpec(edge,MeasureSpec.EXACTLY);view.measure(spec,spec);view.layout(0,0,edge,edge);
+        Bitmap image=Bitmap.createBitmap(edge,edge,Bitmap.Config.ARGB_8888);Canvas canvas=new Canvas(image);
+        Path circle=new Path();circle.addCircle(edge/2f,edge/2f,edge/2f,Path.Direction.CW);canvas.clipPath(circle);view.draw(canvas);
+        view.dispose();return image;
+    }
+    void configure(Config c,File profile){config=c;String path=c.wfz.isEmpty()?"":WfzGallery.face(getContext(),profile,c).getAbsolutePath();String next=path.isEmpty()?"":path+"|"+I18n.locale().toLanguageTag()+"|"+c.wfzVariants.toString();
         if(!key.equals(next)){key=next;scene=null;error="";int request=++generation;health=new JSONObject();lastHealth=0;
             Config snapshot=Config.from(c.json());
-            if(!path.isEmpty())LOADER.execute(()->{try{WfzScene loaded=WfzScene.load(new File(path),snapshot);post(()->{if(request==generation){scene=loaded;update(battery,dx,dy,running);invalidate();}});}catch(Exception ex){post(()->{if(request==generation){error=I18n.get(R.string.wfz_invalid)+"\n"+ex.getMessage();invalidate();}});}});
+            if(!path.isEmpty())LOADER.execute(()->{try{WfzScene loaded=WfzScene.load(new File(path),snapshot);try{WfzImport.refreshInfo(new File(path),loaded);}catch(Exception ignored){}post(()->{if(request==generation){scene=loaded;update(battery,dx,dy,running);invalidate();}});}catch(Exception ex){post(()->{if(request==generation){error=I18n.get(R.string.wfz_invalid)+"\n"+ex.getMessage();invalidate();}});}});
         }lastHealth=0;lastBucket=Long.MIN_VALUE;invalidate();
     }
     void update(int level,float x,float y,boolean active){
@@ -41,8 +52,11 @@ final class WfzView extends View {
         float size=Math.min(getWidth(),getHeight()),margin=config.shifting?config.shiftRange*size/340f*1.414214f:0;
         int designW=config.wfzSize>0?config.wfzSize:scene.width,designH=config.wfzSize>0?config.wfzSize:scene.height;
         float available=Math.max(1,size-2*margin);float scale=config.wfzCrop?Math.max(available/designW,available/designH):Math.min(available/designW,available/designH);
+        scale*=Config.clamp(config.wfzScale,50,100)/100f;
         canvas.save();Path circle=new Path();circle.addCircle(getWidth()/2f,getHeight()/2f,size/2f,Path.Direction.CW);canvas.clipPath(circle);
-        canvas.translate((getWidth()-designW*scale)/2+dx,(getHeight()-designH*scale)/2+dy);canvas.scale(scale,scale);
+        // Center the actual scene, including when a source-resolution override
+        // changes its scale. Pixel shifting remains a display-space offset.
+        canvas.translate((getWidth()-scene.width*scale)/2+dx,(getHeight()-scene.height*scale)/2+dy);canvas.scale(scale,scale);
         Calendar now=Calendar.getInstance();
         for(WfzScene.Part p:scene.parts){
             // Native clock hands belong above the face and its widgets, even
@@ -55,11 +69,17 @@ final class WfzView extends View {
                 canvas.drawArc(new RectF(p.x-p.w,p.y-p.h,p.x+p.w,p.y+p.h),p.start-90,(p.end-p.start)*progress,false,paint);
                 paint.setStyle(Paint.Style.FILL);paint.setStrokeCap(Paint.Cap.BUTT);continue;
             }
-            if(p.type.equals("additive")&&progress(p.source,now)<(p.threshold+1f)/p.count)continue;
+            if(p.type.equals("weekfloat")&&p.threshold!=now.get(Calendar.DAY_OF_WEEK)-1)continue;
+            if(p.type.equals("weathericon")){drawText(canvas,p,"--");continue;}
+            if(p.type.equals("additive")){
+                float fraction=progress(p.source,now);
+                if(p.source.equals("battery")){if(p.threshold>=WfzMath.litBatterySegments(fraction,p.count))continue;}
+                else if(fraction<0||fraction<(p.threshold+1f)/p.count)continue;
+            }
             if(p.widget!=null){WfzWidgets.Choice choice=p.widget.selected(config);String v=widgetValue(choice,now);float progress=-1;
                 if((choice.type.equals("battery")||choice.type.equals("statusbar"))&&battery>=0)progress=battery/100f;
                 if(choice.type.equals("steps")&&!v.equals("--"))try{progress=Float.parseFloat(v)/config.wfzStepGoal;}catch(Exception ignored){}
-                WfzWidgetPainter.draw(canvas,p,config,v,progress);continue;}
+                WfzWidgetPainter.draw(canvas,p,config,v,progress,weekdayTypeface);continue;}
             if(p.type.equals("statusbar"))continue;
             if((p.type.equals("am")||p.type.equals("pm"))&&(config.twentyFour||!p.type.equals(now.get(Calendar.AM_PM)==Calendar.AM?"am":"pm")))continue;
             if(p.frames!=null){
@@ -138,12 +158,14 @@ final class WfzView extends View {
     private boolean validHealth(String field,int seconds){long age=System.currentTimeMillis()/1000-health.optLong(field,0);return config.wfzHealth&&age>=0&&age<=seconds;}
     private static String two(int n){return String.format(Locale.ROOT,"%02d",n);}
     private void drawText(Canvas canvas,WfzScene.Part p,String value){
-        Map<String,Bitmap> glyphs=scene.fonts.get(p.font);float width=0,height=0;boolean bitmap=glyphs!=null;
+        Map<String,Bitmap> glyphs=scene.fonts.get(p.font);
+        if(p.nativeText&&p.type.equals("battery")&&!value.equals("--")&&glyphs!=null&&glyphs.containsKey(":"))value+=":";
+        float width=0,height=0;boolean bitmap=glyphs!=null;
         if(bitmap)for(int i=0;i<value.length();i++){Bitmap b=glyphs.get(value.substring(i,i+1));if(b==null){bitmap=false;break;}width+=b.getWidth()+p.space;height=Math.max(height,b.getHeight());}
-        canvas.save();canvas.clipRect(p.x,p.y,p.x+p.w,p.y+p.h);
-        if(bitmap){width=Math.max(1,width-p.space);float scale=Math.min(1,Math.min(p.w/width,p.h/Math.max(1,height)));float x=p.x+(p.align==72?p.w-width*scale:p.align==68?(p.w-width*scale)/2:0);float y=p.y+(p.h-height*scale)/2;
+        canvas.save();if(!p.nativeText)canvas.clipRect(p.x,p.y,p.x+p.w,p.y+p.h);
+        if(bitmap){width=Math.max(1,width-p.space);float scale=p.nativeText?1:Math.min(1,Math.min(p.w/width,p.h/Math.max(1,height)));float x=WfzMath.textX(p.x,p.w,width*scale,p.align);float y=p.nativeText?p.y:p.y+(p.h-height*scale)/2;
             for(int i=0;i<value.length();i++){Bitmap b=glyphs.get(value.substring(i,i+1));canvas.drawBitmap(b,null,new RectF(x,y,x+b.getWidth()*scale,y+b.getHeight()*scale),paint);x+=(b.getWidth()+p.space)*scale;}
-        }else{paint.setColor(Color.WHITE);paint.setTypeface(Typeface.DEFAULT);paint.setTextSize(Math.max(1,p.h*.8f));float w=paint.measureText(value);if(w>p.w)paint.setTextSize(paint.getTextSize()*p.w/w);w=paint.measureText(value);Paint.FontMetrics fm=paint.getFontMetrics();float x=p.x+(p.align==72?p.w-w:p.align==68?(p.w-w)/2:0);canvas.drawText(value,x,p.y+(p.h-fm.ascent-fm.descent)/2,paint);}
+        }else{paint.setColor(Color.WHITE);paint.setTypeface(Typeface.DEFAULT);paint.setTextSize(Math.max(1,p.h*.8f));float w=paint.measureText(value);if(!p.nativeText&&w>p.w)paint.setTextSize(paint.getTextSize()*p.w/w);w=paint.measureText(value);Paint.FontMetrics fm=paint.getFontMetrics();float x=WfzMath.textX(p.x,p.w,w,p.align);canvas.drawText(value,x,p.y+(p.h-fm.ascent-fm.descent)/2,paint);}
         canvas.restore();
     }
 }

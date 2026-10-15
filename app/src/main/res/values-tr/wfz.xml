@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="wfz_section">Amazfit kadranları</string>
     <string name="wfz_enable">WFZ kadranını kullan</string>
     <string name="wfz_help">Seçili Stratos/Pace öğeleri ve basit Stratos 3 bileşenleri için yerel çizim. Bir .wfz dosyası içe aktarın ve etkinleştirmeden önce raporu inceleyin. Bilinmeyen bileşenler ve animasyonlar atlanır; bazı sistem bileşenleri düz metinle değiştirilir. BIN, Zepp OS ve APK desteklenmez. Saniyeler varsayılan olarak kapalıdır.</string>
     <string name="wfz_import">.wfz kadranı içe aktar</string>
-    <string name="wfz_remove">Kadranı kaldır</string>
+    <string name="wfz_remove">"Bu uygulama profilinden kaldır"</string>
     <string name="wfz_empty">WFZ kadranı içe aktarılmadı</string>
     <string name="wfz_seconds">Saniyeleri göster (saniyede 1 güncelleme)</string>
     <string name="wfz_crop">Ekranı doldurmak için kırp</string>

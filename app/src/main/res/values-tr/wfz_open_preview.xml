@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="preview_expand" formatted="false">"Canlı önizlemeyi büyüt"</string>
+    <string name="preview_close" formatted="false">"Büyük önizlemeyi kapat"</string>
+    <string name="wfz_open_title" formatted="false">"WFZ saat yüzünü içe aktar"</string>
+    <string name="wfz_open_help" formatted="false">"Hedef profili seçin. İçe aktarma mevcut saat yüzünü değiştirir ve Amazfit modunu seçer."</string>
+    <string name="wfz_open_invalid" formatted="false">"Dosya yöneticisinden bir WFZ dosyası açın."</string>
+    <string name="wfz_open_interrupted" formatted="false">"İçe aktarma kesildi veya profil kaldırıldı. Dosyayı yeniden açın."</string>
+</resources>

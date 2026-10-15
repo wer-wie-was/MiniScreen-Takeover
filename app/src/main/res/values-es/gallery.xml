@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="gallery_title" formatted="false">"Galería de esferas"</string>
+    <string name="gallery_target" formatted="false">"Se usará en el perfil de la app «%1$s»."</string>
+    <string name="gallery_import" formatted="false">"Importar esferas"</string>
+    <string name="gallery_search" formatted="false">"Buscar esferas"</string>
+    <string name="gallery_favorites" formatted="false">"Solo favoritos"</string>
+    <string name="gallery_empty" formatted="false">"No se encontraron esferas. Importa una o cambia el filtro."</string>
+    <string name="gallery_original_note" formatted="false">Imagen incluida en el WFZ. Puede ser un marcador de posición.</string>
+    <string name="gallery_live" formatted="false">"Vista previa del renderizador"</string>
+    <string name="gallery_use" formatted="false">"Usar esfera"</string>
+    <string name="gallery_favorite" formatted="false">"Añadir a favoritos"</string>
+    <string name="gallery_unfavorite" formatted="false">"Quitar de favoritos"</string>
+    <string name="gallery_delete" formatted="false">"Eliminar esfera"</string>
+    <string name="gallery_used" formatted="false">"Estos perfiles la usan. Elige otra esfera antes de eliminar:"</string>
+    <string name="gallery_delete_confirm" formatted="false">"¿Eliminar esta esfera de la galería?"</string>
+    <string name="gallery_migration_failed" formatted="false">"No se pudieron migrar %1$d importaciones. Permanecen en sus perfiles."</string>
+    <string name="gallery_import_result" formatted="false">"Importadas: %1$d · Ya existentes: %2$d · Errores: %3$d"</string>
+    <string name="gallery_batch_limit" formatted="false">"Selecciona hasta 32 esferas por importación."</string>
+    <string name="gallery_no_preview" formatted="false">"No hay vista original. Usa la vista previa del renderizador."</string>
+</resources>

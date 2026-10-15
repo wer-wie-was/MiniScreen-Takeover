@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wfz_scale" formatted="false">表盘大小 (%)</string>
+</resources>

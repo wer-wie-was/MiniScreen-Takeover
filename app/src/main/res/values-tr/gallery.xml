@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="gallery_title" formatted="false">"Saat yüzü galerisi"</string>
+    <string name="gallery_target" formatted="false">"“%1$s” uygulama profili için kullanılacak."</string>
+    <string name="gallery_import" formatted="false">"Saat yüzlerini içe aktar"</string>
+    <string name="gallery_search" formatted="false">"Saat yüzü ara"</string>
+    <string name="gallery_favorites" formatted="false">"Yalnızca favoriler"</string>
+    <string name="gallery_empty" formatted="false">"Saat yüzü bulunamadı. İçe aktarın veya filtreyi değiştirin."</string>
+    <string name="gallery_original_note" formatted="false">WFZ ile birlikte gelen resim. Yer tutucu olabilir.</string>
+    <string name="gallery_live" formatted="false">"Canlı oluşturucu önizlemesi"</string>
+    <string name="gallery_use" formatted="false">"Saat yüzünü kullan"</string>
+    <string name="gallery_favorite" formatted="false">"Favorilere ekle"</string>
+    <string name="gallery_unfavorite" formatted="false">"Favorilerden çıkar"</string>
+    <string name="gallery_delete" formatted="false">"Saat yüzünü sil"</string>
+    <string name="gallery_used" formatted="false">"Şu profiller kullanıyor. Silmeden önce başka saat yüzü seçin:"</string>
+    <string name="gallery_delete_confirm" formatted="false">"Bu saat yüzü galeriden silinsin mi?"</string>
+    <string name="gallery_migration_failed" formatted="false">"%1$d içe aktarma taşınamadı. Profillerinde kalırlar."</string>
+    <string name="gallery_import_result" formatted="false">"İçe aktarılan: %1$d · Zaten var: %2$d · Başarısız: %3$d"</string>
+    <string name="gallery_batch_limit" formatted="false">"Her içe aktarmada en fazla 32 saat yüzü seçin."</string>
+    <string name="gallery_no_preview" formatted="false">"Özgün önizleme yok. Canlı oluşturucu önizlemesini kullanın."</string>
+</resources>

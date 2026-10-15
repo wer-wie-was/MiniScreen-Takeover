@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="preview_expand" formatted="false">"Увеличить предпросмотр"</string>
+    <string name="preview_close" formatted="false">"Закрыть увеличенный предпросмотр"</string>
+    <string name="wfz_open_title" formatted="false">"Импорт циферблата WFZ"</string>
+    <string name="wfz_open_help" formatted="false">"Выберите профиль. Импорт заменит его текущий циферблат и выберет режим Amazfit."</string>
+    <string name="wfz_open_invalid" formatted="false">"Откройте файл WFZ в файловом менеджере."</string>
+    <string name="wfz_open_interrupted" formatted="false">"Импорт прерван или профиль удалён. Откройте файл снова."</string>
+</resources>

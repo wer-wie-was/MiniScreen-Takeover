@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="music_pause_enable">Sospendi Takeover e spegni lo schermo posteriore durante la musica</string>
+    <string name="music_pause_help">Richiede accesso alle notifiche. I lettori multimediali attivi sospendono Takeover. Riprende 3 secondi dopo la pausa o lo stop, se i comandi manuali e la pianificazione lo consentono.</string>
+    <string name="music_pause_active">Sospeso durante la riproduzione multimediale</string>
+</resources>

@@ -27,12 +27,17 @@ public final class WatchService extends Service implements DisplayManager.Displa
     private final BroadcastReceiver screenEvents=new BroadcastReceiver(){@Override public void onReceive(Context c,Intent i){if(!on()&&TakeoverControl.wanted(WatchService.this))check();else schedule(600);}};
     static void suspendNow(){WatchService s=current.get();if(s!=null){s.cancelAttempt();s.handler.removeCallbacks(s.checkTask);}}
     static void activityChanged(){WatchService s=current.get();if(s!=null)s.schedule(600);}
+    static boolean musicEligible(){WatchService s=current.get();return s!=null&&(s.explicit||s.attempting||s.everVisible||!TakeoverControl.mode(s.prefs).equals("manual"));}
+    static void musicChanged(){WatchService s=current.get();if(s!=null)s.schedule(100);}
+    static boolean restoreAfterMusic(){WatchService s=current.get();if(s==null)return false;
+        s.cancelAttempt();s.explicit=true;s.nextAllowed=0;s.sessionStart=SystemClock.elapsedRealtime();s.schedule(0);return true;}
     @Override public void onCreate(){super.onCreate();current=new WeakReference<>(this);prefs=TakeoverControl.prefs(this);displays=(DisplayManager)getSystemService(DISPLAY_SERVICE);sessionStart=SystemClock.elapsedRealtime();
         NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);nm.createNotificationChannel(new NotificationChannel(CHANNEL,I18n.get(R.string.msg_124),NotificationManager.IMPORTANCE_LOW));
         startForeground(NOTIFICATION,notification(I18n.get(R.string.msg_125)));
         prefs.registerOnSharedPreferenceChangeListener(this);displays.registerDisplayListener(this,handler);
         IntentFilter filter=new IntentFilter();filter.addAction(Intent.ACTION_SCREEN_ON);filter.addAction(Intent.ACTION_SCREEN_OFF);filter.addAction(Intent.ACTION_USER_PRESENT);filter.addAction(Intent.ACTION_TIME_CHANGED);
         if(Build.VERSION.SDK_INT>=33)registerReceiver(screenEvents,filter,Context.RECEIVER_NOT_EXPORTED);else registerReceiver(screenEvents,filter);
+        MusicControl.refresh(this);
     }
     @Override public int onStartCommand(Intent i,int flags,int id){String action=i==null?TakeoverControl.SYNC:i.getAction();
         if(AutomationControl.blocked(prefs)&&!TakeoverControl.STOP.equals(action)){cancelAttempt();stopSelf();return START_NOT_STICKY;}
@@ -51,10 +56,11 @@ public final class WatchService extends Service implements DisplayManager.Displa
     private boolean healthy(){int state=reportedState();return visible()&&(state==Display.STATE_ON||state==Display.STATE_UNKNOWN);}
     private boolean visible(){return ScreenActivity.visibleOn(target());}
     private long interval(){return Config.clamp(prefs.getInt("check_interval",60),15,300)*1000L;}
-    private boolean needsMonitor(){return !TakeoverControl.mode(prefs).equals("manual")||prefs.getBoolean("only_locked",false);}
+    private boolean needsMonitor(){return !TakeoverControl.mode(prefs).equals("manual")||prefs.getBoolean("only_locked",false)||prefs.getBoolean(MusicControl.ENABLED,false);}
     private void schedule(long ms){handler.removeCallbacks(checkTask);handler.postDelayed(checkTask,Math.max(0,ms));}
     private void check(){
         if(!prefs.getBoolean("enabled",false)||AutomationControl.blocked(prefs)){cancelAttempt();ScreenActivity.closeScreen();stopSelf();return;}
+        if(MusicControl.blocked(prefs)){cancelAttempt();ScreenActivity.closeScreen();state(I18n.get(R.string.music_pause_active));schedule(interval());return;}
         if(DisplaySchedule.manualOff(prefs,System.currentTimeMillis())){cancelAttempt();state(I18n.get(R.string.power_intentional));stopSelf();return;}
         // Intentional schedule-off wins over the ordinary keep/force recovery modes.
         if(!TakeoverControl.paused(prefs)&&!prefs.getBoolean("external_active",false)&&!DisplaySchedule.allowed(prefs,System.currentTimeMillis())){DisplayPower.off(this,false);return;}
@@ -114,7 +120,7 @@ public final class WatchService extends Service implements DisplayManager.Displa
             .addAction(new Notification.Action.Builder(0,paused?I18n.get(R.string.msg_145):I18n.get(R.string.msg_146),action(paused?TakeoverControl.RESUME:TakeoverControl.PAUSE,2)).build())
             .addAction(new Notification.Action.Builder(0,I18n.get(R.string.msg_147),action(TakeoverControl.STOP,3)).build()).build();
     }
-    @Override public void onSharedPreferenceChanged(SharedPreferences p,String key){if(key.equals("enabled")||key.equals("monitor_mode")||key.equals("only_locked")||key.equals("pause_until")||key.equals("check_interval")||key.equals("language")||key.equals("manual_off")||key.equals("external_active")||key.startsWith("schedule_")){
+    @Override public void onSharedPreferenceChanged(SharedPreferences p,String key){if(key.startsWith("music_pause_")||key.equals("enabled")||key.equals("monitor_mode")||key.equals("only_locked")||key.equals("pause_until")||key.equals("check_interval")||key.equals("language")||key.equals("manual_off")||key.equals("external_active")||key.startsWith("schedule_")){
         if(key.equals("language")){NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);nm.createNotificationChannel(new NotificationChannel(CHANNEL,I18n.get(R.string.msg_124),NotificationManager.IMPORTANCE_LOW));}
         if(key.equals("monitor_mode")&&TakeoverControl.mode(p).equals("manual")&&!explicit)cancelAttempt();
 schedule(100);

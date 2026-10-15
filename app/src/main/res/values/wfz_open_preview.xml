@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="preview_expand" formatted="false">"Enlarge live preview"</string>
+    <string name="preview_close" formatted="false">"Close enlarged preview"</string>
+    <string name="wfz_open_title" formatted="false">"Import WFZ watchface"</string>
+    <string name="wfz_open_help" formatted="false">"Choose the profile to receive this watchface. Import replaces its current watchface and selects Amazfit mode."</string>
+    <string name="wfz_open_invalid" formatted="false">"Please open a WFZ file from your file manager."</string>
+    <string name="wfz_open_interrupted" formatted="false">"Import interrupted or target profile removed. Please open the file again."</string>
+</resources>

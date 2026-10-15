@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="wfz_section">Циферблаты Amazfit</string>
     <string name="wfz_enable">Использовать циферблат WFZ</string>
     <string name="wfz_help">Нативная отрисовка отдельных элементов Stratos/Pace и простых компонентов Stratos 3. Импортируйте .wfz и проверьте отчёт перед включением. Неизвестные виджеты и анимации пропускаются; системные виджеты могут заменяться текстом. BIN, Zepp OS и APK не поддерживаются. Секунды по умолчанию отключены.</string>
     <string name="wfz_import">Импортировать циферблат .wfz</string>
-    <string name="wfz_remove">Удалить циферблат</string>
+    <string name="wfz_remove">"Убрать из этого профиля приложения"</string>
     <string name="wfz_empty">Циферблат WFZ не импортирован</string>
     <string name="wfz_seconds">Показывать секунды (1 обновление/с)</string>
     <string name="wfz_crop">Обрезать по размеру экрана</string>

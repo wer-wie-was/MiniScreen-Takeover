@@ -12,7 +12,8 @@ final class TakeoverControl {
     static String mode(SharedPreferences p){String m=p.getString("monitor_mode","keep");return m.equals("manual")||m.equals("force")?m:"keep";}
     static boolean paused(SharedPreferences p){return p.getLong("pause_until",0)>System.currentTimeMillis();}
     static boolean lockEligible(Context c,SharedPreferences p){if(!p.getBoolean("only_locked",false))return true;android.app.KeyguardManager k=(android.app.KeyguardManager)c.getSystemService(Context.KEYGUARD_SERVICE);PowerManager power=(PowerManager)c.getSystemService(Context.POWER_SERVICE);return k.isKeyguardLocked()||!power.isInteractive();}
-    static boolean wanted(Context c){SharedPreferences p=prefs(c);return p.getBoolean("enabled",false)&&!AutomationControl.blocked(p)&&!paused(p)&&!p.getBoolean("external_active",false)&&!DisplaySchedule.manualOff(p,System.currentTimeMillis())&&DisplaySchedule.allowed(p,System.currentTimeMillis())&&lockEligible(c,p);}
+    static boolean wantedWithoutMusic(Context c){SharedPreferences p=prefs(c);return p.getBoolean("enabled",false)&&!AutomationControl.blocked(p)&&!paused(p)&&!p.getBoolean("external_active",false)&&!DisplaySchedule.manualOff(p,System.currentTimeMillis())&&DisplaySchedule.allowed(p,System.currentTimeMillis())&&lockEligible(c,p);}
+    static boolean wanted(Context c){return wantedWithoutMusic(c)&&!MusicControl.blocked(prefs(c));}
     static void show(Context c){
         SharedPreferences p=prefs(c);long now=System.currentTimeMillis(),override=0;
         if(DisplaySchedule.enabled(p)&&!DisplaySchedule.inside(p,now)){DisplaySchedule.Edge next=DisplaySchedule.next(p,now,false);if(next!=null)override=next.time;}

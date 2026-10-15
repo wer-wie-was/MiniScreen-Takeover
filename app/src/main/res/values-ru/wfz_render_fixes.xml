@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="wfz_note_heart_zone" formatted="false">"Окраска пульсовых зон недоступна: отсутствует таблица зон этой модели часов."</string>
+</resources>

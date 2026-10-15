@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gallery_rendered">Vista renderizada</string>
+    <string name="gallery_supplied">Imagen incluida</string>
+    <string name="gallery_rendered_note">Instantánea con ajustes predeterminados. La vista en directo muestra tus ajustes actuales.</string>
+    <string name="gallery_render_failed">Vista renderizada no disponible.</string>
+</resources>

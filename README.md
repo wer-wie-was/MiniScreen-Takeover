@@ -6,9 +6,11 @@ MiniScreen Takeover displays a customizable digital clock, a complete HTML desig
 
 The app uses **display 1** for the rear screen and **display 0** for its controls. The rear screen normally measures 340 × 340 pixels. Rear-screen control depends on the manufacturer's `com.yft.miniscreendisplay` system app; this is not a general-purpose solution for arbitrary Android secondary displays.
 
-### Experimental Amazfit WFZ watchfaces
+### Amazfit WFZ watchfaces
 
-In **Amazfit Watchfaces (experimental)**, import a `.wfz` file and review the compatibility report before enabling the mode. Supported elements are drawn natively, without watch firmware. Seconds default to off; enabling them requests one update per second. Source resolution, fit/crop and optional Health Connect data can be configured. Existing overlays and pixelshifting remain available.
+In **Designs & Profiles**, choose Amazfit as the display mode, then open **Amazfit Watchfaces → Watchface gallery**. Import one or multiple `.wfz` files, search by name, mark favorites and review compatibility details. Tap a tile to compare the supplied original preview with our live renderer. **Use watchface** assigns it to the existing app profile named above the gallery; it does not create a new profile or enable rear takeover. Supported elements are drawn natively without watch firmware. Seconds default to off; source resolution, fit/crop, optional Health Connect data, overlays and pixel shifting remain configurable.
+
+The gallery stores each watchface once and detects duplicates by content. Existing imported faces are adopted automatically. A watchface used by an app profile must be replaced there before it can be deleted from the gallery. Removing it from the current app profile keeps the gallery copy. App-profile exports include the chosen watchface, so they remain portable. See [Gallery usage and storage](docs/RELEASE-0.8.3.md).
 
 Support covers a defined subset of Stratos/Pace WFZ elements and simple Stratos 3 components. Legacy datawidgets use reconstructed model-specific sizes, colours, LCD text, calendar formats and selectable configList variants. Original model colours are the default; fonts and symbols are approximated. Unsupported components and animations are reported. This mode does not support BIN, Zepp OS or APK watchfaces. See [WFZ details](docs/WFZ.md). The source archive includes `samples/Native-WFZ-Demo.wfz` for trying the supported analog/digital elements.
 
@@ -183,9 +185,11 @@ MiniScreen Takeover zeigt eine anpassbare Digitaluhr, ein vollständiges HTML-De
 
 Die App verwendet **Display 1** für das Rückdisplay und **Display 0** für die Bedienung. Das Rückdisplay misst normalerweise 340 × 340 Pixel. Seine Steuerung benötigt die Hersteller-Systemapp `com.yft.miniscreendisplay`; die App ist keine allgemeine Lösung für beliebige Android-Zweitbildschirme.
 
-### Experimentelle Amazfit-WFZ-Watchfaces
+### Amazfit-WFZ-Watchfaces
 
-Unter **Amazfit Watchfaces (experimentell)** eine `.wfz`-Datei importieren, den Kompatibilitätsbericht prüfen und anschließend den Modus aktivieren. Unterstützte Elemente werden nativ ohne Uhren-Firmware gezeichnet. Sekunden sind standardmäßig aus; eingeschaltet wird einmal pro Sekunde aktualisiert. Originalauflösung, Einpassen/Zuschneiden und optionale Health-Connect-Daten lassen sich konfigurieren. Vorhandene Anzeigeebenen und Pixelshifting bleiben nutzbar.
+Unter **Designs & Profiles** Amazfit als Anzeigemodus auswählen und **Amazfit Watchfaces → Watchface-Galerie** öffnen. Eine oder mehrere `.wfz`-Dateien importieren, nach Namen suchen, Favoriten markieren und die Kompatibilität prüfen. Eine Kachel zeigt Originalvorlage und Live-Vorschau unseres Renderers. **Watchface verwenden** übernimmt die Auswahl ins oben genannte bestehende App-Profil. Es entsteht kein neues Profil; der Takeover-Betrieb wird dadurch nicht aktiviert. Unterstützte Elemente werden nativ ohne Uhren-Firmware gezeichnet. Sekunden sind standardmäßig aus. Originalauflösung, Einpassen/Zuschneiden, optionale Health-Connect-Daten, Anzeigeebenen und Pixelshifting bleiben einstellbar.
+
+Die Galerie speichert jedes Watchface einmal und erkennt Duplikate anhand des Inhalts. Bestehende Imports werden automatisch übernommen. Verwendete Watchfaces müssen zuerst in den betreffenden App-Profilen ersetzt werden, bevor sie sich aus der Galerie löschen lassen. Das Entfernen aus dem aktuellen App-Profil erhält die Galeriekopie. App-Profilexporte enthalten das gewählte Watchface und bleiben dadurch auf andere Geräte übertragbar. Siehe [Galerie und Speicherung](docs/RELEASE-0.8.3.md).
 
 Unterstützt wird ein definierter Teilumfang der Stratos/Pace-WFZ-Elemente sowie einfacher Stratos-3-Komponenten. Legacy-Datenwidgets nutzen rekonstruierte modellspezifische Größen, Farben, LCD-Schrift, Datumsformate und auswählbare configList-Varianten. Originalfarben gelten standardmäßig; Schriften und Symbole sind angenähert. Nicht unterstützte Komponenten und Animationen werden im Bericht genannt. BIN-, Zepp-OS- und APK-Watchfaces werden nicht unterstützt. Die technischen Details stehen in [WFZ](docs/WFZ.md). Im Quellcodearchiv liegt `samples/Native-WFZ-Demo.wfz` zum Ausprobieren der unterstützten analogen und digitalen Elemente.
 

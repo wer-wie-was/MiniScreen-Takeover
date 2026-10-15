@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="gallery_title" formatted="false">"Watchface gallery"</string>
+    <string name="gallery_target" formatted="false">"Will be used for app profile “%1$s”."</string>
+    <string name="gallery_import" formatted="false">"Import watchfaces"</string>
+    <string name="gallery_search" formatted="false">"Search watchfaces"</string>
+    <string name="gallery_favorites" formatted="false">"Favorites only"</string>
+    <string name="gallery_empty" formatted="false">"No watchfaces found. Import one or change the filter."</string>
+    <string name="gallery_original_note" formatted="false">Image supplied in the WFZ. It may be a placeholder.</string>
+    <string name="gallery_live" formatted="false">"Live renderer preview"</string>
+    <string name="gallery_use" formatted="false">"Use watchface"</string>
+    <string name="gallery_favorite" formatted="false">"Add to favorites"</string>
+    <string name="gallery_unfavorite" formatted="false">"Remove from favorites"</string>
+    <string name="gallery_delete" formatted="false">"Delete watchface"</string>
+    <string name="gallery_used" formatted="false">"Used by these app profiles. Select another watchface there before deleting:"</string>
+    <string name="gallery_delete_confirm" formatted="false">"Delete this watchface from the gallery?"</string>
+    <string name="gallery_migration_failed" formatted="false">"Could not migrate %1$d existing imports. They remain in their app profiles."</string>
+    <string name="gallery_import_result" formatted="false">"Imported: %1$d · Already in gallery: %2$d · Failed: %3$d"</string>
+    <string name="gallery_batch_limit" formatted="false">"Select up to 32 watchfaces per import."</string>
+    <string name="gallery_no_preview" formatted="false">"No original preview is included. You can use the live renderer preview."</string>
+</resources>

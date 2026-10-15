@@ -34,9 +34,14 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private DisplayManager displays;
     private LinearLayout root;
     private ScrollView scroll;
-    private TextView status,workStatus,monitorStatus,scheduleStatus,tickerAccessStatus,dotAccessStatus;
-    private Button tickerAccessButton,dotAccessButton;
+    private TextView status,workStatus,monitorStatus,scheduleStatus,tickerAccessStatus,dotAccessStatus,musicAccessStatus;
+    private Button tickerAccessButton,dotAccessButton,musicAccessButton;
     private PreviewFrame preview;
+    private Dialog previewDialog;
+    private ViewGroup previewParent;
+    private View previewPlaceholder;
+    private ViewGroup.LayoutParams previewParams;
+    private int previewIndex;
     private boolean busy,resumed,guides=true,chargePreview,tickerPreview,dotPreview;
     private String pendingProfile="",uiLanguage="";
     private int pendingRequest;
@@ -53,13 +58,15 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         if(store.prefs.contains(OPEN_SECTIONS))opened.addAll(store.prefs.getStringSet(OPEN_SECTIONS,Collections.emptySet()));
         else {opened.add("msg_003");opened.add("msg_004");saveOpenSections();}
         if(saved!=null){selectedTab=Math.max(0,Math.min(4,saved.getInt("selectedTab",TAB_HOME)));int[] positions=saved.getIntArray("tabScroll");if(positions!=null&&positions.length==5)System.arraycopy(positions,0,tabScroll,0,5);pendingProfile=saved.getString("pendingProfile","");pendingRequest=saved.getInt("pendingRequest");guides=saved.getBoolean("guides",true);chargePreview=saved.getBoolean("chargePreview",false);tickerPreview=saved.getBoolean("tickerPreview",false);dotPreview=saved.getBoolean("dotPreview",false);}
-        store.prefs.registerOnSharedPreferenceChangeListener(this);build();
+        store.prefs.registerOnSharedPreferenceChangeListener(this);build();showImportedFace(getIntent());
+        worker.execute(()->{try{WfzGallery.migrate(this.getApplicationContext());}catch(Exception ignored){}});
     }
     private void build() {
+        dismissPreview();
         if(scroll!=null&&renderedTab>=0)tabScroll[renderedTab]=scroll.getScrollY();
         int y=tabScroll[selectedTab];renderedTab=selectedTab;
         if(zoomAdjusting)zoomTracking(false);
-        status=null;monitorStatus=null;scheduleStatus=null;tickerAccessStatus=null;dotAccessStatus=null;tickerAccessButton=null;dotAccessButton=null;
+        status=null;monitorStatus=null;scheduleStatus=null;tickerAccessStatus=null;dotAccessStatus=null;musicAccessStatus=null;tickerAccessButton=null;dotAccessButton=null;musicAccessButton=null;
         if(preview!=null&&preview.getParent() instanceof ViewGroup)((ViewGroup)preview.getParent()).removeView(preview);
         LinearLayout layout=new LinearLayout(this);layout.setOrientation(LinearLayout.VERTICAL);
         // The decor fits system bars; do not add navigation-bar height again.
@@ -69,7 +76,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         int target=1;Display d=displays.getDisplay(target);int w=340,h=340;Context dc=this;
         if(d!=null){w=d.getMode().getPhysicalWidth();h=d.getMode().getPhysicalHeight();dc=createDisplayContext(d);}
         int size=dp(Math.max(88,Math.min(160,getResources().getConfiguration().screenHeightDp/4)));
-        if(preview==null)preview=new PreviewFrame(this,dc,w,h);int pw=Math.round(size*Math.min(1f,w/(float)h));pinned.addView(preview,new LinearLayout.LayoutParams(pw,-2));
+        if(preview==null){preview=new PreviewFrame(this,dc,w,h);preview.setOnClickListener(v->showPreview());preview.setFocusable(true);preview.setContentDescription(tt(R.string.preview_expand));}int pw=Math.round(size*Math.min(1f,w/(float)h));pinned.addView(preview,new LinearLayout.LayoutParams(pw,-2));
         LinearLayout info=new LinearLayout(this);info.setOrientation(LinearLayout.VERTICAL);LinearLayout.LayoutParams ip=new LinearLayout.LayoutParams(0,-2,1);ip.leftMargin=dp(16);pinned.addView(info,ip);
         TextView title=text(info,"MiniScreen Takeover",20);title.setTypeface(null,Typeface.BOLD);
         text(info,I18n.get(R.string.msg_005),11).setTextColor(0xFF63E6DC);
@@ -111,6 +118,31 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         if(busy){toast(tt(R.string.msg_007));return;}
         selectedTab=tab;build();
     }
+    @Override protected void onNewIntent(Intent intent){super.onNewIntent(intent);setIntent(intent);showImportedFace(intent);}
+    private void showImportedFace(Intent intent){
+        if(store==null||intent==null||(!WfzOpenActivity.IMPORTED.equals(intent.getAction())&&!store.prefs.getBoolean("wfz_open_design",false)))return;
+        store.prefs.edit().putBoolean("wfz_open_design",false).apply();
+        intent.setAction(Intent.ACTION_MAIN);config=store.load();selectedTab=TAB_DESIGN;build();
+    }
+    private void showPreview(){
+        if(preview==null||previewDialog!=null||isFinishing())return;
+        if(!(preview.getParent() instanceof ViewGroup))return;
+        previewParent=(ViewGroup)preview.getParent();previewIndex=previewParent.indexOfChild(preview);previewParams=preview.getLayoutParams();
+        previewPlaceholder=new View(this);previewParent.removeView(preview);previewParent.addView(previewPlaceholder,previewIndex,new ViewGroup.LayoutParams(previewParams));
+        preview.expanded(true);preview.setContentDescription(tt(R.string.preview_close));preview.setOnClickListener(v->dismissPreview());
+        Rect available=new Rect();getWindow().getDecorView().getWindowVisibleDisplayFrame(available);
+        int edge=Math.max(1,Math.min(available.width(),available.height())-dp(24));
+        FrameLayout frame=new FrameLayout(this);frame.setPadding(dp(12),dp(12),dp(12),dp(12));frame.addView(preview,new FrameLayout.LayoutParams(edge,edge,Gravity.CENTER));
+        Dialog dialog=new Dialog(this);previewDialog=dialog;dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);dialog.setContentView(frame);dialog.setCanceledOnTouchOutside(true);
+        dialog.setOnDismissListener(d->{
+            if(preview.getParent() instanceof ViewGroup)((ViewGroup)preview.getParent()).removeView(preview);
+            preview.expanded(false);preview.setContentDescription(tt(R.string.preview_expand));preview.setOnClickListener(v->showPreview());
+            if(previewParent!=null){previewParent.removeView(previewPlaceholder);previewParent.addView(preview,Math.min(previewIndex,previewParent.getChildCount()),previewParams);}
+            previewDialog=null;previewParent=null;previewPlaceholder=null;previewParams=null;
+        });
+        dialog.show();Window window=dialog.getWindow();if(window!=null){window.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.TRANSPARENT));window.setLayout(edge+dp(24),edge+dp(24));window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);WindowManager.LayoutParams attributes=window.getAttributes();attributes.dimAmount=.75f;window.setAttributes(attributes);}
+    }
+    private void dismissPreview(){if(previewDialog!=null)previewDialog.dismiss();}
     private void saveOpenSections(){store.prefs.edit().putStringSet(OPEN_SECTIONS,new HashSet<>(opened)).apply();}
     private void bottomNavigation(LinearLayout layout){
         LinearLayout bar=new LinearLayout(this);bar.setOrientation(LinearLayout.HORIZONTAL);bar.setPadding(dp(4),dp(4),dp(4),dp(4));bar.setBackgroundColor(0xFF15212D);
@@ -165,6 +197,12 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         Button start=button(p,I18n.get(R.string.msg_011),this::manufacturerStart);start.setBackground(controlBackground(0xFF63E6DC,0,10));start.setTextColor(0xFF102329);
         button(p,I18n.get(R.string.msg_012),()->{TakeoverControl.stop(this);build();});
         button(p,I18n.get(R.string.power_button),()->DisplayPower.off(this,true));
+        check(p,tt(R.string.music_pause_enable),store.prefs.getBoolean(MusicControl.ENABLED,false),v->{MusicControl.setEnabled(this,v);build();});
+        if(store.prefs.getBoolean(MusicControl.ENABLED,false)){
+            text(p,tt(R.string.music_pause_help),13);musicAccessStatus=text(p,"",13);
+            musicAccessButton=button(p,tt(R.string.ticker_access),()->{try{startActivity(new Intent(android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));}catch(ActivityNotFoundException e){error(e);}});
+            refreshTickerAccess();
+        }
         monitorStatus=text(p,store.prefs.getString("monitor_status",I18n.get(R.string.msg_013)),13);
         String watchMode=TakeoverControl.mode(store.prefs);
         choose(p,I18n.get(R.string.msg_014),new String[]{I18n.get(R.string.msg_015),I18n.get(R.string.msg_016),I18n.get(R.string.msg_017)},watchMode.equals("manual")?0:watchMode.equals("force")?2:1,i->{store.prefs.edit().putString("monitor_mode",i==0?"manual":i==2?"force":"keep").apply();notificationPermission();TakeoverControl.sync(this);});
@@ -294,8 +332,10 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         int color=granted?0xFF63E6A2:0xFFFF8080;
         if(tickerAccessStatus!=null){tickerAccessStatus.setText(label);tickerAccessStatus.setTextColor(color);}
         if(dotAccessStatus!=null){dotAccessStatus.setText(label);dotAccessStatus.setTextColor(color);}
+        if(musicAccessStatus!=null){musicAccessStatus.setText(label);musicAccessStatus.setTextColor(color);}
         if(tickerAccessButton!=null)tickerAccessButton.setVisibility(granted?View.GONE:View.VISIBLE);
         if(dotAccessButton!=null)dotAccessButton.setVisibility(granted?View.GONE:View.VISIBLE);
+        if(musicAccessButton!=null)musicAccessButton.setVisibility(granted?View.GONE:View.VISIBLE);
     }
     private String[] privacyOptions(){return new String[]{tt(R.string.ticker_private),tt(R.string.ticker_app_name),tt(R.string.ticker_title),tt(R.string.ticker_full)};}
     private void tickerSettings(){
@@ -380,13 +420,14 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         LinearLayout p=section(R.string.wfz_section);
         check(p,tt(R.string.msg_061),config.twentyFour,v->{config.twentyFour=v;changed();});
         text(p,tt(R.string.wfz_help),13);
+        button(p,tt(R.string.gallery_title),()->startActivity(new Intent(this,WfzGalleryActivity.class).putExtra("profile",store.active())));
         button(p,tt(R.string.wfz_import),()->pick(WFZ));
-        text(p,config.wfz.isEmpty()?tt(R.string.wfz_empty):WfzImport.summary(new File(store.dir(store.active()),config.wfz)),13);
-        if(!config.wfz.isEmpty())button(p,tt(R.string.wfz_details),()->new AlertDialog.Builder(this).setTitle(tt(R.string.wfz_details)).setMessage(WfzImport.report(new File(store.dir(store.active()),config.wfz))).setPositiveButton(android.R.string.ok,null).show());
-        button(p,tt(R.string.wfz_remove),()->{String old=config.wfz;String profileId=store.active();config.wfz="";config.wfzWidgets=new org.json.JSONObject();config.wfzVariants=new org.json.JSONObject();if(config.mode.equals("wfz"))config.mode="native";changed();build();if(old.startsWith("wfz-"))worker.execute(()->{try{ProfileStore.deleteTree(store.resolve(profileId,old.split("/")[0]));}catch(Exception ignored){}});});
+        text(p,config.wfz.isEmpty()?tt(R.string.wfz_empty):WfzImport.summary(WfzGallery.face(this,store.dir(store.active()),config)),13);
+        if(!config.wfz.isEmpty())button(p,tt(R.string.wfz_details),()->new AlertDialog.Builder(this).setTitle(tt(R.string.wfz_details)).setMessage(WfzImport.report(WfzGallery.face(this,store.dir(store.active()),config))).setPositiveButton(android.R.string.ok,null).show());
+        button(p,tt(R.string.wfz_remove),()->{String old=config.wfz;String profileId=store.active();config.wfz="";config.wfzGallery="";config.wfzWidgets=new org.json.JSONObject();config.wfzVariants=new org.json.JSONObject();if(config.mode.equals("wfz"))config.mode="native";changed();build();if(old.startsWith("wfz-"))worker.execute(()->{try{ProfileStore.deleteTree(store.resolve(profileId,old.split("/")[0]));}catch(Exception ignored){}});});
         if(!config.wfz.isEmpty()){
             button(p,tt(R.string.wfz_widgets),this::wfzWidgetSettings);
-            try{for(WfzVariants.Group group:WfzVariants.read(new File(store.dir(store.active()),config.wfz))){
+            try{for(WfzVariants.Group group:WfzVariants.read(WfzGallery.face(this,store.dir(store.active()),config))){
                 String[] labels=new String[group.options.size()];for(int i=0;i<labels.length;i++)labels[i]=tt(R.string.wfz_variant)+" "+(i+1);
                 choose(p,tt(group.type.equals("timehand")?R.string.wfz_hand_variant:R.string.wfz_background_variant),labels,group.selected(config),i->{try{config.wfzVariants.put(group.key,i);changed();}catch(org.json.JSONException e){error(e);}});
             }}catch(Exception e){text(p,tt(R.string.wfz_no_report),13);}
@@ -395,6 +436,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         check(p,tt(R.string.wfz_original_colors),config.wfzOriginalColors,v->{config.wfzOriginalColors=v;changed();build();});
         if(!config.wfzOriginalColors)button(p,tt(R.string.wfz_widget_color),()->ColorPicker.show(this,tt(R.string.wfz_widget_color),config.wfzWidgetColor,v->{config.wfzWidgetColor=v;changed();}));
         check(p,tt(R.string.wfz_seconds),config.wfzSeconds,v->{config.wfzSeconds=v;changed();});
+        slider(p,tt(R.string.wfz_scale),50,100,config.wfzScale,v->{config.wfzScale=v;changed();});
         check(p,tt(R.string.wfz_crop),config.wfzCrop,v->{config.wfzCrop=v;changed();});
         int[] sizes={0,320,360,454,466,480};String[] labels={tt(R.string.wfz_auto),"320 × 320","360 × 360","454 × 454","466 × 466","480 × 480"};int selection=0;for(int i=0;i<sizes.length;i++)if(config.wfzSize==sizes[i])selection=i;
         choose(p,tt(R.string.wfz_resolution),labels,selection,i->{config.wfzSize=sizes[i];changed();});
@@ -402,7 +444,7 @@ public final class MainActivity extends Activity implements SharedPreferences.On
         button(p,tt(R.string.pebble_health),()->startActivity(new Intent(this,PebbleHealthActivity.class)));
     }
     private void wfzWidgetSettings(){
-        final String profileId=store.active(),face=config.wfz;final File root=new File(store.dir(profileId),face);
+        final String profileId=store.active(),face=config.wfz;final File root=WfzGallery.face(this,store.dir(profileId),config);
         final java.util.concurrent.atomic.AtomicReference<java.util.List<WfzWidgets.Spec>> result=new java.util.concurrent.atomic.AtomicReference<>();
         backgroundWork(tt(R.string.msg_007),()->{result.set(WfzWidgets.read(root));return "";},unused->{
             if(!profileId.equals(store.active())||!face.equals(config.wfz))return;
@@ -525,10 +567,10 @@ public final class MainActivity extends Activity implements SharedPreferences.On
             Config c=store.load(id);
             if(request==IMAGE){String path=store.importAsset(id,uri,"background",".img");Bitmap image=ClockView.decodeImage(store.resolve(id,path));if(image==null){store.resolve(id,path).delete();throw new IOException(I18n.get(R.string.msg_115));}image.recycle();c.image=path;}
             else if(request==FONT||request==CHARGE_FONT){String ext=fileName.endsWith(".otf")?".otf":".ttf";String path=store.importAsset(id,uri,request==CHARGE_FONT?"charge-font":"font",ext);try{Typeface.createFromFile(store.resolve(id,path));}catch(RuntimeException e){store.resolve(id,path).delete();throw new IOException(I18n.get(R.string.msg_116));}if(request==CHARGE_FONT)c.chargeFontFile=path;else c.fontFile=path;}
-            else if(request==WFZ){c.wfz=WfzImport.importFile(this,store,id,uri);c.wfzWidgets=new org.json.JSONObject();c.wfzVariants=new org.json.JSONObject();}
+            else if(request==WFZ){WfzGallery.assign(store,id,WfzGallery.importFile(this,uri).id,false);return id;}
             else if(request==DESIGN){boolean zip=fileName.endsWith(".zip")||"application/zip".equals(getContentResolver().getType(uri));c.design=store.importDesign(id,uri,zip);c.mode="html";}
             else throw new IOException(I18n.get(R.string.msg_117));store.save(id,c);return id;
-        },newId->{config=store.load();build();if(request==WFZ)new AlertDialog.Builder(this).setTitle(tt(R.string.wfz_section)).setMessage(WfzImport.report(new File(store.dir(id),store.load(id).wfz))).setPositiveButton(android.R.string.ok,null).show();else toast(I18n.get(R.string.msg_118));});
+        },newId->{config=store.load();build();if(request==WFZ)new AlertDialog.Builder(this).setTitle(tt(R.string.wfz_section)).setMessage(WfzImport.report(WfzGallery.face(this,store.dir(id),store.load(id)))).setPositiveButton(android.R.string.ok,null).show();else toast(I18n.get(R.string.msg_118));});
     }
     private interface Job {String run() throws Exception;}
     private void backgroundWork(String message,Job job,Consumer<String> done){busy=true;workStatus.setVisibility(View.VISIBLE);workStatus.setText(message);worker.execute(()->{try{String value=job.run();runOnUiThread(()->{if(isDestroyed())return;busy=false;workStatus.setVisibility(View.GONE);done.accept(value);});}catch(Exception e){failed(e);}});}
@@ -536,10 +578,10 @@ public final class MainActivity extends Activity implements SharedPreferences.On
     private void toast(String s){Toast.makeText(this,s,Toast.LENGTH_SHORT).show();}
     private void error(Exception e){new AlertDialog.Builder(this).setTitle("MiniScreen Takeover").setMessage(e.getMessage()==null?e.toString():e.getMessage()).setPositiveButton("OK",null).show();}
     @Override public void onSharedPreferenceChanged(SharedPreferences prefs,String key){if((key.startsWith("ticker_")||key.startsWith("dot_")||key.startsWith("widget_"))&&preview!=null)preview.surface.tick();if(key.startsWith("automation_")||key.startsWith("schedule_")||key.equals("external_active")||key.equals("pause_until")||key.equals("manual_off"))refreshSchedule();if(status!=null&&(key.equals("status")||key.equals("actual")))status.setText(prefs.getString("status",""));if(monitorStatus!=null&&key.equals("monitor_status"))monitorStatus.setText(prefs.getString("monitor_status",""));if(!busy&&(key.equals(AutomationControl.SUSPENDED)||key.equals(AutomationControl.SCREEN_OFF))){build();return;}if(!busy&&(key.equals("revision")||key.equals("active"))){Config next=store.load();if(!next.json().toString().equals(config.json().toString())){config=next;build();}}}
-    @Override protected void onResume(){super.onResume();resumed=true;AppUpdates.schedule(this);if(AppUpdates.prefs(this).getBoolean("update_auto",true))AppUpdates.check(this,false,null);if(store!=null){if(!uiLanguage.equals(store.prefs.getString("language",""))){recreate();return;}refreshTickerAccess();DisplaySchedule.reconcile(this);refreshSchedule();config=store.load();if(preview!=null){preview.surface.apply(config);preview.surface.start();}displays.registerDisplayListener(this,handler);}}
-    @Override protected void onPause(){if(zoomAdjusting)zoomTracking(false);resumed=false;if(preview!=null)preview.surface.stop();if(displays!=null)displays.unregisterDisplayListener(this);super.onPause();}
+    @Override protected void onResume(){super.onResume();resumed=true;AppUpdates.schedule(this);if(AppUpdates.prefs(this).getBoolean("update_auto",true))AppUpdates.check(this,false,null);if(store!=null){if(!uiLanguage.equals(store.prefs.getString("language",""))){recreate();return;}MusicControl.refresh(this);refreshTickerAccess();DisplaySchedule.reconcile(this);refreshSchedule();config=store.load();if(preview!=null){preview.surface.apply(config);preview.surface.start();}displays.registerDisplayListener(this,handler);}}
+    @Override protected void onPause(){dismissPreview();if(zoomAdjusting)zoomTracking(false);resumed=false;if(preview!=null)preview.surface.stop();if(displays!=null)displays.unregisterDisplayListener(this);super.onPause();}
     @Override protected void onSaveInstanceState(Bundle out){super.onSaveInstanceState(out);if(scroll!=null&&renderedTab>=0)tabScroll[renderedTab]=scroll.getScrollY();out.putInt("selectedTab",selectedTab);out.putIntArray("tabScroll",tabScroll);out.putString("language",uiLanguage);out.putString("pendingProfile",pendingProfile);out.putInt("pendingRequest",pendingRequest);out.putBoolean("guides",guides);out.putBoolean("chargePreview",chargePreview);out.putBoolean("tickerPreview",tickerPreview);out.putBoolean("dotPreview",dotPreview);}
-    @Override protected void onDestroy(){handler.removeCallbacksAndMessages(null);if(preview!=null)preview.surface.dispose();if(store!=null)store.prefs.unregisterOnSharedPreferenceChangeListener(this);worker.shutdown();super.onDestroy();}
+    @Override protected void onDestroy(){dismissPreview();handler.removeCallbacksAndMessages(null);if(preview!=null)preview.surface.dispose();if(store!=null)store.prefs.unregisterOnSharedPreferenceChangeListener(this);worker.shutdown();super.onDestroy();}
     @Override public void onDisplayAdded(int id){if(!busy)build();}
     @Override public void onDisplayRemoved(int id){if(!busy)build();}
     @Override public void onDisplayChanged(int id){/* State changes must not interrupt editing or rebuild WebViews. */}

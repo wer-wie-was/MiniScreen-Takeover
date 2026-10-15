@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="preview_expand" formatted="false">"放大实时预览"</string>
+    <string name="preview_close" formatted="false">"关闭放大预览"</string>
+    <string name="wfz_open_title" formatted="false">"导入 WFZ 表盘"</string>
+    <string name="wfz_open_help" formatted="false">"选择目标配置。导入会替换该配置的当前表盘并切换到 Amazfit 模式。"</string>
+    <string name="wfz_open_invalid" formatted="false">"请从文件管理器打开 WFZ 文件。"</string>
+    <string name="wfz_open_interrupted" formatted="false">"导入已中断或目标配置已删除。请重新打开文件。"</string>
+</resources>

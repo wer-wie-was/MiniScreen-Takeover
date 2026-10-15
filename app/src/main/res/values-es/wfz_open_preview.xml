@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="preview_expand" formatted="false">"Ampliar vista previa"</string>
+    <string name="preview_close" formatted="false">"Cerrar vista ampliada"</string>
+    <string name="wfz_open_title" formatted="false">"Importar esfera WFZ"</string>
+    <string name="wfz_open_help" formatted="false">"Elige el perfil de destino. La importación reemplaza su esfera actual y selecciona el modo Amazfit."</string>
+    <string name="wfz_open_invalid" formatted="false">"Abre un archivo WFZ desde el gestor de archivos."</string>
+    <string name="wfz_open_interrupted" formatted="false">"Importación interrumpida o perfil eliminado. Vuelve a abrir el archivo."</string>
+</resources>

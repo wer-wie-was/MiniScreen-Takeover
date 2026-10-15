@@ -74,10 +74,10 @@ final class DisplaySchedule {
         if(AutomationControl.blocked(p)||TakeoverControl.paused(p)||p.getBoolean("external_active",false))return;
         if(manualOff(p,now))return;
         if(p.getBoolean("manual_off",false))p.edit().putBoolean("manual_off",false).apply();
-        if(!allowed(p,now)){DisplayPower.off(c,false);return;}
+        if(!allowed(p,now)){if(!MusicControl.blocked(p))DisplayPower.off(c,false);return;}
         long start=0;for(Edge edge:edges(p,now)){if(edge.time>now)break;if(edge.on)start=edge.time;}
         boolean newWindow=start>p.getLong("schedule_applied_start",0);
         if(newWindow){p.edit().putLong("schedule_applied_start",start).putLong("power_generation",p.getLong("power_generation",0)+1).putBoolean("yielded",false).apply();TakeoverControl.start(c,TakeoverControl.RESTORE);}
-        else if(!TakeoverControl.mode(p).equals("manual"))TakeoverControl.sync(c);
+        else if(!MusicControl.blocked(p)&&!TakeoverControl.mode(p).equals("manual"))TakeoverControl.sync(c);
     }
 }

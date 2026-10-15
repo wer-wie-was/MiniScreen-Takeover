@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="wfz_note_heart_zone" formatted="false">"No hay colores de zonas de pulso: falta la correspondencia específica del reloj."</string>
+</resources>

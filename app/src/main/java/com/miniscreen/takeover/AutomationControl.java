@@ -40,6 +40,11 @@ final class AutomationControl {
     private static void restore(Context c){
         SharedPreferences p=TakeoverControl.prefs(c);DisplaySchedule.plan(c);
         if(blocked(p)||!p.getBoolean("enabled",false))return;
+        if(MusicControl.blocked(p)&&TakeoverControl.wantedWithoutMusic(c)){
+            // Keep an explicit resume pending behind the music gate, including
+            // manual mode after SUSPEND stopped the foreground service.
+            TakeoverControl.start(c,TakeoverControl.RESTORE);return;
+        }
         if(TakeoverControl.wanted(c)){
             p.edit().putBoolean("yielded",false).apply();TakeoverControl.start(c,TakeoverControl.RESTORE);
         }else DisplaySchedule.reconcile(c);

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="music_pause_enable">При музыке приостанавливать Takeover и выключать задний экран</string>
+    <string name="music_pause_help">Нужен доступ к уведомлениям. Активные медиаплееры приостанавливают Takeover. Возврат через 3 секунды после паузы или остановки, если это разрешено ручными настройками и расписанием.</string>
+    <string name="music_pause_active">Приостановлено на время воспроизведения</string>
+</resources>

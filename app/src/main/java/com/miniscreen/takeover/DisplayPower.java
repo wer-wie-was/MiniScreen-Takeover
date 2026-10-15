@@ -10,9 +10,14 @@ final class DisplayPower {
     private static final long CLOSE_DELAY_MS=400;
     private static final long STATE_DELAY_MS=1000;
     static void off(Context context,boolean manual){
+        off(context,manual,false);
+    }
+    static void offForMusic(Context context){off(context,false,true);}
+    private static void off(Context context,boolean manual,boolean music){
         Context c=context.getApplicationContext();SharedPreferences p=TakeoverControl.prefs(c);long now=System.currentTimeMillis();
         long generation=p.getLong("power_generation",0)+1;
-        SharedPreferences.Editor edit=p.edit().putLong("power_generation",generation).putLong("schedule_override_until",0);
+        SharedPreferences.Editor edit=p.edit().putLong("power_generation",generation);
+        if(!music)edit.putLong("schedule_override_until",0);
         if(manual){DisplaySchedule.Edge next=DisplaySchedule.enabled(p)?DisplaySchedule.next(p,now,true):null;
             edit.putBoolean("manual_off",true).putLong("manual_off_until",next==null?Long.MAX_VALUE:next.time);
             edit.putBoolean("external_active",false);
@@ -25,7 +30,7 @@ final class DisplayPower {
         try{
             // CPU only: the locked-main-screen test works without waking either screen.
             wake.acquire(10000);
-            ScreenActivity.closeScreen();c.stopService(new Intent(c,WatchService.class));DisplaySchedule.plan(c);
+            ScreenActivity.closeScreen();if(!music)c.stopService(new Intent(c,WatchService.class));DisplaySchedule.plan(c);
             Handler h=new Handler(Looper.getMainLooper());
             h.postDelayed(()->{
                 if(p.getLong("power_generation",0)!=generation){release(wake);return;}
@@ -50,7 +55,7 @@ final class DisplayPower {
                 }
             },CLOSE_DELAY_MS);
         }catch(RuntimeException e){
-            release(wake);ScreenActivity.closeScreen();c.stopService(new Intent(c,WatchService.class));
+            release(wake);ScreenActivity.closeScreen();if(!music)c.stopService(new Intent(c,WatchService.class));
             p.edit().putString("status",I18n.get(R.string.power_failed)+e.getMessage()).apply();DisplaySchedule.plan(c);
         }
     }

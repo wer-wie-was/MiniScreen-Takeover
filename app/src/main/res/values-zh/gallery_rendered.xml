@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gallery_rendered">渲染预览</string>
+    <string name="gallery_supplied">自带图片</string>
+    <string name="gallery_rendered_note">使用默认设置渲染的快照。实时预览使用当前设置。</string>
+    <string name="gallery_render_failed">渲染预览不可用。</string>
+</resources>

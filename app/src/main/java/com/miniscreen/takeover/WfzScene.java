@@ -18,7 +18,7 @@ final class WfzScene {
     final Map<String,Map<String,Bitmap>> fonts=new HashMap<>();
     int width=320,height=320;long pixels;boolean seconds,health,components;int widgetCount;
     static final class Part {
-        String type,font="",source="";float x,y,w,h;int align=0,space,digit=-1;Bitmap image,hour,minute,second;Bitmap[] frames;WfzWidgets.Spec widget;Bitmap mask;float start,end,stroke,pivotX,pivotY;int color=Color.WHITE,cap,threshold,count;boolean fillZero=true;
+        String type,font="",source="";float x,y,w,h;int align=0,space,digit=-1;Bitmap image,hour,minute,second;Bitmap[] frames;WfzWidgets.Spec widget;Bitmap mask;float start,end,stroke,pivotX,pivotY;int color=Color.WHITE,cap,threshold,count;boolean fillZero=true,nativeText;
     }
     private WfzScene(File root){this.root=root;}
     static WfzScene descriptions(File root){return new WfzScene(root);}
@@ -125,9 +125,25 @@ final class WfzScene {
             }
             Part p=new Part();p.type=type;p.source=type;p.x=integer(e,"x",integer(e,"x0",0));p.y=integer(e,"y",integer(e,"y0",0));
             p.w=integer(e,"width",integer(e,"x1",(int)p.x)-(int)p.x);p.h=integer(e,"height",integer(e,"y1",(int)p.y)-(int)p.y);
-            p.fillZero=!e.getAttribute("day_fillzero").equalsIgnoreCase("false");
-            p.align=integer(e,"align",0);p.space=integer(e,"space",0);p.font=e.getAttribute("font");
-            if(type.equals("arc")&&!inherited.isEmpty()){
+            String zero=e.hasAttribute("day_fillzero")?e.getAttribute("day_fillzero"):e.getAttribute("fillzero");p.fillZero=!zero.equalsIgnoreCase("false")&&!zero.equals("0");
+            p.align=integer(e,"align",0);p.nativeText=Arrays.asList(-66,-68,-72).contains(p.align);if(p.nativeText)p.align=-p.align;p.space=integer(e,"space",0);p.font=e.getAttribute("font");
+            if(type.equals("weekfloat")){
+                if(integer(e,"continueMode",1)!=1){warnings.add("unsupported weekFloat mode");continue;}
+                String folder=e.getAttribute("font"),name=folder.endsWith(".xml")?folder:folder+"/WeekFloat.xml";
+                if(!path(name).isFile())name=folder+"/weekfloat.xml";
+                NodeList days=xml(path(name)).getElementsByTagName("WatchFaceItem");if(days.getLength()!=7||parts.size()+7>256)throw new IOException("Invalid weekFloat sequence");
+                boolean[] indices=new boolean[7];
+                for(int n=0;n<7;n++){Element day=(Element)days.item(n);int index=integer(day,"index",-1);if(index<0||index>6||indices[index])throw new IOException("Invalid weekFloat index");indices[index]=true;
+                    Part marker=new Part();marker.type="weekfloat";marker.threshold=index;marker.image=bitmap(resource(day));marker.x=integer(day,"x",0);marker.y=integer(day,"y",0);marker.w=marker.image.getWidth();marker.h=marker.image.getHeight();
+                    if(Math.abs(marker.x)>2048||Math.abs(marker.y)>2048)throw new IOException("Invalid weekFloat coordinates");parts.add(marker);
+                }continue;
+            }else if(type.equals("bitmaparray")&&inherited.equals("weathericon")){
+                int count=integer(e,"count",0);if(count<1||count>256)throw new IOException("Invalid weather image sequence");
+                String folder=e.getAttribute("bitmapArray");p.type="weathericon";p.frames=new Bitmap[count];
+                for(int n=0;n<count;n++){String name=folder+"/"+String.format(Locale.ROOT,"%02d",n)+".png";if(!path(name).isFile())name=folder+"/"+n+".png";p.frames[n]=bitmap(name);}
+                p.w=p.frames[0].getWidth();p.h=p.frames[0].getHeight();p.align=68;
+                warnings.add("weather source unavailable; --");parts.add(p);continue;
+            }else if(type.equals("arc")&&!inherited.isEmpty()){
                 p.source=inherited;p.x=integer(e,"xCenter",0);p.y=integer(e,"yCenter",0);
                 p.w=integer(e,"rx",0);p.h=integer(e,"ry",0);p.stroke=integer(e,"size",1);
                 p.start=integer(e,"a0",0);p.end=integer(e,"a1",360);p.cap=integer(e,"cap",0);
@@ -137,6 +153,7 @@ final class WfzScene {
             }else if(type.equals("additiveimage")&&!inherited.isEmpty()){
                 String folder=e.getAttribute("additiveBitmapConfig");int count=integer(e,"additiveBitmapCount",0);
                 if(count<1||count>256||parts.size()+count>256)throw new IOException("Invalid additive image count");
+                if(inherited.equals("heart"))warnings.add("heart zone mapping unavailable");
                 int mode=integer(e,"continueMode",0);if(mode!=0){warnings.add("additive image mode: "+mode);continue;}
                 Element sequence=xml(path(folder+"/additive.xml"));NodeList frames=sequence.getElementsByTagName("WatchFaceItem");
                 if(frames.getLength()!=count)throw new IOException("Invalid additive image sequence");
@@ -196,21 +213,22 @@ final class WfzScene {
                 if(!Arrays.asList("timedigital","hour","minute","second","day","month","year","weekday","date","steps","distance","workoutdistance","calories","heart","battery","weather").contains(p.type)){
                     warnings.add(type.isEmpty()?e.getTagName():type+(e.hasAttribute("dataType")?" dataType="+e.getAttribute("dataType"):""));continue;
                 }
+                if(p.type.equals("weather"))warnings.add("weather source unavailable; --");
                 health|=WfzWidgets.health(p.type);
-                if(!p.font.isEmpty()){try{font(p.font);}catch(Exception ex){warnings.add("font: "+p.font);p.font="";}}
+                if(!p.font.isEmpty()){try{Map<String,Bitmap> glyphs=font(p.font);if(p.nativeText)for(Bitmap glyph:glyphs.values())p.h=Math.max(p.h,glyph.getHeight());}catch(Exception ex){warnings.add("font: "+p.font);p.font="";}}
                 else warnings.add("system font: "+p.type);
                 if(p.type.equals("month")||p.type.equals("weekday"))warnings.add("numeric/localized calendar: "+p.type);
                 if(p.w<=0)p.w=width-p.x;if(p.h<=0)p.h=24;
                 if(!Arrays.asList(0,66,68,72).contains(p.align))warnings.add("alignment: "+p.align);
             }
             if(p.w>2048||p.h>2048||Math.abs(p.x)>2048||Math.abs(p.y)>2048)throw new IOException("Invalid WFZ coordinates");
-            Set<String> allowed=new HashSet<>(Arrays.asList("type","x","y","x0","y0","x1","y1","width","height","font","config","src","align","space","id","dataType","model","configList","bitmapArray","count","NewDisplayStyle","day_fillzero"));
+            Set<String> allowed=new HashSet<>(Arrays.asList("type","x","y","x0","y0","x1","y1","width","height","font","config","src","align","space","id","dataType","model","configList","bitmapArray","count","NewDisplayStyle","day_fillzero","fillzero","fillZero"));
             NamedNodeMap attrs=e.getAttributes();for(int a=0;a<attrs.getLength();a++)if(!allowed.contains(attrs.item(a).getNodeName()))warnings.add(p.type+" @"+attrs.item(a).getNodeName());
             if(hasElements(e))warnings.add("nested elements: "+p.type);
             parts.add(p);
         }
     }
     static boolean hasElements(Element e){NodeList n=e.getChildNodes();for(int i=0;i<n.getLength();i++)if(n.item(i) instanceof Element)return true;return false;}
-    static String dataType(int n){return WfzWidgets.type(n);}
+    static String dataType(int n){return n==1048584?"weathericon":n==524296?"weather":WfzWidgets.type(n);}
     String report(){return (warnings.isEmpty()?I18n.get(R.string.wfz_supported):I18n.get(R.string.wfz_partial))+"\n"+width+" × "+height+" · WFZ"+(components?" · Stratos 3 components":"")+"\n"+String.join("\n",warnings);}
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="music_pause_enable">播放音乐时暂停 Takeover 并关闭背屏</string>
+    <string name="music_pause_help">需要通知访问权限。媒体播放器播放时暂停 Takeover。暂停或停止播放 3 秒后，在手动控制和时间表允许时恢复。</string>
+    <string name="music_pause_active">媒体播放期间已暂停</string>
+</resources>

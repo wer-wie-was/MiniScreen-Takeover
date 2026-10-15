@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="preview_expand" formatted="false">"Ingrandisci anteprima"</string>
+    <string name="preview_close" formatted="false">"Chiudi anteprima ingrandita"</string>
+    <string name="wfz_open_title" formatted="false">"Importa quadrante WFZ"</string>
+    <string name="wfz_open_help" formatted="false">"Scegli il profilo di destinazione. L’importazione sostituisce il quadrante attuale e seleziona la modalità Amazfit."</string>
+    <string name="wfz_open_invalid" formatted="false">"Apri un file WFZ dal gestore file."</string>
+    <string name="wfz_open_interrupted" formatted="false">"Importazione interrotta o profilo rimosso. Apri nuovamente il file."</string>
+</resources>

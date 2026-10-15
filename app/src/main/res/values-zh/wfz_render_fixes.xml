@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="wfz_note_heart_zone" formatted="false">"缺少手表专用心率分区映射，无法显示分区颜色。"</string>
+</resources>

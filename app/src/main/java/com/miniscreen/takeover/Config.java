@@ -10,8 +10,8 @@ import java.util.Locale;
 final class Config {
     String name=I18n.get(R.string.msg_046), mode="native", datePattern="EEE, dd.MM.yyyy", font="sans", imageFit="cover";
     String timeColor="#63E6DC", dateColor="#C7D0DF", backgroundColor="#000000";
-    String image="", fontFile="", design="",wfz="";
-    boolean wfzOriginalColors=true,wfzSeconds=false,wfzCrop=false,wfzHealth=false;int wfzSize=0,wfzStepGoal=10000;String wfzWidgetColor="#FF3B30";JSONObject wfzWidgets=new JSONObject(),wfzVariants=new JSONObject();
+    String image="", fontFile="", design="",wfz="",wfzGallery="";
+    boolean wfzOriginalColors=true,wfzSeconds=false,wfzCrop=false,wfzHealth=false;int wfzScale=100,wfzSize=0,wfzStepGoal=10000;String wfzWidgetColor="#FF3B30";JSONObject wfzWidgets=new JSONObject(),wfzVariants=new JSONObject();
     boolean twentyFour=true, seconds=false, leadingZero=true, showClock=true, showDate=true, bold=false, shifting=true, shiftBackground=false;
     int timeSize=68, dateSize=20, timeX=50, timeY=45, dateX=50, dateY=66;
     int shiftRange=8, shiftInterval=60, dim=45, brightness=25;
@@ -22,10 +22,12 @@ final class Config {
     int chargeSize=18,chargeX=50,chargeY=85,chargeRingWidth=3,chargeAnimationSeconds=10;
     static Config from(JSONObject j) {
         Config c=new Config();
+        String gallery=j.optString("wfzGallery","");if(gallery.matches("[a-f0-9]{64}"))c.wfzGallery=gallery;
         JSONObject variants=j.optJSONObject("wfzVariants");
         if(variants!=null){java.util.Iterator<String> keys=variants.keys();int count=0;while(keys.hasNext()&&count++<64){String key=keys.next();int value=variants.optInt(key,-1);if(key.matches("variant-[0-9]{1,2}")&&value>=0&&value<64)try{c.wfzVariants.put(key,value);}catch(org.json.JSONException ignored){}}}
         c.wfzOriginalColors=j.optBoolean("wfzOriginalColors",true);c.wfz=safePath(j.optString("wfz"));c.wfzSeconds=j.optBoolean("wfzSeconds",false);c.wfzCrop=j.optBoolean("wfzCrop",false);c.wfzHealth=j.optBoolean("wfzHealth",false);c.wfzSize=j.optInt("wfzSize",0);if(c.wfzSize!=0)c.wfzSize=clamp(c.wfzSize,100,1024);
-        c.wfzStepGoal=clamp(j.optInt("wfzStepGoal",10000),1000,50000);c.wfzWidgetColor=color(j.optString("wfzWidgetColor"),c.wfzWidgetColor);JSONObject choices=j.optJSONObject("wfzWidgets");if(choices!=null){java.util.Iterator<String> keys=choices.keys();int count=0;while(keys.hasNext()&&count++<256){String key=keys.next(),value=choices.optString(key,"");if(key.matches("widget-[0-9]{1,3}")&&value.matches("[0-9]{1,3}:[0-9]{1,3}"))try{c.wfzWidgets.put(key,value);}catch(org.json.JSONException ignored){}}}
+        c.wfzScale=clamp(j.optInt("wfzScale",100),50,100);c.wfzStepGoal=clamp(j.optInt("wfzStepGoal",10000),1000,50000);c.wfzWidgetColor=color(j.optString("wfzWidgetColor"),c.wfzWidgetColor);JSONObject choices=j.optJSONObject("wfzWidgets");if(choices!=null){java.util.Iterator<String> keys=choices.keys();int count=0;while(keys.hasNext()&&count++<256){String key=keys.next(),value=choices.optString(key,"");if(key.matches("widget-[0-9]{1,3}")&&value.matches("[0-9]{1,3}:[0-9]{1,3}"))try{c.wfzWidgets.put(key,value);}catch(org.json.JSONException ignored){}}}
+        if(!c.wfzGallery.isEmpty())c.wfz="gallery/"+c.wfzGallery;
         c.name=j.optString("name",c.name); c.mode="wfz".equals(j.optString("mode"))?"wfz":"pebble".equals(j.optString("mode"))?"pebble":"html".equals(j.optString("mode"))?"html":"native";
         c.datePattern=j.optString("datePattern",c.datePattern); c.font=j.optString("font",c.font);
         if(c.name.isEmpty())c.name=I18n.get(R.string.msg_046);if(c.name.length()>80)c.name=c.name.substring(0,80);
@@ -54,7 +56,7 @@ final class Config {
     JSONObject json() {
         JSONObject j=new JSONObject();
         try {
-            j.put("wfzVariants",wfzVariants).put("wfzOriginalColors",wfzOriginalColors).put("wfzWidgets",wfzWidgets).put("wfzStepGoal",wfzStepGoal).put("wfzWidgetColor",wfzWidgetColor).put("wfz",wfz).put("wfzSeconds",wfzSeconds).put("wfzCrop",wfzCrop).put("wfzHealth",wfzHealth).put("wfzSize",wfzSize).put("schema",1).put("name",name).put("mode",mode).put("datePattern",datePattern).put("font",font).put("imageFit",imageFit)
+            j.put("wfzScale",wfzScale).put("wfzGallery",wfzGallery).put("wfzVariants",wfzVariants).put("wfzOriginalColors",wfzOriginalColors).put("wfzWidgets",wfzWidgets).put("wfzStepGoal",wfzStepGoal).put("wfzWidgetColor",wfzWidgetColor).put("wfz",wfz).put("wfzSeconds",wfzSeconds).put("wfzCrop",wfzCrop).put("wfzHealth",wfzHealth).put("wfzSize",wfzSize).put("schema",1).put("name",name).put("mode",mode).put("datePattern",datePattern).put("font",font).put("imageFit",imageFit)
              .put("timeColor",timeColor).put("dateColor",dateColor).put("backgroundColor",backgroundColor).put("image",image).put("fontFile",fontFile).put("design",design)
              .put("twentyFour",twentyFour).put("seconds",seconds).put("leadingZero",leadingZero).put("showClock",showClock).put("showDate",showDate).put("bold",bold)
              .put("shifting",shifting).put("shiftBackground",shiftBackground).put("timeSize",timeSize).put("dateSize",dateSize)

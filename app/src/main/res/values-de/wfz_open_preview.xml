@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="preview_expand" formatted="false">"Live-Vorschau vergrößern"</string>
+    <string name="preview_close" formatted="false">"Große Vorschau schließen"</string>
+    <string name="wfz_open_title" formatted="false">"WFZ-Watchface importieren"</string>
+    <string name="wfz_open_help" formatted="false">"Wähle das Zielprofil. Der Import ersetzt dessen bisheriges Watchface und wählt den Amazfit-Modus."</string>
+    <string name="wfz_open_invalid" formatted="false">"Bitte eine WFZ-Datei aus dem Dateimanager öffnen."</string>
+    <string name="wfz_open_interrupted" formatted="false">"Import unterbrochen oder Zielprofil entfernt. Bitte die Datei erneut öffnen."</string>
+</resources>

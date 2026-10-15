@@ -34,6 +34,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".WfzGalleryActivity" android:exported="false" />
+        <activity android:name=".WfzOpenActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/x-wfz" />
+                <data android:mimeType="application/wfz" />
+                <data android:mimeType="application/zip" />
+                <data android:mimeType="application/x-zip-compressed" />
+                <data android:mimeType="application/octet-stream" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/x-wfz" />
+                <data android:mimeType="application/wfz" />
+                <data android:mimeType="application/zip" />
+                <data android:mimeType="application/x-zip-compressed" />
+                <data android:mimeType="application/octet-stream" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.wfz" />
+                <data android:pathPattern=".*\\.WFZ" />
+            </intent-filter>
+        </activity>
         <activity android:name=".PebbleSettingsActivity" android:exported="false" />
         <activity android:name=".PebbleConfigActivity" android:exported="false" />
         <activity android:name=".PebbleHealthActivity" android:exported="true">

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="music_pause_enable">Bei Musik Takeover und Rückdisplay ausschalten</string>
+    <string name="music_pause_help">Benötigt Benachrichtigungszugriff. Aktive Medienplayer pausieren Takeover. Es kehrt 3 Sekunden nach Pause oder Stopp zurück, sofern manuelle Steuerung und Zeitplan es erlauben.</string>
+    <string name="music_pause_active">Während Medienwiedergabe pausiert</string>
+</resources>

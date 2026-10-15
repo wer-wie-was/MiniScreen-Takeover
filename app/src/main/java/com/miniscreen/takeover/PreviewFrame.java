@@ -9,16 +9,18 @@ final class PreviewFrame extends ViewGroup {
     final DisplaySurface surface;
     private final int targetWidth,targetHeight;
     private int range=8;
-    private boolean guides=true;
+    private boolean guides=true,expanded;
     private final Path roundClip=new Path();
     private final RectF roundBounds=new RectF();
     PreviewFrame(Context context,Context displayContext,int w,int h) {
         super(context);targetWidth=Math.max(1,w);targetHeight=Math.max(1,h);surface=new DisplaySurface(displayContext,true);addView(surface);
         setClipChildren(true);setWillNotDraw(false);
     }
+    void expanded(boolean value){expanded=value;requestLayout();}
+    @Override public boolean onInterceptTouchEvent(android.view.MotionEvent event){return true;}
     void guides(boolean enabled,int range){guides=enabled;this.range=range;invalidate();}
     @Override protected void onMeasure(int wm,int hm) {
-        int max=Math.round(280*getResources().getDisplayMetrics().density);
+        int max=expanded?Integer.MAX_VALUE:Math.round(280*getResources().getDisplayMetrics().density);
         int w=Math.min(max,MeasureSpec.getSize(wm));int h=Math.round(w*targetHeight/(float)targetWidth);
         setMeasuredDimension(w,h);surface.measure(MeasureSpec.makeMeasureSpec(targetWidth,MeasureSpec.EXACTLY),MeasureSpec.makeMeasureSpec(targetHeight,MeasureSpec.EXACTLY));
     }
